@@ -5,6 +5,7 @@ import hooliBank from "../images/portfolio/hoolibank.png";
 import rlfm from "../images/portfolio/rlfm.png";
 import ochiKit from "../images/portfolio/ochikitchen.png";
 import modernAge from "../images/portfolio/modernAge.png";
+import car from "../images/portfolio/car.png";
 
 const portfolio = [
   {
@@ -42,6 +43,12 @@ const portfolio = [
     src: modernAge,
     demo: "https://github.com/emmanuelprince66/kitchen-cd.git",
     link: "https://ochitech.netlify.app",
+  },
+  {
+    id: 7,
+    src: car,
+    demo: "https://github.com/emmanuelprince66/cars_showcase.git",
+    link: "https://cars-showcase-iota-blond.vercel.app/",
   },
 ];
 
