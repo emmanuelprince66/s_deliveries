@@ -10,3 +10,7 @@
     font-family: "RaleWay", sans-serif;
   }
 }
+.input-placeholder::placeholder {
+  color: #ffb1b3;
+  font-size: 10px;
+}
