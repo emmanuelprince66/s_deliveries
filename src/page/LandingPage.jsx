@@ -8,6 +8,7 @@ import lTagThree from "../images/l-tag3.svg";
 import lTagFour from "../images/l-tag4.svg";
 import kOne from "../images/k-1.svg";
 import kTwo from "../images/k-2.svg";
+import kThree from "../images/k-3.svg";
 import kFour from "../images/k-4.svg";
 import kFive from "../images/k-5.svg";
 import kSix from "../images/k-6.svg";
@@ -50,11 +51,11 @@ const LandingPage = () => {
       {/* possibly hamburger menu for mobile */}
 
       <div className="mx-auto md:max-w-[80%] flex-col items-center justify-center">
-        <div className="mx-auto md:max-w-[66%] w-[90%] mt-[10%]  text-center flex-col ">
-          <p className="md:text-8xl text-2xl  leading-10  text-white font-bold">
+        <div className="mx-auto md:max-w-[66%] w-[93%] mt-[10%]  text-center flex-col ">
+          <p className="md:text-8xl text-[48px]  leading-10  text-white font-bold">
             Find a meaning for every word.
           </p>
-          <p className="md:text-[20px] text-[10px] text-[#D0D0D0] my-5">
+          <p className="md:text-[20px] text-[15px] text-[#D0D0D0] my-5">
             With Sterling Dictionary, you do not miss a word, learn about
             jargons and acronyms, familiarise with various Sterling products and
             more...
@@ -74,7 +75,7 @@ const LandingPage = () => {
         <div className="w-full mt-[3rem] mb-[4rem]">
           <img src={lImgOne} alt="l-one" />
         </div>
-        {/*  */}
+
         <div className="w-full grid grid-cols-1 mt-[20%] gap-5">
           <p className="col-span-1 text-white text-[48px]  text-center">
             What makes Sterling Dictionary different?
@@ -114,15 +115,15 @@ const LandingPage = () => {
         {/*  */}
         <div className="w-full mx-auto mt-[15%] text-center">
           <div className="flex flex-col gap-2 items-center">
-            <p className="text-white text-[48px] text-center">
+            <p className="text-white md:text-[48px] text-[30px] text-center">
               Join our merchants
             </p>
-            <p className="text-white text-[48px] text-center">
+            <p className="text-white md:text-[48px] text-[30px] text-center">
               who succeed in selling with Uvodo
             </p>
           </div>
 
-          <div className="w-full flex justify-between items-center">
+          <div className="flex flex-col md:flex-row md:justify-center md:gap-10 w-full items-center">
             <div className="flex flex-col items-center">
               <img src={uOne} alt="u-1" />
               <div className="flex gap-2 items-center">
@@ -159,10 +160,14 @@ const LandingPage = () => {
         </div>
         {/*  */}
 
-        <div className="grid grid-cols-2 gap-2  mt-[15%]">
+        <div className="grid md:grid-cols-2 grid-cols-1 md:gap-2  gap-10 mt-[15%]">
           <div className="col-span-1 flex flex-col items-start justify-center  gap-4">
-            <p className="text-[48px] text-white">Mobile or Desktop,</p>
-            <p className="text-[48px] text-white">all responsive!</p>
+            <p className="md:text-[48px] text-[30px]  text-white">
+              Mobile or Desktop,
+            </p>
+            <p className="md:text-[48px] text-[30px] text-white">
+              all responsive!
+            </p>
 
             <div className="flex items-start gap-3">
               <img src={star} alt="star" />
@@ -201,13 +206,17 @@ const LandingPage = () => {
           </div>
         </div>
         {/*  */}
-        <div className="grid grid-cols-2 gap-6   mt-[15%]">
+        <div className="grid md:grid-cols-2 grid-cols-1 md:gap-2  gap-10   md:mt-[15%] mt-[25%]">
           <div className="col-span-1">
             <img src={mTwo} alt="m-2" />
           </div>
           <div className="col-span-1 flex flex-col items-start justify-center  gap-4">
-            <p className="text-[48px] text-white">Admin Panel with all</p>
-            <p className="text-[48px] text-white">essential tools</p>
+            <p className="md:text-[48px] text-[30px] text-white">
+              Admin Panel with all
+            </p>
+            <p className="md:text-[48px] text-[30px] text-white">
+              essential tools
+            </p>
 
             <div className="flex items-start gap-3">
               <img src={star} alt="star" />
@@ -242,10 +251,14 @@ const LandingPage = () => {
           </div>
         </div>
         {/*  */}
-        <div className="grid grid-cols-2 gap-2  mt-[15%]">
+        <div className="grid md:grid-cols-2 grid-cols-1 md:gap-2  gap-10   md:mt-[15%] mt-[25%]">
           <div className="col-span-1 flex flex-col items-start justify-center  gap-4">
-            <p className="text-[48px] text-white">Local & global</p>
-            <p className="text-[48px] text-white">payment gateways</p>
+            <p className="md:text-[48px] text-[30px] text-white">
+              Local & global
+            </p>
+            <p className="md:text-[48px] text-[30px] text-white">
+              payment gateways
+            </p>
 
             <div className="flex items-start gap-3">
               <img src={star} alt="star" />
@@ -284,7 +297,7 @@ const LandingPage = () => {
           </div>
         </div>
         {/*  */}
-        <div className="grid grid-cols-2 gap-6   mt-[15%]">
+        <div className="grid md:grid-cols-2 grid-cols-1 md:gap-2  gap-10   md:mt-[15%] mt-[25%]">
           <div className="col-span-1">
             <img src={mFour} alt="m-4" />
           </div>
@@ -324,73 +337,78 @@ const LandingPage = () => {
         </div>
         {/*  */}
         <div className="w-full text-center mt-[15%]">
-          <p className=" text-white  text-[48px]  mb-3">
+          <p className=" text-white  text-[30px] md:text-[48px] mb-3">
             Get Uvodo for your industry
           </p>
-          <div className="flex justify-between items-start w-full">
-            <div className="flex flex-col items-center w-1/3">
-              <div className="h-[400px] mb-4">
-                {" "}
+          <div className="flex flex-col md:flex-row md:justify-between items-start w-full">
+            <div className="flex flex-col gap-[10rem] items-center md:w-1/3 w-full">
+              <div className="md:h-[80%] w-[80%] mb-4">
                 {/* Added margin bottom to create space */}
                 <img
                   src={gOne}
                   alt="g-1"
                   className="w-full h-full object-cover"
                 />
-              </div>
-              <div className="max-w-[90%]  flex flex-col items-start gap-2">
-                <p className="text-white text-[24px]">Local Businesses</p>
-                <p className="text-[#B9B9B9] text-left text-[18px]">
-                  Sell locally on Whatapp and Cash On Delivery payment methods
-                </p>{" "}
-                {/* Add your text here */}
+                <div className="  flex flex-col items-start gap-2 mt-3">
+                  <p className="text-white text-[24px] sm:text-[20px]">
+                    Local Businesses
+                  </p>
+                  <p className="text-[#B9B9B9] text-left text-[18px] sm:text-[14px]">
+                    Sell locally on Whatsapp and Cash On Delivery payment
+                    methods
+                  </p>{" "}
+                  {/* Add your text here */}
+                </div>
               </div>
             </div>
-            <div className="flex flex-col items-center w-1/3">
-              <div className="h-[400px] mb-4">
-                {" "}
+            <div className="flex flex-col items-center md:w-1/3">
+              <div className="md:h-[80%] w-[80%]  mb-4">
                 {/* Added margin bottom to create space */}
                 <img
                   src={gTwo}
                   alt="g-2"
                   className="w-full h-full object-cover"
                 />
-              </div>
-              <div className="max-w-[90%]  flex-col flex items-start gap-2">
-                <p className="text-[24px] text-white">Small businesses</p>{" "}
-                {/* Add your text here */}
-                <p className="text-left text-[#B9B9B9] text-[18px]">
-                  Move your retail business online and start selling products on
-                  a free website.
-                </p>
-                {/* Add your text here */}
+
+                <div className="  flex-col flex items-start gap-2 mt-3">
+                  <p className="text-[24px] text-white sm:text-[20px]">
+                    Small businesses
+                  </p>{" "}
+                  {/* Add your text here */}
+                  <p className="text-left text-[#B9B9B9] text-[18px] sm:text-[14px]">
+                    Move your retail business online and start selling products
+                    on a free website.
+                  </p>
+                  {/* Add your text here */}
+                </div>
               </div>
             </div>
-            <div className="flex flex-col items-center w-1/3">
-              <div className="h-[400px] mb-4">
-                {" "}
+            <div className="flex flex-col items-center md:w-1/3">
+              <div className="md:h-[80%] w-[80%]  mb-4">
                 {/* Added margin bottom to create space */}
                 <img
                   src={gThree}
                   alt="g-2"
                   className="w-full h-full object-cover"
                 />
-              </div>
-              <div className="max-w-[90%] flex-col flex items-start gap-2">
-                <p className="text-[24px] text-white">Social media sellers</p>
-                <p className="text-left text-[#B9B9B9] text-[18px]">
-                  Increase your Instagram sales with Uvodo's all-in-one
-                  eCommerce platform.
-                </p>{" "}
-                {/* Add your text here */}
+                <div className="flex-col flex items-start gap-2 mt-3">
+                  <p className="text-[24px] text-white sm:text-[20px]">
+                    Social media sellers
+                  </p>
+                  <p className="text-left text-[#B9B9B9] text-[18px] sm:text-[14px]">
+                    Increase your Instagram sales with Uvodo's all-in-one
+                    eCommerce platform.
+                  </p>{" "}
+                  {/* Add your text here */}
+                </div>
               </div>
             </div>
           </div>
         </div>
         {/* footer */}
-        <div className="w-full mt-[15%]">
-          <div className="grid grid-cols-2 gap-2">
-            <div className="col-span-1 max-w-[60%]">
+        <div className="w-full md:mt-[15%] mb-8 mt-[25%]">
+          <div className="grid md:grid-cols-2 grid-cols-1 md:gap-2 gap-10">
+            <div className="col-span-1 md:max-w-[60%] w-full">
               <div className="w-full flex flex-col items-start gap-2">
                 <div className="flex gap-1 items-center">
                   <span>icn</span>
@@ -403,17 +421,44 @@ const LandingPage = () => {
                   responsive, no-code SaaS website.
                 </p>
 
-                <div className="flex justify-between items-center w-full">
+                <div className="flex justify-between items-center w-full mt-9">
                   <img src={kOne} alt="k-1" />
                   <img src={kTwo} alt="k-2" />
+                  <img src={kThree} alt="k-3" />
                   <img src={kFour} alt="k-4" />
                   <img src={kFive} alt="k-5" />
-                  <img src={kSix} alt="k-6" />
                   <img src={kSix} alt="k-6" />
                 </div>
               </div>
             </div>
-            <div className="col-span-1 bg-green-300">a</div>
+            <div className="col-span-1">
+              <div className="w-full flex justify-evenly items-start">
+                <div className="flex flex-col items-start gap-4">
+                  <p className="text-[20px] text-white font-bold">Product</p>
+                  <p className="text-[20px] text-[#676767]">Features</p>
+                  <p className="text-[20px] text-[#676767]">Integrations</p>
+                  <p className="text-[20px] text-[#676767]">Updates</p>
+                  <p className="text-[20px] text-[#676767]">FAQ</p>
+                  <p className="text-[20px] text-[#676767]">Pricing</p>
+                </div>
+                <div className="flex flex-col items-start gap-4 font-bold">
+                  <p className="text-[20px] text-white">Company</p>
+                  <p className="text-[20px] text-[#676767]">About</p>
+                  <p className="text-[20px] text-[#676767]">Blog</p>
+                  <p className="text-[20px] text-[#676767]">Careers</p>
+                  <p className="text-[20px] text-[#676767]">Manifesto</p>
+                  <p className="text-[20px] text-[#676767]">Press</p>
+                  <p className="text-[20px] text-[#676767]">Contact</p>
+                </div>
+                <div className="flex flex-col items-start gap-4">
+                  <p className="text-[20px] text-white font-bold">Resources</p>
+                  <p className="text-[20px] text-[#676767]">Examples</p>
+                  <p className="text-[20px] text-[#676767]">Community</p>
+                  <p className="text-[20px] text-[#676767]">Guides</p>
+                  <p className="text-[20px] text-[#676767]">Docs</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
         {/* footer */}
