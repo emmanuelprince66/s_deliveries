@@ -6,6 +6,11 @@ import lTagOne from "../images/l-tag1.svg";
 import lTagTwo from "../images/l-tag2.svg";
 import lTagThree from "../images/l-tag3.svg";
 import lTagFour from "../images/l-tag4.svg";
+import kOne from "../images/k-1.svg";
+import kTwo from "../images/k-2.svg";
+import kFour from "../images/k-4.svg";
+import kFive from "../images/k-5.svg";
+import kSix from "../images/k-6.svg";
 import uOne from "../images/u-1.png";
 import gOne from "../images/g-1.png";
 import gTwo from "../images/g-2.png";
@@ -322,49 +327,96 @@ const LandingPage = () => {
           <p className=" text-white  text-[48px]  mb-3">
             Get Uvodo for your industry
           </p>
-          <div className="flex justify-between items-center  w-full">
-            <div className="flex flex-col gap-3 items-start min-h-[80%] ">
-              <div className=" max-w-[90%]">
-                <img src={gOne} alt="g-1" className="w-full h-full" />
+          <div className="flex justify-between items-start w-full">
+            <div className="flex flex-col items-center w-1/3">
+              <div className="h-[400px] mb-4">
+                {" "}
+                {/* Added margin bottom to create space */}
+                <img
+                  src={gOne}
+                  alt="g-1"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="max-w-[90%]  flex flex-col items-start gap-2">
+                <p className="text-white text-[24px]">Local Businesses</p>
+                <p className="text-[#B9B9B9] text-left text-[18px]">
+                  Sell locally on Whatapp and Cash On Delivery payment methods
+                </p>{" "}
+                {/* Add your text here */}
               </div>
             </div>
-            <div className="flex flex-col gap-3 items-start min-h-[80%] ">
-              <div className=" max-w-[90%]">
-                <img src={gOne} alt="g-1" className="w-full h-full" />
+            <div className="flex flex-col items-center w-1/3">
+              <div className="h-[400px] mb-4">
+                {" "}
+                {/* Added margin bottom to create space */}
+                <img
+                  src={gTwo}
+                  alt="g-2"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="max-w-[90%]  flex-col flex items-start gap-2">
+                <p className="text-[24px] text-white">Small businesses</p>{" "}
+                {/* Add your text here */}
+                <p className="text-left text-[#B9B9B9] text-[18px]">
+                  Move your retail business online and start selling products on
+                  a free website.
+                </p>
+                {/* Add your text here */}
               </div>
             </div>
-            <div className="flex flex-col gap-3 items-start min-h-[80%] ">
-              <div className=" max-w-[90%]">
-                <img src={gOne} alt="g-1" className="w-full h-full" />
+            <div className="flex flex-col items-center w-1/3">
+              <div className="h-[400px] mb-4">
+                {" "}
+                {/* Added margin bottom to create space */}
+                <img
+                  src={gThree}
+                  alt="g-2"
+                  className="w-full h-full object-cover"
+                />
               </div>
-            </div>
-          </div>
-          <div
-            className="
-      flex justify-between items-center
-      "
-          >
-            <div className="max-w-[90%] flex-wrap text-start">
-              <p className="text-[24px] text-white mb-2">Local Business</p>
-              <p className="text-[18px] text-[#B9B9B9] ">
-                Sell locally with WhatsApp and Cash Delivery payment methods.
-              </p>
-            </div>
-            <div className="max-w-[90%] flex-wrap text-start">
-              <p className="text-[24px] text-white mb-2">Local Business</p>
-              <p className="text-[18px] text-[#B9B9B9] ">
-                Move your retail business online and start selling products on a
-                free website..
-              </p>
-            </div>
-            <div className="max-w-[90%] flex-wrap text-start">
-              <p className="text-[24px] text-white mb-2">Local Business</p>
-              <p className="text-[18px] text-[#B9B9B9] ">
-                Sell locally with WhatsApp and Cash Delivery payment methods.
-              </p>
+              <div className="max-w-[90%] flex-col flex items-start gap-2">
+                <p className="text-[24px] text-white">Social media sellers</p>
+                <p className="text-left text-[#B9B9B9] text-[18px]">
+                  Increase your Instagram sales with Uvodo's all-in-one
+                  eCommerce platform.
+                </p>{" "}
+                {/* Add your text here */}
+              </div>
             </div>
           </div>
         </div>
+        {/* footer */}
+        <div className="w-full mt-[15%]">
+          <div className="grid grid-cols-2 gap-2">
+            <div className="col-span-1 max-w-[60%]">
+              <div className="w-full flex flex-col items-start gap-2">
+                <div className="flex gap-1 items-center">
+                  <span>icn</span>
+                  <p className="text-[#676767] text-[28px]">
+                    Sterling Dictionary
+                  </p>
+                </div>
+                <p className="text-[#BCBCBC] text-[18px] mt-3 mb-6">
+                  Effortlessly turn your ideas into a fully functional,
+                  responsive, no-code SaaS website.
+                </p>
+
+                <div className="flex justify-between items-center w-full">
+                  <img src={kOne} alt="k-1" />
+                  <img src={kTwo} alt="k-2" />
+                  <img src={kFour} alt="k-4" />
+                  <img src={kFive} alt="k-5" />
+                  <img src={kSix} alt="k-6" />
+                  <img src={kSix} alt="k-6" />
+                </div>
+              </div>
+            </div>
+            <div className="col-span-1 bg-green-300">a</div>
+          </div>
+        </div>
+        {/* footer */}
       </div>
     </div>
   );
