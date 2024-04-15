@@ -14,12 +14,12 @@ const Start = () => {
 
           <div className="flex gap-2 items-center w-full">
             <CustomButton
-              path="/user"
+              path="/login-user"
               text="A User"
               style=" bg-red-600 w-full text-white hover:bg-red-400 focus-visible:outline-red-600 "
             />
             <CustomButton
-              path="/admin"
+              path="/login-admin"
               text="An Admin"
               style="bg-black w-full text-white hover:bg-black-400 focus-visible:outline-black-600"
             />

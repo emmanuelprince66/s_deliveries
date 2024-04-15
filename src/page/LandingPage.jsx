@@ -7,6 +7,7 @@ import lTagTwo from "../images/l-tag2.svg";
 import lTagThree from "../images/l-tag3.svg";
 import lTagFour from "../images/l-tag4.svg";
 import kOne from "../images/k-1.svg";
+import vOne from "../images/v-1.svg";
 import kTwo from "../images/k-2.svg";
 import kThree from "../images/k-3.svg";
 import kFour from "../images/k-4.svg";
@@ -34,12 +35,12 @@ const LandingPage = () => {
             Pricing
           </button>
           <div className="h-[20px] w-[1px] bg-gray-200 mx-2" />
-          <Link to="">
+          <Link to="/user-signup">
             <button className="bg-transparent text-white text-[16px] hover:text-[#DB363A] transition-colors duration-700 ease-in-out ">
               Sign In
             </button>
           </Link>
-          <Link to="">
+          <Link to="/start">
             <button className=" text-white text-[16px] w-[100px] ml-3 rounded-sm  px-3 py-2 bg-[#DB363A] hover:text-black transition-colors duration-700 ease-in-out ">
               Login
             </button>
@@ -61,7 +62,7 @@ const LandingPage = () => {
             more...
           </p>
 
-          <Link to="">
+          <Link to="/user-signup">
             <button className=" text-white text-[18px] w-[172px] rounded-sm  px-3 py-2 bg-[#DB363A] hover:text-black transition-colors duration-700 ease-in-out ">
               Get Started
             </button>
@@ -170,26 +171,24 @@ const LandingPage = () => {
             </p>
 
             <div className="flex items-start gap-3">
-              <img src={star} alt="star" />
-              <p className="text-[#D0D0D0] text-[18px] pt-1">
+              <img src={star} alt="star" className="w-[18px] h-[18px]" />
+              <p className="text-[#D0D0D0] text-[18px] ">
                 Mobile first storefront
               </p>
             </div>
             <div className="flex items-start gap-2">
-              <img src={star} alt="star" />
-              <p className="text-[#D0D0D0] text-[18px] pt-1">
+              <img src={star} alt="star" className="w-[18px] h-[18px]" />
+              <p className="text-[#D0D0D0] text-[18px] ">
                 No code theme editor
               </p>
             </div>
             <div className="flex items-start gap-2">
-              <img src={star} alt="star" />
-              <p className="text-[#D0D0D0] text-[18px] pt-1">
-                Custom brandinig
-              </p>
+              <img src={star} alt="star" className="w-[18px] h-[18px]" />
+              <p className="text-[#D0D0D0] text-[18px] ">Custom brandinig</p>
             </div>
             <div className="flex items-start gap-2">
-              <img src={star} alt="star" />
-              <p className="text-[#D0D0D0] text-[18px] pt-1">
+              <img src={star} alt="star" className="w-[18px] h-[18px]" />
+              <p className="text-[#D0D0D0] text-[18px] ">
                 Themes for every niche(soon)
               </p>
             </div>
@@ -219,26 +218,26 @@ const LandingPage = () => {
             </p>
 
             <div className="flex items-start gap-3">
-              <img src={star} alt="star" />
-              <p className="text-[#D0D0D0] text-[18px] pt-1">
+              <img src={star} alt="star" className="w-[18px] h-[18px]" />
+              <p className="text-[#D0D0D0] text-[18px] ">
                 Mobile first admin panel
               </p>
             </div>
             <div className="flex items-start gap-2">
-              <img src={star} alt="star" />
-              <p className="text-[#D0D0D0] text-[18px] pt-1">
+              <img src={star} alt="star" className="w-[18px] h-[18px]" />
+              <p className="text-[#D0D0D0] text-[18px] ">
                 Enabling payment gateway in clicks
               </p>
             </div>
             <div className="flex items-start gap-2">
-              <img src={star} alt="star" />
-              <p className="text-[#D0D0D0] text-[18px] pt-1">
+              <img src={star} alt="star" className="w-[18px] h-[18px]" />
+              <p className="text-[#D0D0D0] text-[18px] ">
                 Product and other management
               </p>
             </div>
             <div className="flex items-start gap-2">
-              <img src={star} alt="star" />
-              <p className="text-[#D0D0D0] text-[18px] pt-1">
+              <img src={star} alt="star" className="w-[18px] h-[18px]" />
+              <p className="text-[#D0D0D0] text-[18px] ">
                 Assigning user roles
               </p>
             </div>
@@ -261,28 +260,26 @@ const LandingPage = () => {
             </p>
 
             <div className="flex items-start gap-3">
-              <img src={star} alt="star" />
-              <p className="text-[#D0D0D0] text-[18px] pt-1">
+              <img src={star} alt="star" className="w-[18px] h-[18px]" />
+              <p className="text-[#D0D0D0] text-[18px] ">
                 Global payment gateways
               </p>
             </div>
             <div className="flex items-start gap-2">
-              <img src={star} alt="star" />
-              <p className="text-[#D0D0D0] text-[18px] pt-1">
+              <img src={star} alt="star" className="w-[18px] h-[18px]" />
+              <p className="text-[#D0D0D0] text-[18px] ">
                 Local payment gateways
               </p>
             </div>
             <div className="flex items-start gap-2">
-              <img src={star} alt="star" />
-              <p className="text-[#D0D0D0] text-[18px] pt-1">
+              <img src={star} alt="star" className="w-[18px] h-[18px]" />
+              <p className="text-[#D0D0D0] text-[18px] ">
                 Manual payment options
               </p>
             </div>
             <div className="flex items-start gap-2">
-              <img src={star} alt="star" />
-              <p className="text-[#D0D0D0] text-[18px] pt-1">
-                Local currencies
-              </p>
+              <img src={star} alt="star" className="w-[18px] h-[18px]" />
+              <p className="text-[#D0D0D0] text-[18px] ">Local currencies</p>
             </div>
 
             <Link to="">
@@ -306,24 +303,24 @@ const LandingPage = () => {
             <p className="text-[48px] text-white">management tools</p>
 
             <div className="flex items-start gap-3">
-              <img src={star} alt="star" />
-              <p className="text-[#D0D0D0] text-[18px] pt-1">
+              <img src={star} alt="star" className="w-[18px] h-[18px]" />
+              <p className="text-[#D0D0D0] text-[18px] ">
                 Inventory management
               </p>
             </div>
             <div className="flex items-start gap-2">
-              <img src={star} alt="star" />
-              <p className="text-[#D0D0D0] text-[18px] pt-1">Shipping rules</p>
+              <img src={star} alt="star" className="w-[18px] h-[18px]" />
+              <p className="text-[#D0D0D0] text-[18px] ">Shipping rules</p>
             </div>
             <div className="flex items-start gap-2">
-              <img src={star} alt="star" />
-              <p className="text-[#D0D0D0] text-[18px] pt-1">
+              <img src={star} alt="star" className="w-[18px] h-[18px]" />
+              <p className="text-[#D0D0D0] text-[18px] ">
                 Shipping service integration
               </p>
             </div>
             <div className="flex items-start gap-2">
-              <img src={star} alt="star" />
-              <p className="text-[#D0D0D0] text-[18px] pt-1">
+              <img src={star} alt="star" className="w-[18px] h-[18px]" />
+              <p className="text-[#D0D0D0] text-[18px] ">
                 Country specific tax management
               </p>
             </div>
@@ -411,7 +408,10 @@ const LandingPage = () => {
             <div className="col-span-1 md:max-w-[60%] w-full">
               <div className="w-full flex flex-col items-start gap-2">
                 <div className="flex gap-1 items-center">
-                  <span>icn</span>
+                  <span className="flex  items-center">
+                    <img src={vOne} alt="v-1" className="mr-[1px]" />
+                    <img src={vOne} alt="v-1" />
+                  </span>
                   <p className="text-[#676767] text-[28px]">
                     Sterling Dictionary
                   </p>
@@ -441,8 +441,8 @@ const LandingPage = () => {
                   <p className="text-[20px] text-[#676767]">FAQ</p>
                   <p className="text-[20px] text-[#676767]">Pricing</p>
                 </div>
-                <div className="flex flex-col items-start gap-4 font-bold">
-                  <p className="text-[20px] text-white">Company</p>
+                <div className="flex flex-col items-start gap-4 ">
+                  <p className="text-[20px] text-white font-bold">Company</p>
                   <p className="text-[20px] text-[#676767]">About</p>
                   <p className="text-[20px] text-[#676767]">Blog</p>
                   <p className="text-[20px] text-[#676767]">Careers</p>

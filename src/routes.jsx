@@ -4,13 +4,17 @@ import LoginAdmin from "./page/LoginAdmin";
 import AddTerm from "./page/AddTerm";
 import UserStart from "./page/UserStart";
 import LandingPage from "./page/LandingPage";
+import SignUpUser from "./page/SignUpUser";
+import LoginUser from "./page/LoginUser";
 
 const myRoutes = [
   { component: <Start />, path: "/start", name: "index Page" },
   { component: <LandingPage />, path: "/", name: "landing Page" },
-  { component: <LoginAdmin />, path: "/admin", name: "Login Page" },
+  { component: <LoginAdmin />, path: "/login-admin", name: "Login admin Page" },
+  { component: <LoginUser />, path: "/login-user", name: "Login user Page" },
   { component: <AddTerm />, path: "/add", name: "add page" },
   { component: <UserStart />, path: "/user", name: "user page" },
+  { component: <SignUpUser />, path: "/user-signup", name: "user signup page" },
 ];
 
 const RoutesContainer = () => {
