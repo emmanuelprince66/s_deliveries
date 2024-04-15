@@ -170,23 +170,23 @@ const LandingPage = () => {
               all responsive!
             </p>
 
-            <div className="flex items-start gap-3">
+            <div className="flex items-center gap-3">
               <img src={star} alt="star" className="w-[18px] h-[18px]" />
               <p className="text-[#D0D0D0] text-[18px] ">
                 Mobile first storefront
               </p>
             </div>
-            <div className="flex items-start gap-2">
+            <div className="flex items-center gap-2">
               <img src={star} alt="star" className="w-[18px] h-[18px]" />
               <p className="text-[#D0D0D0] text-[18px] ">
                 No code theme editor
               </p>
             </div>
-            <div className="flex items-start gap-2">
+            <div className="flex items-center gap-2">
               <img src={star} alt="star" className="w-[18px] h-[18px]" />
               <p className="text-[#D0D0D0] text-[18px] ">Custom brandinig</p>
             </div>
-            <div className="flex items-start gap-2">
+            <div className="flex items-center gap-2">
               <img src={star} alt="star" className="w-[18px] h-[18px]" />
               <p className="text-[#D0D0D0] text-[18px] ">
                 Themes for every niche(soon)
@@ -217,25 +217,25 @@ const LandingPage = () => {
               essential tools
             </p>
 
-            <div className="flex items-start gap-3">
+            <div className="flex items-center gap-3">
               <img src={star} alt="star" className="w-[18px] h-[18px]" />
               <p className="text-[#D0D0D0] text-[18px] ">
                 Mobile first admin panel
               </p>
             </div>
-            <div className="flex items-start gap-2">
+            <div className="flex items-center gap-2">
               <img src={star} alt="star" className="w-[18px] h-[18px]" />
               <p className="text-[#D0D0D0] text-[18px] ">
                 Enabling payment gateway in clicks
               </p>
             </div>
-            <div className="flex items-start gap-2">
+            <div className="flex items-center gap-2">
               <img src={star} alt="star" className="w-[18px] h-[18px]" />
               <p className="text-[#D0D0D0] text-[18px] ">
                 Product and other management
               </p>
             </div>
-            <div className="flex items-start gap-2">
+            <div className="flex items-center gap-2">
               <img src={star} alt="star" className="w-[18px] h-[18px]" />
               <p className="text-[#D0D0D0] text-[18px] ">
                 Assigning user roles
@@ -259,25 +259,25 @@ const LandingPage = () => {
               payment gateways
             </p>
 
-            <div className="flex items-start gap-3">
+            <div className="flex items-center gap-3">
               <img src={star} alt="star" className="w-[18px] h-[18px]" />
               <p className="text-[#D0D0D0] text-[18px] ">
                 Global payment gateways
               </p>
             </div>
-            <div className="flex items-start gap-2">
+            <div className="flex items-center gap-2">
               <img src={star} alt="star" className="w-[18px] h-[18px]" />
               <p className="text-[#D0D0D0] text-[18px] ">
                 Local payment gateways
               </p>
             </div>
-            <div className="flex items-start gap-2">
+            <div className="flex items-center gap-2">
               <img src={star} alt="star" className="w-[18px] h-[18px]" />
               <p className="text-[#D0D0D0] text-[18px] ">
                 Manual payment options
               </p>
             </div>
-            <div className="flex items-start gap-2">
+            <div className="flex items-center gap-2">
               <img src={star} alt="star" className="w-[18px] h-[18px]" />
               <p className="text-[#D0D0D0] text-[18px] ">Local currencies</p>
             </div>
@@ -302,23 +302,23 @@ const LandingPage = () => {
             <p className="text-[48px] text-white">Inventory & shipping</p>
             <p className="text-[48px] text-white">management tools</p>
 
-            <div className="flex items-start gap-3">
+            <div className="flex items-center gap-3">
               <img src={star} alt="star" className="w-[18px] h-[18px]" />
               <p className="text-[#D0D0D0] text-[18px] ">
                 Inventory management
               </p>
             </div>
-            <div className="flex items-start gap-2">
+            <div className="flex items-center gap-2">
               <img src={star} alt="star" className="w-[18px] h-[18px]" />
               <p className="text-[#D0D0D0] text-[18px] ">Shipping rules</p>
             </div>
-            <div className="flex items-start gap-2">
+            <div className="flex items-center gap-2">
               <img src={star} alt="star" className="w-[18px] h-[18px]" />
               <p className="text-[#D0D0D0] text-[18px] ">
                 Shipping service integration
               </p>
             </div>
-            <div className="flex items-start gap-2">
+            <div className="flex items-center gap-2">
               <img src={star} alt="star" className="w-[18px] h-[18px]" />
               <p className="text-[#D0D0D0] text-[18px] ">
                 Country specific tax management
