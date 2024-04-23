@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const CustomButton = ({ text, style, path, onClick }) => {
+const CustomButton = ({ text, style, path, onClick , disabled }) => {
   return (
     <div className="w-full">
       {path ? (
@@ -20,7 +20,8 @@ const CustomButton = ({ text, style, path, onClick }) => {
         </Link>
       ) : (
         <button
-          type="button"
+          type="submit"
+          disabled={disabled}
           onClick={onClick}
           className={`flex 
             justify-center 

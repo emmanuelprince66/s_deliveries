@@ -2,10 +2,13 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Start from "./page/Start";
 import LoginAdmin from "./page/LoginAdmin";
 import AddTerm from "./page/AddTerm";
+import { queryClient } from "./helpers/queryClient";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import UserStart from "./page/UserStart";
 import LandingPage from "./page/LandingPage";
 import SignUpUser from "./page/SignUpUser";
 import LoginUser from "./page/LoginUser";
+import ForgetPassword from "./page/ForgetPassword";
 
 const myRoutes = [
   { component: <Start />, path: "/start", name: "index Page" },
@@ -15,16 +18,17 @@ const myRoutes = [
   { component: <AddTerm />, path: "/add", name: "add page" },
   { component: <UserStart />, path: "/user", name: "user page" },
   { component: <SignUpUser />, path: "/user-signup", name: "user signup page" },
+  { component: <ForgetPassword />, path: "/forget-password", name: "forget password" },
 ];
 
 const RoutesContainer = () => {
   return (
-    <>
+    <QueryClientProvider client={queryClient}>
       <Router>
         <Routes>
           {myRoutes.map((item) => {
             // For the login page, render without AuthProvider
-            if (item.path === "/" || item.path === "/start") {
+            if (item.path === "/" || item.path === "/start" || item.path === "forget-password") {
               return (
                 <Route
                   key={item.name}
@@ -46,7 +50,7 @@ const RoutesContainer = () => {
           })}
         </Routes>
       </Router>
-    </>
+    </QueryClientProvider>
   );
 };
 

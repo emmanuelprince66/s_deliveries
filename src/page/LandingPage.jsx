@@ -35,14 +35,14 @@ const LandingPage = () => {
             Pricing
           </button>
           <div className="h-[20px] w-[1px] bg-gray-200 mx-2" />
-          <Link to="/user-signup">
+          <Link to="/login-user">
             <button className="bg-transparent text-white text-[16px] hover:text-[#DB363A] transition-colors duration-700 ease-in-out ">
-              Sign In
+              Login as User
             </button>
           </Link>
-          <Link to="/start">
-            <button className=" text-white text-[16px] w-[100px] ml-3 rounded-sm  px-3 py-2 bg-[#DB363A] hover:text-black transition-colors duration-700 ease-in-out ">
-              Login
+          <Link to="/login-admin">
+            <button className=" text-white text-[16px] w-[150px] ml-3 rounded-sm  px-3 py-2 bg-[#DB363A] hover:text-black transition-colors duration-700 ease-in-out ">
+              Login as Admin
             </button>
           </Link>
         </div>
