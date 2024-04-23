@@ -85,14 +85,14 @@ const SignUpUser = () => {
 
   return (
     <div className="w-full bg-[#1e1e1e] h-screen flex justify-center items-center">
-      <div className="w-[90%] md:w-[50%] flex justify-center  items-center h-[90%] relative ">
+      <div className="w-[95%] md:w-[50%] flex justify-center  items-center h-[90%] relative ">
         <div className="absolute w-[100px] h-[100px] right-0 top-0">
           <img src={aThree} alt="a-3" className="object-contain" />
         </div>
-        <div className=" w-[90%] md:w-[70%] bg-black rounded-[1rem] h-[90%]">
+        <div className=" w-[100%] md:w-[70%] bg-black rounded-[1rem] h-[90%]">
           <button onClick={handleGoBack} className="p-5 my-4 text-white">
             Go Back
-         </button>
+          </button>
 
           <div className="w-full flex flex-col items-center mt-[5rem] md:mt-[0rem] justify-end gap-3 ">
             <div className="w-full flex justify-center">
@@ -103,11 +103,13 @@ const SignUpUser = () => {
 
             <form
               onSubmit={handleSubmit(onSubmit)}
-              className=" w-[90%] md:w-[70%] flex flex-col items-start mt-[-2rem] justify-center gap-3  "
+              className=" w-[95%] md:w-[70%] flex flex-col items-start mt-[-2rem] justify-center gap-3  "
             >
               {/* Email Address Field */}
 
-              <p className="text-white w-full text-center ">Sign up as a User</p>
+              <p className="text-white w-full text-center ">
+                Sign up as a User
+              </p>
 
               <TextField
                 sx={{
@@ -282,11 +284,9 @@ const SignUpUser = () => {
                 style="bg-[#373737] w-full hover:bg-red-400 text-white focus-visible:outline-red-600 mt-3"
               />
             </form>
-         
+
             <Link to="/login-user">
-              <p className="text-[15px] hover:text-red-500 text-white">
-              Login
-              </p>
+              <p className="text-[15px] hover:text-red-500 text-white">Login</p>
             </Link>
           </div>
         </div>

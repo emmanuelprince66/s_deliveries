@@ -85,11 +85,11 @@ const LoginUser = () => {
 
   return (
     <div className="w-full bg-[#1e1e1e] h-screen flex justify-center items-center">
-      <div className="w-[90%] md:w-[50%] flex justify-center  items-center h-[90%] relative ">
+      <div className="w-[95%] md:w-[50%] flex justify-center  items-center h-[90%] relative ">
         <div className="absolute w-[100px] h-[100px] right-0 top-0">
           <img src={aThree} alt="a-3" className="object-contain" />
         </div>
-        <div className=" w-[90%] md:w-[70%] bg-black rounded-[1rem] h-[90%]">
+        <div className=" w-[100%] md:w-[70%] bg-black rounded-[1rem] h-[90%]">
           <button onClick={handleGoBack} className="p-5 my-4 text-white">
             Go Back
           </button>
@@ -103,7 +103,7 @@ const LoginUser = () => {
 
             <form
               onSubmit={handleSubmit(onSubmit)}
-              className=" w-[90%] md:w-[70%] flex flex-col items-start mt-[-2rem] justify-center gap-3  "
+              className=" w-[95%] md:w-[70%] flex flex-col items-start mt-[-2rem] justify-center gap-3  "
             >
               {/* Email Address Field */}
 
