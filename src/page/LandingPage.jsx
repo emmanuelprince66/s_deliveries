@@ -1,4 +1,5 @@
 import React from "react";
+import { useState } from "react";
 import CustomButton from "../components/CustomButton";
 import { Link } from "react-router-dom";
 import lImgOne from "../images/l-img1.png";
@@ -26,10 +27,25 @@ import uThree from "../images/u-3.png";
 import uFour from "../images/u-4.png";
 import re from "../images/redirect.svg";
 import star from "../images/star.svg";
+import Box from "@mui/material/Box";
+import Avatar from "@mui/material/Avatar";
+import Menu from "@mui/material/Menu";
+import Divider from "@mui/material/Divider";
+import IconButton from "@mui/material/IconButton";
+import Tooltip from "@mui/material/Tooltip";
+import MenuRoundedIcon from "@mui/icons-material/MenuRounded";
 const LandingPage = () => {
+  const [anchorEl, setAnchorEl] = useState(null);
+  const open = Boolean(anchorEl);
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
   return (
     <div className="h-full w-full bg-primary_black_1 p-3">
-      <div className="w-full flex justify-end  ">
+      <div className="w-full justify-end hidden md:flex">
         <div className="flex items-center gap-2 ">
           <button className="bg-transparent text-white text-[16px] hover:text-[#DB363A] transition-colors duration-700 ease-in-out` ">
             Pricing
@@ -49,6 +65,79 @@ const LandingPage = () => {
       </div>
 
       {/* possibly hamburger menu for mobile */}
+      <div className="flex w-full justify-end md:hidden">
+        <Box
+          sx={{ display: "flex", alignItems: "center", textAlign: "center" }}
+        >
+          <Tooltip title="Account settings">
+            <IconButton
+              onClick={handleClick}
+              size="small"
+              sx={{ ml: 2 }}
+              aria-controls={open ? "account-menu" : undefined}
+              aria-haspopup="true"
+              aria-expanded={open ? "true" : undefined}
+            >
+              <Avatar sx={{ width: 42, height: 42, background: "#DB363A" }}>
+                <MenuRoundedIcon sx={{ color: "#FFf" }} />
+              </Avatar>
+            </IconButton>
+          </Tooltip>
+        </Box>
+        <Menu
+          anchorEl={anchorEl}
+          id="account-menu"
+          open={open}
+          onClose={handleClose}
+          onClick={handleClose}
+          PaperProps={{
+            elevation: 0,
+            sx: {
+              overflow: "visible",
+              filter: "drop-shadow(0px 2px 8px rgba(0,0,0,0.32))",
+              mt: 1.5,
+              "& .MuiAvatar-root": {
+                width: 32,
+                height: 32,
+                ml: -0.5,
+                mr: 1,
+              },
+              "&::before": {
+                content: '""',
+                display: "block",
+                position: "absolute",
+                top: 0,
+                right: 14,
+                width: 10,
+                height: 10,
+                bgcolor: "background.paper",
+                transform: "translateY(-50%) rotate(45deg)",
+                zIndex: 0,
+              },
+            },
+          }}
+          transformOrigin={{ horizontal: "right", vertical: "top" }}
+          anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
+        >
+          <div className="w-full flex flex-col items-start gap-3 p-5">
+            <Link to="login-admin">
+              <p className="text-[20px] font-normal">Login as Admin</p>
+            </Link>
+            <Divider sx={{ width: "100%", background: "#DB363A" }} />
+
+            <Link to="login-user">
+              <p className="text-[20px] font-normal">Login as User</p>
+            </Link>
+            <Divider sx={{ width: "100%", background: "#DB363A" }} />
+
+            <Link to="">
+              <p className="text-[20px] font-normal">Pricing</p>
+            </Link>
+            <Divider sx={{ width: "100%", background: "#DB363A" }} />
+          </div>
+        </Menu>
+      </div>
+
       {/* possibly hamburger menu for mobile */}
 
       <div className="mx-auto md:max-w-[80%] flex-col items-center justify-center">
@@ -63,7 +152,7 @@ const LandingPage = () => {
           </p>
 
           <Link to="/user-signup">
-            <button className=" text-white text-[18px] w-[172px] rounded-sm  px-3 py-2 bg-[#DB363A] hover:text-black transition-colors duration-700 ease-in-out ">
+            <button className=" text-white text-[18px] w-[172px] h-[50px] rounded-sm  px-3 py-2 bg-[#DB363A] hover:text-black transition-colors duration-700 ease-in-out ">
               Get Started
             </button>
           </Link>
@@ -205,7 +294,7 @@ const LandingPage = () => {
           </div>
         </div>
         {/*  */}
-        <div className="grid md:grid-cols-2 grid-cols-1 md:gap-2  gap-10   md:mt-[15%] mt-[25%]">
+        <div className="grid md:grid-cols-2 grid-cols-1 md:gap-[10rem]  gap-10   md:mt-[15%] mt-[25%]">
           <div className="col-span-1">
             <img src={mTwo} alt="m-2" />
           </div>
@@ -294,7 +383,7 @@ const LandingPage = () => {
           </div>
         </div>
         {/*  */}
-        <div className="grid md:grid-cols-2 grid-cols-1 md:gap-2  gap-10   md:mt-[15%] mt-[25%]">
+        <div className="grid md:grid-cols-2 grid-cols-1 md:gap-[10rem]  gap-5  md:mt-[15%] mt-[25%]">
           <div className="col-span-1">
             <img src={mFour} alt="m-4" />
           </div>
