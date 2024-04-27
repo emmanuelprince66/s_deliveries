@@ -7,6 +7,7 @@ import aOne from "../images/a-1.png";
 import aTwo from "../images/a-2.png";
 import aThree from "../images/a-3.png";
 import { useForm } from "react-hook-form";
+import Cookies from "js-cookie";
 import Spinner from "../utils/Spinner";
 import { useMutation, useQuery } from "@tanstack/react-query";
 import "react-toastify/dist/ReactToastify.min.css";
@@ -29,12 +30,8 @@ const SignUpUser = () => {
   const handleMouseDownPassword = (event) => {
     event.preventDefault();
   };
-  const notifyError = (msg) => {
-    toast.error(msg, {
-      position: toast.POSITION.TOP_RIGHT,
-      autoClose: 6000, // Time in milliseconds
-    });
-  };
+  
+
   const {
     register,
     handleSubmit,
@@ -42,12 +39,12 @@ const SignUpUser = () => {
   } = useForm();
 
   const adminLoginMutation = useMutation({
-    mutationFn: async (formData) => {
+    mutationFn: async (payLoad) => {
       try {
         const response = await BaseAxios({
-          url: "auth/logins",
+          url: "onboard-user",
           method: "POST",
-          data: formData,
+          data: payLoad,
         });
 
         if (response.status !== 200) {
@@ -74,14 +71,34 @@ const SignUpUser = () => {
   });
 
   const onSubmit = (data) => {
-    console.log(data); // Handle form submission with validated data
-    adminLoginMutation.mutate(data);
-    setShowSpinner(true);
+    const { email, password, confirmPassword } = data;
+
+    const payLoad = {
+      email,
+      password,
+    };
+
+    if (JSON.stringify(password) === JSON.stringify(confirmPassword)) {
+      adminLoginMutation.mutate(payLoad);
+      setShowSpinner(true);
+    } else {
+      setTimeout(() => {
+        notifyError("Password do not match!");
+      }, 500); // Delay of 500 milliseconds
+    }
+  };
+
+  const notifyError = (msg) => {
+    toast.error(msg, {
+      autoClose: 6000, // Time in milliseconds
+    });
   };
 
   const handleGoBack = () => {
     navigate(-1); // Navigate back
   };
+  
+ 
 
   return (
     <div className="w-full bg-[#1e1e1e] h-screen flex justify-center items-center">
@@ -142,7 +159,7 @@ const SignUpUser = () => {
                   startAdornment: (
                     <InputAdornment position="start">
                       <EmailRoundedIcon sx={{ color: "#B4B4B4" }} />
-                      <span className="ml-[.3em] w-[1px]"> &nbsp;&nbsp; </span>
+                      <span className="ml-[.3em] w-[1px]"> | </span>
                     </InputAdornment>
                   ),
                 }}
@@ -179,8 +196,7 @@ const SignUpUser = () => {
                     <InputAdornment position="start">
                       <LockRoundedIcon sx={{ color: "#B4B4B4" }} />
                       <span className="bg-grey_1 ml-[.3em] w-[1px]">
-                        {" "}
-                        &nbsp;&nbsp;{" "}
+                        |
                       </span>
                     </InputAdornment>
                   ),
@@ -239,8 +255,7 @@ const SignUpUser = () => {
                     <InputAdornment position="start">
                       <LockRoundedIcon sx={{ color: "#B4B4B4" }} />
                       <span className="bg-grey_1 ml-[.3em] w-[1px]">
-                        {" "}
-                        &nbsp;&nbsp;{" "}
+                        | 
                       </span>
                     </InputAdornment>
                   ),
@@ -281,7 +296,7 @@ const SignUpUser = () => {
                 }
                 disabled={adminLoginMutation.isLoading || showSpinner}
                 type="submit"
-                style="bg-[#373737] w-full hover:bg-red-400 text-white focus-visible:outline-red-600 mt-3"
+                style="bg-[#EB2529] w-full hover:bg-red-400 text-white focus-visible:outline-red-600 mt-3"
               />
             </form>
 
@@ -294,6 +309,10 @@ const SignUpUser = () => {
           <img src={aTwo} alt="a-2" className="object-contain" />
         </div>
       </div>
+      <ToastContainer
+        theme="dark"
+        toastStyle={{ background: "#333", color: "#fff" }}
+      />
     </div>
   );
 };

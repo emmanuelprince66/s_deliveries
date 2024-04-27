@@ -45,20 +45,16 @@ const LandingPage = () => {
   };
   return (
     <div className="h-full w-full bg-primary_black_1 p-3">
-      <div className="w-full justify-end hidden md:flex">
-        <div className="flex items-center gap-2 ">
-          <button className="bg-transparent text-white text-[16px] hover:text-[#DB363A] transition-colors duration-700 ease-in-out` ">
-            Pricing
-          </button>
-          <div className="h-[20px] w-[1px] bg-gray-200 mx-2" />
-          <Link to="/login-user">
-            <button className="bg-transparent text-white text-[16px] hover:text-[#DB363A] transition-colors duration-700 ease-in-out ">
-              Login as User
+      <div className="w-[90%] mx-auto justify-end hidden md:flex">
+        <div className="flex items-center gap-2 m-5 ">
+          <Link to="/login-admin">
+            <button className="bg-transparent font-inter-sans text-white text-[16px] hover:text-[#DB363A] transition-colors duration-700 ease-in-out ">
+              Login as Admin
             </button>
           </Link>
-          <Link to="/login-admin">
-            <button className=" text-white text-[16px] w-[150px] ml-3 rounded-sm  px-3 py-2 bg-[#DB363A] hover:text-black transition-colors duration-700 ease-in-out ">
-              Login as Admin
+          <Link to="/login-user">
+            <button className=" font-inter-sans text-white text-[16px] w-[100px] ml-3 rounded-sm  px-3 py-2 bg-[#DB363A] hover:text-black transition-colors duration-700 ease-in-out ">
+              Sign In
             </button>
           </Link>
         </div>
@@ -129,73 +125,77 @@ const LandingPage = () => {
               <p className="text-[20px] font-normal">Login as User</p>
             </Link>
             <Divider sx={{ width: "100%", background: "#DB363A" }} />
-
-            <Link to="">
-              <p className="text-[20px] font-normal">Pricing</p>
-            </Link>
-            <Divider sx={{ width: "100%", background: "#DB363A" }} />
           </div>
         </Menu>
       </div>
 
       {/* possibly hamburger menu for mobile */}
 
-      <div className="mx-auto md:max-w-[80%] flex-col items-center justify-center">
-        <div className="mx-auto md:max-w-[66%] w-[93%] mt-[10%]  text-center flex-col ">
-          <p className="md:text-8xl text-[48px]  leading-10  text-white font-bold">
+      <div className="mx-auto md:max-w-[62.5%] flex-col items-center  justify-center">
+        <div className="mx-auto md:max-w-[100%] w-[93%] mt-[5%]  text-center  flex-col ">
+          <p className="md:text-8xl text-[48px] font-inter-sans leading-10  text-white font-bold">
             Find a meaning for every word.
           </p>
-          <p className="md:text-[20px] text-[15px] text-[#D0D0D0] my-5">
+          <p className="md:text-[20px] w-[90%] mx-auto font-dm-sans  text-[15px] text-[#D0D0D0] my-5">
             With Sterling Dictionary, you do not miss a word, learn about
             jargons and acronyms, familiarise with various Sterling products and
             more...
           </p>
 
           <Link to="/user-signup">
-            <button className=" text-white text-[18px] w-[172px] h-[50px] rounded-sm  px-3 py-2 bg-[#DB363A] hover:text-black transition-colors duration-700 ease-in-out ">
+            <button className=" text-white text-[18px] w-[172px]  h-[50px] rounded-sm  px-3 py-2 bg-[#EB2529] hover:text-black transition-colors duration-700 ease-in-out ">
               Get Started
             </button>
           </Link>
 
-          <p className="text-[14px] text-[#A2A2A2] my-3">
+          <p className="text-[14px] text-[#A2A2A2] mt-4 font-inter-sans">
             Find meaning for 5,000+ words, terminologies and jargons
           </p>
         </div>
         {/*  */}
-        <div className="w-full mt-[3rem] mb-[4rem]">
+        <div className="w-full mt-[4rem] mb-[5rem]">
           <img src={lImgOne} alt="l-one" />
         </div>
 
         <div className="w-full grid grid-cols-1 mt-[20%] gap-5">
-          <p className="col-span-1 text-white text-[48px]  text-center">
+          <p className="col-span-1 text-white text-[38px] font-satoshi  text-center">
             What makes Sterling Dictionary different?
           </p>
-          <div className="col-span-1  flex flex-col md:flex-row  gap-3 items-center my-2">
-            <div className="flex flex-col gap-2 w-full items-start h-full">
-              <img src={lTagOne} alt="l-tag-1" />
-              <p className="text-white text-2xl ">Sterling Products</p>
-              <p className="text-[#B9B9B9] text-[15px] ">
+          <div className="col-span-1 w-full  flex flex-col md:flex-row gap-3 items-center  my-2">
+            <div className="flex flex-col gap-2 w-full md:w-[70%] mb-5 md:mb-0  items-start h-full ">
+              <img src={lTagOne} alt="l-tag-1" className="w-[38px] h-[38px]" />
+              <p className="text-white text-[20px] font-satoshi ">
+                Sterling Products
+              </p>
+              <p className="text-[#B9B9B9] text-[18px] md:text-[14px]  leading-5 font-inter-sans  ">
                 Know more about various sterling products.
               </p>
             </div>
-            <div className="flex flex-col gap-2   w-full items-start h-full">
-              <img src={lTagTwo} alt="l-tag-2" />
-              <p className="text-white text-2xl ">Banking Jargons</p>
-              <p className="text-[#B9B9B9] text-[15px] ">
+            <div className="flex flex-col gap-2 w-full mb-5 md:mb-0  md:w-[70%] items-start h-full ">
+              <img src={lTagTwo} alt="l-tag-2" className="w-[38px] h-[38px]" />
+              <p className="text-white text-[20px] font-satoshi ">
+                Banking Jargons
+              </p>
+              <p className="text-[#B9B9B9] text-[18px] md:text-[14px]  leading-5 font-inter-sans ">
                 Have quick look-up of words and acronyms..
               </p>
             </div>
-            <div className="flex flex-col gap-2  w-full items-start h-full">
-              <img src={lTagTwo} alt="l-tag-2" />
-              <p className="text-white text-2xl ">Terminologies</p>
-              <p className="text-[#B9B9B9] text-[15px] ">
-                All inclusive essential conversion & automation tools.
+            <div className="flex flex-col gap-2 w-full md:w-[80%] mb-5 md:mb-0  items-start h-full">
+              <img src={lTagTwo} alt="l-tag-2" className="w-[38px] h-[38px]" />
+              <p className="text-white text-[20px] font-satoshi ">
+                Terminologies
+              </p>
+              <p className="text-[#B9B9B9] text-[18px] md:text-[14px] leading-5 font-inter-sans  ">
+                All inclusive essential <br />
+                conversion & automation tools.
               </p>
             </div>
-            <div className="flex flex-col gap-2  w-full items-start h-full">
-              <img src={lTagFour} alt="l-tag-4" />
-              <p className="text-white text-2xl ">Integrate with Outlook</p>
-              <p className="text-[#B9B9B9] text-[15px] ">
+            <div className="flex flex-col gap-2 w-full md:w-[80%] items-start h-full">
+              <img src={lTagFour} alt="l-tag-4" className="w-[38px] h-[38px]" />
+              <p className="text-white text-[20px] font-satoshi ">
+                Integrate with Outlook
+              </p>
+              <p className="text-[#B9B9B9] text-[18px] md:text-[14px]  leading-5 font-inter-sans  ">
                 Hover on a word in your email and the meaning will pop.
               </p>
             </div>
@@ -204,11 +204,11 @@ const LandingPage = () => {
 
         {/*  */}
         <div className="w-full mx-auto mt-[15%] text-center">
-          <div className="flex flex-col gap-2 items-center">
-            <p className="text-white md:text-[48px] text-[30px] text-center">
+          <div className="flex flex-col gap-2 items-center mb-5">
+            <p className="text-white md:text-[38px] text-[30px] font-satoshi  text-center">
               Join our merchants
             </p>
-            <p className="text-white md:text-[48px] text-[30px] text-center">
+            <p className="text-white md:text-[38px] text-[30px] font-satoshi  text-center">
               who succeed in selling with Uvodo
             </p>
           </div>
@@ -218,7 +218,7 @@ const LandingPage = () => {
               <img src={uOne} alt="u-1" />
               <div className="flex gap-2 items-center">
                 <img src={re} alt="re" />
-                <span className="text-[#A2A2A2] text-[16px] pt-1">
+                <span className="text-[#A2A2A2] text-[16px] pt-1 font-inter-sans ">
                   Silk by Jamilia
                 </span>
               </div>
@@ -227,14 +227,16 @@ const LandingPage = () => {
               <img src={uTwo} alt="u-1" />
               <div className="flex gap-2 items-center">
                 <img src={re} alt="re" />
-                <span className="text-[#A2A2A2] text-[16px] pt-1">Kitpet</span>
+                <span className="text-[#A2A2A2] text-[16px] font-inter-sans  pt-1">
+                  Kitpet
+                </span>
               </div>
             </div>
             <div className="flex flex-col items-center">
               <img src={uThree} alt="u-1" />
               <div className="flex gap-2 items-center">
                 <img src={re} alt="re" />
-                <span className="text-[#A2A2A2] text-[16px] pt-1">
+                <span className="text-[#A2A2A2] text-[16px] pt-1 font-inter-sans ">
                   Holy Roses
                 </span>
               </div>
@@ -243,7 +245,9 @@ const LandingPage = () => {
               <img src={uFour} alt="u-1" />
               <div className="flex gap-2 items-center">
                 <img src={re} alt="re" />
-                <span className="text-[#A2A2A2] text-[16px] pt-1">`A Voir</span>
+                <span className="text-[#A2A2A2] text-[16px] pt-1 font-inter-sans ">
+                  `A Voir
+                </span>
               </div>
             </div>
           </div>
@@ -252,38 +256,40 @@ const LandingPage = () => {
 
         <div className="grid md:grid-cols-2 grid-cols-1 md:gap-2  gap-10 mt-[15%]">
           <div className="col-span-1 flex flex-col items-start justify-center  gap-4">
-            <p className="md:text-[48px] text-[30px]  text-white">
+            <p className="md:text-[38px] text-[30px] font-satoshi  text-white">
               Mobile or Desktop,
             </p>
-            <p className="md:text-[48px] text-[30px] text-white">
+            <p className="md:text-[38px] text-[30px] text-white font-satoshi  mt-[-15px] mb-4">
               all responsive!
             </p>
 
             <div className="flex items-center gap-3">
               <img src={star} alt="star" className="w-[18px] h-[18px]" />
-              <p className="text-[#D0D0D0] text-[18px] ">
+              <p className="text-[#D0D0D0] text-[18px] md:text-[14px] font-inter-sans">
                 Mobile first storefront
               </p>
             </div>
             <div className="flex items-center gap-2">
               <img src={star} alt="star" className="w-[18px] h-[18px]" />
-              <p className="text-[#D0D0D0] text-[18px] ">
+              <p className="text-[#D0D0D0] text-[18px] md:text-[14px] font-inter-sans ">
                 No code theme editor
               </p>
             </div>
             <div className="flex items-center gap-2">
               <img src={star} alt="star" className="w-[18px] h-[18px]" />
-              <p className="text-[#D0D0D0] text-[18px] ">Custom brandinig</p>
+              <p className="text-[#D0D0D0] text-[18px] md:text-[14px]  font-inter-sans">
+                Custom brandinig
+              </p>
             </div>
             <div className="flex items-center gap-2">
               <img src={star} alt="star" className="w-[18px] h-[18px]" />
-              <p className="text-[#D0D0D0] text-[18px] ">
+              <p className="text-[#D0D0D0] text-[18px] md:text-[14px]  font-inter-sans">
                 Themes for every niche(soon)
               </p>
             </div>
 
             <Link to="">
-              <button className=" text-white text-[16px] w-[150px] mt-3 rounded-sm  px-3 py-3 bg-transparent border border-gray-100 hover:text-black transition-colors duration-700 ease-in-out ">
+              <button className=" text-white text-[16px] w-[150px] mt-3 font-inter-sans  rounded-sm  px-3 py-3 bg-transparent border border-gray-100 hover:text-black transition-colors duration-700 ease-in-out ">
                 Learn More
               </button>
             </Link>
@@ -299,40 +305,40 @@ const LandingPage = () => {
             <img src={mTwo} alt="m-2" />
           </div>
           <div className="col-span-1 flex flex-col items-start justify-center  gap-4">
-            <p className="md:text-[48px] text-[30px] text-white">
+            <p className="md:text-[38px] font-satoshi  text-[30px] text-white">
               Admin Panel with all
             </p>
-            <p className="md:text-[48px] text-[30px] text-white">
+            <p className="md:text-[38px] font-satoshi mt-[-15px] mb-4 text-[30px] text-white">
               essential tools
             </p>
 
             <div className="flex items-center gap-3">
               <img src={star} alt="star" className="w-[18px] h-[18px]" />
-              <p className="text-[#D0D0D0] text-[18px] ">
+              <p className="text-[#D0D0D0] text-[18px] font-inter-sans">
                 Mobile first admin panel
               </p>
             </div>
             <div className="flex items-center gap-2">
               <img src={star} alt="star" className="w-[18px] h-[18px]" />
-              <p className="text-[#D0D0D0] text-[18px] ">
+              <p className="text-[#D0D0D0] text-[18px] font-inter-sans">
                 Enabling payment gateway in clicks
               </p>
             </div>
             <div className="flex items-center gap-2">
               <img src={star} alt="star" className="w-[18px] h-[18px]" />
-              <p className="text-[#D0D0D0] text-[18px] ">
+              <p className="text-[#D0D0D0] text-[18px] font-inter-sans">
                 Product and other management
               </p>
             </div>
             <div className="flex items-center gap-2">
               <img src={star} alt="star" className="w-[18px] h-[18px]" />
-              <p className="text-[#D0D0D0] text-[18px] ">
+              <p className="text-[#D0D0D0] text-[18px] font-inter-sans">
                 Assigning user roles
               </p>
             </div>
 
             <Link to="">
-              <button className=" text-white text-[16px] w-[150px] mt-3 rounded-sm  px-3 py-3 bg-transparent border border-gray-100 hover:text-black transition-colors duration-700 ease-in-out ">
+              <button className=" text-white text-[16px] w-[150px] font-inter-sans mt-3 rounded-sm  px-3 py-3 bg-transparent border border-gray-100 hover:text-black transition-colors duration-700 ease-in-out ">
                 Learn More
               </button>
             </Link>
@@ -341,38 +347,40 @@ const LandingPage = () => {
         {/*  */}
         <div className="grid md:grid-cols-2 grid-cols-1 md:gap-2  gap-10   md:mt-[15%] mt-[25%]">
           <div className="col-span-1 flex flex-col items-start justify-center  gap-4">
-            <p className="md:text-[48px] text-[30px] text-white">
+            <p className="md:text-[38px] font-satoshi text-[30px] text-white">
               Local & global
             </p>
-            <p className="md:text-[48px] text-[30px] text-white">
+            <p className="md:text-[38px] font-satoshi text-[30px] mb-4 mt-[-15px] text-white">
               payment gateways
             </p>
 
             <div className="flex items-center gap-3">
               <img src={star} alt="star" className="w-[18px] h-[18px]" />
-              <p className="text-[#D0D0D0] text-[18px] ">
+              <p className="text-[#D0D0D0] text-[18px] font-inter-sans">
                 Global payment gateways
               </p>
             </div>
             <div className="flex items-center gap-2">
               <img src={star} alt="star" className="w-[18px] h-[18px]" />
-              <p className="text-[#D0D0D0] text-[18px] ">
+              <p className="text-[#D0D0D0] text-[18px] font-inter-sans">
                 Local payment gateways
               </p>
             </div>
             <div className="flex items-center gap-2">
               <img src={star} alt="star" className="w-[18px] h-[18px]" />
-              <p className="text-[#D0D0D0] text-[18px] ">
+              <p className="text-[#D0D0D0] text-[18px] font-inter-sans">
                 Manual payment options
               </p>
             </div>
             <div className="flex items-center gap-2">
               <img src={star} alt="star" className="w-[18px] h-[18px]" />
-              <p className="text-[#D0D0D0] text-[18px] ">Local currencies</p>
+              <p className="text-[#D0D0D0] text-[18px] font-inter-sans">
+                Local currencies
+              </p>
             </div>
 
             <Link to="">
-              <button className=" text-white text-[16px] w-[150px] mt-3 rounded-sm  px-3 py-3 bg-transparent border border-gray-100 hover:text-black transition-colors duration-700 ease-in-out ">
+              <button className=" text-white text-[16px] font-inter-sans w-[150px] mt-3 rounded-sm  px-3 py-3 bg-transparent border border-gray-100 hover:text-black transition-colors duration-700 ease-in-out ">
                 Learn More
               </button>
             </Link>
@@ -383,39 +391,45 @@ const LandingPage = () => {
           </div>
         </div>
         {/*  */}
-        <div className="grid md:grid-cols-2 grid-cols-1 md:gap-[10rem]  gap-5  md:mt-[15%] mt-[25%]">
-          <div className="col-span-1">
+        <div className="grid md:grid-cols-2 grid-cols-1 md:gap-[5rem]  gap-5  md:mt-[15%] mt-[25%]">
+          <div className="col-span-1 ">
             <img src={mFour} alt="m-4" />
           </div>
-          <div className="col-span-1 flex flex-col items-start justify-center  gap-4">
-            <p className="text-[48px] text-white">Inventory & shipping</p>
-            <p className="text-[48px] text-white">management tools</p>
+          <div className="col-span-1  w-full md:min-w-[24rem] flex flex-col items-start justify-center  gap-4">
+            <p className="text-[38px] font-satoshi text-white">
+              Inventory and shipping
+            </p>
+            <p className="text-[38px] font-satoshi mb-4 mt-[-15px] text-white">
+              management tools
+            </p>
 
             <div className="flex items-center gap-3">
               <img src={star} alt="star" className="w-[18px] h-[18px]" />
-              <p className="text-[#D0D0D0] text-[18px] ">
+              <p className="text-[#D0D0D0] text-[18px] font-inter-sans">
                 Inventory management
               </p>
             </div>
             <div className="flex items-center gap-2">
               <img src={star} alt="star" className="w-[18px] h-[18px]" />
-              <p className="text-[#D0D0D0] text-[18px] ">Shipping rules</p>
+              <p className="text-[#D0D0D0] text-[18px] font-inter-sans">
+                Shipping rules
+              </p>
             </div>
             <div className="flex items-center gap-2">
               <img src={star} alt="star" className="w-[18px] h-[18px]" />
-              <p className="text-[#D0D0D0] text-[18px] ">
+              <p className="text-[#D0D0D0] text-[18px] font-inter-sans">
                 Shipping service integration
               </p>
             </div>
             <div className="flex items-center gap-2">
               <img src={star} alt="star" className="w-[18px] h-[18px]" />
-              <p className="text-[#D0D0D0] text-[18px] ">
+              <p className="text-[#D0D0D0] text-[18px] font-inter-sans">
                 Country specific tax management
               </p>
             </div>
 
             <Link to="">
-              <button className=" text-white text-[16px] w-[150px] mt-3 rounded-sm  px-3 py-3 bg-transparent border border-gray-100 hover:text-black transition-colors duration-700 ease-in-out ">
+              <button className="font-inter-sans text-white text-[16px] w-[150px] mt-3 rounded-sm  px-3 py-3 bg-transparent border border-gray-100 hover:text-black transition-colors duration-700 ease-in-out ">
                 Learn More
               </button>
             </Link>
@@ -423,11 +437,11 @@ const LandingPage = () => {
         </div>
         {/*  */}
         <div className="w-full text-center mt-[15%]">
-          <p className=" text-white  text-[30px] md:text-[48px] mb-3">
+          <p className=" text-white  text-[30px] md:text-[38px] mb-4 font-satoshi ">
             Get Uvodo for your industry
           </p>
           <div className="flex flex-col md:flex-row md:justify-between items-start w-full">
-            <div className="flex flex-col gap-[10rem] items-center md:w-1/3 w-full">
+            <div className="flex flex-col gap-[10rem] items-center  w-full">
               <div className="md:h-[80%] w-[80%] mb-4">
                 {/* Added margin bottom to create space */}
                 <img
@@ -436,10 +450,10 @@ const LandingPage = () => {
                   className="w-full h-full object-cover"
                 />
                 <div className="  flex flex-col items-start gap-2 mt-3">
-                  <p className="text-white text-[24px] sm:text-[20px]">
+                  <p className="text-white text-[24px] sm:text-[20px] font-satoshi">
                     Local Businesses
                   </p>
-                  <p className="text-[#B9B9B9] text-left text-[18px] sm:text-[14px]">
+                  <p className="text-[#B9B9B9] text-left  font-inter-sans text-[14px]">
                     Sell locally on Whatsapp and Cash On Delivery payment
                     methods
                   </p>{" "}
@@ -447,7 +461,7 @@ const LandingPage = () => {
                 </div>
               </div>
             </div>
-            <div className="flex flex-col items-center md:w-1/3">
+            <div className="flex flex-col items-center w-full">
               <div className="md:h-[80%] w-[80%]  mb-4">
                 {/* Added margin bottom to create space */}
                 <img
@@ -457,11 +471,11 @@ const LandingPage = () => {
                 />
 
                 <div className="  flex-col flex items-start gap-2 mt-3">
-                  <p className="text-[24px] text-white sm:text-[20px]">
+                  <p className="text-[24px] text-white sm:text-[20px] font-satoshi ">
                     Small businesses
                   </p>{" "}
                   {/* Add your text here */}
-                  <p className="text-left text-[#B9B9B9] text-[18px] sm:text-[14px]">
+                  <p className="text-left text-[#B9B9B9] text-[18px] font-inter-sans sm:text-[14px]">
                     Move your retail business online and start selling products
                     on a free website.
                   </p>
@@ -469,7 +483,7 @@ const LandingPage = () => {
                 </div>
               </div>
             </div>
-            <div className="flex flex-col items-center md:w-1/3">
+            <div className="flex flex-col items-center w-full ">
               <div className="md:h-[80%] w-[80%]  mb-4">
                 {/* Added margin bottom to create space */}
                 <img
@@ -478,10 +492,10 @@ const LandingPage = () => {
                   className="w-full h-full object-cover"
                 />
                 <div className="flex-col flex items-start gap-2 mt-3">
-                  <p className="text-[24px] text-white sm:text-[20px]">
+                  <p className="text-[24px] text-white sm:text-[20px] font-satoshi ">
                     Social media sellers
                   </p>
-                  <p className="text-left text-[#B9B9B9] text-[18px] sm:text-[14px]">
+                  <p className="text-left text-[#B9B9B9] text-[18px] font-inter-sans sm:text-[14px]">
                     Increase your Instagram sales with Uvodo's all-in-one
                     eCommerce platform.
                   </p>{" "}
@@ -492,9 +506,9 @@ const LandingPage = () => {
           </div>
         </div>
         {/* footer */}
-        <div className="w-full md:mt-[15%] mb-8 mt-[25%]">
+        <div className="w-full md:mt-[15%] mb-8 mt-[25%] ">
           <div className="grid md:grid-cols-2 grid-cols-1 md:gap-2 gap-10">
-            <div className="col-span-1 md:max-w-[60%] w-full">
+            <div className="col-span-1 md:max-w-[70%] w-full">
               <div className="w-full flex flex-col items-start gap-2">
                 <div className="flex gap-1 items-center">
                   <span className="flex  items-center">
@@ -505,7 +519,7 @@ const LandingPage = () => {
                     Sterling Dictionary
                   </p>
                 </div>
-                <p className="text-[#BCBCBC] text-[18px] mt-3 mb-6">
+                <p className="text-[#BCBCBC] font-inter-sans leading-7 text-[18px] mt-3 mb-6">
                   Effortlessly turn your ideas into a fully functional,
                   responsive, no-code SaaS website.
                 </p>
@@ -521,30 +535,66 @@ const LandingPage = () => {
               </div>
             </div>
             <div className="col-span-1">
-              <div className="w-full flex justify-evenly items-start">
+              <div className="w-full flex justify-between items-start">
                 <div className="flex flex-col items-start gap-4">
-                  <p className="text-[20px] text-white font-bold">Product</p>
-                  <p className="text-[20px] text-[#676767]">Features</p>
-                  <p className="text-[20px] text-[#676767]">Integrations</p>
-                  <p className="text-[20px] text-[#676767]">Updates</p>
-                  <p className="text-[20px] text-[#676767]">FAQ</p>
-                  <p className="text-[20px] text-[#676767]">Pricing</p>
+                  <p className="text-[20px] text-white font-bold font-inter-sans">
+                    Product
+                  </p>
+                  <p className="text-[20px] text-[#676767] font-inter-sans">
+                    Features
+                  </p>
+                  <p className="text-[20px] text-[#676767] font-inter-sans">
+                    Integrations
+                  </p>
+                  <p className="text-[20px] text-[#676767] font-inter-sans">
+                    Updates
+                  </p>
+                  <p className="text-[20px] text-[#676767] font-inter-sans">
+                    FAQ
+                  </p>
+                  <p className="text-[20px] text-[#676767] font-inter-sans">
+                    Pricing
+                  </p>
                 </div>
                 <div className="flex flex-col items-start gap-4 ">
-                  <p className="text-[20px] text-white font-bold">Company</p>
-                  <p className="text-[20px] text-[#676767]">About</p>
-                  <p className="text-[20px] text-[#676767]">Blog</p>
-                  <p className="text-[20px] text-[#676767]">Careers</p>
-                  <p className="text-[20px] text-[#676767]">Manifesto</p>
-                  <p className="text-[20px] text-[#676767]">Press</p>
-                  <p className="text-[20px] text-[#676767]">Contact</p>
+                  <p className="text-[20px] text-white font-bold font-inter-sans">
+                    Company
+                  </p>
+                  <p className="text-[20px] text-[#676767] font-inter-sans">
+                    About
+                  </p>
+                  <p className="text-[20px] text-[#676767] font-inter-sans">
+                    Blog
+                  </p>
+                  <p className="text-[20px] text-[#676767] font-inter-sans">
+                    Careers
+                  </p>
+                  <p className="text-[20px] text-[#676767] font-inter-sans">
+                    Manifesto
+                  </p>
+                  <p className="text-[20px] text-[#676767] font-inter-sans">
+                    Press
+                  </p>
+                  <p className="text-[20px] text-[#676767] font-inter-sans">
+                    Contact
+                  </p>
                 </div>
                 <div className="flex flex-col items-start gap-4">
-                  <p className="text-[20px] text-white font-bold">Resources</p>
-                  <p className="text-[20px] text-[#676767]">Examples</p>
-                  <p className="text-[20px] text-[#676767]">Community</p>
-                  <p className="text-[20px] text-[#676767]">Guides</p>
-                  <p className="text-[20px] text-[#676767]">Docs</p>
+                  <p className="text-[20px] text-white font-bold font-inter-sans">
+                    Resources
+                  </p>
+                  <p className="text-[20px] text-[#676767] font-inter-sans">
+                    Examples
+                  </p>
+                  <p className="text-[20px] text-[#676767] font-inter-sans">
+                    Community
+                  </p>
+                  <p className="text-[20px] text-[#676767] font-inter-sans">
+                    Guides
+                  </p>
+                  <p className="text-[20px] text-[#676767] font-inter-sans">
+                    Docs
+                  </p>
                 </div>
               </div>
             </div>

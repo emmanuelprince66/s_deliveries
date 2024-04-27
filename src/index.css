@@ -1,32 +1,45 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,500;1,100&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap");
-
+@import url('https://fonts.cdnfonts.com/css/satoshi');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Inter:wght@100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-  html {
-    font-family: "RaleWay", sans-serif;
-  }
+/* Font families */
+.font-montserrat {
+  font-family: "Montserrat", sans-serif;
 }
 
-/* Track */
+.font-raleway {
+  font-family: "Raleway", sans-serif;
+}
+
+.font-great-vibes {
+  font-family: "Great Vibes", sans-serif;
+}
+.font-satoshi {
+  font-family: "Satoshi", sans-serif;
+}
+
+
+.font-dm-sans {
+  font-family: "DM Sans", sans-serif;
+}
+.font-inter-sans {
+  font-family: "Inter", sans-serif;
+}
+/* Custom scrollbar */
 ::-webkit-scrollbar-track {
   background: transparent;
 }
 
-/* Vertical Thumb */
 ::-webkit-scrollbar-thumb:vertical {
-  background-color: #a0a0a0; /* Set the desired background color for the vertical thumb */
+  background-color: #a0a0a0;
 }
 
-/* Remove only the horizontal scrollbar */
 ::-webkit-scrollbar {
-  width: 6px; /* Set the desired width for the vertical scrollbar */
-  height: 0px; /* Set height to 0 to remove horizontal scrollbar */
-}
-:nth-last-of-type() .input-placeholder::placeholder {
-  color: #ffb1b3;
-  font-size: 10px;
+  width: 6px;
+  height: 0px;
 }

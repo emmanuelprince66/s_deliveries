@@ -8,6 +8,6 @@ export const AuthAxios = Axios.create({
 
 // Axios instance for authentication related calls
 export const BaseAxios = Axios.create({
-  baseURL: "https://mycliq-staging-6cffceb00c13.herokuapp.com/api/",
+  baseURL: "https://sterling-dictionary.onrender.com/api/v1/",
   withCredentials: false,
 });

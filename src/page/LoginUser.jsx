@@ -107,9 +107,7 @@ const LoginUser = () => {
             >
               {/* Email Address Field */}
 
-              <p className="text-white w-full text-center ">
-                Login as a User
-              </p>
+              <p className="text-white w-full text-center ">Login as a User</p>
 
               <TextField
                 sx={{
@@ -221,7 +219,7 @@ const LoginUser = () => {
                 }
                 disabled={adminLoginMutation.isLoading || showSpinner}
                 type="submit"
-                style="bg-[#373737] w-full hover:bg-red-400 text-white focus-visible:outline-red-600 mt-3"
+                style="bg-[#EB2529] w-full hover:bg-red-400 text-white focus-visible:outline-red-600 mt-3"
               />
             </form>
             <p className="text-[15px] text-white mt-5">
