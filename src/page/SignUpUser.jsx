@@ -49,7 +49,7 @@ const SignUpUser = () => {
 
         if (response.status !== 200) {
           setShowSpinner(false);
-          throw new Error(response.data.message);
+          throw new Error(response);
         }
         return response.data;
       } catch (error) {

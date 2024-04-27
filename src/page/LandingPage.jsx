@@ -133,7 +133,7 @@ const LandingPage = () => {
 
       <div className="mx-auto md:max-w-[62.5%] flex-col items-center  justify-center">
         <div className="mx-auto md:max-w-[100%] w-[93%] mt-[5%]  text-center  flex-col ">
-          <p className="md:text-8xl text-[48px] font-inter-sans leading-10  text-white font-bold">
+          <p className="md:text-8xl text-[48px] font-dm-sans  leading-4  text-white font-bold">
             Find a meaning for every word.
           </p>
           <p className="md:text-[20px] w-[90%] mx-auto font-dm-sans  text-[15px] text-[#D0D0D0] my-5">

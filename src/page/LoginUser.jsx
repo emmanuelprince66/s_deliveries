@@ -140,7 +140,7 @@ const LoginUser = () => {
                   startAdornment: (
                     <InputAdornment position="start">
                       <EmailRoundedIcon sx={{ color: "#B4B4B4" }} />
-                      <span className="ml-[.3em] w-[1px]"> &nbsp;&nbsp; </span>
+                      <span className="ml-[.3em] w-[1px]"> | </span>
                     </InputAdornment>
                   ),
                 }}
@@ -177,8 +177,7 @@ const LoginUser = () => {
                     <InputAdornment position="start">
                       <LockRoundedIcon sx={{ color: "#B4B4B4" }} />
                       <span className="bg-grey_1 ml-[.3em] w-[1px]">
-                        {" "}
-                        &nbsp;&nbsp;{" "}
+                      |
                       </span>
                     </InputAdornment>
                   ),

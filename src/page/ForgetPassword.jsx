@@ -19,6 +19,7 @@ import LocalPhoneRoundedIcon from "@mui/icons-material/LocalPhoneRounded";
 import { InputAdornment, TextField } from "@mui/material";
 import EmailRoundedIcon from "@mui/icons-material/EmailRounded";
 import LockRoundedIcon from "@mui/icons-material/LockRounded";
+
 const ForgetPassword = () => {
   const navigate = useNavigate();
   const [showSpinner, setShowSpinner] = useState(false);
@@ -126,18 +127,18 @@ const ForgetPassword = () => {
                 type="tel"
                 name="phone"
                 {...register("email", {
-                  required: "Phone Number is required",
-                  //   pattern: {
-                  //     value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
-                  //     message: "Invalid email format",
-                  //   },
+                  required: "Email is required",
+                  pattern: {
+                    value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
+                    message: "Invalid email format",
+                  },
                 })}
                 className="rounded-2xl input-placeholder outline-none border-none bg-white  w-full"
-                placeholder=" Your Phone Number.."
+                placeholder=" Your Email Number.."
                 InputProps={{
                   startAdornment: (
                     <InputAdornment position="start">
-                      <LocalPhoneRoundedIcon sx={{ color: "#B4B4B4" }} />
+                      <EmailRoundedIcon sx={{ color: "#B4B4B4" }} />
                       <span className="ml-[.3em] w-[1px]"> &nbsp;&nbsp; </span>
                     </InputAdornment>
                   ),
