@@ -208,7 +208,7 @@ const LoginUser = () => {
                 </span>
               )}
               {/* Submit Button */}
-              <CustomButton
+              {/* <CustomButton
                 text={
                   showSpinner || adminLoginMutation.isLoading ? (
                     <Spinner />
@@ -217,6 +217,12 @@ const LoginUser = () => {
                   )
                 }
                 disabled={adminLoginMutation.isLoading || showSpinner}
+                type="submit"
+                style="bg-[#EB2529] w-full hover:bg-red-400 text-white focus-visible:outline-red-600 mt-3"
+              /> */}
+              <CustomButton
+                text="Login"
+                path="/user"
                 type="submit"
                 style="bg-[#EB2529] w-full hover:bg-red-400 text-white focus-visible:outline-red-600 mt-3"
               />

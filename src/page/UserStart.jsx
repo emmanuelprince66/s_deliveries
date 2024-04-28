@@ -40,6 +40,7 @@ const {
                     "&.Mui-focused fieldset": {
                       border: "none", // Remove border on focus
                       boxShadow: "none", // Remove box-shadow on focus
+                      outline:"none"
                     },
                   },
                   "& .MuiInputBase-input": {
@@ -59,7 +60,7 @@ const {
                     message: "Invalid email format",
                   },
                 })}
-                className="rounded-2xl input-placeholder outline-none border-none bg-white  w-full"
+                className="rounded-md  outline-none border-none bg-white  w-full"
                 placeholder=" Type something here..."
                 InputProps={{
                   startAdornment: (

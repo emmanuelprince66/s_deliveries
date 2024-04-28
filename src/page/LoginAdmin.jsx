@@ -220,6 +220,12 @@ const {
               )}
               {/* Submit Button */}
               <CustomButton
+                text=
+                    "Login"
+                    path="/add"
+                style="bg-[#EB2529] w-full hover:bg-red-400 text-white focus-visible:outline-red-600 mt-3"
+              />
+              {/* <CustomButton
                 text={
                   showSpinner || adminLoginMutation.isLoading ? (
                     <Spinner />
@@ -230,7 +236,7 @@ const {
                 disabled={adminLoginMutation.isLoading || showSpinner}
                 type="submit"
                 style="bg-[#EB2529] w-full hover:bg-red-400 text-white focus-visible:outline-red-600 mt-3"
-              />
+              /> */}
             </form>
             {/* <p className="text-[15px] text-white mt-5">
               Don’t have an account? click{" "}
