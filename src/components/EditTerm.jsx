@@ -157,7 +157,7 @@ const EditTerm = () => {
       </div>
 
       {isOpen && (
-        <div class="fixed inset-0 z-50 flex items-center justify-center   bg-gray-900 bg-opacity-50">
+        <div class="fixed inset-0 z-50 flex items-center justify-center   bg-opacity-50">
           <div class="bg-[#1d1d1d] rounded-lg border border-[#444444] shadow-lg px-6 pb-6 pt-3 w-[90%] max-w-[50%]">
             <div className="flex flex-col items-start justify-center gap-2 w-full">
               <p className="font-dm-sans text-white text-[15px]">Title</p>
