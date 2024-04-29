@@ -3,7 +3,7 @@ import CustomButton from "./CustomButton";
 import { InputAdornment, TextField } from "@mui/material";
 import { useForm } from "react-hook-form";
 import TextareaAutosize from "@mui/material/TextareaAutosize";
-
+import line from "../images/line.svg"
 import yOne from "../images/y-1.svg"
 import yTwo from "../images/y-2.svg"
 import yThree from "../images/y-3.svg"
@@ -22,7 +22,10 @@ const {
     >
       <TextField
         sx={{
-        mb:"0.2rem",
+          mb: "0.2rem",
+          "::placeholder": {
+            fontFamily: "DM Sans", // Replace 'Your Font Family' with the desired font family
+          },
           "& .MuiOutlinedInput-root": {
             "&.Mui-focused fieldset": {
               border: "none", // Remove border on focus
@@ -30,8 +33,8 @@ const {
             },
           },
           "& .MuiInputBase-input": {
-            paddingTop: "0.6em", // Adjust top padding of the input text
-            paddingBottom: "0.6em", // Adjust bottom padding of the input text
+            paddingTop: "0.8em", // Adjust top padding of the input text
+            paddingBottom: "0.8em", // Adjust bottom padding of the input text
           },
           "& .MuiInputLabel-root": {
             marginTop: "0.5em", // Adjust top margin of the label
@@ -42,21 +45,27 @@ const {
         {...register("word", {
           required: "Word is required",
         })}
-        className="rounded-2xl input-placeholder outline-none border-none bg-white  w-full"
+        className="rounded-[15px] input-placeholder outline-none border-none bg-white  w-full"
         placeholder=" Enter new word phrase,term,anything.."
         InputProps={{
           startAdornment: (
             <InputAdornment position="start">
-              <img src={yTwo} alt="y-1" className="w-5 h-5" />
-              <span className="ml-[.3em] w-[1px]"> | </span>
+              <img src={yTwo} alt="y-1" className="w-4 h-4" />
+              <img src={line} alt="" className="h-7 ml-3" />
             </InputAdornment>
           ),
         }}
       />
       <TextareaAutosize
-        style={{ minHeight: "100px", maxHeight: "300px" }} // Adjust the minHeight and maxHeight as needed
-        className="rounded-2xl input-placeholder outline-none border-none bg-white w-full px-4 py-3" // Apply custom classes for styling
-        placeholder="What does this mean..."
+        style={{
+          minHeight: "100px",
+          maxHeight: "300px",
+          "::placeholder": {
+            fontFamily: "DM Sans", // Replace 'Your Font Family' with the desired font family
+          },
+        }} // Adjust the minHeight and maxHeight as needed
+        className="rounded-[15px] input-placeholder outline-none border-none bg-white w-full px-4 py-3" // Apply custom classes for styling
+        placeholder="What does this mean?"
         {...register("meaning", {
           required: "Meaning is required",
         })}
@@ -64,7 +73,7 @@ const {
 
       <TextField
         sx={{
-        my:"0.2rem",
+          my: "0.2rem",
           "& .MuiOutlinedInput-root": {
             "&.Mui-focused fieldset": {
               border: "none", // Remove border on focus
@@ -72,8 +81,8 @@ const {
             },
           },
           "& .MuiInputBase-input": {
-            paddingTop: "0.6em", // Adjust top padding of the input text
-            paddingBottom: "0.6em", // Adjust bottom padding of the input text
+            paddingTop: "0.8em", // Adjust top padding of the input text
+            paddingBottom: "0.8em", // Adjust bottom padding of the input text
           },
           "& .MuiInputLabel-root": {
             marginTop: "0.5em", // Adjust top margin of the label
@@ -82,13 +91,13 @@ const {
         type="text"
         name="link"
         {...register("link")}
-        className="rounded-2xl input-placeholder outline-none border-none bg-white   w-full"
+        className="rounded-[15px] input-placeholder outline-none border-none bg-white   w-full"
         placeholder=" Add a link(Optional).."
         InputProps={{
           startAdornment: (
             <InputAdornment position="start">
-              <img src={yOne} alt="y-1" className="w-5 h-5" />
-              <span className="ml-[.3em] w-[1px]"> | </span>
+              <img src={yOne} alt="y-1" className="w-4 h-4" />
+              <img src={line} alt="" className="h-7 ml-3" />
             </InputAdornment>
           ),
         }}
@@ -97,7 +106,7 @@ const {
       <CustomButton
         text="Add"
         onClick={handleSubmit} // Pass handleSubmit as onClick
-        style="bg-[#DB363A] font-dm-sans w-full text-white hover:bg-red-400 focus-visible:outline-red-600"
+        style="bg-[#DB363A] font-dm-sans flex justify-center items-center h-[45px] rounded-[15px] w-full text-white hover:bg-red-400 focus-visible:outline-red-600"
       />
     </form>
   );

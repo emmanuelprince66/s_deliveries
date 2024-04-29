@@ -6,6 +6,7 @@ import { useState } from "react";
 import CustomButton from "./CustomButton";
 import { useForm } from "react-hook-form";
 import SearchRoundedIcon from "@mui/icons-material/SearchRounded";
+import line from "../images/line.svg";
 
 import TextareaAutosize from "@mui/material/TextareaAutosize";
 
@@ -79,8 +80,8 @@ const EditTerm = () => {
                 },
               },
               "& .MuiInputBase-input": {
-                paddingTop: "0.6em", // Adjust top padding of the input text
-                paddingBottom: "0.6em", // Adjust bottom padding of the input text
+                paddingTop: "0.8em", // Adjust top padding of the input text
+                paddingBottom: "0.8em", // Adjust bottom padding of the input text
               },
               "& .MuiInputLabel-root": {
                 marginTop: "0.5em", // Adjust top margin of the label
@@ -101,7 +102,7 @@ const EditTerm = () => {
               startAdornment: (
                 <InputAdornment position="start">
                   <SearchRoundedIcon sx={{ color: "#B4B4B4" }} />
-                  <span className="ml-[.3em] w-[1px]"> | </span>
+                  <img src={line} alt="" className="h-7 ml-3" />
                 </InputAdornment>
               ),
             }}
@@ -117,7 +118,7 @@ const EditTerm = () => {
           Array.isArray(termArray) &&
           termArray.map((term) => (
             <div
-              className="w-full flex flex-col items-start gap-5  border-b border-gray-300 pb-3 mb-4"
+              className="w-full flex flex-col items-start gap-5  border-b border-[#262626] pb-3 mb-4"
               key={term?.id}
             >
               <div className="flex items-center w-full justify-between">

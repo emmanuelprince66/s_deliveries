@@ -11,7 +11,9 @@ const CustomButton = ({ text, style, path, onClick , disabled }) => {
             className={`flex 
               justify-center 
               ${style}
-              rounded-2xl px-3 py-2 
+              rounded-[15px]
+              px-3 py-2 
+              
               text-sm font-semibold leading-6
               shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 transition-colors duration-700 ease-in-out`}
           >
@@ -25,8 +27,9 @@ const CustomButton = ({ text, style, path, onClick , disabled }) => {
           onClick={onClick}
           className={`flex 
             justify-center 
+            rounded-[15px]
             ${style}
-            rounded-2xl px-3 py-2 
+             px-3 py-2 
             text-sm font-semibold leading-6
             shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 transition-colors duration-700 ease-in-out`}
         >

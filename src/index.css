@@ -11,6 +11,11 @@
 .font-montserrat {
   font-family: "Montserrat", sans-serif;
 }
+::placeholder {
+font-family:  "DM Sans", sans-serif !important;
+font-weight:800 !important;
+
+}
 
 .font-raleway {
   font-family: "Raleway", sans-serif;
@@ -36,7 +41,7 @@
 }
 
 ::-webkit-scrollbar-thumb:vertical {
-  background-color: #a0a0a0;
+  background-color: transparent;
 }
 
 ::-webkit-scrollbar {
