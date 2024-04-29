@@ -20,19 +20,19 @@ const {
       
   return (
     <div className="w-full bg-[#171414] h-screen p-2 md:p-8 relative">
-      <div className="w-[100%] md:w-[62.5%] bg-[#000] relative rounded-2xl mx-auto mb-4 p-4 pb-8">
+      <div className="w-[100%] md:w-[82.5%] lg:w-[62.5%] bg-[#000] relative rounded-2xl mx-auto mb-4 p-4 pb-8">
         <div className="flex flex-col w-full items-center justify-center ">
-          <div className="w-[90%] mx-auto flex justify-end mb-[5%]">
-            <button className=" bg-[#EB2529] py-2 px-4 font-dm-sans  rounded-md  hover:bg-red-400 text-white focus-visible:outline-red-600 mt-3">
+          <div className="w-[100%] md:w-[90%] lg:w-[90%] mx-auto flex justify-end mb-[5%]">
+            <button className=" bg-[#EB2529] py-2 px-4 font-dm-sans  rounded-md  hover:bg-red-400 text-white focus-visible:outline-red-600 mt-0 md:mt-3 lg:mt-3">
               Logout
             </button>
           </div>
 
-          <div className="w-[100px] h-[100px]">
+          <div className="w-[100px] h-[100px] mt-4 md:mt-0 lg:mt-0">
             <img src={aOne} alt="a-1" className=" object-contain" />
           </div>
 
-          <form action="" className="w-[70%] ">
+          <form action="" className="w-[100%] md:w-[80%] lg:w-[70%] ">
             <div className="relative rounded-2xl bg-[#ffefef] w-full">
               <TextField
                 sx={{
@@ -40,7 +40,7 @@ const {
                     "&.Mui-focused fieldset": {
                       border: "none", // Remove border on focus
                       boxShadow: "none", // Remove box-shadow on focus
-                      outline:"none"
+                      outline: "none",
                     },
                   },
                   "& .MuiInputBase-input": {
@@ -77,13 +77,13 @@ const {
             </div>
           </form>
 
-          <div className="absolute w-[120px] h-[120px] right-[-1.5%] bottom-0 md:bottom-0">
+          <div className="absolute w-[30px] h-[30px]  lg:w-[120px] lg:h-[120px]  md:w-[80px] md:h-[80px] right-[-1.5%] bottom-0 md:bottom-0">
             <img src={aThree} alt="a-3" className="object-contain" />
           </div>
         </div>
       </div>
 
-      <div className="w-[50%] md:w-[52.5%] mx-auto flex flex-col items-start gap-3  overflow-y-scroll max-h-[40vh]">
+      <div className="w-[100%] md:w-[82.5%] lg:w-[52.5%] mx-auto flex flex-col items-start gap-3  overflow-y-scroll max-h-[55vh] md:max-h-[55vh] lg:max-h-[40vh]">
         <div className="flex flex-col items-start gap-4 w-full">
           <p className="rounded-md p-2 font-bold text-[20px] font-dm-sans text-[#B4B4B4] bg-[#262525]">
             BMC
@@ -141,7 +141,7 @@ const {
         <Divider sx={{ width: "100%", background: "#262626" }} />
       </div>
 
-      <div className="absolute w-[120px] h-[120px] left-0 bottom-0 md:bottom-20">
+      <div className="absolute w-[30px] h-[30px]  lg:w-[120px] lg:h-[120px]  md:w-[80px] md:h-[80px] left-0 bottom-5 md:bottom-20">
         <img src={aTwo} alt="a-w" className="object-contain" />
       </div>
     </div>

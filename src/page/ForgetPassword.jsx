@@ -86,17 +86,20 @@ const ForgetPassword = () => {
 
   return (
     <div className="w-full bg-[#1e1e1e] h-screen flex justify-center items-center">
-      <div className="w-[95%] md:w-[50%] flex justify-center  items-center h-[90%] relative ">
+      <div className="w-[95%] md:w-[100%] lg:w-[50%] flex justify-center  items-center md:h-[50%] lg:h-[90%] h-[90%] relative ">
         <div className="absolute w-[100px] h-[100px] right-0 top-0">
           <img src={aThree} alt="a-3" className="object-contain" />
         </div>
         <div className=" w-[100%] md:w-[70%] bg-black rounded-[1rem] h-[90%]">
-          <button onClick={handleGoBack} className="p-5 my-4 text-white">
+          <button
+            onClick={handleGoBack}
+            className="p-5 my-4 text-white font-dm-sans"
+          >
             Go Back
           </button>
 
           <div className="w-full flex flex-col items-center mt-[5rem] md:mt-[0rem] justify-end gap-3 ">
-            <div className="w-full flex justify-center mt-[5rem]">
+            <div className="w-full flex justify-center  mt-[1rem] md:mt-[5rem] lg:mt-[5rem] ">
               <div className="w-[100px] h-[100px]">
                 <img src={aOne} alt="a-1" className=" object-contain" />
               </div>
@@ -117,8 +120,8 @@ const ForgetPassword = () => {
                     },
                   },
                   "& .MuiInputBase-input": {
-                    paddingTop: "0.6em", // Adjust top padding of the input text
-                    paddingBottom: "0.6em", // Adjust bottom padding of the input text
+                    paddingTop: "0.9em", // Adjust top padding of the input text
+                    paddingBottom: "0.9em", // Adjust bottom padding of the input text
                   },
                   "& .MuiInputLabel-root": {
                     marginTop: "0.5em", // Adjust top margin of the label
@@ -161,7 +164,7 @@ const ForgetPassword = () => {
                 }
                 disabled={resetPasswordMutation.isLoading || showSpinner}
                 type="submit"
-                style="bg-[#EB2529] w-full hover:bg-red-400 text-white focus-visible:outline-red-600 mt-3"
+                style="bg-[#EB2529] w-full hover:bg-red-400 h-[45px] text-white focus-visible:outline-red-600 mt-3"
               />
             </form>
           </div>

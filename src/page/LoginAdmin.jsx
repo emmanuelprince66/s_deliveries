@@ -15,6 +15,8 @@ import { Link } from "react-router-dom";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import IconButton from "@mui/material/IconButton";
+import lockIcon from "../images/lock.svg"
+import emailIcon from "../images/email.svg"
 
 import {
   InputAdornment,
@@ -95,49 +97,35 @@ const {
   };
 
   return (
-    <div className="w-full bg-[#1e1e1e] h-screen flex justify-center items-center">
-      <div className="w-[95%] md:w-[50%] flex justify-center  items-center h-[90%] relative ">
-        <div className="absolute w-[100px] h-[100px] right-0 top-0">
-          <img src={aThree} alt="a-3" className="object-contain" />
-        </div>
-        <div className=" w-[100%] md:w-[70%] bg-black rounded-[1rem] h-[90%]">
-          <button onClick={handleGoBack} className="p-5 my-4 text-white">
-            Go Back
-          </button>
+    <div className="w-full bg-[#1e1e1e] min-h-screen flex justify-center items-center">
+      <div className="w-full md:w-[95%] xl:w-[50%] flex justify-center items-center relative">
+        <img
+          src={aThree}
+          alt="a-3"
+          className="absolute w-[100px] h-[100px] top-0 right-0"
+        />
 
-          <div className="w-full flex flex-col items-center mt-[5rem] md:mt-[0rem] justify-end gap-3 ">
-            <div className="w-full flex justify-center">
-              <div className="w-[100px] h-[100px]">
-                <img src={aOne} alt="a-1" className=" object-contain" />
-              </div>
-            </div>
-
-            <form
-              onSubmit={handleSubmit(onSubmit)}
-              className=" w-[95%] md:w-[70%] flex flex-col items-start mt-[-2rem] justify-center gap-3  "
+        <div className="w-[95%] md:w-[80%] xl:w-[70%] bg-black rounded-[1rem] h-[90vh] md:h-[90%] flex flex-col items-center justify-center gap-6 p-2 md:p-12 xl:p-6 ">
+          <div className="w-full justify-start">
+            <button
+              onClick={handleGoBack}
+              className="p-5 my-4 text-white font-dm-sans "
             >
-              {/* Email Address Field */}
+              Go Back
+            </button>
+          </div>
 
-              <p className="text-white w-full text-center ">
-                Login as an Administrator
-              </p>
+          <h2 className="text-white text-center font-dm-sans">
+            Login as an Administrator
+          </h2>
 
+          <form
+            onSubmit={handleSubmit(onSubmit)}
+            className="w-full flex flex-col items-center gap-6"
+          >
+            {/* Email Address Field */}
+            <div className="w-full">
               <TextField
-                sx={{
-                  "& .MuiOutlinedInput-root": {
-                    "&.Mui-focused fieldset": {
-                      border: "none", // Remove border on focus
-                      boxShadow: "none", // Remove box-shadow on focus
-                    },
-                  },
-                  "& .MuiInputBase-input": {
-                    paddingTop: "0.6em", // Adjust top padding of the input text
-                    paddingBottom: "0.6em", // Adjust bottom padding of the input text
-                  },
-                  "& .MuiInputLabel-root": {
-                    marginTop: "0.5em", // Adjust top margin of the label
-                  },
-                }}
                 type="text"
                 name="email"
                 {...register("email", {
@@ -147,48 +135,44 @@ const {
                     message: "Invalid email format",
                   },
                 })}
-                className="rounded-2xl input-placeholder outline-none border-none bg-white  w-full"
-                placeholder=" Your Email Address.."
+                placeholder="Your Email Address.."
+                className="rounded-2xl input-placeholder outline-none border-none bg-white w-full"
                 InputProps={{
                   startAdornment: (
                     <InputAdornment position="start">
-                      <EmailRoundedIcon sx={{ color: "#B4B4B4" }} />
+                      <img
+                        src={emailIcon}
+                        className="w-[20px] h-[20px] bg-#B4B4B4"
+                      />
                       <span className="ml-[.3em] w-[1px]"> | </span>
                     </InputAdornment>
                   ),
                 }}
               />
               {errors.email && (
-                <span className="text-red-500 text-[10px] mt-[-5px]">
+                <span className="text-red-500 text-xs mt-[-5px]">
                   {errors.email.message}
                 </span>
               )}
-              {/* Password Field */}
+            </div>
+
+            {/* Password Field */}
+            <div className="w-full">
               <TextField
-                sx={{
-                  "& .MuiOutlinedInput-root": {
-                    "&.Mui-focused fieldset": {
-                      border: "none", // Remove border on focus
-                      boxShadow: "none", // Remove box-shadow on focus
-                    },
-                  },
-                  "& .MuiInputBase-input": {
-                    paddingTop: "0.6em", // Adjust top padding of the input text
-                    paddingBottom: "0.6em", // Adjust bottom padding of the input text
-                  },
-                  "& .MuiInputLabel-root": {
-                    marginTop: "0.5em", // Adjust top margin of the label
-                  },
-                }}
                 type={showPassword ? "text" : "password"}
                 name="password"
-                {...register("password", { required: "Password is required" })}
-                className="rounded-2xl input-placeholder outline-none border-none bg-white p-2 w-full"
+                {...register("password", {
+                  required: "Password is required",
+                })}
                 placeholder="Your Password.."
+                className="rounded-2xl input-placeholder outline-none border-none bg-white p-2 w-full"
                 InputProps={{
                   startAdornment: (
                     <InputAdornment position="start">
-                      <LockRoundedIcon sx={{ color: "#B4B4B4" }} />
+                      <img
+                        src={lockIcon}
+                        className="w-[20px] h-[20px] bg-#B4B4B4"
+                      />
                       <span className="bg-grey_1 ml-[.3em] w-[1px]"> |</span>
                     </InputAdornment>
                   ),
@@ -209,51 +193,48 @@ const {
                     </InputAdornment>
                   ),
                 }}
-                inputProps={{
-                  "aria-label": "weight",
-                }}
               />
               {errors.password && (
-                <span className="text-red-500 text-[10px]  mt-[-5px]">
+                <span className="text-red-500 text-xs mt-[-5px]">
                   {errors.password.message}
                 </span>
               )}
-              {/* Submit Button */}
-              <CustomButton
-                text=
-                    "Login"
-                    path="/add"
-                style="bg-[#EB2529] w-full hover:bg-red-400 text-white focus-visible:outline-red-600 mt-3"
-              />
-              {/* <CustomButton
-                text={
-                  showSpinner || adminLoginMutation.isLoading ? (
-                    <Spinner />
-                  ) : (
-                    "Login"
-                  )
-                }
-                disabled={adminLoginMutation.isLoading || showSpinner}
-                type="submit"
-                style="bg-[#EB2529] w-full hover:bg-red-400 text-white focus-visible:outline-red-600 mt-3"
-              /> */}
-            </form>
-            {/* <p className="text-[15px] text-white mt-5">
-              Don’t have an account? click{" "}
-              <Link className="hover:text-red-500" to="user-signup">
-                create
-              </Link>
-            </p> */}
-            <Link to="/forget-password">
-              <p className="text-[15px] hover:text-red-500 text-white">
-                Forgot Password?
-              </p>
-            </Link>
-          </div>
+            </div>
+
+            {/* Submit Button */}
+            <CustomButton
+              text=
+                  "Login"
+                  path="/add"
+              style="bg-[#EB2529] w-full hover:bg-red-400 h-[47px] text-white focus-visible:outline-red-600"
+            />
+            {/* <CustomButton
+              text={
+                showSpinner || adminLoginMutation.isLoading ? (
+                  <Spinner />
+                ) : (
+                  "Login"
+                )
+              }
+              disabled={adminLoginMutation.isLoading || showSpinner}
+              type="submit"
+              style="bg-[#EB2529] w-full hover:bg-red-400 h-[47px] text-white focus-visible:outline-red-600"
+            /> */}
+          </form>
+
+          <Link
+            to="/forget-password"
+            className="text-[15px] hover:text-red-500 font-dm-sans text-white"
+          >
+            Forgot Password?
+          </Link>
         </div>
-        <div className="absolute w-[100px] h-[100px] left-0 bottom-10 md:bottom-40">
-          <img src={aTwo} alt="a-2" className="object-contain" />
-        </div>
+
+        <img
+          src={aTwo}
+          alt="a-2"
+          className="absolute w-[100px] h-[100px] bottom-0 left-0 xl:bottom-40 md:bottom-4"
+        />
       </div>
     </div>
   );

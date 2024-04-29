@@ -44,7 +44,7 @@ const LandingPage = () => {
     setAnchorEl(null);
   };
   return (
-    <div className="h-full w-full bg-primary_black_1 p-3">
+    <div className="h-full md:min-w-[100vw] w-full bg-primary_black_1  p-3">
       <div className="w-[90%] mx-auto justify-end hidden md:flex">
         <div className="flex items-center gap-2 m-5 ">
           <Link to="/login-admin">
@@ -131,7 +131,7 @@ const LandingPage = () => {
 
       {/* possibly hamburger menu for mobile */}
 
-      <div className="mx-auto md:max-w-[62.5%] flex-col items-center  justify-center">
+      <div className="mx-auto xl:max-w-[62.5%] md:max-w-[92.5%] flex-col items-center  justify-center">
         <div className="mx-auto md:max-w-[100%] w-[93%] mt-[5%]  text-center  flex-col ">
           <p className="md:text-8xl text-[48px] font-dm-sans  leading-10 text-white font-bold">
             Find a meaning for every word.
@@ -161,42 +161,43 @@ const LandingPage = () => {
           <p className="col-span-1 text-white text-[38px] font-satoshi  text-center">
             What makes Sterling Dictionary different?
           </p>
-          <div className="col-span-1 w-full  flex flex-col md:flex-row gap-3 items-center  my-2">
-            <div className="flex flex-col gap-2 w-full md:w-[70%] mb-5 md:mb-0  items-start h-full ">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 items-center my-2">
+            <div className="flex flex-col gap-2 w-full lg:w-[90%] md:w-full mb-5 items-start h-full">
               <img src={lTagOne} alt="l-tag-1" className="w-[38px] h-[38px]" />
-              <p className="text-white text-[20px] font-satoshi ">
+              <p className="text-white text-[20px] font-satoshi">
                 Sterling Products
               </p>
-              <p className="text-[#B9B9B9] text-[18px] md:text-[14px]  leading-5 font-inter-sans  ">
+              <p className="text-[#B9B9B9] text-[18px] md:text-[14px] leading-5 font-inter-sans">
                 Know more about various sterling products.
               </p>
             </div>
-            <div className="flex flex-col gap-2 w-full mb-5 md:mb-0  md:w-[70%] items-start h-full ">
+            <div className="flex flex-col gap-2 w-full lg:w-[80%] md:w-full mb-5 items-start h-full">
               <img src={lTagTwo} alt="l-tag-2" className="w-[38px] h-[38px]" />
-              <p className="text-white text-[20px] font-satoshi ">
+              <p className="text-white text-[20px] font-satoshi">
                 Banking Jargons
               </p>
-              <p className="text-[#B9B9B9] text-[18px] md:text-[14px]  leading-5 font-inter-sans ">
+              <p className="text-[#B9B9B9] text-[18px] md:text-[14px] leading-5 font-inter-sans">
                 Have quick look-up of words and acronyms..
               </p>
             </div>
-            <div className="flex flex-col gap-2 w-full md:w-[80%] mb-5 md:mb-0  items-start h-full">
+            <div className="flex flex-col gap-2 w-full lg:w-[100%] md:w-full mb-5 items-start h-full">
               <img src={lTagTwo} alt="l-tag-2" className="w-[38px] h-[38px]" />
-              <p className="text-white text-[20px] font-satoshi ">
+              <p className="text-white text-[20px] font-satoshi">
                 Terminologies
               </p>
-              <p className="text-[#B9B9B9] text-[18px] md:text-[14px] leading-5 font-inter-sans  ">
+              <p className="text-[#B9B9B9] text-[18px] md:text-[14px] leading-5 font-inter-sans">
                 All inclusive essential <br />
                 conversion & automation tools.
               </p>
             </div>
-            <div className="flex flex-col gap-2 w-full md:w-[80%] items-start h-full">
-              <img src={lTagFour} alt="l-tag-4" className="w-[38px] h-[38px]" />
-              <p className="text-white text-[20px] font-satoshi ">
-                Integrate with Outlook
+            <div className="flex flex-col gap-2 w-full lg:w-[100%] md:w-full mb-5 items-start h-full">
+              <img src={lTagTwo} alt="l-tag-2" className="w-[38px] h-[38px]" />
+              <p className="text-white text-[20px] font-satoshi">
+                Integrate with outlook
               </p>
-              <p className="text-[#B9B9B9] text-[18px] md:text-[14px]  leading-5 font-inter-sans  ">
-                Hover on a word in your email and the meaning will pop.
+              <p className="text-[#B9B9B9] text-[18px] md:text-[14px] leading-5 font-inter-sans">
+                Hover on a word in your email <br />
+                and the meaning will pop.
               </p>
             </div>
           </div>
@@ -395,7 +396,7 @@ const LandingPage = () => {
           <div className="col-span-1 ">
             <img src={mFour} alt="m-4" />
           </div>
-          <div className="col-span-1  w-full md:min-w-[24rem] flex flex-col items-start justify-center  gap-4">
+          <div className="col-span-1  w-full md:w-full  lg:min-w-[24rem] flex flex-col items-start justify-center  gap-4">
             <p className="text-[38px] font-satoshi text-white">
               Inventory and shipping
             </p>
@@ -508,7 +509,7 @@ const LandingPage = () => {
         {/* footer */}
         <div className="w-full md:mt-[15%] mb-8 mt-[25%] ">
           <div className="grid md:grid-cols-2 grid-cols-1 md:gap-2 gap-10">
-            <div className="col-span-1 md:max-w-[70%] w-full">
+            <div className="col-span-1 md:w-[90%] lg:max-w-[70%] w-full">
               <div className="w-full flex flex-col items-start gap-2">
                 <div className="flex gap-1 items-center">
                   <span className="flex  items-center">
@@ -537,62 +538,62 @@ const LandingPage = () => {
             <div className="col-span-1">
               <div className="w-full flex justify-between items-start">
                 <div className="flex flex-col items-start gap-4">
-                  <p className="text-[20px] text-white font-bold font-inter-sans">
+                  <p className="text-[17px] md:text-[20px] text-white font-bold font-inter-sans">
                     Product
                   </p>
-                  <p className="text-[20px] text-[#676767] font-inter-sans">
+                  <p className="text-[17px] md:text-[20px] text-[#676767] font-inter-sans">
                     Features
                   </p>
-                  <p className="text-[20px] text-[#676767] font-inter-sans">
+                  <p className="text-[17px] md:text-[20px] text-[#676767] font-inter-sans">
                     Integrations
                   </p>
-                  <p className="text-[20px] text-[#676767] font-inter-sans">
+                  <p className="text-[17px] md:text-[20px] text-[#676767] font-inter-sans">
                     Updates
                   </p>
-                  <p className="text-[20px] text-[#676767] font-inter-sans">
+                  <p className="text-[17px] md:text-[20px] text-[#676767] font-inter-sans">
                     FAQ
                   </p>
-                  <p className="text-[20px] text-[#676767] font-inter-sans">
+                  <p className="text-[17px] md:text-[20px] text-[#676767] font-inter-sans">
                     Pricing
                   </p>
                 </div>
                 <div className="flex flex-col items-start gap-4 ">
-                  <p className="text-[20px] text-white font-bold font-inter-sans">
+                  <p className="text-[17px] md:text-[20px] text-white font-bold font-inter-sans">
                     Company
                   </p>
-                  <p className="text-[20px] text-[#676767] font-inter-sans">
+                  <p className="text-[17px] md:text-[20px] text-[#676767] font-inter-sans">
                     About
                   </p>
-                  <p className="text-[20px] text-[#676767] font-inter-sans">
+                  <p className="text-[17px] md:text-[20px] text-[#676767] font-inter-sans">
                     Blog
                   </p>
-                  <p className="text-[20px] text-[#676767] font-inter-sans">
+                  <p className="text-[17px] md:text-[20px] text-[#676767] font-inter-sans">
                     Careers
                   </p>
-                  <p className="text-[20px] text-[#676767] font-inter-sans">
+                  <p className="text-[17px] md:text-[20px] text-[#676767] font-inter-sans">
                     Manifesto
                   </p>
-                  <p className="text-[20px] text-[#676767] font-inter-sans">
+                  <p className="text-[17px] md:text-[20px] text-[#676767] font-inter-sans">
                     Press
                   </p>
-                  <p className="text-[20px] text-[#676767] font-inter-sans">
+                  <p className="text-[17px] md:text-[20px] text-[#676767] font-inter-sans">
                     Contact
                   </p>
                 </div>
                 <div className="flex flex-col items-start gap-4">
-                  <p className="text-[20px] text-white font-bold font-inter-sans">
+                  <p className="text-[17px] md:text-[20px] text-white font-bold font-inter-sans">
                     Resources
                   </p>
-                  <p className="text-[20px] text-[#676767] font-inter-sans">
+                  <p className="text-[17px] md:text-[20px] text-[#676767] font-inter-sans">
                     Examples
                   </p>
-                  <p className="text-[20px] text-[#676767] font-inter-sans">
+                  <p className="text-[17px] md:text-[20px] text-[#676767] font-inter-sans">
                     Community
                   </p>
-                  <p className="text-[20px] text-[#676767] font-inter-sans">
+                  <p className="text-[17px] md:text-[20px] text-[#676767] font-inter-sans">
                     Guides
                   </p>
-                  <p className="text-[20px] text-[#676767] font-inter-sans">
+                  <p className="text-[17px] md:text-[20px] text-[#676767] font-inter-sans">
                     Docs
                   </p>
                 </div>
