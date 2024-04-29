@@ -16,7 +16,7 @@ const AddTerm = () => {
             Logout
           </button>
         </div>
-        <div className="w-[97%] max-h-[100%] min-h-[70vh] md:min-h-0 md:w-[90%] lg:w-[85%] mx-auto  bg-[#000]  py-5 md:p-10 rounded-2xl">
+        <div className="w-[97%] max-h-[100%]  md:w-[90%] lg:w-[85%] mx-auto  bg-[#000]  py-10 md:py-5 md:p-10 rounded-2xl">
           <div className="w-[100px] h-[60px] mx-auto ">
             <img src={aOne} alt="a-1" className=" object-contain" />
           </div>
