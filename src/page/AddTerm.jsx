@@ -10,13 +10,13 @@ const AddTerm = () => {
   const [isTab1Active, setIsTab1Active] = useState(true);
   return (
     <div className="bg-[#171414] w-full h-screen">
-      <div className=" w-[98%] md:w-[75%] lg:w-[65%] mx-auto relative flex flex-col justify-center items-center">
+      <div className=" w-[98%] md:w-[90%] lg:w-[65%] mx-auto relative flex flex-col justify-center items-center">
         <div className="w-[100%]  md:lg-[70%] lg:w-[80%] mx-auto flex pr-7 pt-3   justify-end mb-[3%]">
           <button className=" bg-[#DB363A] py-2 px-4 font-dm-sans  rounded-sm mb-5 md:mb-0  hover:bg-red-400 text-white focus-visible:outline-red-600 mt-3">
             Logout
           </button>
         </div>
-        <div className="w-[97%] max-h-[100%]  md:w-[90%] lg:w-[85%] mx-auto  bg-[#000]  py-10 md:py-5 md:p-10 rounded-2xl">
+        <div className="w-[97%] max-h-[100%]  md:w-[100%] lg:w-[85%] mx-auto  bg-[#000]  py-10 md:py-8 lg:py-5 md:p-10 rounded-2xl">
           <div className="w-[100px] h-[60px] mx-auto ">
             <img src={aOne} alt="a-1" className=" object-contain" />
           </div>

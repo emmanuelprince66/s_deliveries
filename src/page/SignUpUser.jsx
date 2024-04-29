@@ -11,12 +11,14 @@ import Cookies from "js-cookie";
 import Spinner from "../utils/Spinner";
 import { useMutation, useQuery } from "@tanstack/react-query";
 import "react-toastify/dist/ReactToastify.min.css";
+import lockIcon from "../images/lock.svg";
+import emailIcon from "../images/email.svg";
 import { BaseAxios } from "../helpers/axiosInstance";
 import { Link } from "react-router-dom";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import IconButton from "@mui/material/IconButton";
-
+import line from "../images/line.svg";
 import { InputAdornment, TextField } from "@mui/material";
 import EmailRoundedIcon from "@mui/icons-material/EmailRounded";
 import LockRoundedIcon from "@mui/icons-material/LockRounded";
@@ -38,7 +40,7 @@ const SignUpUser = () => {
     formState: { errors },
   } = useForm();
 
-  const adminLoginMutation = useMutation({
+  const registerUserMutation = useMutation({
     mutationFn: async (payLoad) => {
       try {
         const response = await BaseAxios({
@@ -79,7 +81,7 @@ const SignUpUser = () => {
     };
 
     if (JSON.stringify(password) === JSON.stringify(confirmPassword)) {
-      adminLoginMutation.mutate(payLoad);
+      registerUserMutation.mutate(payLoad);
       setShowSpinner(true);
     } else {
       setTimeout(() => {
@@ -101,218 +103,181 @@ const SignUpUser = () => {
  
 
   return (
-    <div className="w-full bg-[#1e1e1e] h-screen flex justify-center items-center">
-      <div className="w-[95%] md:w-[50%] flex justify-center  items-center h-[90%] relative ">
-        <div className="absolute w-[100px] h-[100px] right-0 top-0">
-          <img src={aThree} alt="a-3" className="object-contain" />
-        </div>
-        <div className=" w-[100%] md:w-[70%] bg-black rounded-[1rem] h-[90%]">
-          <button onClick={handleGoBack} className="p-5 my-4 text-white">
-            Go Back
-          </button>
+    <div className="w-full bg-[#1e1e1e] min-h-screen flex justify-center items-center">
+      <div className="w-full md:w-[95%] xl:w-[50%] flex justify-center items-center relative">
+        <img
+          src={aThree}
+          alt="a-3"
+          className="absolute w-[30px] h-[30px] lg:w-[120px] lg:h-[120px]  md:w-[80px] md:h-[80px] top-0 right-0 "
+        />
 
-          <div className="w-full flex flex-col items-center mt-[5rem] md:mt-[0rem] justify-end gap-3 ">
-            <div className="w-full flex justify-center">
-              <div className="w-[100px] h-[100px]">
-                <img src={aOne} alt="a-1" className=" object-contain" />
-              </div>
-            </div>
+        <div className="w-[95%] md:w-[80%] xl:w-[70%] bg-black rounded-[1rem] h-[70vh] md:h-[50vh] xl:h-[90%] flex flex-col items-start justify-start mt-0 gap-6 p-2 pb-[6rem] xl:pb-0 md:p-12 xl:p-6 ">
+          <div className="w-full">
+            <button
+              onClick={handleGoBack}
+              className=" text-white font-dm-sans p-2 md:p-0 "
+            >
+              Go Back
+            </button>
+          </div>
 
+          <div className="h-full w-full flex gap-5 flex-col items-center justify-end">
             <form
               onSubmit={handleSubmit(onSubmit)}
-              className=" w-[95%] md:w-[70%] flex flex-col items-start mt-[-2rem] justify-center gap-3  "
+              className="w-full flex flex-col items-center gap-6"
             >
               {/* Email Address Field */}
+              <div className="w-full">
+                <TextField
+                  type="text"
+                  name="email"
+                  {...register("email", {
+                    required: "Email is required",
+                    pattern: {
+                      value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
+                      message: "Invalid email format",
+                    },
+                  })}
+                  placeholder="Your Email Address.."
+                  className="rounded-2xl input-placeholder outline-none border-none bg-white w-full"
+                  InputProps={{
+                    startAdornment: (
+                      <InputAdornment position="start">
+                        <img
+                          src={emailIcon}
+                          className="w-[20px] h-[20px] bg-#B4B4B4"
+                        />
+                        <img src={line} alt="" className="h-7 ml-3" />
+                      </InputAdornment>
+                    ),
+                  }}
+                />
+                {errors.email && (
+                  <span className="text-red-500 text-xs mt-[-5px]">
+                    {errors.email.message}
+                  </span>
+                )}
+              </div>
+              <div className="w-full">
+                <TextField
+                  type={showPassword ? "text" : "password"}
+                  name="password"
+                  {...register("password", {
+                    required: "Password is required",
+                  })}
+                  placeholder="Your Password.."
+                  className="rounded-2xl input-placeholder outline-none border-none bg-white p-2 w-full"
+                  InputProps={{
+                    startAdornment: (
+                      <InputAdornment position="start">
+                        <img
+                          src={lockIcon}
+                          className="w-[20px] h-[20px] bg-#B4B4B4"
+                        />
+                        <img src={line} alt="" className="h-7 ml-3" />
+                      </InputAdornment>
+                    ),
+                    endAdornment: (
+                      <InputAdornment position="end">
+                        <IconButton
+                          aria-label="toggle password visibility"
+                          onClick={handleClickShowPassword}
+                          onMouseDown={handleMouseDownPassword}
+                          edge="end"
+                        >
+                          {showPassword ? (
+                            <VisibilityOff sx={{ color: "#B4B4B4" }} />
+                          ) : (
+                            <Visibility sx={{ color: "#B4B4B4" }} />
+                          )}
+                        </IconButton>
+                      </InputAdornment>
+                    ),
+                  }}
+                />
+                {errors.password && (
+                  <span className="text-red-500 text-xs mt-[-5px]">
+                    {errors.password.message}
+                  </span>
+                )}
+              </div>
 
-              <p className="text-white w-full text-center ">
-                Sign up as a User
-              </p>
+              {/* Password Field */}
+              <div className="w-full">
+                <TextField
+                  type={showPassword ? "text" : "password"}
+                  name="confirmPassword"
+                  {...register("confirmPassword", {
+                    required: "Password is required",
+                  })}
+                  placeholder="Your Confirm Password.."
+                  className="rounded-2xl input-placeholder outline-none border-none bg-white p-2 w-full"
+                  InputProps={{
+                    startAdornment: (
+                      <InputAdornment position="start">
+                        <img
+                          src={lockIcon}
+                          className="w-[20px] h-[20px] bg-#B4B4B4"
+                        />
+                        <img src={line} alt="" className="h-7 ml-3" />
+                      </InputAdornment>
+                    ),
+                    endAdornment: (
+                      <InputAdornment position="end">
+                        <IconButton
+                          aria-label="toggle password visibility"
+                          onClick={handleClickShowPassword}
+                          onMouseDown={handleMouseDownPassword}
+                          edge="end"
+                        >
+                          {showPassword ? (
+                            <VisibilityOff sx={{ color: "#B4B4B4" }} />
+                          ) : (
+                            <Visibility sx={{ color: "#B4B4B4" }} />
+                          )}
+                        </IconButton>
+                      </InputAdornment>
+                    ),
+                  }}
+                />
+                {errors.confirmPassword && (
+                  <span className="text-red-500 text-xs mt-[-5px]">
+                    {errors.confirmPassword.message}
+                  </span>
+                )}
+              </div>
 
-              <TextField
-                sx={{
-                  "& .MuiOutlinedInput-root": {
-                    "&.Mui-focused fieldset": {
-                      border: "none", // Remove border on focus
-                      boxShadow: "none", // Remove box-shadow on focus
-                    },
-                  },
-                  "& .MuiInputBase-input": {
-                    paddingTop: "0.6em", // Adjust top padding of the input text
-                    paddingBottom: "0.6em", // Adjust bottom padding of the input text
-                  },
-                  "& .MuiInputLabel-root": {
-                    marginTop: "0.5em", // Adjust top margin of the label
-                  },
-                }}
-                type="text"
-                name="email"
-                {...register("email", {
-                  required: "Email is required",
-                  pattern: {
-                    value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
-                    message: "Invalid email format",
-                  },
-                })}
-                className="rounded-2xl input-placeholder outline-none border-none bg-white  w-full"
-                placeholder=" Your Email Address.."
-                InputProps={{
-                  startAdornment: (
-                    <InputAdornment position="start">
-                      <EmailRoundedIcon sx={{ color: "#B4B4B4" }} />
-                      <span className="ml-[.3em] w-[1px]"> | </span>
-                    </InputAdornment>
-                  ),
-                }}
-              />
-              {errors.email && (
-                <span className="text-red-500 text-[10px] mt-[-5px]">
-                  {errors.email.message}
-                </span>
-              )}
-              {/* Password Field */}
-              <TextField
-                sx={{
-                  "& .MuiOutlinedInput-root": {
-                    "&.Mui-focused fieldset": {
-                      border: "none", // Remove border on focus
-                      boxShadow: "none", // Remove box-shadow on focus
-                    },
-                  },
-                  "& .MuiInputBase-input": {
-                    paddingTop: "0.6em", // Adjust top padding of the input text
-                    paddingBottom: "0.6em", // Adjust bottom padding of the input text
-                  },
-                  "& .MuiInputLabel-root": {
-                    marginTop: "0.5em", // Adjust top margin of the label
-                  },
-                }}
-                type={showPassword ? "text" : "password"}
-                name="password"
-                {...register("password", { required: "Password is required" })}
-                className="rounded-2xl input-placeholder outline-none border-none bg-white p-2 w-full"
-                placeholder="Your Password.."
-                InputProps={{
-                  startAdornment: (
-                    <InputAdornment position="start">
-                      <LockRoundedIcon sx={{ color: "#B4B4B4" }} />
-                      <span className="bg-grey_1 ml-[.3em] w-[1px]">
-                        |
-                      </span>
-                    </InputAdornment>
-                  ),
-                  endAdornment: (
-                    <InputAdornment position="end">
-                      <IconButton
-                        aria-label="toggle password visibility"
-                        onClick={handleClickShowPassword}
-                        onMouseDown={handleMouseDownPassword}
-                        edge="end"
-                      >
-                        {showPassword ? (
-                          <VisibilityOff sx={{ color: "#B4B4B4" }} />
-                        ) : (
-                          <Visibility sx={{ color: "#B4B4B4" }} />
-                        )}
-                      </IconButton>
-                    </InputAdornment>
-                  ),
-                }}
-                inputProps={{
-                  "aria-label": "weight",
-                }}
-              />
-              {errors.password && (
-                <span className="text-red-500 text-[10px]  mt-[-5px]">
-                  {errors.password.message}
-                </span>
-              )}
-              {/* Password Field */}
-              <TextField
-                sx={{
-                  "& .MuiOutlinedInput-root": {
-                    "&.Mui-focused fieldset": {
-                      border: "none", // Remove border on focus
-                      boxShadow: "none", // Remove box-shadow on focus
-                    },
-                  },
-                  "& .MuiInputBase-input": {
-                    paddingTop: "0.6em", // Adjust top padding of the input text
-                    paddingBottom: "0.6em", // Adjust bottom padding of the input text
-                  },
-                  "& .MuiInputLabel-root": {
-                    marginTop: "0.5em", // Adjust top margin of the label
-                  },
-                }}
-                type={showPassword ? "text" : "password"}
-                name="confirmPassword"
-                {...register("confirmPassword", {
-                  required: "confirm Password is required",
-                })}
-                className="rounded-2xl input-placeholder outline-none border-none bg-white p-2 w-full"
-                placeholder="Your Confirm Password.."
-                InputProps={{
-                  startAdornment: (
-                    <InputAdornment position="start">
-                      <LockRoundedIcon sx={{ color: "#B4B4B4" }} />
-                      <span className="bg-grey_1 ml-[.3em] w-[1px]">
-                        | 
-                      </span>
-                    </InputAdornment>
-                  ),
-                  endAdornment: (
-                    <InputAdornment position="end">
-                      <IconButton
-                        aria-label="toggle password visibility"
-                        onClick={handleClickShowPassword}
-                        onMouseDown={handleMouseDownPassword}
-                        edge="end"
-                      >
-                        {showPassword ? (
-                          <VisibilityOff sx={{ color: "#B4B4B4" }} />
-                        ) : (
-                          <Visibility sx={{ color: "#B4B4B4" }} />
-                        )}
-                      </IconButton>
-                    </InputAdornment>
-                  ),
-                }}
-                inputProps={{
-                  "aria-label": "weight",
-                }}
-              />
-              {errors.confirmPassword && (
-                <span className="text-red-500 text-[10px]  mt-[-5px]">
-                  {errors.confirmPassword.message}
-                </span>
-              )}
               {/* Submit Button */}
+
               <CustomButton
                 text={
-                  showSpinner || adminLoginMutation.isLoading ? (
+                  showSpinner || registerUserMutation.isLoading ? (
                     <Spinner />
                   ) : (
                     "Sign Up"
                   )
                 }
-                disabled={adminLoginMutation.isLoading || showSpinner}
+                disabled={registerUserMutation.isLoading || showSpinner}
                 type="submit"
-                style="bg-[#EB2529] w-full hover:bg-red-400 text-white focus-visible:outline-red-600 mt-3"
+                style="bg-[#EB2529] w-full flex justift-center items-center hover:bg-red-400 h-[47px] text-white focus-visible:outline-red-600"
               />
             </form>
 
-            <Link to="/login-user">
-              <p className="text-[15px] hover:text-red-500 text-white">Login</p>
+            <Link
+              to="/forget-password"
+              className="text-[15px] hover:text-red-500 font-dm-sans text-white"
+            >
+              Forgot Password?
             </Link>
           </div>
         </div>
-        <div className="absolute w-[100px] h-[100px] left-0 bottom-10 md:bottom-40">
-          <img src={aTwo} alt="a-2" className="object-contain" />
-        </div>
+
+        <img
+          src={aTwo}
+          alt="a-2"
+          className="absolute w-[30px] h-[30px]  lg:w-[120px] lg:h-[120px]  md:w-[80px] md:h-[80px] bottom-0 left-0 xl:bottom-40 md:bottom-4"
+        />
       </div>
-      <ToastContainer
-        theme="dark"
-        toastStyle={{ background: "#333", color: "#fff" }}
-      />
     </div>
   );
 };

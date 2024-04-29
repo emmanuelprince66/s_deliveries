@@ -19,6 +19,9 @@ import LocalPhoneRoundedIcon from "@mui/icons-material/LocalPhoneRounded";
 import { InputAdornment, TextField } from "@mui/material";
 import EmailRoundedIcon from "@mui/icons-material/EmailRounded";
 import LockRoundedIcon from "@mui/icons-material/LockRounded";
+import lockIcon from "../images/lock.svg";
+import emailIcon from "../images/email.svg";
+import line from "../images/line.svg";
 
 const ForgetPassword = () => {
   const navigate = useNavigate();
@@ -85,93 +88,94 @@ const ForgetPassword = () => {
   };
 
   return (
-    <div className="w-full bg-[#1e1e1e] h-screen flex justify-center items-center">
-      <div className="w-[95%] md:w-[100%] lg:w-[50%] flex justify-center  items-center md:h-[50%] lg:h-[90%] h-[90%] relative ">
-        <div className="absolute w-[100px] h-[100px] right-0 top-0">
-          <img src={aThree} alt="a-3" className="object-contain" />
-        </div>
-        <div className=" w-[100%] md:w-[70%] bg-black rounded-[1rem] h-[90%]">
-          <button
-            onClick={handleGoBack}
-            className="p-5 my-4 text-white font-dm-sans"
-          >
-            Go Back
-          </button>
+    <div className="w-full bg-[#1e1e1e] min-h-screen flex justify-center items-center">
+      <div className="w-full md:w-[95%] xl:w-[50%] flex justify-center items-center relative">
+        <img
+          src={aThree}
+          alt="a-3"
+          className="absolute w-[30px] h-[30px] lg:w-[120px] lg:h-[120px]  md:w-[80px] md:h-[80px] top-0 right-0 "
+        />
 
-          <div className="w-full flex flex-col items-center mt-[5rem] md:mt-[0rem] justify-end gap-3 ">
-            <div className="w-full flex justify-center  mt-[1rem] md:mt-[5rem] lg:mt-[5rem] ">
-              <div className="w-[100px] h-[100px]">
-                <img src={aOne} alt="a-1" className=" object-contain" />
-              </div>
-            </div>
+        <div className="w-[95%] md:w-[80%] xl:w-[70%] bg-black rounded-[1rem] h-[45vh] md:h-[40vh] xl:h-[50vh] flex flex-col items-center justify-start mt-0 gap-6 p-2 py-5  md:p-10 xl:p-6 ">
+          <div className="w-full">
+            <button
+              onClick={handleGoBack}
+              className=" text-white font-dm-sans p-2 md:p-0 "
+            >
+              Go Back
+            </button>
+          </div>
 
+          <div className="h-full w-full flex gap-5 flex-col items-center justify-end">
+         
             <form
               onSubmit={handleSubmit(onSubmit)}
-              className=" w-[95%] md:w-[70%] flex flex-col items-start justify-center gap-3  "
+              className="w-full flex flex-col items-center gap-6"
             >
               {/* Email Address Field */}
-
-              <TextField
-                sx={{
-                  "& .MuiOutlinedInput-root": {
-                    "&.Mui-focused fieldset": {
-                      border: "none", // Remove border on focus
-                      boxShadow: "none", // Remove box-shadow on focus
+              <div className="w-full">
+                <TextField
+                  type="text"
+                  name="email"
+                  {...register("email", {
+                    required: "Email is required",
+                    pattern: {
+                      value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
+                      message: "Invalid email format",
                     },
-                  },
-                  "& .MuiInputBase-input": {
-                    paddingTop: "0.9em", // Adjust top padding of the input text
-                    paddingBottom: "0.9em", // Adjust bottom padding of the input text
-                  },
-                  "& .MuiInputLabel-root": {
-                    marginTop: "0.5em", // Adjust top margin of the label
-                  },
-                }}
-                type="tel"
-                name="phone"
-                {...register("email", {
-                  required: "Email is required",
-                  pattern: {
-                    value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
-                    message: "Invalid email format",
-                  },
-                })}
-                className="rounded-2xl input-placeholder outline-none border-none bg-white  w-full"
-                placeholder=" Your Email Number.."
-                InputProps={{
-                  startAdornment: (
-                    <InputAdornment position="start">
-                      <EmailRoundedIcon sx={{ color: "#B4B4B4" }} />
-                      <span className="ml-[.3em] w-[1px]"> &nbsp;&nbsp; </span>
-                    </InputAdornment>
-                  ),
-                }}
-              />
-              {errors.phone && (
-                <span className="text-red-500 text-[10px] mt-[-5px]">
-                  {errors.phone.message}
-                </span>
-              )}
+                  })}
+                  placeholder="Your Email Address.."
+                  className="rounded-2xl input-placeholder outline-none border-none bg-white w-full"
+                  InputProps={{
+                    startAdornment: (
+                      <InputAdornment position="start">
+                        <img
+                          src={emailIcon}
+                          className="w-[20px] h-[20px] bg-#B4B4B4"
+                        />
+                        <img src={line} alt="" className="h-7 ml-3" />
+                      </InputAdornment>
+                    ),
+                  }}
+                />
+                {errors.email && (
+                  <span className="text-red-500 text-xs mt-[-5px]">
+                    {errors.email.message}
+                  </span>
+                )}
+              </div>
+
+           
 
               {/* Submit Button */}
               <CustomButton
-                text={
-                  showSpinner || resetPasswordMutation.isLoading ? (
-                    <Spinner />
-                  ) : (
-                    "Reset"
-                  )
-                }
-                disabled={resetPasswordMutation.isLoading || showSpinner}
-                type="submit"
-                style="bg-[#EB2529] w-full hover:bg-red-400 h-[45px] text-white focus-visible:outline-red-600 mt-3"
+                text="Reset"
+                path="/add"
+                style="bg-[#EB2529] w-full flex justify-center items-center  hover:bg-red-400 h-[47px] text-white focus-visible:outline-red-600"
               />
+              {/* <CustomButton
+              text={
+                showSpinner || adminLoginMutation.isLoading ? (
+                  <Spinner />
+                ) : (
+                  "Login"
+                )
+              }
+              disabled={adminLoginMutation.isLoading || showSpinner}
+              type="submit"
+              style="bg-[#EB2529] w-full hover:bg-red-400 h-[47px] text-white focus-visible:outline-red-600"
+            /> */}
             </form>
+
+           
           </div>
         </div>
-        <div className="absolute w-[100px] h-[100px] left-0 bottom-10 md:bottom-40">
-          <img src={aTwo} alt="a-2" className="object-contain" />
-        </div>
+
+        <img
+          src={aTwo}
+          alt="a-2"
+          className="absolute w-[30px] h-[30px]  lg:w-[120px] lg:h-[120px]  md:w-[80px] md:h-[80px] bottom-0 left-0 xl:bottom-40 md:bottom-4"
+        />
       </div>
     </div>
   );

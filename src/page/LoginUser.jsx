@@ -17,6 +17,7 @@ import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import IconButton from "@mui/material/IconButton";
 import lockIcon from "../images/lock.svg";
 import emailIcon from "../images/email.svg";
+import line from "../images/line.svg";
 
 import { InputAdornment, TextField } from "@mui/material";
 import EmailRoundedIcon from "@mui/icons-material/EmailRounded";
@@ -100,7 +101,7 @@ const LoginUser   = () => {
           className="absolute w-[30px] h-[30px] lg:w-[120px] lg:h-[120px]  md:w-[80px] md:h-[80px] top-0 right-0 "
         />
 
-        <div className="w-[95%] md:w-[80%] xl:w-[70%] bg-black rounded-[1rem] h-[65vh] md:h-[90%] flex flex-col items-center justify-start mt-0 gap-6 p-2 py-5 md:py-0 md:p-12 xl:p-6 ">
+        <div className="w-[95%] md:w-[80%] xl:w-[70%] bg-black rounded-[1rem] h-[65vh] md:h-[50vh] xl:h-[90%] flex flex-col items-center justify-start mt-0 gap-6 p-2 py-5 xl:py-0 md:p-12 xl:p-6 ">
           <div className="w-full">
             <button
               onClick={handleGoBack}
@@ -139,7 +140,7 @@ const LoginUser   = () => {
                           src={emailIcon}
                           className="w-[20px] h-[20px] bg-#B4B4B4"
                         />
-                        <span className="ml-[.3em] w-[1px]"> | </span>
+                        <img src={line} alt="" className="h-7 ml-3" />
                       </InputAdornment>
                     ),
                   }}
@@ -168,7 +169,7 @@ const LoginUser   = () => {
                           src={lockIcon}
                           className="w-[20px] h-[20px] bg-#B4B4B4"
                         />
-                        <span className="bg-grey_1 ml-[.3em] w-[1px]"> |</span>
+                        <img src={line} alt="" className="h-7 ml-3" />
                       </InputAdornment>
                     ),
                     endAdornment: (
@@ -199,8 +200,8 @@ const LoginUser   = () => {
               {/* Submit Button */}
               <CustomButton
                 text="Login"
-                path="/add"
-                style="bg-[#EB2529] w-full hover:bg-red-400 h-[47px] text-white focus-visible:outline-red-600"
+                path="/user"
+                style="bg-[#EB2529] w-full flex justify-center items-center  hover:bg-red-400 h-[47px] text-white focus-visible:outline-red-600"
               />
               {/* <CustomButton
               text={
@@ -212,7 +213,7 @@ const LoginUser   = () => {
               }
               disabled={adminLoginMutation.isLoading || showSpinner}
               type="submit"
-              style="bg-[#EB2529] w-full hover:bg-red-400 h-[47px] text-white focus-visible:outline-red-600"
+              style="bg-[#EB2529] w-full hover:bg-red-400 flex justify-center items-center  h-[47px] text-white focus-visible:outline-red-600"
             /> */}
             </form>
 
