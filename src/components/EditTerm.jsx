@@ -113,7 +113,7 @@ const EditTerm = () => {
         </div>
       </form>
 
-      <div className="max-h-[39.7vh] overflow-y-scroll w-full">
+      <div className="h-[50.7vh]  md:max-h-[39.7vh] overflow-y-scroll w-full">
         {termArray &&
           Array.isArray(termArray) &&
           termArray.map((term) => (
