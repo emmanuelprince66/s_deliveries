@@ -133,7 +133,7 @@ const LandingPage = () => {
 
       <div className="mx-auto xl:max-w-[62.5%] md:max-w-[92.5%] flex-col items-center  justify-center">
         <div className="mx-auto md:max-w-[100%] w-[93%] mt-[5%]  text-center  flex-col ">
-          <p className="md:text-8xl text-[48px] font-dm-sans  leading-10 text-white font-bold">
+          <p className="md:text-8xl text-[48px] font-dm-sans leading-[3rem] md:leading-10 text-white font-bold">
             Find a meaning for every word.
           </p>
           <p className="md:text-[20px] w-[90%] mx-auto font-dm-sans  text-[15px] text-[#D0D0D0] my-5">
@@ -180,7 +180,7 @@ const LandingPage = () => {
                 Have quick look-up of words and acronyms..
               </p>
             </div>
-            <div className="flex flex-col gap-2 w-full lg:w-[20rem] ml-0 lg:ml-[-1.4rem]  md:w-full mb-5 items-start h-full">
+            <div className="flex flex-col gap-2 w-full  md:w-full lg:w-[20rem] ml-0 lg:ml-[-1.4rem]   mb-5 items-start h-full">
               <img src={lTagTwo} alt="l-tag-2" className="w-[38px] h-[38px]" />
               <p className="text-white text-[20px] font-satoshi">
                 Terminologies
@@ -190,7 +190,7 @@ const LandingPage = () => {
                 conversion & automation tools.
               </p>
             </div>
-            <div className="flex flex-col gap-2 w-full lg:w-[100%] md:w-full mb-5 items-start h-full">
+            <div className="flex flex-col gap-2 w-full  mb-5 items-start h-full">
               <img src={lTagTwo} alt="l-tag-2" className="w-[38px] h-[38px]" />
               <p className="text-white text-[20px] font-satoshi">
                 Integrate with outlook
@@ -266,7 +266,7 @@ const LandingPage = () => {
 
             <div className="flex items-center gap-3">
               <img src={star} alt="star" className="w-[18px] h-[18px]" />
-              <p className="text-[#D0D0D0] text-[18px] md:text-[14px] font-inter-sans">
+              <p className="text-[#D0D0D0] text-[14px]  font-inter-sans">
                 Mobile first storefront
               </p>
             </div>
