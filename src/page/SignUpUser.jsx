@@ -111,7 +111,7 @@ const SignUpUser = () => {
           className="absolute w-[30px] h-[30px] lg:w-[120px] lg:h-[120px]  md:w-[80px] md:h-[80px] top-0 right-0 "
         />
 
-        <div className="w-[95%] md:w-[80%] xl:w-[70%] bg-black rounded-[1rem] h-[70vh] md:h-[50vh] xl:h-[90%] flex flex-col items-start justify-start mt-0 gap-6 p-2 pb-[6rem] xl:pb-0 md:p-12 xl:p-6 ">
+        <div className="w-[95%] md:w-[80%] xl:w-[70%] bg-black rounded-[1rem] h-full md:h-[50vh] lg:h-full flex flex-col items-start justify-start mt-0 gap-6 p-2 pb-[1rem] xl:pb-4 md:p-12 xl:p-6 ">
           <div className="w-full">
             <button
               onClick={handleGoBack}
@@ -121,10 +121,10 @@ const SignUpUser = () => {
             </button>
           </div>
 
-          <div className="h-full w-full flex gap-5 flex-col items-center justify-end">
+          <div className="h-full w-full flex gap-5 flex-col items-center ">
             <form
               onSubmit={handleSubmit(onSubmit)}
-              className="w-full flex flex-col items-center gap-6"
+              className="w-full flex flex-col items-center gap-6 "
             >
               {/* Email Address Field */}
               <div className="w-full">

@@ -9,7 +9,7 @@ import aTwo from "../images/a-2.png"
 const AddTerm = () => {
   const [isTab1Active, setIsTab1Active] = useState(true);
   return (
-    <div className="bg-[#171414] w-full h-screen">
+    <div className={`bg-[#171414] w-full ${isTab1Active ? "h-screen" : "h-full"  } md:h-screen pb-8`}>
       <div className=" w-[98%] md:w-[90%] lg:w-[65%] mx-auto relative flex flex-col justify-center items-center">
         <div className="w-[100%]  md:lg-[70%] lg:w-[80%] mx-auto flex pr-7 pt-3   justify-end mb-[3%]">
           <button className=" bg-[#DB363A] py-2 px-4 font-dm-sans  rounded-sm mb-5 md:mb-0  hover:bg-red-400 text-white focus-visible:outline-red-600 mt-3">
