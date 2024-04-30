@@ -167,35 +167,35 @@ const LandingPage = () => {
               <p className="text-white text-[20px] font-satoshi">
                 Sterling Products
               </p>
-              <p className="text-[#B9B9B9] text-[18px] md:text-[14px] lg:text-[12px] leading-5 font-inter-sans">
+              <p className="text-[#B9B9B9] text-[18px] md:text-[14px] leading-5 font-inter-sans">
                 Know more about various sterling products.
               </p>
             </div>
-            <div className="flex flex-col gap-2  mb-5 items-start h-full">
+            <div className="flex flex-col gap-2 w-full lg:w-[80%] md:w-full mb-5 items-start h-full">
               <img src={lTagTwo} alt="l-tag-2" className="w-[38px] h-[38px]" />
               <p className="text-white text-[20px] font-satoshi">
                 Banking Jargons
               </p>
-              <p className="text-[#B9B9B9] text-[18px] md:text-[14px] lg:text-[12px] leading-5 font-inter-sans">
+              <p className="text-[#B9B9B9] text-[18px] md:text-[14px] leading-5 font-inter-sans">
                 Have quick look-up of words and acronyms..
               </p>
             </div>
-            <div className="flex flex-col gap-2  mb-5 items-start h-full">
+            <div className="flex flex-col gap-2 w-full lg:w-[20rem] ml-0 lg:ml-[-1.4rem]  md:w-full mb-5 items-start h-full">
               <img src={lTagTwo} alt="l-tag-2" className="w-[38px] h-[38px]" />
               <p className="text-white text-[20px] font-satoshi">
                 Terminologies
               </p>
-              <p className="text-[#B9B9B9] text-[18px] md:text-[14px] lg:text-[12px] leading-5 font-inter-sans">
+              <p className="text-[#B9B9B9] text-[18px] md:text-[14px] leading-5 font-inter-sans">
                 All inclusive essential <br />
                 conversion & automation tools.
               </p>
             </div>
-            <div className="flex flex-col gap-2 w-full  mb-5 items-start h-full">
+            <div className="flex flex-col gap-2 w-full lg:w-[100%] md:w-full mb-5 items-start h-full">
               <img src={lTagTwo} alt="l-tag-2" className="w-[38px] h-[38px]" />
               <p className="text-white text-[20px] font-satoshi">
                 Integrate with outlook
               </p>
-              <p className="text-[#B9B9B9] text-[18px] md:text-[14px] lg:text-[12px] leading-5 font-inter-sans">
+              <p className="text-[#B9B9B9] text-[18px] md:text-[14px] leading-5 font-inter-sans">
                 Hover on a word in your email <br />
                 and the meaning will pop.
               </p>
