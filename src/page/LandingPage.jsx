@@ -133,7 +133,7 @@ const LandingPage = () => {
 
       <div className="mx-auto xl:max-w-[62.5%] md:max-w-[92.5%] flex-col items-center  justify-center">
         <div className="mx-auto md:max-w-[100%] w-[93%] mt-[5%]  text-center  flex-col ">
-          <p className="md:text-8xl text-[48px] font-dm-sans leading-[3rem] md:leading-10 text-white font-bold">
+          <p className="md:text-8xl text-[48px] font-dm-sans leading-[3rem] md:leading-[5rem] lg:leading-[6rem] text-white font-bold">
             Find a meaning for every word.
           </p>
           <p className="md:text-[20px] w-[90%] mx-auto font-dm-sans  text-[15px] text-[#D0D0D0] my-5">
@@ -167,8 +167,8 @@ const LandingPage = () => {
               <p className="text-white text-[20px] font-satoshi">
                 Sterling Products
               </p>
-              <p className="text-[#B9B9B9] text-[18px] md:text-[14px] leading-5 font-inter-sans">
-                Know more about various sterling products.
+              <p className="text-[#B9B9B9] text-[14px] leading-5 font-inter-sans">
+                Know more about various<br/> sterling products.
               </p>
             </div>
             <div className="flex flex-col gap-2 w-full lg:w-[80%] md:w-full mb-5 items-start h-full">
@@ -176,8 +176,8 @@ const LandingPage = () => {
               <p className="text-white text-[20px] font-satoshi">
                 Banking Jargons
               </p>
-              <p className="text-[#B9B9B9] text-[18px] md:text-[14px] leading-5 font-inter-sans">
-                Have quick look-up of words and acronyms..
+              <p className="text-[#B9B9B9] text-[14px] leading-5 font-inter-sans">
+                Have quick look-up of<br/> words and acronyms..
               </p>
             </div>
             <div className="flex flex-col gap-2 w-full  md:w-full lg:w-[20rem] ml-0 lg:ml-[-1.4rem]   mb-5 items-start h-full">
@@ -185,7 +185,7 @@ const LandingPage = () => {
               <p className="text-white text-[20px] font-satoshi">
                 Terminologies
               </p>
-              <p className="text-[#B9B9B9] text-[18px] md:text-[14px] leading-5 font-inter-sans">
+              <p className="text-[#B9B9B9] text-[14px] leading-5 font-inter-sans">
                 All inclusive essential <br />
                 conversion & automation tools.
               </p>
@@ -195,7 +195,7 @@ const LandingPage = () => {
               <p className="text-white text-[20px] font-satoshi">
                 Integrate with outlook
               </p>
-              <p className="text-[#B9B9B9] text-[18px] md:text-[14px] leading-5 font-inter-sans">
+              <p className="text-[#B9B9B9] text-[14px] leading-5 font-inter-sans">
                 Hover on a word in your email <br />
                 and the meaning will pop.
               </p>
