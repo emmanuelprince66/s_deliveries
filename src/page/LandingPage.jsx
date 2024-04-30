@@ -219,7 +219,7 @@ const LandingPage = () => {
               <img src={uOne} alt="u-1" />
               <div className="flex gap-2 items-center">
                 <img src={re} alt="re" />
-                <span className="text-[#A2A2A2] text-[16px] pt-1 font-inter-sans ">
+                <span className="text-[#A2A2A2] text-[14px] pt-1 font-inter-sans ">
                   Silk by Jamilia
                 </span>
               </div>
@@ -228,7 +228,7 @@ const LandingPage = () => {
               <img src={uTwo} alt="u-1" />
               <div className="flex gap-2 items-center">
                 <img src={re} alt="re" />
-                <span className="text-[#A2A2A2] text-[16px] font-inter-sans  pt-1">
+                <span className="text-[#A2A2A2] text-[14px] font-inter-sans  pt-1">
                   Kitpet
                 </span>
               </div>
@@ -237,7 +237,7 @@ const LandingPage = () => {
               <img src={uThree} alt="u-1" />
               <div className="flex gap-2 items-center">
                 <img src={re} alt="re" />
-                <span className="text-[#A2A2A2] text-[16px] pt-1 font-inter-sans ">
+                <span className="text-[#A2A2A2] text-[14px] pt-1 font-inter-sans ">
                   Holy Roses
                 </span>
               </div>
@@ -246,7 +246,7 @@ const LandingPage = () => {
               <img src={uFour} alt="u-1" />
               <div className="flex gap-2 items-center">
                 <img src={re} alt="re" />
-                <span className="text-[#A2A2A2] text-[16px] pt-1 font-inter-sans ">
+                <span className="text-[#A2A2A2] text-[14px] pt-1 font-inter-sans ">
                   `A Voir
                 </span>
               </div>
@@ -272,25 +272,25 @@ const LandingPage = () => {
             </div>
             <div className="flex items-center gap-2">
               <img src={star} alt="star" className="w-[18px] h-[18px]" />
-              <p className="text-[#D0D0D0] text-[18px] md:text-[14px] font-inter-sans ">
+              <p className="text-[#D0D0D0] text-[14px] font-inter-sans ">
                 No code theme editor
               </p>
             </div>
             <div className="flex items-center gap-2">
               <img src={star} alt="star" className="w-[18px] h-[18px]" />
-              <p className="text-[#D0D0D0] text-[18px] md:text-[14px]  font-inter-sans">
+              <p className="text-[#D0D0D0] text-[14px]  font-inter-sans">
                 Custom brandinig
               </p>
             </div>
             <div className="flex items-center gap-2">
               <img src={star} alt="star" className="w-[18px] h-[18px]" />
-              <p className="text-[#D0D0D0] text-[18px] md:text-[14px]  font-inter-sans">
+              <p className="text-[#D0D0D0] text-[14px]  font-inter-sans">
                 Themes for every niche(soon)
               </p>
             </div>
 
             <Link to="">
-              <button className=" text-white text-[16px] w-[150px] mt-3 font-inter-sans  rounded-sm  px-3 py-3 bg-transparent border border-gray-100 hover:text-black transition-colors duration-700 ease-in-out ">
+              <button className=" text-white text-[14px] w-[150px] mt-3 font-inter-sans  rounded-sm  px-3 py-3 bg-transparent border border-gray-100 hover:text-black transition-colors duration-700 ease-in-out ">
                 Learn More
               </button>
             </Link>
@@ -315,31 +315,31 @@ const LandingPage = () => {
 
             <div className="flex items-center gap-3">
               <img src={star} alt="star" className="w-[18px] h-[18px]" />
-              <p className="text-[#D0D0D0] text-[18px] font-inter-sans">
+              <p className="text-[#D0D0D0] text-[14px] font-inter-sans">
                 Mobile first admin panel
               </p>
             </div>
             <div className="flex items-center gap-2">
               <img src={star} alt="star" className="w-[18px] h-[18px]" />
-              <p className="text-[#D0D0D0] text-[18px] font-inter-sans">
+              <p className="text-[#D0D0D0] text-[14px] font-inter-sans">
                 Enabling payment gateway in clicks
               </p>
             </div>
             <div className="flex items-center gap-2">
               <img src={star} alt="star" className="w-[18px] h-[18px]" />
-              <p className="text-[#D0D0D0] text-[18px] font-inter-sans">
+              <p className="text-[#D0D0D0] text-[14px] font-inter-sans">
                 Product and other management
               </p>
             </div>
             <div className="flex items-center gap-2">
               <img src={star} alt="star" className="w-[18px] h-[18px]" />
-              <p className="text-[#D0D0D0] text-[18px] font-inter-sans">
+              <p className="text-[#D0D0D0] text-[14px] font-inter-sans">
                 Assigning user roles
               </p>
             </div>
 
             <Link to="">
-              <button className=" text-white text-[16px] w-[150px] font-inter-sans mt-3 rounded-sm  px-3 py-3 bg-transparent border border-gray-100 hover:text-black transition-colors duration-700 ease-in-out ">
+              <button className=" text-white text-[14px] w-[150px] font-inter-sans mt-3 rounded-sm  px-3 py-3 bg-transparent border border-gray-100 hover:text-black transition-colors duration-700 ease-in-out ">
                 Learn More
               </button>
             </Link>
@@ -357,31 +357,31 @@ const LandingPage = () => {
 
             <div className="flex items-center gap-3">
               <img src={star} alt="star" className="w-[18px] h-[18px]" />
-              <p className="text-[#D0D0D0] text-[18px] font-inter-sans">
+              <p className="text-[#D0D0D0] text-[14px] font-inter-sans">
                 Global payment gateways
               </p>
             </div>
             <div className="flex items-center gap-2">
               <img src={star} alt="star" className="w-[18px] h-[18px]" />
-              <p className="text-[#D0D0D0] text-[18px] font-inter-sans">
+              <p className="text-[#D0D0D0] text-[14px] font-inter-sans">
                 Local payment gateways
               </p>
             </div>
             <div className="flex items-center gap-2">
               <img src={star} alt="star" className="w-[18px] h-[18px]" />
-              <p className="text-[#D0D0D0] text-[18px] font-inter-sans">
+              <p className="text-[#D0D0D0] text-[14px] font-inter-sans">
                 Manual payment options
               </p>
             </div>
             <div className="flex items-center gap-2">
               <img src={star} alt="star" className="w-[18px] h-[18px]" />
-              <p className="text-[#D0D0D0] text-[18px] font-inter-sans">
+              <p className="text-[#D0D0D0] text-[14px] font-inter-sans">
                 Local currencies
               </p>
             </div>
 
             <Link to="">
-              <button className=" text-white text-[16px] font-inter-sans w-[150px] mt-3 rounded-sm  px-3 py-3 bg-transparent border border-gray-100 hover:text-black transition-colors duration-700 ease-in-out ">
+              <button className=" text-white text-[14px] font-inter-sans w-[150px] mt-3 rounded-sm  px-3 py-3 bg-transparent border border-gray-100 hover:text-black transition-colors duration-700 ease-in-out ">
                 Learn More
               </button>
             </Link>
@@ -406,31 +406,31 @@ const LandingPage = () => {
 
             <div className="flex items-center gap-3">
               <img src={star} alt="star" className="w-[18px] h-[18px]" />
-              <p className="text-[#D0D0D0] text-[18px] font-inter-sans">
+              <p className="text-[#D0D0D0] text-[14px] font-inter-sans">
                 Inventory management
               </p>
             </div>
             <div className="flex items-center gap-2">
               <img src={star} alt="star" className="w-[18px] h-[18px]" />
-              <p className="text-[#D0D0D0] text-[18px] font-inter-sans">
+              <p className="text-[#D0D0D0] text-[14px] font-inter-sans">
                 Shipping rules
               </p>
             </div>
             <div className="flex items-center gap-2">
               <img src={star} alt="star" className="w-[18px] h-[18px]" />
-              <p className="text-[#D0D0D0] text-[18px] font-inter-sans">
+              <p className="text-[#D0D0D0] text-[14px] font-inter-sans">
                 Shipping service integration
               </p>
             </div>
             <div className="flex items-center gap-2">
               <img src={star} alt="star" className="w-[18px] h-[18px]" />
-              <p className="text-[#D0D0D0] text-[18px] font-inter-sans">
+              <p className="text-[#D0D0D0] text-[14px] font-inter-sans">
                 Country specific tax management
               </p>
             </div>
 
             <Link to="">
-              <button className="font-inter-sans text-white text-[16px] w-[150px] mt-3 rounded-sm  px-3 py-3 bg-transparent border border-gray-100 hover:text-black transition-colors duration-700 ease-in-out ">
+              <button className="font-inter-sans text-white text-[14px] w-[150px] mt-3 rounded-sm  px-3 py-3 bg-transparent border border-gray-100 hover:text-black transition-colors duration-700 ease-in-out ">
                 Learn More
               </button>
             </Link>
@@ -454,7 +454,7 @@ const LandingPage = () => {
                   <p className="text-white text-[24px] sm:text-[20px] font-satoshi">
                     Local Businesses
                   </p>
-                  <p className="text-[#B9B9B9] text-left  font-inter-sans text-[14px]">
+                  <p className="text-[#B9B9B9] text-left  font-inter-sans leading-5 text-[14px]">
                     Sell locally on Whatsapp and Cash On Delivery payment
                     methods
                   </p>{" "}
@@ -476,7 +476,7 @@ const LandingPage = () => {
                     Small businesses
                   </p>{" "}
                   {/* Add your text here */}
-                  <p className="text-left text-[#B9B9B9] text-[18px] font-inter-sans sm:text-[14px]">
+                  <p className="text-left text-[#B9B9B9] text-[14px] font-inter-sans leading-5 ">
                     Move your retail business online and start selling products
                     on a free website.
                   </p>
@@ -496,7 +496,7 @@ const LandingPage = () => {
                   <p className="text-[24px] text-white sm:text-[20px] font-satoshi ">
                     Social media sellers
                   </p>
-                  <p className="text-left text-[#B9B9B9] text-[18px] font-inter-sans sm:text-[14px]">
+                  <p className="text-left text-[#B9B9B9] text-[14px] leading-5 font-inter-sans ">
                     Increase your Instagram sales with Uvodo's all-in-one
                     eCommerce platform.
                   </p>{" "}
