@@ -7,10 +7,13 @@ import CustomButton from "./CustomButton";
 import { useForm } from "react-hook-form";
 import SearchRoundedIcon from "@mui/icons-material/SearchRounded";
 import line from "../images/line.svg";
+import Spinner from "../utils/Spinner";
+import { toast, ToastContainer } from "react-toastify";
+import { useMutation, useQuery } from "@tanstack/react-query";
 
-import TextareaAutosize from "@mui/material/TextareaAutosize";
 
 import { InputAdornment, TextField } from "@mui/material";
+import EditCom from "./EditCom";
 
 const termArray = [
   {
@@ -20,7 +23,7 @@ const termArray = [
     bold: "MBN",
   },
   {
-    id: 4,
+    id: 2,
     text: "A platform where local manufacturers in Nigeria showcase their product to a wide range of buyer across the globe. ",
     path: "www.mbn.ng...",
     bold: "MBN",
@@ -48,13 +51,67 @@ const termArray = [
 const EditTerm = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isDelOpen, setIsDelOpen] = useState(false);
+  
+  const [showSpinner, setShowSpinner] = useState(false);
+  const notifyError = (msg) => {
+    toast.error(msg, {
+      autoClose: 6000, // Time in milliseconds
+    });
+  };
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
 
-  const openModal = () => {
+
+
+
+
+   const deleteWordsMutation = useMutation({
+     mutationFn: async (payLoad) => {
+       try {
+         const response = await BaseAxios({
+           url: "upload-new-word",
+           method: "POST",
+           data: payLoad,
+         });
+
+         console.log("Response:", response);
+
+         if (!response || !response?.data) {
+           throw new Error("Invalid response received");
+         }
+
+         if (response?.status !== 200) {
+           setShowSpinner(false);
+           throw new Error("Request failed with status: " + response.status);
+         }
+
+         return response.data;
+       } catch (error) {
+         setShowSpinner(false);
+         notifyError(error?.response?.data?.message);
+         throw error;
+       }
+     },
+     onSuccess: (data) => {
+       setShowSpinner(false);
+       console.log(data);
+     },
+     onError: (error) => {
+       setShowSpinner(false);
+       console.error("An error occurred:", error);
+     },
+   });
+   
+   const handleDeleteWord = () => {
+   console.log("delete")
+   deleteWordsMutation.mutate()
+   setShowSpinner(true)
+   }
+   
+  const openModal = (id) => {
     setIsOpen(true);
   };
 
@@ -159,37 +216,7 @@ const EditTerm = () => {
 
       {isOpen && (
         <div class="fixed inset-0 z-50 flex items-center justify-center   bg-opacity-50">
-          <div class="bg-[#1d1d1d] rounded-lg border border-[#444444] shadow-lg px-6 pb-6 pt-3 w-[90%] max-w-[50%]">
-            <div className="flex flex-col items-start justify-center gap-2 w-full">
-              <p className="font-dm-sans text-white text-[15px]">Title</p>
-              <input
-                type="text"
-                className="rounded-md outline-none h-[40px]  pl-4 bg-[#282828] p-2 w-full placeholder-[#636363]"
-                placeholder="Title"
-              />
-
-              <p className="font-dm-sans text-white text-[15px] mt-5">
-                Meaning
-              </p>
-
-              <TextareaAutosize
-                style={{ minHeight: "100px", maxHeight: "300px" }} // Adjust the minHeight and maxHeight as needed
-                className="rounded-2xl input-placeholder bg-[#282828]  placeholder-[#636363] outline-none border-none  w-full px-4 py-3" // Apply custom classes for styling
-                placeholder="What does this mean..."
-              />
-            </div>
-            <div class="flex gap-4 items-center max-w-[300px] mt-6">
-              <CustomButton
-                text="Cancel"
-                style="bg-[#DB363A] w-full flex justify-center items-center text-white font-dm-sans  text-[20px] h-[50px] hover:bg-red-400  focus-visible:outline-red-600"
-                onClick={closeModal}
-              />
-              <CustomButton
-                text="Save"
-                style="bg-transparent w-full flex justify-center items-center h-[50px] text-[#A1A1A1] font-dm-sans  border border-[#444444] w-full  focus-visible:outline-red-100"
-              />
-            </div>
-          </div>
+          <EditCom closeModal={closeModal} />
         </div>
       )}
       {isDelOpen && (
@@ -208,8 +235,16 @@ const EditTerm = () => {
                 onClick={closeDelModal}
               />
               <CustomButton
-                text="Yes! Delete"
-                style="bg-transparent w-full flex justify-center items-center h-[55px] text-[#A1A1A1] font-dm-sans  border border-[#444444] w-full  focus-visible:outline-red-100"
+              onClick={handleDeleteWord}
+                text={
+                  showSpinner || deleteWordsMutation.isLoading ? (
+                    <Spinner />
+                  ) : (
+                    "Yes! Delete"
+                  )
+                }
+                disabled={deleteWordsMutation.isLoading || showSpinner}
+                style="bg-transparent w-full flex justify-center items-center h-[55px] hover:text-[#DB363A] text-[#A1A1A1] font-dm-sans  border border-[#444444] w-full  focus-visible:outline-red-100"
               />
             </div>
           </div>

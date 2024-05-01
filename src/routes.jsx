@@ -43,8 +43,8 @@ const RoutesContainer = () => {
               item.path === "/login-user" ||
               item.path === "/login-admin" ||
               item.path === "/user-signup" ||
-              item.path === "/user"
-              
+              item.path === "/user" ||
+              item.path === "/add"
             ) {
               return (
                 <Route

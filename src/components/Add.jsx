@@ -1,19 +1,73 @@
 import React from "react";
 import CustomButton from "./CustomButton";
+import { useState } from "react";
+
 import { InputAdornment, TextField } from "@mui/material";
 import { useForm } from "react-hook-form";
+import { toast, ToastContainer } from "react-toastify";
+import { useMutation, useQuery } from "@tanstack/react-query";
 import TextareaAutosize from "@mui/material/TextareaAutosize";
 import line from "../images/line.svg"
 import yOne from "../images/y-1.svg"
 import yTwo from "../images/y-2.svg"
 import yThree from "../images/y-3.svg"
+import Spinner from "../utils/Spinner";
+
 const Add = () => {
+const [showSpinner, setShowSpinner] = useState(false);
+const notifyError = (msg) => {
+  toast.error(msg, {
+    autoClose: 6000, // Time in milliseconds
+  });
+};
 const {
   register,
   handleSubmit,
   formState: { errors },
 } = useForm();
-  const onSubmit = () => {};
+
+     const addWordsMutation = useMutation({
+       mutationFn: async (payLoad) => {
+         try {
+           const response = await BaseAxios({
+             url: "upload-new-word",
+             method: "POST",
+             data: payLoad,
+           });
+
+           console.log("Response:", response);
+
+           if (!response || !response?.data) {
+             throw new Error("Invalid response received");
+           }
+
+           if (response?.status !== 200) {
+             setShowSpinner(false);
+             throw new Error("Request failed with status: " + response.status);
+           }
+
+           return response.data;
+         } catch (error) {
+           setShowSpinner(false);
+           notifyError(error?.response?.data?.message);
+           throw error;
+         }
+       },
+       onSuccess: (data) => {
+         setShowSpinner(false);
+         console.log(data);
+       
+       },
+       onError: (error) => {
+         setShowSpinner(false);
+         console.error("An error occurred:", error);
+       },
+     });
+
+  const onSubmit = (data) => {
+      addWordsMutation.mutate(data);
+      setShowSpinner(true);
+  };
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
@@ -41,9 +95,13 @@ const {
           },
         }}
         type="text"
-        name="email"
+        name="word"
         {...register("word", {
           required: "Word is required",
+          pattern: {
+            value: /^[a-zA-Z\s]*$/, // Accept only letters and spaces
+            message: "Please enter only letters.",
+          },
         })}
         className="rounded-[15px] input-placeholder outline-none border-none bg-white  w-full"
         placeholder=" Enter new word phrase,term,anything.."
@@ -56,6 +114,11 @@ const {
           ),
         }}
       />
+      {errors.word && (
+        <span className="text-red-500 text-xs mt-[-10px]">
+          {errors.word.message}
+        </span>
+      )}
       <TextareaAutosize
         style={{
           minHeight: "100px",
@@ -68,8 +131,17 @@ const {
         placeholder="What does this mean?"
         {...register("meaning", {
           required: "Meaning is required",
+          pattern: {
+            value: /^[a-zA-Z\s]*$/, // Accept only letters and spaces
+            message: "Please enter only letters.",
+          },
         })}
       />
+      {errors.meaning && (
+        <span className="text-red-500 text-xs mt-[-10px]">
+          {errors.meaning.message}
+        </span>
+      )}
 
       <TextField
         sx={{
@@ -104,9 +176,10 @@ const {
       />
 
       <CustomButton
-        text="Add"
-        onClick={handleSubmit} // Pass handleSubmit as onClick
-        style="bg-[#DB363A] font-dm-sans flex justify-center items-center h-[45px] rounded-[15px] w-full text-white hover:bg-red-400 focus-visible:outline-red-600"
+        text={showSpinner || addWordsMutation.isLoading ? <Spinner /> : "Add"}
+        disabled={addWordsMutation.isLoading || showSpinner}
+        type="submit"
+        style="bg-[#EB2529] w-full flex justify-center items-center  hover:bg-red-400 h-[47px] text-white focus-visible:outline-red-600"
       />
     </form>
   );
