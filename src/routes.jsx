@@ -1,3 +1,4 @@
+import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Start from "./page/Start";
 import LoginAdmin from "./page/LoginAdmin";
@@ -7,7 +8,10 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import UserStart from "./page/UserStart";
 import LandingPage from "./page/LandingPage";
 import SignUpUser from "./page/SignUpUser";
+import { AuthProvider } from "./utils/AuthContext";
 import LoginUser from "./page/LoginUser";
+import { Navigate } from "react-router-dom";
+import Cookies from "js-cookie";
 import ForgetPassword from "./page/ForgetPassword";
 
 const myRoutes = [
@@ -18,7 +22,11 @@ const myRoutes = [
   { component: <AddTerm />, path: "/add", name: "add page" },
   { component: <UserStart />, path: "/user", name: "user page" },
   { component: <SignUpUser />, path: "/user-signup", name: "user signup page" },
-  { component: <ForgetPassword />, path: "/forget-password", name: "forget password" },
+  {
+    component: <ForgetPassword />,
+    path: "/forget-password",
+    name: "forget password",
+  },
 ];
 
 const RoutesContainer = () => {
@@ -28,7 +36,14 @@ const RoutesContainer = () => {
         <Routes>
           {myRoutes.map((item) => {
             // For the login page, render without AuthProvider
-            if (item.path === "/" || item.path === "/start" || item.path === "forget-password") {
+            if (
+              item.path === "/" ||
+              item.path === "/start" ||
+              item.path === "/forget-password" ||
+              item.path === "/login-user" ||
+              item.path === "/login-admin" ||
+              item.path === "/user-signup"
+            ) {
               return (
                 <Route
                   key={item.name}
@@ -38,12 +53,20 @@ const RoutesContainer = () => {
               );
             } else {
               // For other pages, wrap with AuthProvider
-
+              const ComponentWithAuth = (
+                <AuthProvider>
+                  {Cookies.get("role") === "user" && item.path === "/add" ? (
+                    <Navigate to="/login-admin" />
+                  ) : (
+                    item.component
+                  )}
+                </AuthProvider>
+              );
               return (
                 <Route
                   key={item.name}
                   path={item.path}
-                  element={item.component}
+                  element={ComponentWithAuth}
                 />
               );
             }

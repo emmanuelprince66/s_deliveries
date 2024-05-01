@@ -39,38 +39,61 @@ const SignUpUser = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
+  const notifyError = (msg) => {
+    toast.error(msg, {
+      autoClose: 6000, // Time in milliseconds
+    });
+  };
+const registerUserMutation = useMutation({
+  mutationFn: async (payLoad) => {
+    try {
+      const response = await BaseAxios({
+        url: "onboard-user",
+        method: "POST",
+        data: payLoad,
+      });
 
-  const registerUserMutation = useMutation({
-    mutationFn: async (payLoad) => {
-      try {
-        const response = await BaseAxios({
-          url: "onboard-user",
-          method: "POST",
-          data: payLoad,
-        });
+      console.log("Response:", response);
 
-        if (response.status !== 200) {
-          setShowSpinner(false);
-          throw new Error(response);
-        }
-        return response.data;
-      } catch (error) {
-        setShowSpinner(false);
-        console.log(error);
-        console.log(error.response.data.message);
-        throw new Error(error.response.data.message);
+      if (!response || !response?.data) {
+        throw new Error("Invalid response received");
       }
-    },
-    onSuccess: (data) => {
+
+      if (response?.status !== 201) {
+        setShowSpinner(false);
+        throw new Error("Request failed with status: " + response.status);
+      }
+
+      return response.data;
+    } catch (error) {
       setShowSpinner(false);
-      console.log("Login successful:", data);
-    },
-    onError: (error) => {
-      setShowSpinner(false);
-      console.log(error);
-      notifyError(error);
-    },
-  });
+      notifyError("An error occurred: " + error.message);
+      throw error;
+    }
+  },
+  onSuccess: (data) => {
+    setShowSpinner(false);
+
+
+    if (data && data?.accessTokens) {
+    navigate("/user");
+    
+    Cookies.set("authToken" , data?.accessTokens?.accessToken)
+    Cookies.set("refreshToken" , data?.accessTokens?.refreshToken)
+    Cookies.set("role" , data?.userRole)
+
+    
+   
+    } else {
+      console.error("Invalid data format:", data);
+    }
+  },
+  onError: (error) => {
+    setShowSpinner(false);
+    console.error("An error occurred:", error);
+  },
+});
+
 
   const onSubmit = (data) => {
     const { email, password, confirmPassword } = data;
@@ -90,11 +113,6 @@ const SignUpUser = () => {
     }
   };
 
-  const notifyError = (msg) => {
-    toast.error(msg, {
-      autoClose: 6000, // Time in milliseconds
-    });
-  };
 
   const handleGoBack = () => {
     navigate(-1); // Navigate back
@@ -278,6 +296,11 @@ const SignUpUser = () => {
           className="absolute w-[30px] h-[30px]  lg:w-[120px] lg:h-[120px]  md:w-[80px] md:h-[80px] bottom-0 left-0 xl:bottom-40 md:bottom-4"
         />
       </div>
+
+      <ToastContainer
+        theme="dark"
+        toastStyle={{ background: "#333", color: "#fff" }}
+      />
     </div>
   );
 };

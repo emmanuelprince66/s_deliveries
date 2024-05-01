@@ -8,10 +8,23 @@ import Divider from "@mui/material/Divider";
 import { InputAdornment, TextField } from "@mui/material";
 import SearchRoundedIcon from "@mui/icons-material/SearchRounded";
 import { useForm } from "react-hook-form";
+import Cookies from "js-cookie"
+import { useNavigate } from "react-router-dom";
 
+a
 
 const UserStart = () => {
+const navigate = useNavigate()
 
+const handleLogout = () => {
+Cookies.remove("authToken")
+Cookies.remove("refreshToken")
+Cookies.remove("role")
+
+navigate("/login-user")
+
+}
+ 
 const {
   register,
   handleSubmit,
@@ -23,7 +36,7 @@ const {
       <div className="w-[100%] md:w-[82.5%] lg:w-[62.5%] bg-[#000] relative rounded-2xl mx-auto mb-4 p-4 pb-8">
         <div className="flex flex-col w-full items-center justify-center ">
           <div className="w-[100%] md:w-[90%] lg:w-[90%] mx-auto flex justify-end mb-[5%]">
-            <button className=" bg-[#EB2529] py-2 px-4 font-dm-sans  rounded-md  hover:bg-red-400 text-white focus-visible:outline-red-600 mt-0 md:mt-3 lg:mt-3">
+            <button onClick={handleLogout} className=" bg-[#EB2529] py-2 px-4 font-dm-sans  rounded-md  hover:bg-red-400 text-white focus-visible:outline-red-600 mt-0 md:mt-3 lg:mt-3">
               Logout
             </button>
           </div>

@@ -23,19 +23,17 @@ import lockIcon from "../images/lock.svg";
 import emailIcon from "../images/email.svg";
 import line from "../images/line.svg";
 
+
 const ForgetPassword = () => {
   const navigate = useNavigate();
   const [showSpinner, setShowSpinner] = useState(false);
-  const [showPassword, setShowPassword] = React.useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
-  const handleClickShowPassword = () => setShowPassword((show) => !show);
 
-  const handleMouseDownPassword = (event) => {
-    event.preventDefault();
-  };
+
+
   const notifyError = (msg) => {
     toast.error(msg, {
-      position: toast.POSITION.TOP_RIGHT,
       autoClose: 6000, // Time in milliseconds
     });
   };
@@ -45,37 +43,45 @@ const ForgetPassword = () => {
     formState: { errors },
   } = useForm();
 
-  const resetPasswordMutation = useMutation({
-    mutationFn: async (formData) => {
-      try {
-        const response = await BaseAxios({
-          url: "auth/logins",
-          method: "POST",
-          data: formData,
-        });
+    const resetPasswordMutation = useMutation({
+      mutationFn: async (formData) => {
+        try {
+          const response = await BaseAxios({
+            url: "forget-password",
+            method: "POST",
+            data: formData,
+          });
 
-        if (response.status !== 200) {
+          console.log("Response:", response);
+
+          if (!response || !response?.data) {
+            throw new Error("Invalid response received");
+          }
+
+          if (response?.status !== 200) {
+            setShowSpinner(false);
+            throw new Error("Request failed with status: " + response.status);
+          }
+
+          return response.data;
+        } catch (error) {
           setShowSpinner(false);
-          throw new Error(response.data.message);
+          notifyError(error?.response?.data?.message);
+          throw error;
         }
-        return response.data;
-      } catch (error) {
+      },
+      onSuccess: (data) => {
+      setIsOpen(true)
         setShowSpinner(false);
-        console.log(error);
-        console.log(error.response.data.message);
-        throw new Error(error.response.data.message);
-      }
-    },
-    onSuccess: (data) => {
-      setShowSpinner(false);
-      console.log("Login successful:", data);
-    },
-    onError: (error) => {
-      setShowSpinner(false);
-      console.log(error);
-      notifyError(error);
-    },
-  });
+        console.log(data);
+
+    
+      },
+      onError: (error) => {
+        setShowSpinner(false);
+        console.error("An error occurred:", error);
+      },
+    });
 
   const onSubmit = (data) => {
     console.log(data); // Handle form submission with validated data
@@ -107,7 +113,6 @@ const ForgetPassword = () => {
           </div>
 
           <div className="h-full w-full flex gap-5 flex-col items-center justify-end">
-         
             <form
               onSubmit={handleSubmit(onSubmit)}
               className="w-full flex flex-col items-center gap-6"
@@ -145,29 +150,20 @@ const ForgetPassword = () => {
                 )}
               </div>
 
-           
-
               {/* Submit Button */}
               <CustomButton
-                text="Reset"
-                path="/add"
+                text={
+                  showSpinner || resetPasswordMutation.isLoading ? (
+                    <Spinner />
+                  ) : (
+                    "Reset"
+                  )
+                }
+                disabled={resetPasswordMutation.isLoading || showSpinner}
+                type="submit"
                 style="bg-[#EB2529] w-full flex justify-center items-center  hover:bg-red-400 h-[47px] text-white focus-visible:outline-red-600"
               />
-              {/* <CustomButton
-              text={
-                showSpinner || adminLoginMutation.isLoading ? (
-                  <Spinner />
-                ) : (
-                  "Login"
-                )
-              }
-              disabled={adminLoginMutation.isLoading || showSpinner}
-              type="submit"
-              style="bg-[#EB2529] w-full hover:bg-red-400 h-[47px] text-white focus-visible:outline-red-600"
-            /> */}
             </form>
-
-           
           </div>
         </div>
 
@@ -177,6 +173,33 @@ const ForgetPassword = () => {
           className="absolute w-[30px] h-[30px]  lg:w-[120px] lg:h-[120px]  md:w-[80px] md:h-[80px] bottom-0 left-0 xl:bottom-40 md:bottom-4"
         />
       </div>
+
+      {isOpen && (
+        <div class="fixed inset-0 z-50 flex items-center justify-center   bg-opacity-50  ">
+          <div class="bg-[#1d1d1d] rounded-lg border border-[#444444] shadow-lg px-6 pb-6 pt-3 w-[90%] md:w-[25%] lg:w-[25%] ">
+            <div className="flex flex-col items-start justify-center gap-4 w-full p-4">
+              <div className="w-[100px] h-[60px] mx-auto ">
+                <img src={aOne} alt="a-1" className=" object-contain" />
+              </div>
+              <p className="font-dm-sans text-white text-center text-[25px]">
+                A reset email has been sent your email
+              </p>
+
+              <CustomButton
+                text=
+                    "Go to Login"
+                    path="/login-user"
+                
+                style="bg-[#EB2529] w-full flex justify-center items-center  hover:bg-red-400 h-[47px] text-white focus-visible:outline-red-600"
+              />
+            </div>
+          </div>
+        </div>
+      )}
+      <ToastContainer
+        theme="dark"
+        toastStyle={{ background: "#333", color: "#fff" }}
+      />
     </div>
   );
 };

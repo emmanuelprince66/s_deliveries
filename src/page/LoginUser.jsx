@@ -43,37 +43,52 @@ const LoginUser   = () => {
     formState: { errors },
   } = useForm();
 
-  const adminLoginMutation = useMutation({
-    mutationFn: async (payLoad) => {
-      try {
-        const response = await BaseAxios({
-          url: "auth/logins",
-          method: "POST",
-          data: payLoad,
-        });
+const userLoginMutation = useMutation({
+  mutationFn: async (payLoad) => {
+    try {
+      const response = await BaseAxios({
+        url: "login",
+        method: "POST",
+        data: payLoad,
+      });
 
-        if (response.status !== 200) {
-          setShowSpinner(false);
-          throw new Error(response.data.message);
-        }
-        return response.data;
-      } catch (error) {
-        setShowSpinner(false);
-        console.log(error);
-        console.log(error.response.data.message);
-        throw new Error(error.response.data.message);
+      console.log("Response:", response);
+
+      if (!response || !response?.data) {
+        throw new Error("Invalid response received");
       }
-    },
-    onSuccess: (data) => {
+
+      if (response?.status !== 200) {
+        setShowSpinner(false);
+        throw new Error("Request failed with status: " + response.status);
+      }
+
+      return response.data;
+    } catch (error) {
       setShowSpinner(false);
-      console.log("Login successful:", data);
-    },
-    onError: (error) => {
-      setShowSpinner(false);
-      console.log(error);
-      notifyError(error);
-    },
-  });
+      notifyError(error?.response?.data?.message);
+      throw error;
+    }
+  },
+  onSuccess: (data) => {
+    setShowSpinner(false);
+    console.log(data)
+
+    if (data && data?.accessTokens) {
+      navigate("/user");
+      Cookies.set("authToken", data?.accessTokens?.accessToken);
+      Cookies.set("refreshToken", data?.accessTokens?.refreshToken);
+      Cookies.set("role", data?.userRole);
+    } else {
+      console.error("Invalid data format:", data);
+    }
+  },
+  onError: (error) => {
+    setShowSpinner(false);
+    console.error("An error occurred:", error);
+  },
+});
+
 
   const onSubmit = (data) => {
     console.log(data); // Handle form submission with validated data
@@ -84,7 +99,7 @@ const LoginUser   = () => {
       password,
       role: "Admin",
     };
-    adminLoginMutation.mutate(payLoad);
+    userLoginMutation.mutate(payLoad);
     setShowSpinner(true);
   };
 
@@ -101,7 +116,7 @@ const LoginUser   = () => {
           className="absolute w-[30px] h-[30px] lg:w-[120px] lg:h-[120px]  md:w-[80px] md:h-[80px] top-0 right-0 "
         />
 
-        <div className="w-[95%] md:w-[80%] xl:w-[70%] bg-black rounded-[1rem] h-[65vh] md:h-[50vh] xl:h-[90%] flex flex-col items-center justify-start mt-0 gap-6 p-2 py-5 xl:py-0 md:p-12 xl:p-6 ">
+        <div className="w-[95%] md:w-[80%] xl:w-[70%] bg-black rounded-[1rem] h-[65vh] md:h-[50vh] xl:h-[90%] flex flex-col items-center justify-start mt-0 gap-6 p-2 py-5 xl:py-4 md:p-12 xl:p-6 ">
           <div className="w-full">
             <button
               onClick={handleGoBack}
@@ -198,23 +213,19 @@ const LoginUser   = () => {
               </div>
 
               {/* Submit Button */}
+
               <CustomButton
-                text="Login"
-                path="/user"
+                text={
+                  showSpinner || userLoginMutation.isLoading ? (
+                    <Spinner />
+                  ) : (
+                    "Login"
+                  )
+                }
+                disabled={userLoginMutation.isLoading || showSpinner}
+                type="submit"
                 style="bg-[#EB2529] w-full flex justify-center items-center  hover:bg-red-400 h-[47px] text-white focus-visible:outline-red-600"
               />
-              {/* <CustomButton
-              text={
-                showSpinner || adminLoginMutation.isLoading ? (
-                  <Spinner />
-                ) : (
-                  "Login"
-                )
-              }
-              disabled={adminLoginMutation.isLoading || showSpinner}
-              type="submit"
-              style="bg-[#EB2529] w-full hover:bg-red-400 flex justify-center items-center  h-[47px] text-white focus-visible:outline-red-600"
-            /> */}
             </form>
 
             <Link
@@ -232,6 +243,10 @@ const LoginUser   = () => {
           className="absolute w-[30px] h-[30px]  lg:w-[120px] lg:h-[120px]  md:w-[80px] md:h-[80px] bottom-0 left-0 xl:bottom-40 md:bottom-4"
         />
       </div>
+      <ToastContainer
+        theme="dark"
+        toastStyle={{ background: "#333", color: "#fff" }}
+      />
     </div>
   );
 };
