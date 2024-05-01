@@ -95,24 +95,29 @@ const ForgetPassword = () => {
 
   return (
     <div className="w-full bg-[#1e1e1e] min-h-screen flex justify-center items-center">
-      <div className="w-full md:w-[95%] xl:w-[50%] flex justify-center items-center relative">
+      <div className="w-full md:w-[95%] xl:w-[55%] flex justify-center items-center relative">
         <img
           src={aThree}
           alt="a-3"
           className="absolute w-[30px] h-[30px] lg:w-[120px] lg:h-[120px]  md:w-[80px] md:h-[80px] top-0 right-0 "
         />
 
-        <div className="w-[95%] md:w-[80%] xl:w-[70%] bg-black rounded-[1rem] h-[45vh] md:h-[40vh] xl:h-[50vh] flex flex-col items-center justify-start mt-0 gap-6 p-2 py-5 pb-10 md:pb-0 md:p-10 xl:p-6 ">
-          <div className="w-full">
+        <div className="w-[95%] md:w-[80%] xl:w-[65%] bg-black rounded-[1rem] h-fit flex flex-col items-center justify-start mt-0 gap-6 p-2 py-5 pb-10  md:p-10 xl:p-6 ">
+          {/* <div className="w-full">
             <button
               onClick={handleGoBack}
               className=" text-white font-dm-sans p-2 md:p-0 "
             >
               Go Back
             </button>
-          </div>
+          </div> */}
 
           <div className="h-full w-full flex gap-5 flex-col items-center justify-end">
+            <img
+              src={aOne}
+              alt="a-1"
+              className=" object-contain w-[100px] h-[30px] mb-6 mt-4"
+            />
             <form
               onSubmit={handleSubmit(onSubmit)}
               className="w-full flex flex-col items-center gap-6"
@@ -178,7 +183,7 @@ const ForgetPassword = () => {
                 }
                 disabled={resetPasswordMutation.isLoading || showSpinner}
                 type="submit"
-                style="bg-[#EB2529] w-full flex justify-center items-center  hover:bg-red-400 h-[47px] text-white focus-visible:outline-red-600"
+                style="bg-[#EB2529] w-full flex justify-center items-center font-dm-sans hover:bg-red-400 h-[47px] text-white focus-visible:outline-red-600"
               />
             </form>
           </div>
@@ -201,7 +206,7 @@ const ForgetPassword = () => {
         <img
           src={aTwo}
           alt="a-2"
-          className="absolute w-[30px] h-[30px]  lg:w-[120px] lg:h-[120px]  md:w-[80px] md:h-[80px] bottom-0 left-0 xl:bottom-40 md:bottom-4"
+          className="absolute w-[30px] h-[30px]  lg:w-[120px] lg:h-[120px]  md:w-[80px] md:h-[80px] bottom-0 left-0 xl:bottom-10 md:bottom-4"
         />
       </div>
 
