@@ -137,6 +137,23 @@ const userLoginMutation = useMutation({
               {/* Email Address Field */}
               <div className="w-full">
                 <TextField
+                  sx={{
+                    width: "100%",
+                    "& .MuiOutlinedInput-root": {
+                      "& fieldset": {
+                        outline: "none",
+                        border: "none",
+                      },
+                      "&:hover fieldset": {
+                        outline: "none",
+                        border: "none",
+                      },
+                      "&.Mui-focused fieldset": {
+                        outline: "none",
+                        border: "none",
+                      },
+                    },
+                  }}
                   type="text"
                   name="email"
                   {...register("email", {
@@ -170,6 +187,23 @@ const userLoginMutation = useMutation({
               {/* Password Field */}
               <div className="w-full">
                 <TextField
+                  sx={{
+                    width: "100%",
+                    "& .MuiOutlinedInput-root": {
+                      "& fieldset": {
+                        outline: "none",
+                        border: "none",
+                      },
+                      "&:hover fieldset": {
+                        outline: "none",
+                        border: "none",
+                      },
+                      "&.Mui-focused fieldset": {
+                        outline: "none",
+                        border: "none",
+                      },
+                    },
+                  }}
                   type={showPassword ? "text" : "password"}
                   name="password"
                   {...register("password", {

@@ -17,6 +17,10 @@ font-weight:800 !important;
 
 }
 
+input {
+  font-family: "DM Sans", sans-serif; /* Choose the desired font family */
+  font-weight: 800; /* Choose the desired font weight */
+}
 .font-raleway {
   font-family: "Raleway", sans-serif;
 }

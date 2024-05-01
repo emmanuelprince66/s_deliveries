@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import search from "../images/search.svg";
 import aOne from "../images/a-1.png";
 import aTwo from "../images/a-2.png";
@@ -15,6 +15,7 @@ import { useNavigate } from "react-router-dom";
 
 const UserStart = () => {
 const navigate = useNavigate()
+const [searchValue , setSearchValue] = useState(null)
 
 const handleLogout = () => {
 Cookies.remove("authToken")
@@ -30,13 +31,21 @@ const {
   handleSubmit,
   formState: { errors },
 } = useForm();
+
+
+const onSubmit = (data) => {
+console.log(data)
+}
       
   return (
     <div className="w-full bg-[#171414] h-screen p-2 md:p-8 relative">
-      <div className="w-[100%] md:w-[82.5%] lg:w-[62.5%] bg-[#000] relative rounded-2xl mx-auto mb-4 p-4 pb-8">
+      <div className="   w-[100%] md:w-[82.5%] lg:w-[62.5%] bg-[#000] relative rounded-2xl mx-auto mb-4 p-4 pb-8">
         <div className="flex flex-col w-full items-center justify-center ">
           <div className="w-[100%] md:w-[90%] lg:w-[90%] mx-auto flex justify-end mb-[5%]">
-            <button onClick={handleLogout} className=" bg-[#EB2529] py-2 px-4 font-dm-sans  rounded-md  hover:bg-red-400 text-white focus-visible:outline-red-600 mt-0 md:mt-3 lg:mt-3">
+            <button
+              onClick={handleLogout}
+              className=" bg-[#EB2529] py-2 px-4 font-dm-sans  rounded-md  hover:bg-red-400 text-white focus-visible:outline-red-600 mt-0 md:mt-3 lg:mt-3"
+            >
               Logout
             </button>
           </div>
@@ -45,7 +54,10 @@ const {
             <img src={aOne} alt="a-1" className=" object-contain" />
           </div>
 
-          <form action="" className="w-[100%] md:w-[80%] lg:w-[70%] ">
+          <form
+            onSubmit={handleSubmit(onSubmit)}
+            className="w-[100%] md:w-[80%] lg:w-[70%] "
+          >
             <div className="relative rounded-2xl bg-[#ffefef] w-full">
               <TextField
                 sx={{
@@ -65,12 +77,12 @@ const {
                   },
                 }}
                 type="text"
-                name="email"
-                {...register("search", {
+                name="word"
+                {...register("word", {
                   required: "Input is required",
                   pattern: {
-                    value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
-                    message: "Invalid email format",
+                    value: /^[a-zA-Z\s]*$/, // Accept only letters and spaces
+                    message: "Please enter only letters.",
                   },
                 })}
                 className="rounded-md  outline-none border-none bg-white  w-full"
@@ -84,10 +96,19 @@ const {
                   ),
                 }}
               />
-              <div className="absolute bg-[#EB2529] p-3 py-2  text-[14px] font-dm-sans justify-center text-white hover:text-black cursor-pointer m-2 rounded-lg inset-y-0 right-0 flex items-center  ">
+
+              <button
+                type="submit"
+                className="absolute bg-[#EB2529] p-3 py-2  text-[14px] font-dm-sans justify-center text-white hover:text-black cursor-pointer m-2 rounded-lg inset-y-0 right-0 flex items-center  "
+              >
                 GO!
-              </div>
+              </button>
             </div>
+            {errors.word && (
+              <span className="text-red-500 text-xs mt-[-5px]">
+                {errors.word.message}
+              </span>
+            )}
           </form>
 
           <div className="absolute w-[30px] h-[30px]  lg:w-[120px] lg:h-[120px]  md:w-[80px] md:h-[80px] right-[-1.5%] bottom-0 md:bottom-0">

@@ -42,7 +42,9 @@ const RoutesContainer = () => {
               item.path === "/forget-password" ||
               item.path === "/login-user" ||
               item.path === "/login-admin" ||
-              item.path === "/user-signup"
+              item.path === "/user-signup" ||
+              item.path === "/user"
+              
             ) {
               return (
                 <Route

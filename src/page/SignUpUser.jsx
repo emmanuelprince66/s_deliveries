@@ -147,6 +147,23 @@ const registerUserMutation = useMutation({
               {/* Email Address Field */}
               <div className="w-full">
                 <TextField
+                  sx={{
+                    width: "100%",
+                    "& .MuiOutlinedInput-root": {
+                      "& fieldset": {
+                        outline: "none",
+                        border: "none",
+                      },
+                      "&:hover fieldset": {
+                        outline: "none",
+                        border: "none",
+                      },
+                      "&.Mui-focused fieldset": {
+                        outline: "none",
+                        border: "none",
+                      },
+                    },
+                  }}
                   type="text"
                   name="email"
                   {...register("email", {
@@ -178,6 +195,23 @@ const registerUserMutation = useMutation({
               </div>
               <div className="w-full">
                 <TextField
+                  sx={{
+                    width: "100%",
+                    "& .MuiOutlinedInput-root": {
+                      "& fieldset": {
+                        outline: "none",
+                        border: "none",
+                      },
+                      "&:hover fieldset": {
+                        outline: "none",
+                        border: "none",
+                      },
+                      "&.Mui-focused fieldset": {
+                        outline: "none",
+                        border: "none",
+                      },
+                    },
+                  }}
                   type={showPassword ? "text" : "password"}
                   name="password"
                   {...register("password", {
@@ -223,6 +257,23 @@ const registerUserMutation = useMutation({
               {/* Password Field */}
               <div className="w-full">
                 <TextField
+                  sx={{
+                    width: "100%",
+                    "& .MuiOutlinedInput-root": {
+                      "& fieldset": {
+                        outline: "none",
+                        border: "none",
+                      },
+                      "&:hover fieldset": {
+                        outline: "none",
+                        border: "none",
+                      },
+                      "&.Mui-focused fieldset": {
+                        outline: "none",
+                        border: "none",
+                      },
+                    },
+                  }}
                   type={showPassword ? "text" : "password"}
                   name="confirmPassword"
                   {...register("confirmPassword", {

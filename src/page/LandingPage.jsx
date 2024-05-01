@@ -158,7 +158,7 @@ const LandingPage = () => {
         </div>
 
         <div className="w-full grid grid-cols-1 mt-[20%] gap-5">
-          <p className="col-span-1 text-white text-[38px] font-satoshi  text-center">
+          <p className="col-span-1 text-white  md:text-[38px] text-[30px] font-satoshi  text-center mb-3">
             What makes Sterling Dictionary different?
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 items-center my-2">
@@ -168,7 +168,8 @@ const LandingPage = () => {
                 Sterling Products
               </p>
               <p className="text-[#B9B9B9] text-[14px] leading-5 font-inter-sans">
-                Know more about various<br/> sterling products.
+                Know more about various
+                <br /> sterling products.
               </p>
             </div>
             <div className="flex flex-col gap-2 w-full lg:w-[80%] md:w-full mb-5 items-start h-full">
@@ -177,7 +178,8 @@ const LandingPage = () => {
                 Banking Jargons
               </p>
               <p className="text-[#B9B9B9] text-[14px] leading-5 font-inter-sans">
-                Have quick look-up of<br/> words and acronyms..
+                Have quick look-up of
+                <br /> words and acronyms..
               </p>
             </div>
             <div className="flex flex-col gap-2 w-full  md:w-full lg:w-[20rem] ml-0 lg:ml-[-1.4rem]   mb-5 items-start h-full">
@@ -397,10 +399,10 @@ const LandingPage = () => {
             <img src={mFour} alt="m-4" />
           </div>
           <div className="col-span-1  w-full md:w-full  lg:min-w-[24rem] flex flex-col items-start justify-center  gap-4">
-            <p className="text-[38px] font-satoshi text-white">
+            <p className="md:text-[38px] font-satoshi text-[30px] text-white">
               Inventory and shipping
             </p>
-            <p className="text-[38px] font-satoshi mb-4 mt-[-15px] text-white">
+            <p className="md:text-[38px] font-satoshi text-[30px] mb-4 mt-[-15px] text-white">
               management tools
             </p>
 

@@ -120,6 +120,23 @@ const ForgetPassword = () => {
               {/* Email Address Field */}
               <div className="w-full">
                 <TextField
+                  sx={{
+                    width: "100%",
+                    "& .MuiOutlinedInput-root": {
+                      "& fieldset": {
+                        outline: "none",
+                        border: "none",
+                      },
+                      "&:hover fieldset": {
+                        outline: "none",
+                        border: "none",
+                      },
+                      "&.Mui-focused fieldset": {
+                        outline: "none",
+                        border: "none",
+                      },
+                    },
+                  }}
                   type="text"
                   name="email"
                   {...register("email", {
@@ -165,6 +182,20 @@ const ForgetPassword = () => {
               />
             </form>
           </div>
+
+          <div className="flex w-1/2 md:w-1/3 mx-auto  justify-between items-center">
+            <Link to="/user-signup">
+              <button className="bg-transparent font-medium font-dm-sans text-white text-[16px] hover:text-[#DB363A] transition-colors duration-700 ease-in-out ">
+                Sign Up
+              </button>
+            </Link>
+            <div className="h-full w-[1px] bg-[#757575]" />
+            <Link to="/login-user">
+              <button className="bg-transparent font-dm- font-medium  text-white text-[16px] hover:text-[#DB363A] transition-colors duration-700 ease-in-out ">
+                Login
+              </button>
+            </Link>
+          </div>
         </div>
 
         <img
@@ -186,10 +217,8 @@ const ForgetPassword = () => {
               </p>
 
               <CustomButton
-                text=
-                    "Go to Login"
-                    path="/login-user"
-                
+                text="Go to Login"
+                path="/login-user"
                 style="bg-[#EB2529] w-full flex justify-center items-center  hover:bg-red-400 h-[47px] text-white focus-visible:outline-red-600"
               />
             </div>
