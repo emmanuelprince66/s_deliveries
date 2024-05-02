@@ -39,7 +39,7 @@ console.log(data)
       
   return (
     <div className="w-full bg-[#171414] h-screen p-2 md:p-8 relative">
-      <div className="   w-[100%] md:w-[82.5%] lg:w-[62.5%] bg-[#000] relative rounded-2xl mx-auto mb-4 p-4 pb-8">
+      <div className="   w-[100%] md:w-[82.5%] lg:w-[62.5%] bg-[#000] relative rounded-2xl mx-auto mb-4 p-4 pb-9">
         <div className="flex flex-col w-full items-center justify-center ">
           <div className="w-[100%] md:w-[90%] lg:w-[90%] mx-auto flex justify-end mb-[5%]">
             <button
@@ -69,8 +69,8 @@ console.log(data)
                     },
                   },
                   "& .MuiInputBase-input": {
-                    paddingTop: "0.6em", // Adjust top padding of the input text
-                    paddingBottom: "0.6em", // Adjust bottom padding of the input text
+                    paddingTop: "0.9em", // Adjust top padding of the input text
+                    paddingBottom: "0.9em", // Adjust bottom padding of the input text
                   },
                   "& .MuiInputLabel-root": {
                     marginTop: "0.5em", // Adjust top margin of the label

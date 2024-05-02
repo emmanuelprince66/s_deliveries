@@ -12,8 +12,8 @@ import { useMutation, useQuery } from "@tanstack/react-query";
 import "react-toastify/dist/ReactToastify.min.css";
 import { BaseAxios } from "../helpers/axiosInstance";
 import { Link } from "react-router-dom";
-import Visibility from "@mui/icons-material/Visibility";
-import VisibilityOff from "@mui/icons-material/VisibilityOff";
+import VisibilityOutlinedIcon from "@mui/icons-material/VisibilityOutlined";
+import VisibilityOffOutlinedIcon from "@mui/icons-material/VisibilityOffOutlined";
 import IconButton from "@mui/material/IconButton";
 import lockIcon from "../images/lock.svg";
 import emailIcon from "../images/email.svg";
@@ -127,9 +127,11 @@ const userLoginMutation = useMutation({
           </div>
 
           <div className="h-full w-full flex gap-5 flex-col items-center justify-end">
-            
-            
-            <img src={aOne} alt="a-1" className=" object-contain w-[100px] h-[30px]" />
+            <img
+              src={aOne}
+              alt="a-1"
+              className=" object-contain w-[100px] h-[30px] mb-5"
+            />
             <form
               onSubmit={handleSubmit(onSubmit)}
               className="w-full flex flex-col items-center gap-6"
@@ -230,9 +232,11 @@ const userLoginMutation = useMutation({
                           edge="end"
                         >
                           {showPassword ? (
-                            <VisibilityOff sx={{ color: "#B4B4B4" }} />
+                            <VisibilityOffOutlinedIcon
+                              sx={{ color: "#B4B4B4" }}
+                            />
                           ) : (
-                            <Visibility sx={{ color: "#B4B4B4" }} />
+                            <VisibilityOutlinedIcon sx={{ color: "#B4B4B4" }} />
                           )}
                         </IconButton>
                       </InputAdornment>
@@ -258,13 +262,15 @@ const userLoginMutation = useMutation({
                 }
                 disabled={userLoginMutation.isLoading || showSpinner}
                 type="submit"
-                style="bg-[#EB2529] w-full flex justify-center items-center  hover:bg-red-400 h-[47px] text-white focus-visible:outline-red-600"
+                style="bg-[#EB2529] w-full flex justify-center items-center  hover:bg-red-400 h-[55px] text-white focus-visible:outline-red-600"
               />
             </form>
 
-            <p className="text-white text-[15px] font-dm-sans ">
+            <p className="text-white text-[15px] font-dm-sans mt-4 mb-3">
               Don't have an account? click{" "}
-              <Link to="/user-signup" className="hover:text-[#EB2529]">Create</Link>
+              <Link to="/user-signup" className="hover:text-[#EB2529]">
+                Create
+              </Link>
             </p>
 
             <Link

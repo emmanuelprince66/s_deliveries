@@ -15,8 +15,8 @@ import lockIcon from "../images/lock.svg";
 import emailIcon from "../images/email.svg";
 import { BaseAxios } from "../helpers/axiosInstance";
 import { Link } from "react-router-dom";
-import Visibility from "@mui/icons-material/Visibility";
-import VisibilityOff from "@mui/icons-material/VisibilityOff";
+import VisibilityOutlinedIcon from "@mui/icons-material/VisibilityOutlined";
+import VisibilityOffOutlinedIcon from "@mui/icons-material/VisibilityOffOutlined";
 import IconButton from "@mui/material/IconButton";
 import line from "../images/line.svg";
 import { InputAdornment, TextField } from "@mui/material";
@@ -143,7 +143,7 @@ const registerUserMutation = useMutation({
             <img
               src={aOne}
               alt="a-1"
-              className=" object-contain w-[100px] h-[30px]"
+              className=" object-contain w-[100px] h-[30px] mb-5 mt-1"
             />
             <form
               onSubmit={handleSubmit(onSubmit)}
@@ -188,6 +188,7 @@ const registerUserMutation = useMutation({
                           className="w-[20px] h-[20px] bg-#B4B4B4"
                         />
                         <img src={line} alt="" className="h-7 ml-3" />
+                        &nbsp;&nbsp;
                       </InputAdornment>
                     ),
                   }}
@@ -232,6 +233,7 @@ const registerUserMutation = useMutation({
                           className="w-[20px] h-[20px] bg-#B4B4B4"
                         />
                         <img src={line} alt="" className="h-7 ml-3" />
+                        &nbsp;&nbsp;
                       </InputAdornment>
                     ),
                     endAdornment: (
@@ -243,9 +245,11 @@ const registerUserMutation = useMutation({
                           edge="end"
                         >
                           {showPassword ? (
-                            <VisibilityOff sx={{ color: "#B4B4B4" }} />
+                            <VisibilityOffOutlinedIcon
+                              sx={{ color: "#B4B4B4" }}
+                            />
                           ) : (
-                            <Visibility sx={{ color: "#B4B4B4" }} />
+                            <VisibilityOutlinedIcon sx={{ color: "#B4B4B4" }} />
                           )}
                         </IconButton>
                       </InputAdornment>
@@ -294,6 +298,7 @@ const registerUserMutation = useMutation({
                           className="w-[20px] h-[20px] bg-#B4B4B4"
                         />
                         <img src={line} alt="" className="h-7 ml-3" />
+                        &nbsp;&nbsp;
                       </InputAdornment>
                     ),
                     endAdornment: (
@@ -305,9 +310,11 @@ const registerUserMutation = useMutation({
                           edge="end"
                         >
                           {showPassword ? (
-                            <VisibilityOff sx={{ color: "#B4B4B4" }} />
+                            <VisibilityOffOutlinedIcon
+                              sx={{ color: "#B4B4B4" }}
+                            />
                           ) : (
-                            <Visibility sx={{ color: "#B4B4B4" }} />
+                            <VisibilityOutlinedIcon sx={{ color: "#B4B4B4" }} />
                           )}
                         </IconButton>
                       </InputAdornment>
@@ -333,15 +340,14 @@ const registerUserMutation = useMutation({
                 }
                 disabled={registerUserMutation.isLoading || showSpinner}
                 type="submit"
-                style="bg-[#EB2529] w-full flex justift-center items-center hover:bg-red-400 h-[47px] text-white focus-visible:outline-red-600"
+                style="bg-[#EB2529] w-full flex justift-center items-center hover:bg-red-400 h-[55px] text-white focus-visible:outline-red-600"
               />
             </form>
 
-            <Link
-              to="/forget-password"
-              className="text-[15px] hover:text-red-500 font-dm-sans text-white"
-            >
-              Forgot Password?
+            <Link to="/forget-password" className=" mt-3 mb-2">
+              <p className="text-[15px] hover:text-red-500  text-white font-dm-sans">
+                Forget Password
+              </p>
             </Link>
           </div>
         </div>

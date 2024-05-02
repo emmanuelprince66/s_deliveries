@@ -12,8 +12,8 @@ import { useMutation, useQuery } from "@tanstack/react-query";
 import "react-toastify/dist/ReactToastify.min.css";
 import { BaseAxios } from "../helpers/axiosInstance";
 import { Link } from "react-router-dom";
-import Visibility from "@mui/icons-material/Visibility";
-import VisibilityOff from "@mui/icons-material/VisibilityOff";
+import VisibilityOutlinedIcon from "@mui/icons-material/VisibilityOutlined";
+import VisibilityOffOutlinedIcon from "@mui/icons-material/VisibilityOffOutlined";
 import IconButton from "@mui/material/IconButton";
 import lockIcon from "../images/lock.svg"
 import emailIcon from "../images/email.svg"
@@ -145,7 +145,7 @@ const {
             <img
               src={aOne}
               alt="a-1"
-              className=" object-contain w-[100px] h-[30px]"
+              className=" object-contain w-[100px] h-[30px] mb-5"
             />
             <form
               onSubmit={handleSubmit(onSubmit)}
@@ -180,7 +180,7 @@ const {
                       message: "Invalid email format",
                     },
                   })}
-                  placeholder="Your Email Address.."
+                  placeholder="Your email address.."
                   className="rounded-2xl input-placeholder outline-none border-none bg-white w-full"
                   InputProps={{
                     startAdornment: (
@@ -190,6 +190,7 @@ const {
                           className="w-[20px] h-[20px] bg-#B4B4B4"
                         />
                         <img src={line} alt="" className="h-7 ml-3" />
+                        &nbsp;&nbsp;
                       </InputAdornment>
                     ),
                   }}
@@ -235,7 +236,8 @@ const {
                           src={lockIcon}
                           className="w-[20px] h-[20px] bg-#B4B4B4"
                         />
-                        <img src={line} alt="" className="h-7 ml-3" />
+                        <img src={line} alt="" className="h-7 ml-3" />{" "}
+                        &nbsp;&nbsp;
                       </InputAdornment>
                     ),
                     endAdornment: (
@@ -247,9 +249,11 @@ const {
                           edge="end"
                         >
                           {showPassword ? (
-                            <VisibilityOff sx={{ color: "#B4B4B4" }} />
+                            <VisibilityOffOutlinedIcon
+                              sx={{ color: "#B4B4B4" }}
+                            />
                           ) : (
-                            <Visibility sx={{ color: "#B4B4B4" }} />
+                            <VisibilityOutlinedIcon sx={{ color: "#B4B4B4" }} />
                           )}
                         </IconButton>
                       </InputAdornment>
@@ -275,13 +279,13 @@ const {
                 }
                 disabled={adminLoginMutation.isLoading || showSpinner}
                 type="submit"
-                style="bg-[#EB2529] w-full flex justify-center items-center  hover:bg-red-400 h-[47px] text-white focus-visible:outline-red-600"
+                style="bg-[#EB2529] w-full flex justify-center items-center  hover:bg-red-400 h-[55px] text-white focus-visible:outline-red-600"
               />
             </form>
 
             <Link
               to="/forget-password"
-              className="text-[15px] hover:text-red-500 font-dm-sans text-white"
+              className="text-[15px] hover:text-red-500 font-dm-sans text-white mt-4"
             >
               Forgot Password?
             </Link>

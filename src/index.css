@@ -13,13 +13,13 @@
 }
 ::placeholder {
 font-family:  "DM Sans", sans-serif !important;
-font-weight:800 !important;
+font-weight:700;
 
 }
 
 input {
   font-family: "DM Sans", sans-serif; /* Choose the desired font family */
-  font-weight: 800; /* Choose the desired font weight */
+  font-weight: 500; /* Choose the desired font weight */
 }
 .font-raleway {
   font-family: "Raleway", sans-serif;
@@ -31,7 +31,9 @@ input {
 .font-satoshi {
   font-family: "Satoshi", sans-serif;
 }
-
+textarea::placeholder {
+  font-weight: 600; /* Set the desired font weight */
+}
 
 .font-dm-sans {
   font-family: "DM Sans", sans-serif;

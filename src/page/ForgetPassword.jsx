@@ -102,7 +102,7 @@ const ForgetPassword = () => {
           className="absolute w-[30px] h-[30px] lg:w-[120px] lg:h-[120px]  md:w-[80px] md:h-[80px] top-0 right-0 "
         />
 
-        <div className="w-[95%] md:w-[80%] xl:w-[65%] bg-black rounded-[1rem] h-fit flex flex-col items-center justify-start mt-0 gap-6 p-2 py-5 pb-10  md:p-10 xl:p-6 ">
+        <div className="w-[95%] md:w-[80%] xl:w-[65%] bg-black rounded-[1rem] h-fit flex flex-col items-center justify-start mt-0 gap-6 p-2 py-5 pb-10 xl:pb-[2.8rem]  md:p-10 xl:p-6 ">
           {/* <div className="w-full">
             <button
               onClick={handleGoBack}
@@ -116,7 +116,7 @@ const ForgetPassword = () => {
             <img
               src={aOne}
               alt="a-1"
-              className=" object-contain w-[100px] h-[30px] mb-6 mt-4"
+              className=" object-contain w-[100px] h-[30px] mb-5 mt-4"
             />
             <form
               onSubmit={handleSubmit(onSubmit)}
@@ -161,6 +161,7 @@ const ForgetPassword = () => {
                           className="w-[20px] h-[20px] bg-#B4B4B4"
                         />
                         <img src={line} alt="" className="h-7 ml-3" />
+                        &nbsp;&nbsp;
                       </InputAdornment>
                     ),
                   }}
@@ -183,24 +184,25 @@ const ForgetPassword = () => {
                 }
                 disabled={resetPasswordMutation.isLoading || showSpinner}
                 type="submit"
-                style="bg-[#EB2529] w-full flex justify-center items-center font-dm-sans hover:bg-red-400 h-[47px] text-white focus-visible:outline-red-600"
+                style="bg-[#EB2529] w-full flex justify-center items-center font-dm-sans hover:bg-red-400 h-[55px] text-white focus-visible:outline-red-600"
               />
             </form>
           </div>
 
-          <div className="flex w-1/2 md:w-1/3 mx-auto  justify-between items-center">
+          {/* <div className="flex w-1/2 md:w-1/3 mx-auto  justify-between items-center">
             <Link to="/user-signup">
               <button className="bg-transparent font-medium font-dm-sans text-white text-[16px] hover:text-[#DB363A] transition-colors duration-700 ease-in-out ">
                 Sign Up
               </button>
             </Link>
-            <div className="h-full w-[1px] bg-[#757575]" />
+            <div className="h-full w-[1px] bg-[#757575]">|</div>
+
             <Link to="/login-user">
-              <button className="bg-transparent font-dm- font-medium  text-white text-[16px] hover:text-[#DB363A] transition-colors duration-700 ease-in-out ">
+              <button className="bg-transparent font-dm-sans font-medium  text-white text-[16px] hover:text-[#DB363A] transition-colors duration-700 ease-in-out ">
                 Login
               </button>
             </Link>
-          </div>
+          </div> */}
         </div>
 
         <img

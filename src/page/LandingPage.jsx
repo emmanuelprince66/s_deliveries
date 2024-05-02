@@ -143,7 +143,7 @@ const LandingPage = () => {
           </p>
 
           <Link to="/user-signup">
-            <button className=" text-white text-[18px] w-[172px]  h-[50px] rounded-sm  px-3 py-2 bg-[#EB2529] hover:text-black transition-colors duration-700 ease-in-out ">
+            <button className=" text-white font-inter-sans  text-[18px] w-[172px]  h-[50px] rounded-sm  px-3 py-2 bg-[#EB2529] hover:text-black transition-colors duration-700 ease-in-out ">
               Get Started
             </button>
           </Link>

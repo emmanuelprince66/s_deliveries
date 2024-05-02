@@ -72,7 +72,7 @@ const {
     <form
       onSubmit={handleSubmit(onSubmit)}
       action=""
-      className=" flex flex-col items-start gap-3 justify-center  w-[90%] mx-auto sm:mx-0 sm:w-[80%]"
+      className=" flex flex-col items-start gap-3 justify-center mb-2  w-[90%] mx-auto sm:mx-0 md:w-[90%]"
     >
       <TextField
         sx={{
@@ -87,8 +87,8 @@ const {
             },
           },
           "& .MuiInputBase-input": {
-            paddingTop: "0.8em", // Adjust top padding of the input text
-            paddingBottom: "0.8em", // Adjust bottom padding of the input text
+            paddingTop: "0.9em", // Adjust top padding of the input text
+            paddingBottom: "0.9em", // Adjust bottom padding of the input text
           },
           "& .MuiInputLabel-root": {
             marginTop: "0.5em", // Adjust top margin of the label
@@ -103,7 +103,7 @@ const {
             message: "Please enter only letters.",
           },
         })}
-        className="rounded-[15px] input-placeholder outline-none border-none bg-white  w-full"
+        className="rounded-2xl input-placeholder outline-none border-none bg-white  w-full"
         placeholder=" Enter new word phrase,term,anything.."
         InputProps={{
           startAdornment: (
@@ -119,15 +119,9 @@ const {
           {errors.word.message}
         </span>
       )}
-      <TextareaAutosize
-        style={{
-          minHeight: "100px",
-          maxHeight: "300px",
-          "::placeholder": {
-            fontFamily: "DM Sans", // Replace 'Your Font Family' with the desired font family
-          },
-        }} // Adjust the minHeight and maxHeight as needed
-        className="rounded-[15px] input-placeholder outline-none border-none bg-white w-full px-4 py-3" // Apply custom classes for styling
+
+      <textarea
+        class="resize-none block w-full rounded-2xl h-[100px] max-h-[350px] bg-white px-4 py-3 outline-none focus:ring-0"
         placeholder="What does this mean?"
         {...register("meaning", {
           required: "Meaning is required",
@@ -136,7 +130,10 @@ const {
             message: "Please enter only letters.",
           },
         })}
-      />
+      ></textarea>
+
+
+ 
       {errors.meaning && (
         <span className="text-red-500 text-xs mt-[-10px]">
           {errors.meaning.message}
@@ -153,8 +150,8 @@ const {
             },
           },
           "& .MuiInputBase-input": {
-            paddingTop: "0.8em", // Adjust top padding of the input text
-            paddingBottom: "0.8em", // Adjust bottom padding of the input text
+            paddingTop: "0.9em", // Adjust top padding of the input text
+            paddingBottom: "0.9em", // Adjust bottom padding of the input text
           },
           "& .MuiInputLabel-root": {
             marginTop: "0.5em", // Adjust top margin of the label
@@ -163,7 +160,7 @@ const {
         type="text"
         name="link"
         {...register("link")}
-        className="rounded-[15px] input-placeholder outline-none border-none bg-white   w-full"
+        className="rounded-2xl input-placeholder outline-none border-none bg-white   w-full"
         placeholder=" Add a link(Optional).."
         InputProps={{
           startAdornment: (
