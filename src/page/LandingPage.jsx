@@ -157,47 +157,48 @@ const LandingPage = () => {
           <img src={lImgOne} alt="l-one" />
         </div>
 
-        <div className="w-full grid grid-cols-1 mt-[20%] gap-5">
+        <div className="w-ful grid grid-cols-1 mt-[20%] gap-5 ">
           <p className="col-span-1 text-white  md:text-[38px] text-[30px] font-satoshi  text-center mb-3">
             What makes Sterling Dictionary different?
           </p>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 items-center my-2">
+          <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-3 items-center my-2">
             <div className="flex flex-col gap-2 w-full lg:w-[90%] md:w-full mb-5 items-start h-full">
-              <img src={lTagOne} alt="l-tag-1" className="w-[38px] h-[38px]" />
-              <p className="text-white text-[20px] font-satoshi">
+              <img src={lTagOne} alt="l-tag-1" className="w-[38px] h-[38px] mb-2" />
+              <p className="text-white  text-[14.5px]  md:text-[20px] font-satoshi">
                 Sterling Products
               </p>
-              <p className="text-[#B9B9B9] text-[14px] leading-5 font-inter-sans">
+              <p className="text-[#B9B9B9] text-[11px]  md:text-[14px] leading-5 font-inter-sans">
                 Know more about various
                 <br /> sterling products.
               </p>
             </div>
             <div className="flex flex-col gap-2 w-full lg:w-[80%] md:w-full mb-5 items-start h-full">
-              <img src={lTagTwo} alt="l-tag-2" className="w-[38px] h-[38px]" />
-              <p className="text-white text-[20px] font-satoshi">
+              <img src={lTagTwo} alt="l-tag-2" className="w-[38px] h-[38px] mb-2" />
+              <p className="text-white text-[14.5px]  md:text-[20px] font-satoshi">
                 Banking Jargons
               </p>
-              <p className="text-[#B9B9B9] text-[14px] leading-5 font-inter-sans">
+              <p className="text-[#B9B9B9] text-[11px]   md:text-[14px] leading-5 font-inter-sans">
                 Have quick look-up of
-                <br /> words and acronyms..
+                <br />
+                words and acronyms..
               </p>
             </div>
             <div className="flex flex-col gap-2 w-full  md:w-full lg:w-[20rem] ml-0 lg:ml-[-1.4rem]   mb-5 items-start h-full">
-              <img src={lTagTwo} alt="l-tag-2" className="w-[38px] h-[38px]" />
-              <p className="text-white text-[20px] font-satoshi">
+              <img src={lTagTwo} alt="l-tag-2" className="w-[38px] h-[38px] mb-2" />
+              <p className="text-white text-[14.5px]  md:text-[20px]  font-satoshi">
                 Terminologies
               </p>
-              <p className="text-[#B9B9B9] text-[14px] leading-5 font-inter-sans">
+              <p className="text-[#B9B9B9] text-[11px]  md:text-[14px] leading-5 font-inter-sans">
                 All inclusive essential <br />
                 conversion & automation tools.
               </p>
             </div>
             <div className="flex flex-col gap-2 w-full  mb-5 items-start h-full">
-              <img src={lTagTwo} alt="l-tag-2" className="w-[38px] h-[38px]" />
-              <p className="text-white text-[20px] font-satoshi">
+              <img src={lTagTwo} alt="l-tag-2" className="w-[38px] h-[38px] mb-2" />
+              <p className="text-white text-[14.5px]  md:text-[20px]   font-satoshi">
                 Integrate with outlook
               </p>
-              <p className="text-[#B9B9B9] text-[14px] leading-5 font-inter-sans">
+              <p className="text-[#B9B9B9] text-[11px]  md:text-[14px] leading-5 font-inter-sans">
                 Hover on a word in your email <br />
                 and the meaning will pop.
               </p>
