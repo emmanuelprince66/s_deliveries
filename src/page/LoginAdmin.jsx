@@ -4,6 +4,7 @@ import { useState } from "react";
 import CustomButton from "../components/CustomButton";
 import { toast, ToastContainer } from "react-toastify";
 import aOne from "../images/a-1.png"
+import Cookies from "js-cookie";
 import aTwo from "../images/a-2.png"
 import aThree from "../images/a-3.png"
 import { useForm } from "react-hook-form";

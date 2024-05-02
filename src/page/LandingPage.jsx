@@ -33,6 +33,7 @@ import Menu from "@mui/material/Menu";
 import Divider from "@mui/material/Divider";
 import IconButton from "@mui/material/IconButton";
 import Tooltip from "@mui/material/Tooltip";
+import aOne from "../images/a-1.png"
 import MenuRoundedIcon from "@mui/icons-material/MenuRounded";
 const LandingPage = () => {
   const [anchorEl, setAnchorEl] = useState(null);
@@ -45,7 +46,10 @@ const LandingPage = () => {
   };
   return (
     <div className="h-full md:min-w-[100vw] w-full bg-primary_black_1  p-3">
-      <div className="w-[90%] mx-auto justify-end hidden md:flex">
+      <div className="w-[90%] mx-auto justify-between items-center hidden md:flex">
+        <div className="w-[100px] h-[50px] md:h-[60px]">
+          <img src={aOne} alt="a-1" className=" object-contain" />
+        </div>
         <div className="flex items-center gap-2 m-5 ">
           <Link to="/login-admin">
             <button className="bg-transparent font-inter-sans text-white text-[16px] hover:text-[#DB363A] transition-colors duration-700 ease-in-out ">
@@ -61,25 +65,29 @@ const LandingPage = () => {
       </div>
 
       {/* possibly hamburger menu for mobile */}
-      <div className="flex w-full justify-end md:hidden">
-        <Box
-          sx={{ display: "flex", alignItems: "center", textAlign: "center" }}
-        >
-          <Tooltip title="Account settings">
-            <IconButton
-              onClick={handleClick}
-              size="small"
-              sx={{ ml: 2 }}
-              aria-controls={open ? "account-menu" : undefined}
-              aria-haspopup="true"
-              aria-expanded={open ? "true" : undefined}
-            >
-              <Avatar sx={{ width: 42, height: 42, background: "#DB363A" }}>
-                <MenuRoundedIcon sx={{ color: "#FFf" }} />
-              </Avatar>
-            </IconButton>
-          </Tooltip>
-        </Box>
+      <div className="w-full  md:hidden">
+        <div className="flex w-full justify-between items-center">
+          <div className="w-[100px] h-[40px] md:h-[60px]">
+            <img src={aOne} alt="a-1" className=" object-contain" />
+          </div>
+
+          <div>
+            <Tooltip title="Account settings">
+              <IconButton
+                onClick={handleClick}
+                size="small"
+                sx={{ ml: 2 }}
+                aria-controls={open ? "account-menu" : undefined}
+                aria-haspopup="true"
+                aria-expanded={open ? "true" : undefined}
+              >
+                <Avatar sx={{ width: 42, height: 42, background: "#DB363A" }}>
+                  <MenuRoundedIcon sx={{ color: "#FFf" }} />
+                </Avatar>
+              </IconButton>
+            </Tooltip>
+          </div>
+        </div>
         <Menu
           anchorEl={anchorEl}
           id="account-menu"
@@ -535,16 +543,12 @@ const LandingPage = () => {
           <div className="grid md:grid-cols-2 grid-cols-1 md:gap-2 gap-10">
             <div className="col-span-1 md:w-[90%] lg:max-w-[70%] w-full">
               <div className="w-full flex flex-col items-start gap-2">
-                <div className="flex gap-1 items-center">
-                  <span className="flex  items-center">
-                    <img src={vOne} alt="v-1" className="mr-[1px]" />
-                    <img src={vOne} alt="v-1" />
-                  </span>
-                  <p className="text-[#676767] text-[28px]">
-                    Sterling Dictionary
-                  </p>
+                <div className="flex gap-1 items-center mx-auto md:mx-0 ">
+                  <div className="w-[100px] h-[40px] md:h-[60px]">
+                    <img src={aOne} alt="a-1" className=" object-contain" />
+                  </div>
                 </div>
-                <p className="text-[#BCBCBC] font-inter-sans leading-7 text-[18px] mt-3 mb-6">
+                <p className="text-[#BCBCBC] font-inter-sans leading-7 text-center md:text-start text-[18px] mt-3 mb-6">
                   Effortlessly turn your ideas into a fully functional,
                   responsive, no-code SaaS website.
                 </p>

@@ -17,6 +17,14 @@ const UserStart = () => {
 const navigate = useNavigate()
 const [searchValue , setSearchValue] = useState(null)
 
+
+const {
+  register,
+  handleSubmit,
+  formState: { errors },
+} = useForm();
+
+
 const handleLogout = () => {
 Cookies.remove("authToken")
 Cookies.remove("refreshToken")
@@ -25,13 +33,6 @@ Cookies.remove("role")
 navigate("/login-user")
 
 }
- 
-const {
-  register,
-  handleSubmit,
-  formState: { errors },
-} = useForm();
-
 
 const onSubmit = (data) => {
 console.log(data)
