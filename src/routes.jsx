@@ -42,9 +42,7 @@ const RoutesContainer = () => {
               item.path === "/forget-password" ||
               item.path === "/login-user" ||
               item.path === "/login-admin" ||
-              item.path === "/user-signup" ||
-              item.path === "/user" ||
-              item.path === "/add"
+              item.path === "/user-signup" 
             ) {
               return (
                 <Route
@@ -58,7 +56,7 @@ const RoutesContainer = () => {
               const ComponentWithAuth = (
                 <AuthProvider>
                   {Cookies.get("role") === "user" && item.path === "/add" ? (
-                    <Navigate to="/login-admin" />
+                    <Navigate to="/user" />
                   ) : (
                     item.component
                   )}

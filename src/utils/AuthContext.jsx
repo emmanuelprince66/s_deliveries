@@ -10,6 +10,8 @@ export function AuthProvider({ children }) {
     const refreshToken = Cookies.get("refreshToken");
     const authToken = Cookies.get("authToken");
     const role = Cookies.get("role");
+    
+    console.log(authToken)
 
 
     if (!refreshToken || !authToken || !role) {
@@ -24,12 +26,20 @@ export function AuthProvider({ children }) {
   if (isLoading) {
     return (
       <Box
-        sx={{ display: "flex", justifyContent: "center", marginTop: "20vh" }}
+        sx={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems:"center",
+          width: "100%",
+          height: "100vh",
+          background: "#1e1e1e",
+        }}
       >
         <CircularProgress
-          size="4.2rem"
+          size="3.2rem"
           sx={{
             color: "#DC0019",
+            fontSize: "10rem",
           }}
         />
       </Box>

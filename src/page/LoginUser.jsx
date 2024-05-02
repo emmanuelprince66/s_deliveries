@@ -4,6 +4,7 @@ import { useState } from "react";
 import CustomButton from "../components/CustomButton";
 import { toast, ToastContainer } from "react-toastify";
 import aOne from "../images/a-1.png";
+import Cookies from "js-cookie";
 import aTwo from "../images/a-2.png";
 import aThree from "../images/a-3.png";
 import { useForm } from "react-hook-form";
@@ -72,13 +73,14 @@ const userLoginMutation = useMutation({
   },
   onSuccess: (data) => {
     setShowSpinner(false);
-    console.log(data)
-
     if (data && data?.accessTokens) {
-      navigate("/user");
-      Cookies.set("authToken", data?.accessTokens?.accessToken);
-      Cookies.set("refreshToken", data?.accessTokens?.refreshToken);
-      Cookies.set("role", data?.userRole);
+    navigate("/user");
+
+    Cookies.set("authToken", data?.accessTokens?.accessToken);
+    Cookies.set("refreshToken", data?.accessTokens?.refreshToken);
+    Cookies.set("role", data?.userRole);
+
+      
     } else {
       console.error("Invalid data format:", data);
     }
