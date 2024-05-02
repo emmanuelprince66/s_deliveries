@@ -157,7 +157,7 @@ const LandingPage = () => {
           <img src={lImgOne} alt="l-one" />
         </div>
 
-        <div className="w-ful grid grid-cols-1 mt-[20%] gap-5 ">
+        <div className="w-full mx-auto grid grid-cols-1 mt-[20%] gap-5  ">
           <p className="col-span-1 text-white  md:text-[38px] text-[30px] font-satoshi  text-center mb-3">
             What makes Sterling Dictionary different?
           </p>
@@ -169,21 +169,20 @@ const LandingPage = () => {
               </p>
               <p className="text-[#B9B9B9] text-[11px]  md:text-[14px] leading-5 font-inter-sans">
                 Know more about various
-                <br /> sterling products.
+             sterling products.
               </p>
             </div>
-            <div className="flex flex-col gap-2 w-full lg:w-[80%] md:w-full mb-5 items-start h-full">
+            <div className="flex flex-col  w-full lg:w-[80%] md:w-full mb-5 items-start h-full">
               <img src={lTagTwo} alt="l-tag-2" className="w-[38px] h-[38px] mb-2" />
               <p className="text-white text-[14.5px]  md:text-[20px] font-satoshi">
                 Banking Jargons
               </p>
-              <p className="text-[#B9B9B9] text-[11px]   md:text-[14px] leading-5 font-inter-sans">
+              <p className="text-[#B9B9B9]  text-[11px]   md:text-[14px] leading-5 font-inter-sans">
                 Have quick look-up of
-                <br />
                 words and acronyms..
               </p>
             </div>
-            <div className="flex flex-col gap-2 w-full  md:w-full lg:w-[20rem] ml-0 lg:ml-[-1.4rem]   mb-5 items-start h-full">
+            <div className="flex flex-col gap-2 w-full  md:w-full lg:w-[20rem] ml-0 md:ml-0 lg:ml-[-1.4rem]   mb-5 items-start h-full">
               <img src={lTagTwo} alt="l-tag-2" className="w-[38px] h-[38px] mb-2" />
               <p className="text-white text-[14.5px]  md:text-[20px]  font-satoshi">
                 Terminologies
