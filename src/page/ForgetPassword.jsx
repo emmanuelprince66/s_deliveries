@@ -151,7 +151,7 @@ const ForgetPassword = () => {
                       message: "Invalid email format",
                     },
                   })}
-                  placeholder="Your Email Address.."
+                  placeholder="Your email address.."
                   className="rounded-2xl input-placeholder outline-none border-none bg-white w-full"
                   InputProps={{
                     startAdornment: (

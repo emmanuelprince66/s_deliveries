@@ -178,7 +178,7 @@ const registerUserMutation = useMutation({
                       message: "Invalid email format",
                     },
                   })}
-                  placeholder="Your Email Address.."
+                  placeholder="Your email address.."
                   className="rounded-2xl input-placeholder outline-none border-none bg-white w-full"
                   InputProps={{
                     startAdornment: (
@@ -223,7 +223,7 @@ const registerUserMutation = useMutation({
                   {...register("password", {
                     required: "Password is required",
                   })}
-                  placeholder="Your Password.."
+                  placeholder="Your password.."
                   className="rounded-2xl input-placeholder outline-none border-none bg-white p-2 w-full"
                   InputProps={{
                     startAdornment: (
@@ -286,9 +286,9 @@ const registerUserMutation = useMutation({
                   type={showPassword ? "text" : "password"}
                   name="confirmPassword"
                   {...register("confirmPassword", {
-                    required: "Password is required",
+                    required: "Confirm password is required",
                   })}
-                  placeholder="Your Confirm Password.."
+                  placeholder="Your confirm password.."
                   className="rounded-2xl input-placeholder outline-none border-none bg-white p-2 w-full"
                   InputProps={{
                     startAdornment: (
