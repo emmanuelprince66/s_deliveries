@@ -42,9 +42,9 @@ console.log(data)
       
   return (
     <div className="w-full bg-[#171414] h-screen p-2 md:p-8 relative">
-      <div className="   w-[100%] md:w-[82.5%] lg:w-[62.5%] bg-[#000] relative rounded-2xl mx-auto mb-4 p-4 pb-9">
+      <div className="   w-[100%] md:w-[82.5%] lg:w-[72.5%] bg-[#000] relative rounded-2xl mx-auto mb-4 p-4 pb-4 md:pb-9">
         <div className="flex flex-col w-full items-center justify-center ">
-          <div className="w-[100%] md:w-[90%] lg:w-[90%] mx-auto flex justify-end mb-[5%]">
+          <div className="w-[100%] md:w-[90%] lg:w-[80%] mx-auto flex justify-end mb-[5%]">
             <button
               onClick={handleLogout}
               className=" bg-[#EB2529] py-2 px-4 font-dm-sans  rounded-md  hover:bg-red-400 text-white focus-visible:outline-red-600 mt-0 md:mt-3 lg:mt-3"
@@ -56,10 +56,12 @@ console.log(data)
           <div className="w-[100px] h-[100px] mt-4 md:mt-0 lg:mt-0">
             <img src={aOne} alt="a-1" className=" object-contain" />
           </div>
-
+          <div className="absolute w-[30px] h-[30px]  lg:w-[120px] lg:h-[120px]  md:w-[80px] md:h-[80px] right-[-1.5%] bottom-[4.5rem] md:bottom-20">
+            <img src={aThree} alt="a-3" className="object-contain" />
+          </div>
           <form
             onSubmit={handleSubmit(onSubmit)}
-            className="w-[100%] md:w-[90%] lg:w-[90%] "
+            className="w-[100%] md:w-[90%] lg:w-[80%] "
           >
             <div className="relative rounded-2xl bg-[#ffefef] w-full">
               <TextField
@@ -114,10 +116,6 @@ console.log(data)
               </span>
             )}
           </form>
-
-          {/* <div className="absolute w-[30px] h-[30px]  lg:w-[120px] lg:h-[120px]  md:w-[80px] md:h-[80px] right-[-1.5%] bottom-0 md:bottom-0">
-            <img src={aThree} alt="a-3" className="object-contain" />
-          </div> */}
         </div>
       </div>
 
@@ -179,9 +177,9 @@ console.log(data)
         <Divider sx={{ width: "100%", background: "#262626" }} />
       </div>
 
-      {/* <div className="absolute w-[30px] h-[30px]  lg:w-[120px] lg:h-[120px]  md:w-[80px] md:h-[80px] left-0 bottom-5 md:bottom-20">
+      <div className="absolute w-[30px] h-[30px]  lg:w-[120px] lg:h-[120px]  md:w-[80px] md:h-[80px] left-0 bottom-5 md:bottom-[7rem]">
         <img src={aTwo} alt="a-w" className="object-contain" />
-      </div> */}
+      </div>
     </div>
   );
 };

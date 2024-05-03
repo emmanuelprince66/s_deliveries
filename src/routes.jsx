@@ -30,6 +30,7 @@ const myRoutes = [
 ];
 
 const RoutesContainer = () => {
+console.log(Cookies.get("role"))
   return (
     <QueryClientProvider client={queryClient}>
       <Router>
@@ -50,7 +51,7 @@ const RoutesContainer = () => {
                   path={item.path}
                   element={item.component}
                 />
-              );
+              );a
             } else {
               // For other pages, wrap with AuthProvider
               const ComponentWithAuth = (
