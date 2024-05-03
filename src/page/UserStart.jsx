@@ -10,6 +10,8 @@ import SearchRoundedIcon from "@mui/icons-material/SearchRounded";
 import { useForm } from "react-hook-form";
 import Cookies from "js-cookie"
 import { useNavigate } from "react-router-dom";
+import line from "../images/line.svg";
+
 
 
 
@@ -57,7 +59,7 @@ console.log(data)
 
           <form
             onSubmit={handleSubmit(onSubmit)}
-            className="w-[100%] md:w-[80%] lg:w-[70%] "
+            className="w-[100%] md:w-[90%] lg:w-[90%] "
           >
             <div className="relative rounded-2xl bg-[#ffefef] w-full">
               <TextField
@@ -92,7 +94,8 @@ console.log(data)
                   startAdornment: (
                     <InputAdornment position="start">
                       <SearchRoundedIcon sx={{ color: "#B4B4B4" }} />
-                      <span className="ml-[.3em] w-[1px]"> | </span>
+                      <img src={line} alt="" className="h-7 ml-3" />
+                      &nbsp;&nbsp;
                     </InputAdornment>
                   ),
                 }}
@@ -112,18 +115,18 @@ console.log(data)
             )}
           </form>
 
-          <div className="absolute w-[30px] h-[30px]  lg:w-[120px] lg:h-[120px]  md:w-[80px] md:h-[80px] right-[-1.5%] bottom-0 md:bottom-0">
+          {/* <div className="absolute w-[30px] h-[30px]  lg:w-[120px] lg:h-[120px]  md:w-[80px] md:h-[80px] right-[-1.5%] bottom-0 md:bottom-0">
             <img src={aThree} alt="a-3" className="object-contain" />
-          </div>
+          </div> */}
         </div>
       </div>
 
-      <div className="w-[100%] md:w-[82.5%] lg:w-[52.5%] mx-auto flex flex-col items-start gap-3  overflow-y-scroll max-h-[55vh] md:max-h-[55vh] lg:max-h-[40vh]">
+      <div className="w-[100%] md:w-[82.5%] lg:w-[62.5%] mx-auto flex flex-col items-start gap-3  overflow-y-scroll max-h-[55vh] md:max-h-[55vh] lg:max-h-[40vh]">
         <div className="flex flex-col items-start gap-4 w-full">
-          <p className="rounded-md p-2 font-bold text-[20px] font-dm-sans text-[#B4B4B4] bg-[#262525]">
+          <p className="rounded-md p-2 font-bold text-[15x] font-dm-sans text-[#B4B4B4] bg-[#262525]">
             BMC
           </p>
-          <p className="text-[14px] pb-3 font-dm-sans text-[#fff]">
+          <p className="text-[13px] leading-5 pb-3 font-dm-sans text-[#fff]">
             Brands, Marketing and Communication. The department in the
             organisation that is responsible for marketing all brands within
             sterling and also handle all public relations matters.
@@ -131,10 +134,10 @@ console.log(data)
         </div>
         <Divider sx={{ width: "100%", background: "#262626" }} />
         <div className="flex flex-col items-start gap-4 w-full">
-          <p className="rounded-md p-2 font-bold text-[20px] font-dm-sans text-[#B4B4B4] bg-[#262525]">
+          <p className="rounded-md p-2 font-bold text-[15px] font-dm-sans text-[#B4B4B4] bg-[#262525]">
             Abubakar Suleiman
           </p>
-          <p className="text-[14px] pb-3 font-dm-sans text-[#fff]">
+          <p className="text-[13px] leading-5 pb-3 font-dm-sans text-[#fff]">
             Brands, Marketing and Communication. The department in the
             organisation that is responsible for marketing all brands within
             sterling and also handle all public relations matters.
@@ -142,10 +145,10 @@ console.log(data)
         </div>
         <Divider sx={{ width: "100%", background: "#262626" }} />
         <div className="flex flex-col items-start gap-4 w-full">
-          <p className="rounded-md p-2 font-bold text-[20px] font-dm-sans text-[#B4B4B4] bg-[#262525]">
+          <p className="rounded-md p-2 font-bold text-[15px] font-dm-sans text-[#B4B4B4] bg-[#262525]">
             BMC
           </p>
-          <p className="text-[14px] pb-3 font-dm-sans text-[#fff]">
+          <p className="text-[13px] leading-5 pb-3 font-dm-sans text-[#fff]">
             Brands, Marketing and Communication. The department in the
             organisation that is responsible for marketing all brands within
             sterling and also handle all public relations matters.
@@ -153,10 +156,10 @@ console.log(data)
         </div>
         <Divider sx={{ width: "100%", background: "#262626" }} />
         <div className="flex flex-col items-start gap-4 w-full">
-          <p className="rounded-md p-2 font-bold text-[20px] font-dm-sans text-[#B4B4B4] bg-[#262525]">
+          <p className="rounded-md p-2 font-bold text-[15px] font-dm-sans text-[#B4B4B4] bg-[#262525]">
             BMC
           </p>
-          <p className="text-[14px] pb-3 font-dm-sans text-[#fff]">
+          <p className="text-[13px] leading-5 pb-3 font-dm-sans text-[#fff]">
             Brands, Marketing and Communication. The department in the
             organisation that is responsible for marketing all brands within
             sterling and also handle all public relations matters.
@@ -164,10 +167,10 @@ console.log(data)
         </div>
         <Divider sx={{ width: "100%", background: "#262626" }} />
         <div className="flex flex-col items-start gap-4 w-full">
-          <p className="rounded-md p-2 font-bold text-[20px] font-dm-sans text-[#B4B4B4] bg-[#262525]">
+          <p className="rounded-md p-2 font-bold text-[15px] font-dm-sans text-[#B4B4B4] bg-[#262525]">
             BMC
           </p>
-          <p className="text-[14px] pb-3 font-dm-sans text-[#fff]">
+          <p className="text-[13px] leading-5 pb-3 font-dm-sans text-[#fff]">
             Brands, Marketing and Communication. The department in the
             organisation that is responsible for marketing all brands within
             sterling and also handle all public relations matters.
@@ -176,9 +179,9 @@ console.log(data)
         <Divider sx={{ width: "100%", background: "#262626" }} />
       </div>
 
-      <div className="absolute w-[30px] h-[30px]  lg:w-[120px] lg:h-[120px]  md:w-[80px] md:h-[80px] left-0 bottom-5 md:bottom-20">
+      {/* <div className="absolute w-[30px] h-[30px]  lg:w-[120px] lg:h-[120px]  md:w-[80px] md:h-[80px] left-0 bottom-5 md:bottom-20">
         <img src={aTwo} alt="a-w" className="object-contain" />
-      </div>
+      </div> */}
     </div>
   );
 };

@@ -112,20 +112,20 @@ const userLoginMutation = useMutation({
   return (
     <div className="w-full bg-[#1e1e1e] min-h-screen flex justify-center items-center">
       <div className="w-full md:w-[95%] xl:w-[55%] flex justify-center items-center relative">
-        <img
+        {/* <img
           src={aThree}
           alt="a-3"
           className="absolute w-[30px] h-[30px] lg:w-[120px] lg:h-[120px]   md:w-[80px] md:h-[80px] bg-slate-400w3 top-0 right-0 "
-        />
+        /> */}
 
         <div className="w-[95%] md:w-[80%] xl:w-[65%] bg-black rounded-[1rem]   md:h-fit lg:h-fit flex flex-col items-center justify-start mt-0 gap-6 p-2 pb-7  xl:pb-9 md:p-12 xl:p-6 ">
           <div className="w-full">
-            {/* <button
+            <button
               onClick={handleGoBack}
               className=" text-white font-dm-sans p-2 md:p-0 "
             >
               Go Back
-            </button> */}
+            </button>
           </div>
 
           <div className="h-full w-full flex gap-5 flex-col items-center justify-end">
@@ -175,8 +175,9 @@ const userLoginMutation = useMutation({
                         <img
                           src={emailIcon}
                           className="w-[20px] h-[20px] bg-#B4B4B4"
-                        />
+                        />{" "}
                         <img src={line} alt="" className="h-7 ml-3" />
+                        &nbsp;&nbsp;
                       </InputAdornment>
                     ),
                   }}
@@ -223,6 +224,7 @@ const userLoginMutation = useMutation({
                           className="w-[20px] h-[20px] bg-#B4B4B4"
                         />
                         <img src={line} alt="" className="h-7 ml-3" />
+                        &nbsp;&nbsp;
                       </InputAdornment>
                     ),
                     endAdornment: (
@@ -284,11 +286,11 @@ const userLoginMutation = useMutation({
           </div>
         </div>
 
-        <img
+        {/* <img
           src={aTwo}
           alt="a-2"
           className="absolute w-[30px] h-[30px]  lg:w-[120px] lg:h-[120px]  md:w-[80px] md:h-[80px] bottom-0 left-0 xl:bottom-10 md:bottom-4"
-        />
+        /> */}
       </div>
       <ToastContainer
         theme="dark"
