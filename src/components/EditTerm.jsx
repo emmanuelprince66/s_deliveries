@@ -170,7 +170,7 @@ const EditTerm = () => {
         </div>
       </form>
 
-      <div className="h-[50.7vh]  md:max-h-[42.7vh] overflow-y-scroll w-full">
+      <div className="h-[50.7vh]  md:max-h-[40.7vh] overflow-y-scroll w-full">
         {termArray &&
           Array.isArray(termArray) &&
           termArray.map((term) => (
@@ -179,7 +179,7 @@ const EditTerm = () => {
               key={term?.id}
             >
               <div className="flex items-center w-full justify-between">
-                <h2 className="rounded-md p-2 font-bold text-[20px] font-dm-sans text-[#B4B4B4] bg-[#262525]">
+                <h2 className="rounded-md p-2 font-bold text-[15x] font-dm-sans text-[#B4B4B4] bg-[#262525]">
                   {term?.bold}
                 </h2>
 
@@ -207,7 +207,7 @@ const EditTerm = () => {
                 </div>
               </div>
 
-              <p className="text-[14px] pb-1 font-dm-sans text-[#fff]">
+              <p className="text-[13px] leading-5 pb-3 font-dm-sans text-[#fff]">
                 {term.text}
               </p>
             </div>
@@ -235,7 +235,7 @@ const EditTerm = () => {
                 onClick={closeDelModal}
               />
               <CustomButton
-              onClick={handleDeleteWord}
+                onClick={handleDeleteWord}
                 text={
                   showSpinner || deleteWordsMutation.isLoading ? (
                     <Spinner />

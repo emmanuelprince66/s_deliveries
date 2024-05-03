@@ -6,14 +6,18 @@ import { InputAdornment, TextField } from "@mui/material";
 import { useForm } from "react-hook-form";
 import { toast, ToastContainer } from "react-toastify";
 import { useMutation, useQuery } from "@tanstack/react-query";
+import Cookies from "js-cookie";
+
 import TextareaAutosize from "@mui/material/TextareaAutosize";
 import line from "../images/line.svg"
 import yOne from "../images/y-1.svg"
 import yTwo from "../images/y-2.svg"
 import yThree from "../images/y-3.svg"
 import Spinner from "../utils/Spinner";
+import { BaseAxios } from "../helpers/axiosInstance";
 
 const Add = () => {
+
 const [showSpinner, setShowSpinner] = useState(false);
 const notifyError = (msg) => {
   toast.error(msg, {
@@ -28,11 +32,17 @@ const {
 
      const addWordsMutation = useMutation({
        mutationFn: async (payLoad) => {
+       const token = Cookies.get("authToken");
+       console.log(token)
+       
          try {
            const response = await BaseAxios({
              url: "upload-new-word",
              method: "POST",
              data: payLoad,
+             headers: {
+               Authorization: `Bearer ${token}`,
+             },
            });
 
            console.log("Response:", response);
@@ -48,6 +58,7 @@ const {
 
            return response.data;
          } catch (error) {
+           console.log(error);
            setShowSpinner(false);
            notifyError(error?.response?.data?.message);
            throw error;
@@ -56,7 +67,6 @@ const {
        onSuccess: (data) => {
          setShowSpinner(false);
          console.log(data);
-       
        },
        onError: (error) => {
          setShowSpinner(false);
@@ -65,7 +75,13 @@ const {
      });
 
   const onSubmit = (data) => {
-      addWordsMutation.mutate(data);
+
+    const payLoad = {
+        word:data.word,
+        meaning:data.meaning
+    }
+    console.log(payLoad)
+      addWordsMutation.mutate(payLoad);
       setShowSpinner(true);
   };
   return (
@@ -74,13 +90,9 @@ const {
       action=""
       className=" flex flex-col items-start gap-3 justify-center mb-2  w-[90%] mx-auto sm:mx-0 md:w-[90%]"
     >
-    
       <TextField
         sx={{
           mb: "0.2rem",
-          "::placeholder": {
-            fontFamily: "DM Sans", // Replace 'Your Font Family' with the desired font family
-          },
           "& .MuiOutlinedInput-root": {
             "&.Mui-focused fieldset": {
               border: "none", // Remove border on focus
@@ -93,6 +105,7 @@ const {
           },
           "& .MuiInputLabel-root": {
             marginTop: "0.5em", // Adjust top margin of the label
+            borderRadius:"100px"
           },
         }}
         type="text"
@@ -104,7 +117,7 @@ const {
             message: "Please enter only letters.",
           },
         })}
-        className="rounded-2xl input-placeholder outline-none border-none bg-white  w-full"
+        className="rounded-2xl  outline-none border-none bg-white  w-full"
         placeholder=" Enter new word phrase,term,anything.."
         InputProps={{
           startAdornment: (
@@ -133,8 +146,6 @@ const {
         })}
       ></textarea>
 
-
- 
       {errors.meaning && (
         <span className="text-red-500 text-xs mt-[-10px]">
           {errors.meaning.message}
@@ -178,6 +189,11 @@ const {
         disabled={addWordsMutation.isLoading || showSpinner}
         type="submit"
         style="bg-[#EB2529] w-full flex justify-center items-center  hover:bg-red-400 h-[47px] text-white focus-visible:outline-red-600"
+      />
+
+      <ToastContainer
+        theme="dark"
+        toastStyle={{ background: "#333", color: "#fff" }}
       />
     </form>
   );

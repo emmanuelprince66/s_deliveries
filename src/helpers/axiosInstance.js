@@ -9,5 +9,4 @@ export const AuthAxios = Axios.create({
 // Axios instance for authentication related calls
 export const BaseAxios = Axios.create({
   baseURL: "https://sterling-dictionary.onrender.com/api/v1/",
-  
 });
