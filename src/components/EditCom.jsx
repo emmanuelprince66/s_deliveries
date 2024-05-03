@@ -7,7 +7,16 @@ import line from "../images/line.svg";
 import Spinner from '../utils/Spinner';
 import { toast, ToastContainer } from "react-toastify";
 import { useMutation, useQuery } from "@tanstack/react-query";
-
+  const style = {
+    position: "absolute",
+    top: "50%",
+    left: "50%",
+    transform: "translate(-50%, -50%)",
+    borderRadius: "12px",
+    width: "745px",
+    bgcolor: "background.paper",
+    p: 3,
+  };
 
 const EditCom = ({ closeModal }) => {
 const [showSpinner, setShowSpinner] = useState(false);
@@ -67,7 +76,7 @@ const notifyError = (msg) => {
 //   setShowSpinner(true)
   console.log(data)}
   return (
-    <div class="bg-[#1d1d1d] rounded-lg border border-[#444444] shadow-lg px-6 pb-6 pt-3 w-[90%] md:w-[45%] lg:w-[35%]">
+    <div style={style} class="bg-[#1d1d1d] rounded-lg border border-[#444444] shadow-lg px-6 pb-6 pt-3 w-[90%] md:w-[45%] lg:w-[35%]">
       <form onSubmit={handleSubmit(onSubmit)} className="w-full">
         <div className="flex flex-col items-start justify-center gap-2 w-full">
           <p className="font-dm-sans text-white text-[15px]">Title</p>

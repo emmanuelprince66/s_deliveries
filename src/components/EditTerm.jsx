@@ -12,9 +12,20 @@ import { toast, ToastContainer } from "react-toastify";
 import { useMutation, useQuery } from "@tanstack/react-query";
 
 
-import { InputAdornment, TextField } from "@mui/material";
+import { InputAdornment, TextField , Modal } from "@mui/material";
 import EditCom from "./EditCom";
 
+
+  const style = {
+    position: "absolute",
+    top: "50%",
+    left: "50%",
+    transform: "translate(-50%, -50%)",
+    borderRadius: "12px",
+    width: "745px",
+    bgcolor: "background.paper",
+    p: 3,
+  };
 const termArray = [
   {
     id: 1,
@@ -214,42 +225,69 @@ const EditTerm = () => {
           ))}
       </div>
 
-      {isOpen && (
-        <div class="fixed inset-0 z-50 flex items-center justify-center   bg-opacity-50">
-          <EditCom closeModal={closeModal} />
-        </div>
-      )}
-      {isDelOpen && (
-        <div class="fixed inset-0 z-50 flex items-center justify-center  bg-opacity-50 ">
-          <div class="bg-[#1d1d1d] border border-[#444444] rounded-lg shadow-lg px-10 pb-10 pt-[5%] w-[90%] max-w-md">
-            <div className=" flex justify-center w-full mb-9">
-              <p className="font-normal font-dm-sans  text-white">
-                {" "}
-                Are you sure you want to delete the word MBN from the database
-              </p>
-            </div>
-            <div class="flex gap-4 items-center max-w-[300px] mt-6">
-              <CustomButton
-                text="Go back!"
-                style="bg-[#DB363A] w-full flex justify-center items-center text-white font-dm-sans  text-[20px] h-[55px] hover:bg-red-400  focus-visible:outline-red-600"
-                onClick={closeDelModal}
-              />
-              <CustomButton
-                onClick={handleDeleteWord}
-                text={
-                  showSpinner || deleteWordsMutation.isLoading ? (
-                    <Spinner />
-                  ) : (
-                    "Yes! Delete"
-                  )
-                }
-                disabled={deleteWordsMutation.isLoading || showSpinner}
-                style="bg-transparent w-full flex justify-center items-center h-[55px] hover:text-[#DB363A] text-[#A1A1A1] font-dm-sans  border border-[#444444] w-full  focus-visible:outline-red-100"
-              />
-            </div>
+      {/* edit word */}
+      <Modal
+        open={isOpen}
+        onClose={closeModal}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+        PaperProps={{
+          sx: {
+            border: "none", // Remove the border
+            boxShadow: "none", // Remove the box shadow
+          },
+        }}
+      >
+        <EditCom closeModal={closeModal} />
+      </Modal>
+      {/* edit word end */}
+      {/* delete word */}
+      <Modal
+        open={isDelOpen}
+        onClose={closeDelModal}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+        PaperProps={{
+          sx: {
+            border: "none", // Remove the border
+            boxShadow: "none", // Remove the box shadow
+          },
+        }}
+      >
+        <div
+          style={style}
+          class="bg-[#1d1d1d] border border-[#444444] rounded-lg shadow-lg px-10 pb-10 pt-[5%] w-[90%] max-w-md"
+        >
+          <div className=" flex justify-center w-full mb-9">
+            <p className="font-normal font-dm-sans  text-white">
+              {" "}
+              Are you sure you want to delete the word MBN from the database
+            </p>
+          </div>
+          <div class="flex gap-4 items-center max-w-[300px] mt-6">
+            <CustomButton
+              text="Go back!"
+              style="bg-[#DB363A] w-full flex justify-center items-center text-white font-dm-sans  text-[20px] h-[55px] hover:bg-red-400  focus-visible:outline-red-600"
+              onClick={closeDelModal}
+            />
+            <CustomButton
+              onClick={handleDeleteWord}
+              text={
+                showSpinner || deleteWordsMutation.isLoading ? (
+                  <Spinner />
+                ) : (
+                  "Yes! Delete"
+                )
+              }
+              disabled={deleteWordsMutation.isLoading || showSpinner}
+              style="bg-transparent w-full flex justify-center items-center h-[55px] hover:text-[#DB363A] text-[#A1A1A1] font-dm-sans  border border-[#444444] w-full  focus-visible:outline-red-100"
+            />
           </div>
         </div>
-      )}
+      </Modal>
+      {/* delete word end */}
+
+  
     </div>
   );
 };

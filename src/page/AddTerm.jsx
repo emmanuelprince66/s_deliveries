@@ -27,7 +27,7 @@ const handleLogout = () => {
       } md:h-screen pb-4`}
     >
       <div className=" w-[98%] md:w-[90%] lg:w-[65%] mx-auto relative flex flex-col justify-center items-center">
-        <div className="w-[100%]  md:lg-[70%] lg:w-[80%] mx-auto flex pr-7 pt-3   justify-end mb-[3%]">
+        <div className="w-[100%]  md:lg-[70%] lg:w-[80%] mx-auto flex pr-7 pt-3   justify-end  mb-5 md:mb-[3%]">
           <button
             onClick={handleLogout}
             className=" bg-[#EB2529] py-2 px-4 font-dm-sans  rounded-md  hover:bg-red-400 text-white focus-visible:outline-red-600 mt-0 md:mt-3 lg:mt-3"
@@ -41,7 +41,7 @@ const handleLogout = () => {
           </div>
           <div className="flex flex-col items-center w-full justify-center">
             <div
-              className={`flex justify-center gap-0 pb-5 w-[90%]  mx-auto sm:mx-0`}
+              className={`flex justify-center gap-0 pb-5 w-[90%]  mx-auto sm:mx-0 mb-3`}
             >
               <button
                 onClick={() => setIsTab1Active(true)}
@@ -55,7 +55,7 @@ const handleLogout = () => {
               </button>
               <button
                 onClick={() => setIsTab1Active(false)}
-                className={`px-6   font-dm-sans text-[10px] md:text-[15px] focus:outline-none h-[50px] rounded-r-[17px] ml-[-15px]  w-full transition duration-300 ease-in-out shadow-lg ${
+                className={`px-6   font-dm-sans text-[10px] md:text-[15px] focus:outline-none h-[50px] rounded-r-[18px] ml-[-15px]  w-full transition duration-300 ease-in-out shadow-lg ${
                   !isTab1Active
                     ? "bg-[#DB363A] hover:bg-red-600 text-white"
                     : "bg-white text-[#B4B4B4] hover:bg-gray-100"

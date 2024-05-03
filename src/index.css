@@ -32,7 +32,7 @@ input {
   font-family: "Satoshi", sans-serif;
 }
 textarea::placeholder {
-  font-weight: 500; /* Set the desired font weight */
+  font-weight: 450; /* Set the desired font weight */
   font-family:  "DM Sans", sans-serif !important;
   color: #B4B4B4;
 }
