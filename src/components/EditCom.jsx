@@ -3,11 +3,13 @@ import TextareaAutosize from "@mui/material/TextareaAutosize";
 import CustomButton from "./CustomButton";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
+import Cookies from "js-cookie";
 import line from "../images/line.svg";
 import Spinner from '../utils/Spinner';
 import {Box} from "@mui/material"
 import { toast, ToastContainer } from "react-toastify";
 import { useMutation, useQuery } from "@tanstack/react-query";
+import { BaseAxios } from '../helpers/axiosInstance';
   const style = {
     position: "absolute",
     top: "50%",
@@ -75,21 +77,26 @@ const notifyError = (msg) => {
     autoClose: 6000, // Time in milliseconds
   });
 };
+const notifySuccess = (msg) => {
+  toast.success(msg, {
+    autoClose: 6000, // Time in milliseconds
+  });
+};
 
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm();
-  
+
   
        const editWordsMutation = useMutation({
          mutationFn: async (payLoad) => {
+         
+         const token = Cookies.get("authToken")
            try {
              const response = await BaseAxios({
                url: "edit-existing-word",
                method: "POST",
                data: payLoad,
+               headers : {
+               Authorization: `Bearer ${token}`
+               }
              });
 
              console.log("Response:", response);
@@ -114,29 +121,30 @@ const notifyError = (msg) => {
          },
          onSuccess: (data) => {
            setShowSpinner(false);
-           console.log(data);
+           notifySuccess(data?.message);
+           
          },
          onError: (error) => {
            setShowSpinner(false);
            console.error("An error occurred:", error);
          },
        });
-  const onSubmit =(data) => {
+  const handleSubmit = (e) => {
+  e.preventDefault()
   
-  const {word , meaning} = data
-   const payLoad  = {
-   id:editData?.id || "",
-   word,
-   meaning,
-   }
-  
-  editWordsMutation.mutate(payLoad);
-  setShowSpinner(true)
-  }
+    const payLoad = {
+       id:realData?.id || "",
+       word:realData?.word || "",
+       meaning:realData?.meaning || ""
+    };
+
+    editWordsMutation.mutate(payLoad);
+    setShowSpinner(true);
+  };
   return (
     <Box style={style}>
       <div class="bg-[#1d1d1d] rounded-lg mx-auto border border-[#444444] shadow-lg px-6 pb-6 pt-3 w-[90%] md:w-[45%] lg:w-[35%]">
-        <form className="w-full">
+        <form onSubmit={handleSubmit} className="w-full">
           <div className="flex flex-col items-start justify-center gap-2 w-full">
             <p className="font-dm-sans text-white text-[15px]">Title</p>
 
@@ -148,20 +156,6 @@ const notifyError = (msg) => {
               value={realData.word || ""}
               onChange={handleWordChange}
             />
-            {/* <input
-    type="text"
-    className="rounded-md font-normal text-white outline-none h-[40px]  pl-4 bg-[#282828] p-2 w-full placeholder-[#636363]"
-    placeholder="Word"
-    value={editData.word || ""}
-    onChange={(e) => setEditData({ ...editData, word: e.target.value })}
-    {...register("word", {
-        required: "Word is required",
-        pattern: {
-            value: /^[a-zA-Z\s]*$/, // Accept only letters and spaces
-            message: "Please enter only letters.",
-        },
-    })}
-/> */}
 
             {wordErr && (
               <span className="text-red-500 text-xs mt-[-5px]">
@@ -196,6 +190,7 @@ const notifyError = (msg) => {
               text={
                 showSpinner || editWordsMutation.isLoading ? <Spinner /> : "Add"
               }
+              
               disabled={editWordsMutation.isLoading || showSpinner}
               type="submit"
               style="bg-transparent w-full flex justify-center text-[20px] items-center border border-[#444444]  hover:text-[#EB2529] h-[50px] text-white focus-visible:outline-red-600"

@@ -17,18 +17,9 @@ import { useMutation, useQuery } from "@tanstack/react-query";
 import { InputAdornment, TextField , Modal } from "@mui/material";
 import EditCom from "./EditCom";
 import { BaseAxios } from "../helpers/axiosInstance";
+import DelCom from "./DelCom";
 
 
-  const style = {
-    position: "absolute",
-    top: "50%",
-    left: "50%",
-    transform: "translate(-50%, -50%)",
-    borderRadius: "12px",
-    width: "745px",
-    bgcolor: "background.paper",
-    p: 3,
-  };
 
 const EditTerm = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -37,7 +28,10 @@ const EditTerm = () => {
   const [searchTerm , setSearchTerm] = useState("")
   const [emptySearch , setEmptySearch] = useState(false);
   const [editData , setEditData] = useState(null)
+  const [deleteData , setDeleteData] = useState(null)
   const [showSpinner, setShowSpinner] = useState(false);
+  
+  
   const notifyError = (msg) => {
     toast.error(msg, {
       autoClose: 6000, // Time in milliseconds
@@ -52,7 +46,7 @@ const EditTerm = () => {
      mutationFn: async (payLoad) => {
        try {
          const response = await BaseAxios({
-           url: "upload-new-word",
+           url: "search-word",
            method: "POST",
            data: payLoad,
          });
@@ -78,7 +72,9 @@ const EditTerm = () => {
      onSuccess: (data) => {
        setShowSpinner(false);
        console.log(data);
-       
+       const val = data.existingWord
+       console.log(val)
+       setGeneralData([val])
       //  set generalData to the response comming from the backend
      },
      onError: (error) => {
@@ -87,49 +83,9 @@ const EditTerm = () => {
      },
    });
    
-   const deleteWordsMutation = useMutation({
-     mutationFn: async (payLoad) => {
-       try {
-         const response = await BaseAxios({
-           url: "upload-new-word",
-           method: "POST",
-           data: payLoad,
-         });
-
-         console.log("Response:", response);
-
-         if (!response || !response?.data) {
-           throw new Error("Invalid response received");
-         }
-
-         if (response?.status !== 200) {
-           setShowSpinner(false);
-           throw new Error("Request failed with status: " + response.status);
-         }
-
-         return response.data;
-       } catch (error) {
-         setShowSpinner(false);
-         notifyError(error?.response?.data?.message);
-         throw error;
-       }
-     },
-     onSuccess: (data) => {
-       setShowSpinner(false);
-       console.log(data);
-     },
-     onError: (error) => {
-       setShowSpinner(false);
-       console.error("An error occurred:", error);
-     },
-   });
+ 
    
-   const handleDeleteWord = () => {
-   console.log("delete")
-  //  deleteWordsMutation.mutate()
-   setShowSpinner(true)
-   }
-   
+
   const openModal = (item) => {
     setIsOpen(true);
     setEditData(item);
@@ -138,9 +94,13 @@ const EditTerm = () => {
 
   const closeModal = () => setIsOpen(false);
 
-  const openDelModal = () => {
+  const openDelModal = (delData) => {
     setIsDelOpen(true);
+    setDeleteData(delData);
   };
+  
+  
+  console.log(deleteData)
 
   const closeDelModal = () => setIsDelOpen(false);
   
@@ -172,8 +132,12 @@ const EditTerm = () => {
 
 const handleSubmit = () => {
 if(searchTerm !== "") {
-// searchMutatation.mutate(searchTerm)
-setShowSpinner(false)
+
+const payLoad = {
+word:searchTerm || ""
+}
+searchMutatation.mutate(payLoad);
+setShowSpinner(true)
 } else {
 setEmptySearch(true)
 }
@@ -242,11 +206,14 @@ useEffect(() => {
 
           <button
             onClick={handleSubmit}
-            disabled={searchMutatation.isLoading || showSpinner
-            }
+            disabled={searchMutatation.isLoading || showSpinner}
             className="absolute bg-[#EB2529] p-3 py-2  text-[14px] font-dm-sans justify-center text-white hover:text-black cursor-pointer m-2 rounded-lg inset-y-0 right-0 flex items-center  "
           >
-            GO!
+            {showSpinner ? (
+              <CircularProgress size="1rem" sx={{ color: "#fff" }} />
+            ) : (
+              "GO!"
+            )}
           </button>
         </div>
         {emptySearch && (
@@ -279,7 +246,7 @@ useEffect(() => {
               key={term?.id}
             >
               <div className="flex items-center w-full justify-between">
-                <h2 className="rounded-md p-2 font-bold text-[15x] font-dm-sans text-[#B4B4B4] bg-[#262525]">
+                <h2 className="rounded-md p-2 font-bold uppercase text-[15x] font-dm-sans text-[#B4B4B4] bg-[#262525]">
                   {term?.word}
                 </h2>
 
@@ -295,7 +262,7 @@ useEffect(() => {
                     />
                   </div>
                   <div
-                    onClick={openDelModal}
+                    onClick={() => openDelModal(term)}
                     className="p-2 bg-[#262525] rounded-md  cursor-pointer flex items-center justify-center"
                   >
                     <img
@@ -328,7 +295,7 @@ useEffect(() => {
           },
         }}
       >
-        <EditCom closeModal={closeModal} editData={editData || [] }  />
+        <EditCom closeModal={closeModal} editData={editData || []} />
       </Modal>
       {/* edit word end */}
       {/* delete word */}
@@ -344,38 +311,14 @@ useEffect(() => {
           },
         }}
       >
-        <div
-          style={style}
-          class="bg-[#1d1d1d] border border-[#444444] rounded-lg shadow-lg px-10 pb-10 pt-[5%] w-[90%] max-w-md"
-        >
-          <div className=" flex justify-center w-full mb-9">
-            <p className="font-normal font-dm-sans  text-white">
-              {" "}
-              Are you sure you want to delete the word MBN from the database
-            </p>
-          </div>
-          <div class="flex gap-4 items-center max-w-[300px] mt-6">
-            <CustomButton
-              text="Go back!"
-              style="bg-[#DB363A] w-full flex justify-center items-center text-white font-dm-sans  text-[20px] h-[55px] hover:bg-red-400  focus-visible:outline-red-600"
-              onClick={closeDelModal}
-            />
-            <CustomButton
-              onClick={handleDeleteWord}
-              text={
-                showSpinner || deleteWordsMutation.isLoading ? (
-                  <Spinner />
-                ) : (
-                  "Yes! Delete"
-                )
-              }
-              disabled={deleteWordsMutation.isLoading || showSpinner}
-              style="bg-transparent w-full flex justify-center items-center h-[55px] hover:text-[#DB363A] text-[#A1A1A1] font-dm-sans  border border-[#444444] w-full  focus-visible:outline-red-100"
-            />
-          </div>
-        </div>
+        <DelCom deleteData={deleteData || ""} closeDelModal={closeDelModal} />
       </Modal>
       {/* delete word end */}
+
+      <ToastContainer
+        theme="dark"
+        toastStyle={{ background: "#333", color: "#fff" }}
+      />
     </div>
   );
 };
