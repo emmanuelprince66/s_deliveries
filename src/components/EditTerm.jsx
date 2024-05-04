@@ -20,7 +20,6 @@ import { BaseAxios } from "../helpers/axiosInstance";
 import DelCom from "./DelCom";
 
 
-
 const EditTerm = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isDelOpen, setIsDelOpen] = useState(false);
