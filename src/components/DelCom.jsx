@@ -25,7 +25,6 @@ import { toast, ToastContainer } from "react-toastify";
 const DelCom = ({ deleteData, closeDelModal }) => {
   const [showSpinner, setShowSpinner] = useState(false);
 
-console.log(deleteData)
   const notifyError = (msg) => {
     toast.error(msg, {
       autoClose: 6000, // Time in milliseconds
@@ -39,11 +38,15 @@ console.log(deleteData)
 
   const deleteWordsMutation = useMutation({
     mutationFn: async (payLoad) => {
+    const token = Cookies.get("authToken")
       try {
         const response = await BaseAxios({
-          url: "upload-new-word",
+          url: "delete-existing-word",
           method: "POST",
           data: payLoad,
+          headers : {
+          Authorization:`Bearer ${token}`
+          }
         });
 
         console.log("Response:", response);
@@ -67,6 +70,8 @@ console.log(deleteData)
     onSuccess: (data) => {
       setShowSpinner(false);
       console.log(data);
+      notifySuccess(data?.message)
+      closeDelModal()
     },
     onError: (error) => {
       setShowSpinner(false);
@@ -76,9 +81,16 @@ console.log(deleteData)
 
   const handleDeleteWord = () => {
     console.log("delete");
-    //  deleteWordsMutation.mutate()
+    
+    const payload = {
+    id:deleteData?.id
+    }
+    
+    console.log(payload);
+     deleteWordsMutation.mutate(payload);
     setShowSpinner(true);
   };
+  
 
   return (
     <Box style={style}>

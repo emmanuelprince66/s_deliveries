@@ -23,8 +23,8 @@ const handleLogout = () => {
   return (
     <div
       className={`bg-[#171414] w-full ${
-        isTab1Active ? "h-screen" : "h-screen"
-      } md:h-screen pb-4`}
+        isTab1Active ? "h-screen" : "h-screen "
+      }   pb-9 md:pb-4 flex flex-col items-center justify-center`}
     >
       <div className=" w-[98%] md:w-[90%] lg:w-[65%] mx-auto relative flex flex-col justify-center items-center">
         <div className="w-[100%]  md:lg-[70%] lg:w-[80%] mx-auto flex pr-7 pt-3   justify-end  mb-5 md:mb-[3%]">
@@ -35,7 +35,7 @@ const handleLogout = () => {
             Logout
           </button>
         </div>
-        <div className="w-[97%] h-fit  md:w-[100%] lg:w-[85%] mx-auto  bg-[#000]  py-10 md:py-8 lg:py-5 md:p-10 rounded-2xl">
+        <div className="w-[97%]   md:h-fit  md:w-[100%] lg:w-[85%] mx-auto  bg-[#000]  py-5 md:py-8 lg:py-5 md:p-10 rounded-2xl">
           <div className="w-[100px] h-[50px] md:h-[60px] mx-auto mb-5 pt-0  md:pt-3 ">
             <img src={aOne} alt="a-1" className=" object-contain" />
           </div>
@@ -47,7 +47,7 @@ const handleLogout = () => {
                 onClick={() => setIsTab1Active(true)}
                 className={`px-6  rounded-2xl focus:outline-none text-[10px] md:text-[15px]  font-dm-sans z-10 transition w-full  h-[50px] duration-300 ease-in-out shadow-lg ${
                   isTab1Active
-                    ? "bg-[#DB363A] hover:bg-red-600 text-white"
+                    ? "bg-[#fac4c5] hover:bg-red-600 text-white"
                     : "bg-white text-[#B4B4B4] hover:bg-gray-100"
                 } `}
               >

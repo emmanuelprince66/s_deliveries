@@ -166,7 +166,7 @@ useEffect(() => {
   // Fetch all data  ends
 
   return (
-    <div className="flex flex-col items-start justify-center gap-4 w-[90%] md-w-[80%]  mx-auto sm:mx-0">
+    <div className="flex flex-col items-start justify-center gap-4 w-[90%] md-w-[80%]   mx-auto sm:mx-0">
       <form action="" className="w-[100%] ">
         <div className="relative rounded-2xl bg-[#ffefef] w-full">
           <TextField
@@ -223,7 +223,7 @@ useEffect(() => {
         )}
       </form>
 
-      <div className="h-[40.7vh]  md:max-h-[40.7vh] overflow-y-scroll w-full">
+      <div className="h-[40vh]  md:max-h-[38.2vh] overflow-y-scroll w-full">
         {isLoading ? (
           <div className="w-full flex items-center h-1/2 justify-center">
             <CircularProgress
@@ -246,7 +246,7 @@ useEffect(() => {
               key={term?.id}
             >
               <div className="flex items-center w-full justify-between">
-                <h2 className="rounded-md p-2 font-bold uppercase text-[15x] font-dm-sans text-[#B4B4B4] bg-[#262525]">
+                <h2 className="rounded-md p-2 font-bold uppercase text-[20x] font-dm-sans text-[#B4B4B4] bg-[#262525]">
                   {term?.word}
                 </h2>
 
@@ -274,7 +274,7 @@ useEffect(() => {
                 </div>
               </div>
 
-              <p className="text-[13px] leading-5 pb-3 font-dm-sans text-[#fff]">
+              <p className="text-[16px] leading-5 pb-3 font-dm-sans text-[#fff]">
                 {term.meaning}
               </p>
             </div>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState , useEffect} from "react";
 import search from "../images/search.svg";
 import aOne from "../images/a-1.png";
 import aTwo from "../images/a-2.png";
@@ -11,35 +11,122 @@ import { useForm } from "react-hook-form";
 import Cookies from "js-cookie"
 import { useNavigate } from "react-router-dom";
 import line from "../images/line.svg";
-
+import { BaseAxios } from "../helpers/axiosInstance";
+import { toast, ToastContainer } from "react-toastify";
+import { useMutation, useQuery } from "@tanstack/react-query";
+import { Box, CircularProgress } from "@mui/material";
 
 
 
 const UserStart = () => {
-const navigate = useNavigate()
-const [searchValue , setSearchValue] = useState(null)
+  const navigate = useNavigate();
+
+ const [generalData, setGeneralData] = useState(null);
+ const [searchTerm, setSearchTerm] = useState("");
+ const [emptySearch, setEmptySearch] = useState(false);
+  const [showSpinner, setShowSpinner] = useState(false);
+
+  const handleLogout = () => {
+    Cookies.remove("authToken");
+    Cookies.remove("refreshToken");
+    Cookies.remove("role");
+
+    navigate("/login-user");
+  };
+  const notifyError = (msg) => {
+    toast.error(msg, {
+      autoClose: 6000, // Time in milliseconds
+    });
+  };
+   const searchMutatation = useMutation({
+     mutationFn: async (payLoad) => {
+       try {
+         const response = await BaseAxios({
+           url: "search-word",
+           method: "POST",
+           data: payLoad,
+         });
+
+         console.log("Response:", response);
+
+         if (!response || !response?.data) {
+           throw new Error("Invalid response received");
+         }
+
+         if (response?.status !== 200) {
+           setShowSpinner(false);
+           throw new Error("Request failed with status: " + response.status);
+         }
+
+         return response.data;
+       } catch (error) {
+         setShowSpinner(false);
+         notifyError(error?.response?.data?.message);
+         throw error;
+       }
+     },
+     onSuccess: (data) => {
+       setShowSpinner(false);
+       console.log(data);
+       const val = data.existingWord;
+       console.log(val);
+       setGeneralData([val]);
+       //  set generalData to the response comming from the backend
+     },
+     onError: (error) => {
+       setShowSpinner(false);
+       console.error("An error occurred:", error);
+     },
+   });
+  // Fetch all data starts
+
+  const fetchData = async () => {
+    try {
+      const response = await BaseAxios.get("all-existing-words");
+      console.log(response);
+      return response.data;
+    } catch (error) {
+      throw new Error("Error fetching data");
+    }
+  };
+
+  // Use the useQuery hook to manage the data
+  const { isLoading, error, data } = useQuery({
+    queryKey: ["wordsData"],
+    queryFn: fetchData,
+    refetchInterval: 5000,
+  });
+  
+    const handleSearchChange = (value) => {
+      setSearchTerm(value);
+      setEmptySearch(false);
+    };
 
 
-const {
-  register,
-  handleSubmit,
-  formState: { errors },
-} = useForm();
+const handleSubmit = () => {
+  if (searchTerm !== "") {
+    const payLoad = {
+      word: searchTerm || "",
+    };
+    searchMutatation.mutate(payLoad);
+    setShowSpinner(true);
+  } else {
+    setEmptySearch(true);
+  }
+};
+useEffect(() => {
+  let filteredItems = data?.words;
 
+  // Filter by name (if searchTerm exists)
+  if (searchTerm) {
+    filteredItems = filteredItems.filter((item) => {
+      return item.word.toLowerCase().includes(searchTerm.toLowerCase());
+    });
+  }
 
-const handleLogout = () => {
-Cookies.remove("authToken")
-Cookies.remove("refreshToken")
-Cookies.remove("role")
+  setGeneralData(filteredItems);
+}, [data, searchTerm]);
 
-navigate("/login-user")
-
-}
-
-const onSubmit = (data) => {
-console.log(data)
-}
-      
   return (
     <div className="w-full bg-[#171414] h-screen p-2 md:p-8 relative">
       <div className="   w-[100%] md:w-[82.5%] lg:w-[72.5%] bg-[#000] relative rounded-2xl mx-auto mb-4 p-4 pb-4 md:pb-9">
@@ -59,12 +146,13 @@ console.log(data)
           <div className="absolute w-[30px] h-[30px]  lg:w-[120px] lg:h-[120px]  md:w-[80px] md:h-[80px] right-[-1.5%] bottom-[4.5rem] md:bottom-20">
             <img src={aThree} alt="a-3" className="object-contain" />
           </div>
-          <form
-            onSubmit={handleSubmit(onSubmit)}
-            className="w-[100%] md:w-[90%] lg:w-[80%] "
-          >
+          <form className="w-[100%] md:w-[90%] lg:w-[80%] ">
             <div className="relative rounded-2xl bg-[#ffefef] w-full">
               <TextField
+                onChange={(e) => {
+                  const value = e.target.value;
+                  handleSearchChange(value); // Call handleSearchChange with the value
+                }}
                 sx={{
                   "& .MuiOutlinedInput-root": {
                     "&.Mui-focused fieldset": {
@@ -83,13 +171,6 @@ console.log(data)
                 }}
                 type="text"
                 name="word"
-                {...register("word", {
-                  required: "Input is required",
-                  pattern: {
-                    value: /^[a-zA-Z\s]*$/, // Accept only letters and spaces
-                    message: "Please enter only letters.",
-                  },
-                })}
                 className="rounded-md  outline-none border-none bg-white  w-full"
                 placeholder=" Type something here..."
                 InputProps={{
@@ -104,15 +185,20 @@ console.log(data)
               />
 
               <button
-                type="submit"
+                onClick={handleSubmit}
+                disabled={searchMutatation.isLoading || showSpinner}
                 className="absolute bg-[#EB2529] p-3 py-2  text-[14px] font-dm-sans justify-center text-white hover:text-black cursor-pointer m-2 rounded-lg inset-y-0 right-0 flex items-center  "
               >
-                GO!
+                {showSpinner ? (
+                  <CircularProgress size="1rem" sx={{ color: "#fff" }} />
+                ) : (
+                  "GO!"
+                )}
               </button>
             </div>
-            {errors.word && (
+            {emptySearch && (
               <span className="text-red-500 text-xs mt-[-5px]">
-                {errors.word.message}
+                Input cannot be empty!
               </span>
             )}
           </form>
@@ -120,66 +206,47 @@ console.log(data)
       </div>
 
       <div className="w-[100%] md:w-[82.5%] lg:w-[62.5%] mx-auto flex flex-col items-start gap-3  overflow-y-scroll max-h-[55vh] md:max-h-[55vh] lg:max-h-[40vh]">
-        <div className="flex flex-col items-start gap-4 w-full">
-          <p className="rounded-md p-2 font-bold text-[15x] font-dm-sans text-[#B4B4B4] bg-[#262525]">
-            BMC
+        {isLoading ? (
+          <div className="w-full flex items-center h-1/2 justify-center">
+            <CircularProgress
+              size="3.2rem"
+              sx={{
+                color: "#EB2529",
+                fontSize: "4rem",
+              }}
+            />
+          </div>
+        ) : Array.isArray(generalData) && generalData.length === 0 ? (
+          <p className="text-white font-satoshi  mt-3 text-center w-full">
+            Click GO to Search For Word In Our Database!
           </p>
-          <p className="text-[13px] leading-5 pb-3 font-dm-sans text-[#fff]">
-            Brands, Marketing and Communication. The department in the
-            organisation that is responsible for marketing all brands within
-            sterling and also handle all public relations matters.
-          </p>
-        </div>
-        <Divider sx={{ width: "100%", background: "#262626" }} />
-        <div className="flex flex-col items-start gap-4 w-full">
-          <p className="rounded-md p-2 font-bold text-[15px] font-dm-sans text-[#B4B4B4] bg-[#262525]">
-            Abubakar Suleiman
-          </p>
-          <p className="text-[13px] leading-5 pb-3 font-dm-sans text-[#fff]">
-            Brands, Marketing and Communication. The department in the
-            organisation that is responsible for marketing all brands within
-            sterling and also handle all public relations matters.
-          </p>
-        </div>
-        <Divider sx={{ width: "100%", background: "#262626" }} />
-        <div className="flex flex-col items-start gap-4 w-full">
-          <p className="rounded-md p-2 font-bold text-[15px] font-dm-sans text-[#B4B4B4] bg-[#262525]">
-            BMC
-          </p>
-          <p className="text-[13px] leading-5 pb-3 font-dm-sans text-[#fff]">
-            Brands, Marketing and Communication. The department in the
-            organisation that is responsible for marketing all brands within
-            sterling and also handle all public relations matters.
-          </p>
-        </div>
-        <Divider sx={{ width: "100%", background: "#262626" }} />
-        <div className="flex flex-col items-start gap-4 w-full">
-          <p className="rounded-md p-2 font-bold text-[15px] font-dm-sans text-[#B4B4B4] bg-[#262525]">
-            BMC
-          </p>
-          <p className="text-[13px] leading-5 pb-3 font-dm-sans text-[#fff]">
-            Brands, Marketing and Communication. The department in the
-            organisation that is responsible for marketing all brands within
-            sterling and also handle all public relations matters.
-          </p>
-        </div>
-        <Divider sx={{ width: "100%", background: "#262626" }} />
-        <div className="flex flex-col items-start gap-4 w-full">
-          <p className="rounded-md p-2 font-bold text-[15px] font-dm-sans text-[#B4B4B4] bg-[#262525]">
-            BMC
-          </p>
-          <p className="text-[13px] leading-5 pb-3 font-dm-sans text-[#fff]">
-            Brands, Marketing and Communication. The department in the
-            organisation that is responsible for marketing all brands within
-            sterling and also handle all public relations matters.
-          </p>
-        </div>
-        <Divider sx={{ width: "100%", background: "#262626" }} />
+        ) : (
+          // Display termArray items if not null or empty
+          generalData?.map((term) => (
+            <div
+              className="w-full flex flex-col items-start gap-5  border-b border-[#262626] pb-3 mb-4"
+              key={term?.id}
+            >
+              <h2 className="rounded-md p-2 font-bold uppercase text-[20x] font-dm-sans text-[#B4B4B4] bg-[#262525]">
+                {term?.word}
+              </h2>
+
+              <p className="text-[16px] leading-5 pb-3  font-dm-sans text-[#fff]">
+                {term.meaning}
+              </p>
+            </div>
+          ))
+        )}
       </div>
 
       <div className="absolute w-[30px] h-[30px]  lg:w-[120px] lg:h-[120px]  md:w-[80px] md:h-[80px] left-0 bottom-5 md:bottom-[7rem]">
         <img src={aTwo} alt="a-w" className="object-contain" />
       </div>
+
+      <ToastContainer
+        theme="dark"
+        toastStyle={{ background: "#333", color: "#fff" }}
+      />
     </div>
   );
 };
