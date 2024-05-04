@@ -23,7 +23,7 @@ const handleLogout = () => {
   return (
     <div
       className={`bg-[#171414] w-full ${
-        isTab1Active ? "h-screen" : "h-full"
+        isTab1Active ? "h-screen" : "h-screen"
       } md:h-screen pb-4`}
     >
       <div className=" w-[98%] md:w-[90%] lg:w-[65%] mx-auto relative flex flex-col justify-center items-center">

@@ -2,7 +2,9 @@ import React from "react";
 import arrw from "../images/arrw.svg";
 import del from "../images/del.svg";
 import edit from "../images/edit.svg";
-import { useState } from "react";
+import { Box, CircularProgress } from "@mui/material";
+
+import { useState , useEffect } from "react";
 import CustomButton from "./CustomButton";
 import { useForm } from "react-hook-form";
 import SearchRoundedIcon from "@mui/icons-material/SearchRounded";
@@ -14,6 +16,7 @@ import { useMutation, useQuery } from "@tanstack/react-query";
 
 import { InputAdornment, TextField , Modal } from "@mui/material";
 import EditCom from "./EditCom";
+import { BaseAxios } from "../helpers/axiosInstance";
 
 
   const style = {
@@ -26,59 +29,64 @@ import EditCom from "./EditCom";
     bgcolor: "background.paper",
     p: 3,
   };
-const termArray = [
-  {
-    id: 1,
-    text: "A platform where local manufacturers in Nigeria showcase their product to a wide range of buyer across the globe. ",
-    path: "www.mbn.ng...",
-    bold: "MBN",
-  },
-  {
-    id: 2,
-    text: "A platform where local manufacturers in Nigeria showcase their product to a wide range of buyer across the globe. ",
-    path: "www.mbn.ng...",
-    bold: "MBN",
-  },
-  {
-    id: 3,
-    text: "A platform where local manufacturers in Nigeria showcase their product to a wide range of buyer across the globe. ",
-    path: "www.mbn.ng...",
-    bold: "MBN",
-  },
-  {
-    id: 4,
-    text: "A platform where local manufacturers in Nigeria showcase their product to a wide range of buyer across the globe. ",
-    path: "www.mbn.ng...",
-    bold: "MBN",
-  },
-  {
-    id: 5,
-    text: "A platform where local manufacturers in Nigeria showcase their product to a wide range of buyer across the globe. ",
-    path: "www.mbn.ng...",
-    bold: "MBN",
-  },
-];
 
 const EditTerm = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isDelOpen, setIsDelOpen] = useState(false);
-  
+  const [generalData , setGeneralData] = useState(null)
+  const [searchTerm , setSearchTerm] = useState("")
+  const [emptySearch , setEmptySearch] = useState(false);
+  const [editData , setEditData] = useState(null)
   const [showSpinner, setShowSpinner] = useState(false);
   const notifyError = (msg) => {
     toast.error(msg, {
       autoClose: 6000, // Time in milliseconds
     });
   };
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm();
 
 
 
 
 
+   const searchMutatation = useMutation({
+     mutationFn: async (payLoad) => {
+       try {
+         const response = await BaseAxios({
+           url: "upload-new-word",
+           method: "POST",
+           data: payLoad,
+         });
+
+         console.log("Response:", response);
+
+         if (!response || !response?.data) {
+           throw new Error("Invalid response received");
+         }
+
+         if (response?.status !== 200) {
+           setShowSpinner(false);
+           throw new Error("Request failed with status: " + response.status);
+         }
+
+         return response.data;
+       } catch (error) {
+         setShowSpinner(false);
+         notifyError(error?.response?.data?.message);
+         throw error;
+       }
+     },
+     onSuccess: (data) => {
+       setShowSpinner(false);
+       console.log(data);
+       
+      //  set generalData to the response comming from the backend
+     },
+     onError: (error) => {
+       setShowSpinner(false);
+       console.error("An error occurred:", error);
+     },
+   });
+   
    const deleteWordsMutation = useMutation({
      mutationFn: async (payLoad) => {
        try {
@@ -118,12 +126,14 @@ const EditTerm = () => {
    
    const handleDeleteWord = () => {
    console.log("delete")
-   deleteWordsMutation.mutate()
+  //  deleteWordsMutation.mutate()
    setShowSpinner(true)
    }
    
-  const openModal = (id) => {
+  const openModal = (item) => {
     setIsOpen(true);
+    setEditData(item);
+    
   };
 
   const closeModal = () => setIsOpen(false);
@@ -133,12 +143,73 @@ const EditTerm = () => {
   };
 
   const closeDelModal = () => setIsDelOpen(false);
+  
+  
+  // Fetch all data starts
+  
+  const fetchData = async () => {
+    try {
+      const response = await BaseAxios.get("all-existing-words");
+      console.log(response);
+      return response.data;
+    } catch (error) {
+      throw new Error("Error fetching data");
+    }
+  };
+
+  // Use the useQuery hook to manage the data
+  const { isLoading, error, data } = useQuery({
+    queryKey: ["wordsData"],
+    queryFn: fetchData,
+    refetchInterval: 5000,
+  });
+  
+  const handleSearchChange = (value) => {
+    setSearchTerm(value)    
+    setEmptySearch(false)
+  };
+
+
+const handleSubmit = () => {
+if(searchTerm !== "") {
+// searchMutatation.mutate(searchTerm)
+setShowSpinner(false)
+} else {
+setEmptySearch(true)
+}
+
+}
+
+useEffect(() => {
+
+   let filteredItems = data?.words;
+
+   // Filter by name (if searchTerm exists)
+   if (searchTerm) {
+     filteredItems = filteredItems.filter((item) => {
+       return (
+         item.word
+           .toLowerCase()
+           .includes(searchTerm.toLowerCase())
+       );
+     });
+   }
+   
+   setGeneralData(filteredItems)
+
+} ,[data , searchTerm])
+  
+  // Fetch all data  ends
 
   return (
     <div className="flex flex-col items-start justify-center gap-4 w-[90%] md-w-[80%]  mx-auto sm:mx-0">
       <form action="" className="w-[100%] ">
         <div className="relative rounded-2xl bg-[#ffefef] w-full">
           <TextField
+            onChange={(e) => {
+              const value = e.target.value;
+              handleSearchChange(value); // Call handleSearchChange with the value
+            }}
             sx={{
               "& .MuiOutlinedInput-root": {
                 "&.Mui-focused fieldset": {
@@ -157,15 +228,8 @@ const EditTerm = () => {
             }}
             type="text"
             name="email"
-            {...register("search", {
-              required: "Input is required",
-              pattern: {
-                value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
-                message: "Invalid email format",
-              },
-            })}
             className="rounded-md  outline-none border-none bg-white  w-full"
-            placeholder=" Type something here..."
+            placeholder="Type something here..."
             InputProps={{
               startAdornment: (
                 <InputAdornment position="start">
@@ -175,28 +239,53 @@ const EditTerm = () => {
               ),
             }}
           />
-          <div className="absolute bg-[#EB2529] p-3 py-2  text-[14px] font-dm-sans justify-center text-white hover:text-black cursor-pointer m-2 rounded-lg inset-y-0 right-0 flex items-center  ">
+
+          <button
+            onClick={handleSubmit}
+            disabled={searchMutatation.isLoading || showSpinner
+            }
+            className="absolute bg-[#EB2529] p-3 py-2  text-[14px] font-dm-sans justify-center text-white hover:text-black cursor-pointer m-2 rounded-lg inset-y-0 right-0 flex items-center  "
+          >
             GO!
-          </div>
+          </button>
         </div>
+        {emptySearch && (
+          <span className="text-red-500 text-xs mt-[-5px]">
+            Input cannot be empty!
+          </span>
+        )}
       </form>
 
-      <div className="h-[50.7vh]  md:max-h-[40.7vh] overflow-y-scroll w-full">
-        {termArray &&
-          Array.isArray(termArray) &&
-          termArray.map((term) => (
+      <div className="h-[40.7vh]  md:max-h-[40.7vh] overflow-y-scroll w-full">
+        {isLoading ? (
+          <div className="w-full flex items-center h-1/2 justify-center">
+            <CircularProgress
+              size="3.2rem"
+              sx={{
+                color: "#EB2529",
+                fontSize: "4rem",
+              }}
+            />
+          </div>
+        ) : Array.isArray(generalData) && generalData.length === 0 ? (
+          <p className="text-white font-satoshi  mt-3 text-center w-full">
+            Click GO to Search For Word In Our Database!
+          </p>
+        ) : (
+          // Display termArray items if not null or empty
+          generalData?.map((term) => (
             <div
               className="w-full flex flex-col items-start gap-5  border-b border-[#262626] pb-3 mb-4"
               key={term?.id}
             >
               <div className="flex items-center w-full justify-between">
                 <h2 className="rounded-md p-2 font-bold text-[15x] font-dm-sans text-[#B4B4B4] bg-[#262525]">
-                  {term?.bold}
+                  {term?.word}
                 </h2>
 
                 <div className="flex gap-2 items-center">
                   <div
-                    onClick={openModal}
+                    onClick={() => openModal(term)}
                     className="p-2 bg-[#262525] rounded-md cursor-pointer flex items-center justify-center"
                   >
                     <img
@@ -219,10 +308,11 @@ const EditTerm = () => {
               </div>
 
               <p className="text-[13px] leading-5 pb-3 font-dm-sans text-[#fff]">
-                {term.text}
+                {term.meaning}
               </p>
             </div>
-          ))}
+          ))
+        )}
       </div>
 
       {/* edit word */}
@@ -238,7 +328,7 @@ const EditTerm = () => {
           },
         }}
       >
-        <EditCom closeModal={closeModal} />
+        <EditCom closeModal={closeModal} editData={editData || [] }  />
       </Modal>
       {/* edit word end */}
       {/* delete word */}
@@ -286,8 +376,6 @@ const EditTerm = () => {
         </div>
       </Modal>
       {/* delete word end */}
-
-  
     </div>
   );
 };

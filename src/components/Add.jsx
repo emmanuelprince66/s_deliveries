@@ -24,16 +24,21 @@ const notifyError = (msg) => {
     autoClose: 6000, // Time in milliseconds
   });
 };
+const notifySuccess = (msg) => {
+  toast.success(msg, {
+    autoClose: 6000, // Time in milliseconds
+  });
+};
 const {
   register,
   handleSubmit,
   formState: { errors },
+  reset
 } = useForm();
 
      const addWordsMutation = useMutation({
        mutationFn: async (payLoad) => {
        const token = Cookies.get("authToken");
-       console.log(token)
        
          try {
            const response = await BaseAxios({
@@ -51,7 +56,7 @@ const {
              throw new Error("Invalid response received");
            }
 
-           if (response?.status !== 200) {
+           if (response?.status !== 201) {
              setShowSpinner(false);
              throw new Error("Request failed with status: " + response.status);
            }
@@ -60,6 +65,7 @@ const {
          } catch (error) {
            console.log(error);
            setShowSpinner(false);
+             reset();
            notifyError(error?.response?.data?.message);
            throw error;
          }
@@ -67,9 +73,12 @@ const {
        onSuccess: (data) => {
          setShowSpinner(false);
          console.log(data);
+         notifySuccess(data.message)
+         reset()
        },
        onError: (error) => {
          setShowSpinner(false);
+           reset();
          console.error("An error occurred:", error);
        },
      });
