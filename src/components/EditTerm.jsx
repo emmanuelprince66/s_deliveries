@@ -158,6 +158,10 @@ useEffect(() => {
      });
    }
    
+       filteredItems = filteredItems.sort((a, b) => {
+         return new Date(b.createdAt) - new Date(a.createdAt);
+       });
+    
    setGeneralData(filteredItems)
 
 } ,[data , searchTerm])
