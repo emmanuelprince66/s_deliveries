@@ -132,6 +132,8 @@ const handleSubmit = () => {
 };
 useEffect(() => {
   let filteredItems = data?.words;
+  
+  console.log(filteredItems)
 
   // Filter by name (if searchTerm exists)
   if (searchTerm) {
@@ -139,6 +141,14 @@ useEffect(() => {
       return item.word.toLowerCase().includes(searchTerm.toLowerCase());
     });
   }
+  
+    filteredItems = filteredItems.sort((a, b) => {
+      return new Date(b.createdAt) - new Date(a.createdAt);
+    });
+    
+    //  filteredItems = filteredItems.sort((a, b) => {
+    //    return a.word.localeCompare(b.word);
+    //  });
 
   setGeneralData(filteredItems);
 }, [data, searchTerm]);
