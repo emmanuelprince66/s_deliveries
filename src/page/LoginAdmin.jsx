@@ -161,6 +161,7 @@ const {
                       "& fieldset": {
                         outline: "none",
                         border: "none",
+                        borderRadius: "10px", // Change to your desired radius
                       },
                       "&:hover fieldset": {
                         outline: "none",
@@ -170,6 +171,7 @@ const {
                         outline: "none",
                         border: "none",
                       },
+                    
                     },
                   }}
                   type="text"
@@ -195,6 +197,7 @@ const {
                       </InputAdornment>
                     ),
                   }}
+                  autoComplete="nope" // or autoComplete="new-password"
                 />
                 {errors.email && (
                   <span className="text-red-500 text-xs mt-[-5px]">
@@ -292,8 +295,6 @@ const {
             </Link>
           </div>
         </div>
-
-   
       </div>
       <ToastContainer
         theme="dark"

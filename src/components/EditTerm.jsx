@@ -120,7 +120,7 @@ const EditTerm = () => {
   const { isLoading, error, data } = useQuery({
     queryKey: ["wordsData"],
     queryFn: fetchData,
-    refetchInterval: 5000,
+    refetchInterval: 3000,
   });
   
   const handleSearchChange = (value) => {
@@ -191,7 +191,7 @@ useEffect(() => {
             }}
             type="text"
             name="email"
-            className="rounded-md  outline-none border-none bg-white  w-full"
+            className="rounded-2xl  outline-none border-none bg-white  w-full"
             placeholder="Type something here..."
             InputProps={{
               startAdornment: (
@@ -206,7 +206,7 @@ useEffect(() => {
           <button
             onClick={handleSubmit}
             disabled={searchMutatation.isLoading || showSpinner}
-            className="absolute bg-[#EB2529] p-3 py-2  text-[14px] font-dm-sans justify-center text-white hover:text-black cursor-pointer m-2 rounded-lg inset-y-0 right-0 flex items-center  "
+            className="absolute bg-[#DB363A] p-3 px-4 py-2  text-[14px] font-dm-sans justify-center text-white hover:text-black cursor-pointer m-2 rounded-lg inset-y-0 right-0 flex items-center  "
           >
             {showSpinner ? (
               <CircularProgress size="1rem" sx={{ color: "#fff" }} />

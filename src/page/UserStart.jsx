@@ -14,7 +14,7 @@ import line from "../images/line.svg";
 import { BaseAxios } from "../helpers/axiosInstance";
 import { toast, ToastContainer } from "react-toastify";
 import { useMutation, useQuery } from "@tanstack/react-query";
-import { Box, CircularProgress , Modal } from "@mui/material";
+import { Box, CircularProgress } from "@mui/material";
 import SendWord from "../components/SendWord";
 
 
@@ -27,6 +27,9 @@ const UserStart = () => {
  const [emptySearch, setEmptySearch] = useState(false);
   const [showSpinner, setShowSpinner] = useState(false);
 const [isOpen , setIsOpen] = useState(false)
+
+
+const[showNotExist , setShowNotExist] = useState(false)
 
 const closeModal = () => setIsOpen(false)
   const handleLogout = () => {
@@ -66,6 +69,7 @@ const closeModal = () => setIsOpen(false)
          return response.data;
        } catch (error) {
          setShowSpinner(false);
+         setShowNotExist(true)
          notifyError(error?.response?.data?.message);
          throw error;
        }
@@ -105,7 +109,14 @@ const closeModal = () => setIsOpen(false)
     const handleSearchChange = (value) => {
       setSearchTerm(value);
       setEmptySearch(false);
+      setShowNotExist(false)
+      
     };
+
+const handleClearFields = () => {
+setSearchTerm("")
+setShowNotExist(false)
+}
 
 
 const handleSubmit = () => {
@@ -133,27 +144,28 @@ useEffect(() => {
 }, [data, searchTerm]);
 
   return (
-    <div className="w-full bg-[#171414] h-screen p-2 md:p-8 relative">
-      <div className="   w-[100%] md:w-[82.5%] lg:w-[72.5%] bg-[#000] relative rounded-2xl mx-auto mb-4 p-4 pb-4 md:pb-9">
-        <div className="flex flex-col w-full items-center justify-center ">
-          <div className="w-[100%] md:w-[90%] lg:w-[80%] mx-auto flex justify-end mb-[5%]">
-            <button
-              onClick={handleLogout}
-              className=" bg-[#EB2529] py-2 px-4 font-dm-sans  rounded-md  hover:bg-red-400 text-white focus-visible:outline-red-600 mt-0 md:mt-3 lg:mt-3"
-            >
-              Logout
-            </button>
-          </div>
+    <div className="w-full bg-[#171414] h-screen p-2 md:p-1 relative">
+      <div className="w-[100%] md:w-[90%] lg:w-[55%] mx-auto mb-[3%] flex justify-end ">
+        <button
+          onClick={handleLogout}
+          className=" bg-[#EB2529] py-2 px-4 font-dm-sans mb-3 mt-2  md:mb-0 rounded-md  hover:bg-red-400 text-white focus-visible:outline-red-600 md:mt-3 lg:mt-3"
+        >
+          Logout
+        </button>
+      </div>
 
-          <div className="w-[100px] h-[100px] mt-4 md:mt-0 lg:mt-0">
+      <div className="   w-[100%] md:w-[82.5%] lg:w-[60.5%] bg-[#000] relative rounded-2xl mx-auto mb-4 p-4 pb-4 md:pb-9">
+        <div className="flex flex-col w-full items-center justify-center ">
+          <div className="w-[100px] h-[70px] mt-4 md:mt-0 lg:mt-3">
             <img src={aOne} alt="a-1" className=" object-contain" />
           </div>
           <div className="absolute w-[30px] h-[30px]  lg:w-[120px] lg:h-[120px]  md:w-[80px] md:h-[80px] right-[-1.5%] bottom-[4.5rem] md:bottom-20">
             <img src={aThree} alt="a-3" className="object-contain" />
           </div>
-          <form className="w-[100%] md:w-[90%] lg:w-[80%] ">
+          <form className="w-[100%] md:w-[90%] lg:w-[90%] ">
             <div className="relative rounded-2xl bg-[#ffefef] w-full">
               <TextField
+                value={searchTerm}
                 onChange={(e) => {
                   const value = e.target.value;
                   handleSearchChange(value); // Call handleSearchChange with the value
@@ -176,7 +188,7 @@ useEffect(() => {
                 }}
                 type="text"
                 name="word"
-                className="rounded-md  outline-none border-none bg-white  w-full"
+                className="rounded-2xl  outline-none border-none bg-white  w-full"
                 placeholder=" Type something here..."
                 InputProps={{
                   startAdornment: (
@@ -192,7 +204,7 @@ useEffect(() => {
               <button
                 onClick={handleSubmit}
                 disabled={searchMutatation.isLoading || showSpinner}
-                className="absolute bg-[#EB2529] p-3 py-2  text-[14px] font-dm-sans justify-center text-white hover:text-black cursor-pointer m-2 rounded-lg inset-y-0 right-0 flex items-center  "
+                className="absolute bg-[#DB363A] p-3 px-4 py-2  text-[14px] font-dm-sans justify-center text-white hover:text-black cursor-pointer m-2 rounded-lg inset-y-0 right-0 flex items-center  "
               >
                 {showSpinner ? (
                   <CircularProgress size="1rem" sx={{ color: "#fff" }} />
@@ -210,7 +222,7 @@ useEffect(() => {
         </div>
       </div>
 
-      <div className="w-[100%] md:w-[82.5%] lg:w-[62.5%] mx-auto flex flex-col items-start gap-3  overflow-y-scroll max-h-[55vh] md:max-h-[55vh] lg:max-h-[40vh]">
+      <div className="w-[100%] md:w-[82.5%] lg:w-[52.5%] mx-auto flex flex-col items-start gap-3  overflow-y-scroll max-h-[55vh] md:max-h-[55vh] lg:max-h-[50vh]">
         {isLoading ? (
           <div className="w-full flex items-center h-1/2 justify-center">
             <CircularProgress
@@ -222,9 +234,31 @@ useEffect(() => {
             />
           </div>
         ) : Array.isArray(generalData) && generalData.length === 0 ? (
-          <p className="text-white font-satoshi  mt-3 text-center w-full">
-            Click GO to Search For Word In Our Database!
-          </p>
+          !showNotExist ? (
+            <p className="font-dm-sans text-center w-full text-white text-[15px]">
+              Click GO to Search For Word In Our Database!
+            </p>
+          ) : (
+            <div className="w-full flex flex-col items-center gap-4 justify-center">
+              <p className="font-dm-sans text-white text-center text-[15px] leading-5">
+                It seems the word you are looking for is not in our database
+                <br />
+                would you like to notify Admin to add it?
+              </p>{" "}
+              <div className="flex gap-4 w-1/2 items-center">
+                <CustomButton
+                  onClick={() => setIsOpen((prev) => !prev)}
+                  text="YES"
+                  style="bg-green-500 w-full flex justify-center items-center text-white font-dm-sans  text-[20px] h-[50px] hover:bg-green-300  focus-visible:outline-red-600"
+                />
+                <CustomButton
+                  onClick={handleClearFields}
+                  text="NO"
+                  style="bg-[#EB2529] w-full flex justify-center items-center text-white font-dm-sans  text-[20px] h-[50px] hover:bg-red-400  focus-visible:outline-red-600"
+                />
+              </div>
+            </div>
+          )
         ) : (
           // Display termArray items if not null or empty
           generalData?.map((term) => (
@@ -266,8 +300,11 @@ useEffect(() => {
           },
         }}
       >
-      <SendWord searchTerm={searchTerm || ""}  closeModal={closeModal} setSearchTerm={setSearchTerm}/>
-      
+        <SendWord
+          searchTerm={searchTerm || ""}
+          closeModal={closeModal}
+          setSearchTerm={setSearchTerm}
+        />
       </Modal>
     </div>
   );
