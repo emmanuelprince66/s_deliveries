@@ -5,7 +5,7 @@ import aTwo from "../images/a-2.png";
 import aThree from "../images/a-3.png";
 import CustomButton from "../components/CustomButton";
 import Divider from "@mui/material/Divider";
-import { InputAdornment, TextField } from "@mui/material";
+import { InputAdornment, Modal, TextField } from "@mui/material";
 import SearchRoundedIcon from "@mui/icons-material/SearchRounded";
 import { useForm } from "react-hook-form";
 import Cookies from "js-cookie"
@@ -14,7 +14,8 @@ import line from "../images/line.svg";
 import { BaseAxios } from "../helpers/axiosInstance";
 import { toast, ToastContainer } from "react-toastify";
 import { useMutation, useQuery } from "@tanstack/react-query";
-import { Box, CircularProgress } from "@mui/material";
+import { Box, CircularProgress , Modal } from "@mui/material";
+import SendWord from "../components/SendWord";
 
 
 
@@ -25,7 +26,9 @@ const UserStart = () => {
  const [searchTerm, setSearchTerm] = useState("");
  const [emptySearch, setEmptySearch] = useState(false);
   const [showSpinner, setShowSpinner] = useState(false);
+const [isOpen , setIsOpen] = useState(false)
 
+const closeModal = () => setIsOpen(false)
   const handleLogout = () => {
     Cookies.remove("authToken");
     Cookies.remove("refreshToken");
@@ -33,6 +36,8 @@ const UserStart = () => {
 
     navigate("/login-user");
   };
+  
+  
   const notifyError = (msg) => {
     toast.error(msg, {
       autoClose: 6000, // Time in milliseconds
@@ -247,6 +252,23 @@ useEffect(() => {
         theme="dark"
         toastStyle={{ background: "#333", color: "#fff" }}
       />
+
+      {/* edit word */}
+      <Modal
+        open={isOpen}
+        onClose={closeModal}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+        PaperProps={{
+          sx: {
+            border: "none", // Remove the border
+            boxShadow: "none", // Remove the box shadow
+          },
+        }}
+      >
+      <SendWord searchTerm={searchTerm || ""}  closeModal={closeModal} setSearchTerm={setSearchTerm}/>
+      
+      </Modal>
     </div>
   );
 };
