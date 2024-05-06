@@ -99,7 +99,6 @@ const userLoginMutation = useMutation({
     const payLoad = {
       email,
       password,
-      role: "Admin",
     };
     userLoginMutation.mutate(payLoad);
     setShowSpinner(true);

@@ -35,7 +35,7 @@ const handleLogout = () => {
             Logout
           </button>
         </div>
-        <div className="w-[97%]   md:h-fit flex justify-center flex-col items-center  gap-5 md:w-[100%] lg:w-[85%] mx-auto  bg-[#000]  py-5 md:pt-8  rounded-2xl">
+        <div className="w-[97%] md:h-fit   flex justify-center flex-col items-center  gap-5 md:w-[100%] lg:w-[85%] mx-auto  bg-[#000]  py-5 md:pt-8  rounded-2xl">
           <img
             src={aOne}
             alt="a-1"
@@ -49,7 +49,7 @@ const handleLogout = () => {
                 onClick={() => setIsTab1Active(true)}
                 className={`px-6 bg-[#DB363A] rounded-2xl focus:outline-none text-[10px] md:text-[15px]  font-dm-sans z-10 transition w-full  h-[50px] duration-300 ease-in-out shadow-lg ${
                   isTab1Active
-                    ? "bg-[#DB363A] hover:bg-[#fac4c5] text-white"
+                    ? "bg-[#DB363A] hover:bg-[#2a2222] text-white"
                     : "bg-white text-[#B4B4B4] hover:bg-gray-100"
                 } `}
               >

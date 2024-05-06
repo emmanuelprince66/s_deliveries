@@ -142,9 +142,9 @@ useEffect(() => {
     });
   }
   
-    filteredItems = filteredItems?.sort((a, b) => {
-      return new Date(b.createdAt) - new Date(a.createdAt);
-    });
+    // filteredItems = filteredItems?.sort((a, b) => {
+    //   return new Date(b.createdAt) - new Date(a.createdAt);
+    // });
     
      filteredItems = filteredItems?.sort((a, b) => {
        return a.word.localeCompare(b.word);
@@ -275,7 +275,7 @@ useEffect(() => {
           // Display termArray items if not null or empty
           generalData?.map((term) => (
             <div
-              className="w-full flex flex-col items-start gap-5  border-b border-[#262626] pb-3 mb-4"
+              className="w-full flex flex-col items-start gap-5  border-b border-[#262626] pb-3 mb-4 mt-3st"
               key={term?.id}
             >
               <h2 className="rounded-md p-2 font-bold uppercase text-[20x] font-dm-sans text-[#B4B4B4] bg-[#262525]">

@@ -112,7 +112,6 @@ const {
             const payLoad = {
             email,
             password,
-            role:"admin"
             }
             adminLoginMutation.mutate(payLoad);
             setShowSpinner(true);
@@ -287,13 +286,14 @@ const {
             </form>
 
             <p className="font-dm-sans text-white">
-              Not an Admin Click
+              Not an Admin 
               <Link
                 to="/login-user"
                 className="text-[15px] mx-1 hover:text-red-500 font-dm-sans text-white mt-3 mb-[2px]"
               >
-              Login
+              Click Here
               </Link> 
+              to log in
             </p>
           </div>
         </div>
