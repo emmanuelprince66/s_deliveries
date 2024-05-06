@@ -344,7 +344,7 @@ const registerUserMutation = useMutation({
               />
             </form>
 
-            <Link to="/login-user" className=" mt-3 mb-2">
+            <Link to="/login-user" className=" mt-3 mb-[8px]">
               <p className="text-[15px] hover:text-red-500  text-white font-dm-sans">
                 Login
               </p>

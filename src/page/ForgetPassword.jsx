@@ -102,7 +102,7 @@ const ForgetPassword = () => {
           className="absolute w-[30px] h-[30px] lg:w-[120px] lg:h-[120px]  md:w-[80px] md:h-[80px] top-0 right-0 "
         />
 
-        <div className="w-[95%] md:w-[80%] xl:w-[65%] bg-black rounded-[1rem] h-fit flex flex-col items-center justify-start mt-0 gap-6 p-2 py-5 pb-10 xl:pb-[2.8rem]  md:p-10 xl:p-6 ">
+        <div className="w-[95%] md:w-[80%] xl:w-[65%] bg-black rounded-[1rem] h-fit flex flex-col items-center justify-start mt-0 gap-6 p-2 py-5 pb-10 xl:pb-[1.8rem]  md:p-10 xl:p-6 ">
           <div className="w-full">
             <button
               onClick={handleGoBack}

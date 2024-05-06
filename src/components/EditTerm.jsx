@@ -161,6 +161,10 @@ useEffect(() => {
        filteredItems = filteredItems?.sort((a, b) => {
          return new Date(b.createdAt) - new Date(a.createdAt);
        });
+       
+          filteredItems = filteredItems?.sort((a, b) => {
+            return a.word.localeCompare(b.word);
+          });
     
    setGeneralData(filteredItems)
 
@@ -226,7 +230,7 @@ useEffect(() => {
         )}
       </form>
 
-      <div className="h-[40vh]  md:max-h-[38.2vh] overflow-y-scroll w-full">
+      <div className="h-[40vh]  md:h-[36.9vh] overflow-y-scroll w-full">
         {isLoading ? (
           <div className="w-full flex items-center h-1/2 justify-center">
             <CircularProgress

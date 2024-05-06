@@ -146,29 +146,31 @@ useEffect(() => {
       return new Date(b.createdAt) - new Date(a.createdAt);
     });
     
-    //  filteredItems = filteredItems.sort((a, b) => {
-    //    return a.word.localeCompare(b.word);
-    //  });
+     filteredItems = filteredItems?.sort((a, b) => {
+       return a.word.localeCompare(b.word);
+     });
 
   setGeneralData(filteredItems);
 }, [data, searchTerm]);
 
   return (
     <div className="w-full bg-[#171414] h-screen p-2 md:p-1 relative">
-      <div className="w-[100%] md:w-[90%] lg:w-[55%] mx-auto mb-[3%] flex justify-end ">
+      <div className="w-[100%] md:w-[90%] lg:w-[60%] mx-auto mb-5 md:mb-[1%] mt-1 flex justify-end ">
         <button
           onClick={handleLogout}
-          className=" bg-[#EB2529] py-2 px-4 font-dm-sans mb-3 mt-2  md:mb-0 rounded-md  hover:bg-red-400 text-white focus-visible:outline-red-600 md:mt-3 lg:mt-3"
+          className=" bg-[#EB2529] py-2 px-4 font-dm-sans  rounded-md  hover:bg-red-400 text-white focus-visible:outline-red-600 "
         >
           Logout
         </button>
       </div>
 
       <div className="   w-[100%] md:w-[82.5%] lg:w-[60.5%] bg-[#000] relative rounded-2xl mx-auto mb-4 p-4 pb-4 md:pb-9">
-        <div className="flex flex-col w-full items-center justify-center ">
-          <div className="w-[100px] h-[70px] mt-4 md:mt-0 lg:mt-3">
-            <img src={aOne} alt="a-1" className=" object-contain" />
-          </div>
+        <div className="flex flex-col w-full   items-center justify-center ">
+          <img
+            src={aOne}
+            alt="a-1"
+            className=" object-contain w-[100px] h-[30px] mb-9 mt-[3rem]"
+          />
           <div className="absolute w-[30px] h-[30px]  lg:w-[120px] lg:h-[120px]  md:w-[80px] md:h-[80px] right-[-1.5%] bottom-[4.5rem] md:bottom-20">
             <img src={aThree} alt="a-3" className="object-contain" />
           </div>

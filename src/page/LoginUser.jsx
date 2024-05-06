@@ -279,14 +279,12 @@ const userLoginMutation = useMutation({
 
             <Link
               to="/forget-password"
-              className="text-[15px] hover:text-red-500 font-dm-sans text-white"
+              className="text-[15px] hover:text-red-500 font-dm-sans text-white mb-[-10px]"
             >
               Forgot Password?
             </Link>
           </div>
         </div>
-
-   
       </div>
       <ToastContainer
         theme="dark"

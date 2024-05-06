@@ -132,7 +132,7 @@ const {
           className="absolute w-[30px] h-[30px] lg:w-[120px] lg:h-[120px]   md:w-[80px] md:h-[80px] bg-slate-400w3 top-0 right-0 "
         />
 
-        <div className="w-[95%] md:w-[80%] xl:w-[65%] bg-black rounded-[1rem]   md:h-fit lg:h-fit flex flex-col items-center justify-start mt-0 gap-6 p-2 pb-7  xl:pb-9 md:p-12 xl:p-6 ">
+        <div className="w-[95%] md:w-[80%] xl:w-[65%] bg-black rounded-[1rem]   md:h-fit lg:h-fit flex flex-col items-center justify-start mt-0 gap-6 p-2 pb-7  xl:pb-6 md:p-12 xl:p-6 ">
           <div className="w-full">
             <button
               onClick={handleGoBack}
@@ -171,7 +171,6 @@ const {
                         outline: "none",
                         border: "none",
                       },
-                    
                     },
                   }}
                   type="text"
@@ -287,12 +286,15 @@ const {
               />
             </form>
 
-            <Link
-              to="/forget-password"
-              className="text-[15px] hover:text-red-500 font-dm-sans text-white mt-4"
-            >
-              Forgot Password?
-            </Link>
+            <p className="font-dm-sans text-white">
+              Not an Admin Click
+              <Link
+                to="/login-user"
+                className="text-[15px] mx-1 hover:text-red-500 font-dm-sans text-white mt-3 mb-[2px]"
+              >
+              Login
+              </Link> 
+            </p>
           </div>
         </div>
       </div>

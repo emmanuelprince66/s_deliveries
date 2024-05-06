@@ -27,18 +27,20 @@ const handleLogout = () => {
       }   pb-9  flex flex-col items-center justify-center`}
     >
       <div className=" w-[98%] md:w-[90%] lg:w-[65%] mx-auto relative flex flex-col justify-center items-center">
-        <div className="w-[100%]  md:lg-[70%] lg:w-[80%] mx-auto flex pr-7 pt-3   justify-end  mb-5 md:mb-[3%]">
+        <div className="w-[100%]  md:lg-[70%] lg:w-[85%] flex justify-end mb-4 mt-8 mr-5 md:mr-0 ">
           <button
             onClick={handleLogout}
-            className=" bg-[#EB2529] py-2 px-4 font-dm-sans  rounded-md  hover:bg-red-400 text-white focus-visible:outline-red-600 mt-0 md:mt-3 lg:mt-3"
+            className=" bg-[#EB2529] py-2 px-4 font-dm-sans  rounded-md  hover:bg-red-400 text-white focus-visible:outline-red-600 "
           >
             Logout
           </button>
         </div>
-        <div className="w-[97%]   md:h-fit  md:w-[100%] lg:w-[85%] mx-auto  bg-[#000]  py-5 md:py-8 lg:pb-2 md:p-10 rounded-2xl">
-          <div className="w-[100px] h-[50px]  mx-auto mb-5 pt-0 lg:mt-[-1.2rem] lg:mb-8  md:pt-3 ">
-            <img src={aOne} alt="a-1" className=" object-contain" />
-          </div>
+        <div className="w-[97%]   md:h-fit flex justify-center flex-col items-center  gap-5 md:w-[100%] lg:w-[85%] mx-auto  bg-[#000]  py-5 md:pt-8  rounded-2xl">
+          <img
+            src={aOne}
+            alt="a-1"
+            className=" object-contain w-[100px] h-[30px] mb-5 mt-8"
+          />
           <div className="flex flex-col items-center w-full justify-center">
             <div
               className={`flex justify-center gap-0 pb-5 w-[90%]  mx-auto sm:mx-0 mb-3`}
