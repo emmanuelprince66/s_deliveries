@@ -11,6 +11,7 @@ import kOne from "../images/k-1.svg";
 import vOne from "../images/v-1.svg";
 import kTwo from "../images/k-2.svg";
 import kThree from "../images/k-3.svg";
+import stary from "../images/stary.svg";
 import kFour from "../images/k-4.svg";
 import kFive from "../images/k-5.svg";
 import kSix from "../images/k-6.svg";
@@ -140,7 +141,7 @@ const LandingPage = () => {
       {/* possibly hamburger menu for mobile */}
 
       <div className="mx-auto xl:max-w-[68.5%] md:max-w-[92.5%] flex-col items-center justify-center">
-        <div className="mx-auto lg:max-w-[80%]  md:max-w-[80%] w-[93%] mt-[5%]  text-center  flex-col ">
+        <div className="mx-auto lg:max-w-[80%] relative  md:max-w-[80%] w-[93%] mt-[5%]  text-center  flex-col ">
           <p className="md:text-8xl text-[48px] font-dm-sans leading-[3rem] md:leading-[5rem] lg:leading-[6rem] text-white font-bold">
             Find a meaning for every word.
           </p>
@@ -159,10 +160,20 @@ const LandingPage = () => {
           <p className="text-[14px] text-[#A2A2A2] mt-4 font-inter-sans">
             Find meaning for 5,000+ words, terminologies and jargons
           </p>
+
+          <div className="absolute h-[250px] w-[250px] bottom-[-70px] right-[-11rem]">
+            <img src={stary} alt="sta" className="object-cover w-full h-full" />
+          </div>
         </div>
         {/*  */}
-        <div className="w-full mt-[4rem] mb-[5rem]">
+        {/* <div className="w-full mt-[4rem] mb-[5rem]">
           <img src={lImgOne} alt="l-one" />
+        </div> */}
+        <div className=" mt-[4rem] mb-[5rem] ">
+          <video autoplay loop muted>
+            <source src="/videos/vid.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
         </div>
 
         <div className="w-full mx-auto grid grid-cols-1 mt-[20%] gap-5  ">
@@ -196,7 +207,7 @@ const LandingPage = () => {
                   Banking Jargons
                 </p>
                 <p className="text-[#B9B9B9]  text-[11px] text-center lg:text-start   md:text-[14px] leading-5 font-inter-sans">
-                  Have quick look-up of words <br/>  and acronyms..
+                  Have quick look-up of words <br /> and acronyms..
                 </p>
               </div>
             </div>

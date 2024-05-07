@@ -1,14 +1,11 @@
 import React from 'react'
-import CustomButton from "./CustomButton";
-import { useMutation, useQuery } from "@tanstack/react-query";
-import { BaseAxios } from "../helpers/axiosInstance";
 import { Box } from "@mui/material";
+import CustomButton from "./CustomButton";
 import Spinner from "../utils/Spinner";
-import { useState } from 'react';
-import Cookies from "js-cookie";
-
-
 import { toast, ToastContainer } from "react-toastify";
+import { useState } from "react";
+import { useMutation, useQuery } from "@tanstack/react-query";
+import "react-toastify/dist/ReactToastify.min.css";
 
 
   const style = {
@@ -22,31 +19,24 @@ import { toast, ToastContainer } from "react-toastify";
     p: 3,
   };
 
-const DelCom = ({ deleteData, closeDelModal }) => {
-  const [showSpinner, setShowSpinner] = useState(false);
+
+const Otp = ({closeOtpModal , userEmail}) => {
 
   const notifyError = (msg) => {
     toast.error(msg, {
       autoClose: 6000, // Time in milliseconds
     });
   };
-  const notifySuccess = (msg) => {
-    toast.success(msg, {
-      autoClose: 6000, // Time in milliseconds
-    });
-  };
 
-  const deleteWordsMutation = useMutation({
-    mutationFn: async (payLoad) => {
-    const token = Cookies.get("authToken")
+  const handleVerifyOtp = () => {};
+
+  const verifyOtpMutation = useMutation({
+    mutationFn: async (formData) => {
       try {
         const response = await BaseAxios({
-          url: "delete-existing-word",
+          url: "forget-password",
           method: "POST",
-          data: payLoad,
-          headers : {
-          Authorization:`Bearer ${token}`
-          }
+          data: formData,
         });
 
         console.log("Response:", response);
@@ -57,42 +47,26 @@ const DelCom = ({ deleteData, closeDelModal }) => {
 
         if (response?.status !== 200) {
           setShowSpinner(false);
-          closeDelModal()
           throw new Error("Request failed with status: " + response.status);
         }
 
         return response.data;
       } catch (error) {
         setShowSpinner(false);
-        closeDelModal()
         notifyError(error?.response?.data?.message);
         throw error;
       }
     },
     onSuccess: (data) => {
+      setIsOpen(true);
       setShowSpinner(false);
       console.log(data);
-      notifySuccess(data?.message)
-      closeDelModal()
     },
     onError: (error) => {
       setShowSpinner(false);
       console.error("An error occurred:", error);
     },
   });
-
-  const handleDeleteWord = () => {
-    console.log("delete");
-    
-    const payload = {
-    id:deleteData?.id
-    }
-    
-    console.log(payload);
-     deleteWordsMutation.mutate(payload);
-    setShowSpinner(true);
-  };
-  
 
   return (
     <Box style={style}>
@@ -111,15 +85,15 @@ const DelCom = ({ deleteData, closeDelModal }) => {
             onClick={closeDelModal}
           />
           <CustomButton
-            onClick={handleDeleteWord}
+            onClick={handleVerifyOtp}
             text={
-              showSpinner || deleteWordsMutation.isLoading ? (
+              showSpinner || verifyOtpMutation.isLoading ? (
                 <Spinner />
               ) : (
                 "Yes! Delete"
               )
             }
-            disabled={deleteWordsMutation.isLoading || showSpinner}
+            disabled={verifyOtpMutation.isLoading || showSpinner}
             style="bg-transparent w-full flex justify-center  items-center h-[55px] hover:text-[#DB363A] text-[#A1A1A1] font-dm-sans  border border-[#444444] w-full  focus-visible:outline-red-100"
           />
         </div>
@@ -131,6 +105,6 @@ const DelCom = ({ deleteData, closeDelModal }) => {
       </div>
     </Box>
   );
-};
+}
 
-export default DelCom
+export default Otp

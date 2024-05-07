@@ -107,6 +107,7 @@ const notifySuccess = (msg) => {
 
              if (response?.status !== 200) {
                setShowSpinner(false);
+               closeModal()
                throw new Error(
                  "Request failed with status: " + response.status
                );
@@ -115,16 +116,19 @@ const notifySuccess = (msg) => {
              return response.data;
            } catch (error) {
              setShowSpinner(false);
+             closeModal()
              notifyError(error?.response?.data?.message);
              throw error;
            }
          },
          onSuccess: (data) => {
+         closeModal()
            setShowSpinner(false);
            notifySuccess(data?.message);
            
          },
          onError: (error) => {
+         closeModal()
            setShowSpinner(false);
            console.error("An error occurred:", error);
          },

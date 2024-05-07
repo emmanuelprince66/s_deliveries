@@ -41,7 +41,7 @@ const SendWord = ({searchTerm , closeModal , setSearchTerm}) => {
       const token = Cookies.get("authToken");
       try {
         const response = await BaseAxios({
-          url: "delete-existing-word",
+          url: "send-word-to-email",
           method: "POST",
           data: payLoad,
           headers: {
@@ -64,6 +64,7 @@ const SendWord = ({searchTerm , closeModal , setSearchTerm}) => {
       } catch (error) {
         setShowSpinner(false);
         notifyError(error?.response?.data?.message);
+        closeModal()
         throw error;
       }
     },
@@ -113,6 +114,7 @@ const SendWord = ({searchTerm , closeModal , setSearchTerm}) => {
     
       const handleSubmit = (e) => {
         e.preventDefault();
+        handleSendWord()
    
       };    
     

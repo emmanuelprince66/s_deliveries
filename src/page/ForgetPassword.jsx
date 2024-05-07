@@ -8,6 +8,7 @@ import aTwo from "../images/a-2.png";
 import aThree from "../images/a-3.png";
 import { useForm } from "react-hook-form";
 import Spinner from "../utils/Spinner";
+import { Modal } from "@mui/material";
 import { useMutation, useQuery } from "@tanstack/react-query";
 import "react-toastify/dist/ReactToastify.min.css";
 import { BaseAxios } from "../helpers/axiosInstance";
@@ -22,12 +23,17 @@ import LockRoundedIcon from "@mui/icons-material/LockRounded";
 import lockIcon from "../images/lock.svg";
 import emailIcon from "../images/email.svg";
 import line from "../images/line.svg";
+import Otp from "../components/Otp";
 
 
 const ForgetPassword = () => {
   const navigate = useNavigate();
   const [showSpinner, setShowSpinner] = useState(false);
+  const [userEmail , setUserEmail] = useState("")
   const [isOpen, setIsOpen] = useState(false);
+  const [isOtp , setIsOtp] = useState(false)
+  
+   const closeOtpModal = () => setIsOtp(false)
 
 
 
@@ -85,6 +91,7 @@ const ForgetPassword = () => {
 
   const onSubmit = (data) => {
     console.log(data); // Handle form submission with validated data
+    setUserEmail(data)
     resetPasswordMutation.mutate(data);
     setShowSpinner(true);
   };
@@ -239,6 +246,23 @@ const ForgetPassword = () => {
       <div className="absolute w-[30px] h-[30px]  lg:w-[120px] lg:h-[120px]  md:w-[80px] md:h-[80px] left-0 bottom-5 md:bottom-[7rem]">
         <img src={aTwo} alt="a-w" className="object-contain" />
       </div>
+
+      {/* delete word */}
+      <Modal
+        open={isOtp}
+        onClose={closeOtpModal}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+        PaperProps={{
+          sx: {
+            border: "none", // Remove the border
+            boxShadow: "none", // Remove the box shadow
+          },
+        }}
+      >
+        <Otp userEmail={userEmail || ""} closeOtpModal={closeOtpModal} />
+      </Modal>
+      {/* delete word end */}
     </div>
   );
 };
