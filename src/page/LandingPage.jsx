@@ -169,8 +169,8 @@ const LandingPage = () => {
         {/* <div className="w-full mt-[4rem] mb-[5rem]">
           <img src={lImgOne} alt="l-one" />
         </div> */}
-        <div className=" mt-[4rem] mb-[5rem] ">
-          <video autoplay loop muted>
+        <div className="mt-[4rem] mb-[5rem]">
+          <video autoPlay loop muted>
             <source src="/videos/vid.mp4" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
