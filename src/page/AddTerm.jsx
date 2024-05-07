@@ -1,5 +1,5 @@
 import React from "react";
-import { useState } from "react";
+import { useState , useEffect } from "react";
 import Add from "../components/Add";
 import EditTerm from "../components/EditTerm";
 import aOne from "../images/a-1.png";
@@ -10,7 +10,11 @@ import { useNavigate } from "react-router-dom";
 
 
 
+
 const AddTerm = () => {
+
+const [parentHeight , setParentHeight] = useState(0)
+const [childrenHeight , setChildrenHeight] = useState(0)
 const navigate  = useNavigate()
 const handleLogout = () => {
   Cookies.remove("authToken");
@@ -20,6 +24,28 @@ const handleLogout = () => {
   navigate("/login-admin");
 };
   const [isTab1Active, setIsTab1Active] = useState(true);
+  
+  useEffect(() => {
+    const calculateParentHeight = () => {
+      const viewportHeight = window.innerHeight;
+      const eightyFivePercentHeight = (85 / 100) * viewportHeight;
+      setParentHeight(eightyFivePercentHeight);
+    };
+
+    calculateParentHeight();
+
+    const handleResize = () => {
+      calculateParentHeight();
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+  
+
   return (
     <div
       className={`bg-[#171414] w-full ${
@@ -35,13 +61,14 @@ const handleLogout = () => {
             Logout
           </button>
         </div>
-        <div className="w-[97%] md:h-fit   flex justify-center flex-col items-center  gap-5 md:w-[100%] lg:w-[85%] mx-auto  bg-[#000]  py-5 md:pt-8  rounded-2xl">
-          <img
+        <div className="w-[97%] max-h-[85vh] min-h-[85vh]  flex justify-center flex-col items-center  gap-5 md:w-[100%] lg:w-[85%] mx-auto  bg-[#000]   md:pt-8 overflow-y-auto rounded-2xl">
+          <div className="max-h-[85vh] min-h-[85vh] w-full flex flex-col items-center ">
+                <img
             src={aOne}
             alt="a-1"
-            className=" object-contain w-[100px] h-[30px] mb-5 mt-8"
+            className=" object-contain w-[100px] h-[30px] mb-7 mt-6"
           />
-          <div className="flex flex-col items-center w-full justify-center">
+          <div className="flex flex-col items-center w-full  justify-center">
             <div
               className={`flex justify-center gap-0 pb-5 w-[90%]  mx-auto sm:mx-0 mb-3`}
             >
@@ -69,6 +96,8 @@ const handleLogout = () => {
 
             {isTab1Active ? <Add /> : <EditTerm />}
           </div>
+          </div>
+    
         </div>
       </div>
       <div className="absolute w-[30px] h-[30px]  lg:w-[120px] lg:h-[120px]  md:w-[80px] md:h-[80px] left-0 bottom-5 md:bottom-[7rem]">

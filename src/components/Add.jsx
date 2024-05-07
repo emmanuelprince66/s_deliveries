@@ -97,7 +97,7 @@ const {
     <form
       onSubmit={handleSubmit(onSubmit)}
       action=""
-      className=" flex flex-col  items-start gap-3 justify-center   w-[90%] mx-auto sm:mx-0 md:w-[90%]"
+      className=" flex flex-col   items-start gap-[17px] justify-center   w-[90%] mx-auto sm:mx-0 md:w-[90%]"
     >
       <TextField
         sx={{
@@ -197,7 +197,7 @@ const {
         text={showSpinner || addWordsMutation.isLoading ? <Spinner /> : "Add"}
         disabled={addWordsMutation.isLoading || showSpinner}
         type="submit"
-        style="bg-[#EB2529] w-full flex justify-center items-center  hover:bg-red-400 h-[47px] text-white focus-visible:outline-red-600"
+        style="bg-[#EB2529] w-full flex mt-4 justify-center items-center  hover:bg-red-400 h-[47px] text-white focus-visible:outline-red-600"
       />
 
       <ToastContainer

@@ -234,7 +234,14 @@ useEffect(() => {
         </div>
       </div>
 
-      <div className="w-[100%] md:w-[82.5%] lg:w-[52.5%] mx-auto flex flex-col items-start gap-3  overflow-y-scroll max-h-[55vh] md:max-h-[55vh] lg:max-h-[50vh]">
+      <div className="w-full flex justify-center">
+        <div className="relative w-full md:w-[82.5%] lg:w-[52.5%]">
+          <div className="absolute bottom-0 w-full flex flex-col items-start gap-3 overflow-y-scroll max-h-[55vh] md:max-h-[55vh] lg:max-h-[50vh]">
+            {/* Your content here */}
+          </div>
+        </div>
+      </div>
+      <div className="w-[100%] md:w-[82.5%] lg:w-[52.5%] mx-auto flex flex-col items-start gap-3  overflow-y-auto max-h-[55vh] md:max-h-[55vh] lg:max-h-[50vh]">
         {isLoading ? (
           <div className="w-full flex items-center h-1/2 justify-center">
             <CircularProgress
@@ -275,7 +282,7 @@ useEffect(() => {
           // Display termArray items if not null or empty
           generalData?.map((term) => (
             <div
-              className="w-full flex flex-col items-start gap-5  border-b border-[#262626] pb-3 mb-4 mt-3st"
+              className="w-full flex flex-col items-start gap-5  border-b border-[#262626] pb-3 mb-4 mt-3"
               key={term?.id}
             >
               <h2 className="rounded-md p-2 font-bold uppercase text-[20x] font-dm-sans text-[#B4B4B4] bg-[#262525]">

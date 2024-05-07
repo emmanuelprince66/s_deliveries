@@ -139,8 +139,8 @@ const LandingPage = () => {
 
       {/* possibly hamburger menu for mobile */}
 
-      <div className="mx-auto xl:max-w-[62.5%] md:max-w-[92.5%] flex-col items-center  justify-center">
-        <div className="mx-auto md:max-w-[100%] w-[93%] mt-[5%]  text-center  flex-col ">
+      <div className="mx-auto xl:max-w-[68.5%] md:max-w-[92.5%] flex-col items-center justify-center">
+        <div className="mx-auto lg:max-w-[80%]  md:max-w-[80%] w-[93%] mt-[5%]  text-center  flex-col ">
           <p className="md:text-8xl text-[48px] font-dm-sans leading-[3rem] md:leading-[5rem] lg:leading-[6rem] text-white font-bold">
             Find a meaning for every word.
           </p>
@@ -169,8 +169,8 @@ const LandingPage = () => {
           <p className="col-span-1 text-white  md:text-[38px] text-[30px] font-satoshi  text-center mb-3">
             What makes Sterling Dictionary different?
           </p>
-          <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-3 items-center  my-2">
-            <div className="flex flex-col gap-2 w-full lg:w-[90%] md:w-full mb-5 items-start h-full">
+          <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 items-center   my-2">
+            <div className="flex flex-col gap-2 w-full  mb-5 items-start h-full">
               <div className="w-full flex-col flex justify-center lg:items-start  items-center gap-4">
                 <img
                   src={lTagOne}
@@ -185,7 +185,7 @@ const LandingPage = () => {
                 </p>
               </div>
             </div>
-            <div className="flex flex-col  w-full lg:w-[80%] md:w-full mb-5 items-start h-full">
+            <div className="flex flex-col w-full mb-5 items-start h-full">
               <div className="w-full flex-col flex justify-center lg:items-start  items-center gap-4">
                 <img
                   src={lTagTwo}
@@ -196,11 +196,11 @@ const LandingPage = () => {
                   Banking Jargons
                 </p>
                 <p className="text-[#B9B9B9]  text-[11px] text-center lg:text-start   md:text-[14px] leading-5 font-inter-sans">
-                  Have quick look-up of words and acronyms..
+                  Have quick look-up of words <br/>  and acronyms..
                 </p>
               </div>
             </div>
-            <div className="flex flex-col gap-2 w-full  md:w-full lg:w-[20rem] ml-0 md:ml-0 lg:ml-[-1.4rem]   mb-5 items-start h-full">
+            <div className="flex flex-col gap-2 w-full  md:w-full  ml-0   mb-5 items-start h-full">
               <div className="w-full flex-col flex justify-center lg:items-start  items-center gap-4">
                 <img
                   src={lTagTwo}

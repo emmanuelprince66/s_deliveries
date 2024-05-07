@@ -4,7 +4,7 @@ import del from "../images/del.svg";
 import edit from "../images/edit.svg";
 import { Box, CircularProgress } from "@mui/material";
 
-import { useState , useEffect } from "react";
+import { useState, useEffect } from "react";
 import CustomButton from "./CustomButton";
 import { useForm } from "react-hook-form";
 import SearchRoundedIcon from "@mui/icons-material/SearchRounded";
@@ -13,82 +13,71 @@ import Spinner from "../utils/Spinner";
 import { toast, ToastContainer } from "react-toastify";
 import { useMutation, useQuery } from "@tanstack/react-query";
 
-
-import { InputAdornment, TextField , Modal } from "@mui/material";
+import { InputAdornment, TextField, Modal } from "@mui/material";
 import EditCom from "./EditCom";
 import { BaseAxios } from "../helpers/axiosInstance";
 import DelCom from "./DelCom";
 
-
 const EditTerm = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isDelOpen, setIsDelOpen] = useState(false);
-  const [generalData , setGeneralData] = useState(null)
-  const [searchTerm , setSearchTerm] = useState("")
-  const [emptySearch , setEmptySearch] = useState(false);
-  const [editData , setEditData] = useState(null)
-  const [deleteData , setDeleteData] = useState(null)
+  const [generalData, setGeneralData] = useState(null);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [emptySearch, setEmptySearch] = useState(false);
+  const [editData, setEditData] = useState(null);
+  const [deleteData, setDeleteData] = useState(null);
   const [showSpinner, setShowSpinner] = useState(false);
-  
-  
+
   const notifyError = (msg) => {
     toast.error(msg, {
       autoClose: 6000, // Time in milliseconds
     });
   };
 
+  const searchMutatation = useMutation({
+    mutationFn: async (payLoad) => {
+      try {
+        const response = await BaseAxios({
+          url: "search-word",
+          method: "POST",
+          data: payLoad,
+        });
 
+        console.log("Response:", response);
 
+        if (!response || !response?.data) {
+          throw new Error("Invalid response received");
+        }
 
+        if (response?.status !== 200) {
+          setShowSpinner(false);
+          throw new Error("Request failed with status: " + response.status);
+        }
 
-   const searchMutatation = useMutation({
-     mutationFn: async (payLoad) => {
-       try {
-         const response = await BaseAxios({
-           url: "search-word",
-           method: "POST",
-           data: payLoad,
-         });
-
-         console.log("Response:", response);
-
-         if (!response || !response?.data) {
-           throw new Error("Invalid response received");
-         }
-
-         if (response?.status !== 200) {
-           setShowSpinner(false);
-           throw new Error("Request failed with status: " + response.status);
-         }
-
-         return response.data;
-       } catch (error) {
-         setShowSpinner(false);
-         notifyError(error?.response?.data?.message);
-         throw error;
-       }
-     },
-     onSuccess: (data) => {
-       setShowSpinner(false);
-       console.log(data);
-       const val = data.existingWord
-       console.log(val)
-       setGeneralData([val])
+        return response.data;
+      } catch (error) {
+        setShowSpinner(false);
+        notifyError(error?.response?.data?.message);
+        throw error;
+      }
+    },
+    onSuccess: (data) => {
+      setShowSpinner(false);
+      console.log(data);
+      const val = data.existingWord;
+      console.log(val);
+      setGeneralData([val]);
       //  set generalData to the response comming from the backend
-     },
-     onError: (error) => {
-       setShowSpinner(false);
-       console.error("An error occurred:", error);
-     },
-   });
-   
- 
-   
+    },
+    onError: (error) => {
+      setShowSpinner(false);
+      console.error("An error occurred:", error);
+    },
+  });
 
   const openModal = (item) => {
     setIsOpen(true);
     setEditData(item);
-    
   };
 
   const closeModal = () => setIsOpen(false);
@@ -97,15 +86,13 @@ const EditTerm = () => {
     setIsDelOpen(true);
     setDeleteData(delData);
   };
-  
-  
-  console.log(deleteData)
+
+  console.log(deleteData);
 
   const closeDelModal = () => setIsDelOpen(false);
-  
-  
+
   // Fetch all data starts
-  
+
   const fetchData = async () => {
     try {
       const response = await BaseAxios.get("all-existing-words");
@@ -122,54 +109,45 @@ const EditTerm = () => {
     queryFn: fetchData,
     refetchInterval: 3000,
   });
-  
+
   const handleSearchChange = (value) => {
-    setSearchTerm(value)    
-    setEmptySearch(false)
+    setSearchTerm(value);
+    setEmptySearch(false);
   };
 
+  const handleSubmit = () => {
+    if (searchTerm !== "") {
+      const payLoad = {
+        word: searchTerm || "",
+      };
+      searchMutatation.mutate(payLoad);
+      setShowSpinner(true);
+    } else {
+      setEmptySearch(true);
+    }
+  };
 
-const handleSubmit = () => {
-if(searchTerm !== "") {
+  useEffect(() => {
+    let filteredItems = data?.words;
 
-const payLoad = {
-word:searchTerm || ""
-}
-searchMutatation.mutate(payLoad);
-setShowSpinner(true)
-} else {
-setEmptySearch(true)
-}
+    // Filter by name (if searchTerm exists)
+    if (searchTerm) {
+      filteredItems = filteredItems.filter((item) => {
+        return item.word.toLowerCase().includes(searchTerm.toLowerCase());
+      });
+    }
 
-}
+    //  filteredItems = filteredItems?.sort((a, b) => {
+    //    return new Date(b.createdAt) - new Date(a.createdAt);
+    //  });
 
-useEffect(() => {
+    filteredItems = filteredItems?.sort((a, b) => {
+      return a.word.localeCompare(b.word);
+    });
 
-   let filteredItems = data?.words;
+    setGeneralData(filteredItems);
+  }, [data, searchTerm]);
 
-   // Filter by name (if searchTerm exists)
-   if (searchTerm) {
-     filteredItems = filteredItems.filter((item) => {
-       return (
-         item.word
-           .toLowerCase()
-           .includes(searchTerm.toLowerCase())
-       );
-     });
-   }
-   
-      //  filteredItems = filteredItems?.sort((a, b) => {
-      //    return new Date(b.createdAt) - new Date(a.createdAt);
-      //  });
-       
-          filteredItems = filteredItems?.sort((a, b) => {
-            return a.word.localeCompare(b.word);
-          });
-    
-   setGeneralData(filteredItems)
-
-} ,[data , searchTerm])
-  
   // Fetch all data  ends
 
   return (
@@ -230,7 +208,7 @@ useEffect(() => {
         )}
       </form>
 
-      <div className="h-[40vh]  md:h-[36.9vh] overflow-y-scroll w-full">
+      <div className="h-fit overflow-y-auto  w-full">
         {isLoading ? (
           <div className="w-full flex items-center h-1/2 justify-center">
             <CircularProgress

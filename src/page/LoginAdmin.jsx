@@ -286,14 +286,14 @@ const {
             </form>
 
             <p className="font-dm-sans text-white">
-              Not an Admin 
+              Not an Admin? 
               <Link
                 to="/login-user"
                 className="text-[15px] mx-1 hover:text-red-500 font-dm-sans text-white mt-3 mb-[2px]"
               >
               Click Here
               </Link> 
-              to log in
+              to log in as User
             </p>
           </div>
         </div>
