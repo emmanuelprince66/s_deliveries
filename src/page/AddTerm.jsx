@@ -63,41 +63,40 @@ const handleLogout = () => {
         </div>
         <div className="w-[97%] max-h-[85vh] min-h-[85vh]  flex justify-center flex-col items-center  gap-5 md:w-[100%] lg:w-[85%] mx-auto  bg-[#000]   md:pt-8 overflow-y-auto rounded-2xl">
           <div className="max-h-[85vh] min-h-[85vh] w-full flex flex-col items-center ">
-                <img
-            src={aOne}
-            alt="a-1"
-            className=" object-contain w-[100px] h-[30px] mb-7 mt-6"
-          />
-          <div className="flex flex-col items-center w-full  justify-center">
-            <div
-              className={`flex justify-center gap-0 pb-5 w-[90%]  mx-auto sm:mx-0 mb-3`}
-            >
-              <button
-                onClick={() => setIsTab1Active(true)}
-                className={`px-6 bg-[#DB363A] rounded-2xl focus:outline-none text-[10px] md:text-[15px]  font-dm-sans z-10 transition w-full  h-[50px] duration-300 ease-in-out shadow-lg ${
-                  isTab1Active
-                    ? "bg-[#DB363A] hover:bg-[#2a2222] text-white"
-                    : "bg-white text-[#B4B4B4] hover:bg-gray-100"
-                } `}
+            <div className="w-full flex flex-col items-center ">
+              <img
+                src={aOne}
+                alt="a-1"
+                className=" object-contain w-[100px] h-[30px] mb-7 mt-6"
+              />
+              <div
+                className={`flex justify-center gap-0 pb-5 w-[90%]  mx-auto sm:mx-0 mb-3`}
               >
-                Add something new
-              </button>
-              <button
-                onClick={() => setIsTab1Active(false)}
-                className={`px-6 font-dm-sans text-[10px] tab-btn md:text-[15px] focus:outline-none h-[50px] ml-[-15px]  w-full transition duration-300 ease-in-out shadow-lg ${
-                  !isTab1Active
-                    ? "bg-[#DB363A] hover:bg-red-600 text-white"
-                    : "bg-white text-[#B4B4B4] hover:bg-gray-100"
-                } rounded-r-lg`}
-              >
-                Edit an exisiting one
-              </button>
+                <button
+                  onClick={() => setIsTab1Active(true)}
+                  className={`px-6 bg-[#DB363A] rounded-2xl focus:outline-none text-[10px] md:text-[15px]  font-dm-sans z-10 transition w-full  h-[50px] duration-300 ease-in-out shadow-lg ${
+                    isTab1Active
+                      ? "bg-[#DB363A] hover:bg-[#2a2222] text-white"
+                      : "bg-white text-[#B4B4B4] hover:bg-gray-100"
+                  } `}
+                >
+                  Add something new
+                </button>
+                <button
+                  onClick={() => setIsTab1Active(false)}
+                  className={`px-6 font-dm-sans text-[10px] tab-btn md:text-[15px] focus:outline-none h-[50px] ml-[-15px]  w-full transition duration-300 ease-in-out shadow-lg ${
+                    !isTab1Active
+                      ? "bg-[#DB363A] hover:bg-red-600 text-white"
+                      : "bg-white text-[#B4B4B4] hover:bg-gray-100"
+                  } rounded-r-lg`}
+                >
+                  Edit an exisiting one
+                </button>
+              </div>
             </div>
 
             {isTab1Active ? <Add /> : <EditTerm />}
           </div>
-          </div>
-    
         </div>
       </div>
       <div className="absolute w-[30px] h-[30px]  lg:w-[120px] lg:h-[120px]  md:w-[80px] md:h-[80px] left-0 bottom-5 md:bottom-[7rem]">

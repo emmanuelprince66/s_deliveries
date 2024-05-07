@@ -152,7 +152,7 @@ const EditTerm = () => {
 
   return (
     <div className="flex flex-col items-start justify-center gap-4 w-[90%] md-w-[80%]   mx-auto sm:mx-0">
-      <form action="" className="w-[100%] ">
+      <form action="" className="w-[100%]  ">
         <div className="relative rounded-2xl bg-[#ffefef] w-full">
           <TextField
             onChange={(e) => {
@@ -208,7 +208,7 @@ const EditTerm = () => {
         )}
       </form>
 
-      <div className="h-fit overflow-y-auto  w-full">
+      <div className="h-[50vh] overflow-y-auto  w-full">
         {isLoading ? (
           <div className="w-full flex items-center h-1/2 justify-center">
             <CircularProgress
