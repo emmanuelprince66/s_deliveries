@@ -125,11 +125,9 @@ const {
   return (
     <div className="w-full bg-[#1e1e1e] min-h-screen flex justify-center items-center">
       <div className="w-full md:w-[95%] xl:w-[55%] flex justify-center items-center relative">
-        <img
-          src={aThree}
-          alt="a-3"
-          className="absolute w-[30px] h-[30px] lg:w-[120px] lg:h-[120px]   md:w-[80px] md:h-[80px] bg-slate-400w3 top-0 right-0 "
-        />
+        <div className="absolute w-[30px] h-[30px]  lg:w-[120px] lg:h-[120px]  md:w-[80px] md:h-[80px] right-[-1.5%] bottom-[4.5rem] md:top-0">
+          <img src={aThree} alt="a-3" className="object-contain" />
+        </div>
 
         <div className="w-[95%] md:w-[80%] xl:w-[65%] bg-black rounded-[1rem]   md:h-fit lg:h-fit flex flex-col items-center justify-start mt-0 gap-6 p-2 pb-7  xl:pb-6 md:p-12 xl:p-6 ">
           <div className="w-full">
@@ -286,13 +284,13 @@ const {
             </form>
 
             <p className="font-dm-sans text-white">
-              Not an Admin? 
+              Not an Admin?
               <Link
                 to="/login-user"
                 className="text-[15px] mx-1 hover:text-red-500 font-dm-sans text-white mt-3 mb-[2px]"
               >
-              Click Here
-              </Link> 
+                Click Here
+              </Link>
               to log in as User
             </p>
           </div>
