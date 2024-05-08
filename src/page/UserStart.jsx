@@ -156,9 +156,9 @@ useEffect(() => {
   return (
     <div className="w-full bg-[#171414] h-fit p-2 md:p-1 relative">
       <div className="w-full h-[100vh] overflow-y-auto">
-        <div className="w-full flex flex-col items-end sticky top-0">
-          <div className="   w-[100%] md:w-[82.5%] lg:w-[60.5%] bg-[#000] relative rounded-2xl mx-auto mb-4 p-4 pb-4 md:pb-9">
-            <div className="w-[100%] md:w-[90%] lg:w-[100%]  mb-5 md:mb-[1%] mt-1 flex justify-start">
+        <div className="w-full flex flex-col items-end bg-[#171414]  sticky top-0 ">
+          <div className=" w-[100%] md:w-[82.5%] lg:w-[60.5%] mb-0 mx-auto mt-0 py-2 flex justify-end ">
+            <div className="w-[100%] md:w-[90%] lg:w-[100%]    mb-5 md:mb-[1%] mt-1 flex justify-end">
               <button
                 onClick={handleLogout}
                 className=" bg-[#EB2529] py-2 px-4 font-dm-sans  rounded-md  hover:bg-red-400 text-white focus-visible:outline-red-600 "
@@ -166,7 +166,9 @@ useEffect(() => {
                 Logout
               </button>
             </div>
+          </div>
 
+          <div className="   w-[100%] md:w-[82.5%] lg:w-[60.5%] bg-[#000] relative rounded-2xl mx-auto mb-4 p-4 pb-4 md:pb-9">
             <div className="flex flex-col w-full   items-center justify-center ">
               <img
                 src={aOne}
