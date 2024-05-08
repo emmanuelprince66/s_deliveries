@@ -279,7 +279,7 @@ const {
                 }
                 disabled={adminLoginMutation.isLoading || showSpinner}
                 type="submit"
-                style="bg-[#EB2529] w-full flex justify-center items-center  hover:bg-red-400 h-[55px] text-white focus-visible:outline-red-600"
+                style="bg-[#EB2529] w-full flex justify-center items-center hover:bg-red-400 h-[55px] text-white focus-visible:outline-red-600"
               />
             </form>
 

@@ -2,9 +2,16 @@ import React from "react";
 import { useState } from "react";
 import CustomButton from "../components/CustomButton";
 import { Link } from "react-router-dom";
+import kvOne from "../images/kv-1.png";
+import kvTwo from "../images/kv-2.png";
+import kvThree from "../images/kv-3.png";
 import lImgOne from "../images/l-img1.png";
 import lTagOne from "../images/l-tag1.svg";
 import lTagTwo from "../images/l-tag2.svg";
+import rpOne from "../images/rp-1.svg";
+import rpTwo from "../images/rp-2.svg";
+import rpThree from "../images/rp-3.svg";
+import rpFour from "../images/rp-4.svg";
 import lTagThree from "../images/l-tag3.svg";
 import lTagFour from "../images/l-tag4.svg";
 import kOne from "../images/k-1.svg";
@@ -15,8 +22,14 @@ import stary from "../images/stary.svg";
 import kFour from "../images/k-4.svg";
 import kFive from "../images/k-5.svg";
 import kSix from "../images/k-6.svg";
+import uvOne from "../images/uv-1.png";
+import uvTwo from "../images/uv-2.png";
+import uvThree from "../images/uv-3.png";
+import uvFour from "../images/uv-4.png";
 import uOne from "../images/u-1.png";
 import gOne from "../images/g-1.png";
+import pvOne from "../images/pv-1.png";
+import pvTwo from "../images/pv-2.png";
 import gTwo from "../images/g-2.png";
 import gThree from "../images/g-3.png";
 import uTwo from "../images/u-2.png";
@@ -46,10 +59,10 @@ const LandingPage = () => {
     setAnchorEl(null);
   };
   return (
-    <div className="h-full md:min-w-[100vw] w-full bg-primary_black_1  p-3">
-      <div className="w-[90%] mx-auto justify-between items-center hidden md:flex">
-        <div className="w-[100px] h-[50px] md:h-[60px]">
-          <img src={aOne} alt="a-1" className=" object-contain" />
+    <div className="h-full md:min-w-[100vw] lg:w-full w-full bg-primary_black_1 ">
+      <div className="w-[85%] mx-auto justify-between items-center hidden md:flex p-3">
+        <div className="w-[100px] h-[50px] md:h-[60px]  ">
+          <img src={aOne} alt="a-1" className=" object-contain " />
         </div>
         <div className="flex items-center gap-2 m-5 ">
           <Link to="/login-admin">
@@ -58,7 +71,7 @@ const LandingPage = () => {
             </button>
           </Link>
           <Link to="/login-user">
-            <button className=" font-inter-sans text-white text-[16px] w-[100px] ml-3 rounded-sm  px-3 py-2 bg-[#DB363A] hover:text-black transition-colors duration-700 ease-in-out ">
+            <button className=" font-inter-sans text-white text-[16px] w-[100px] ml-3 rounded-sm  px-3 py-2 bg-[#DB363A] hover:bg-red-400 transition-colors duration-700 ease-in-out ">
               Sign In
             </button>
           </Link>
@@ -66,7 +79,7 @@ const LandingPage = () => {
       </div>
 
       {/* possibly hamburger menu for mobile */}
-      <div className="w-full  md:hidden">
+      <div className="w-full  md:hidden p-3">
         <div className="flex w-full justify-between items-center">
           <div className="w-[100px] h-[40px] md:h-[60px]">
             <img src={aOne} alt="a-1" className=" object-contain" />
@@ -140,507 +153,499 @@ const LandingPage = () => {
 
       {/* possibly hamburger menu for mobile */}
 
-      <div className="mx-auto xl:max-w-[68.5%] md:max-w-[92.5%] flex-col items-center justify-center">
-        <div className="mx-auto lg:max-w-[80%] relative  md:max-w-[80%] w-[93%] mt-[5%]  text-center  flex-col ">
-          <p className="md:text-8xl text-[48px] font-dm-sans leading-[3rem] md:leading-[5rem] lg:leading-[6rem] text-white font-bold">
-            Find a meaning for every word.
-          </p>
-          <p className="md:text-[20px] w-[90%] mx-auto font-dm-sans  text-[15px] text-[#D0D0D0] my-5">
-            With Sterling Dictionary, you do not miss a word, learn about
-            jargons and acronyms, familiarise with various Sterling products and
-            more...
-          </p>
+      <div className="w-[100%]  mx-auto flex flex-col items-center">
+        <div className="w-full">
+          <div className="mx-auto xl:max-w-[68.5%] md:max-w-[92.5%] flex-col   items-center justify-center">
+            <div className="mx-auto lg:max-w-[88%]  relative  md:max-w-[80%] w-[93%] mt-[5%]  text-center  flex-col ">
+              <p className="md:text-8xl text-[48px] font-dm-sans leading-[3rem] md:leading-[5rem] lg:leading-[6rem] text-white font-bold">
+                Discover the spark <br />
+                in each word!
+              </p>
+              <p className="md:text-[20px] w-[75%] mx-auto font-dm-sans  text-[15px] text-[#D0D0D0] my-5">
+                With Sterling Dictionary, you do not miss a word, learn about
+                jargons and acronyms, familiarise with various Sterling products
+                and more...
+              </p>
 
-          <Link to="/user-signup">
-            <button className=" text-white font-inter-sans  text-[18px] w-[172px]  h-[50px] rounded-sm  px-3 py-2 bg-[#EB2529] hover:text-black transition-colors duration-700 ease-in-out ">
-              Get Started
-            </button>
-          </Link>
+              <Link to="/user-signup">
+                <button className=" text-white font-inter-sans  text-[18px] w-[172px]  h-[50px] rounded-sm  px-3 py-2 bg-[#EB2529] hover:bg-red-400 transition-colors duration-700 ease-in-out ">
+                  Get Started
+                </button>
+              </Link>
 
-          <p className="text-[14px] text-[#A2A2A2] mt-4 font-inter-sans">
-            Find meaning for 5,000+ words, terminologies and jargons
-          </p>
+              <p className="text-[14px] text-[#A2A2A2] mt-4 font-inter-sans">
+                Find meaning for 5,000+ words, terminologies and jargons
+              </p>
 
-          <div className="absolute h-[110px] w-[110px] md:h-[150px] md:w-[150px] xl:h-[350px] xl:w-[350px]  right-[-1.5rem] bottom-[-6rem]  md:right-[-6rem] md:bottom-[-7rem]    xl:bottom-[-12rem] xl:right-[-13.5rem]">
-            <img src={stary} alt="sta" className="object-cover w-full h-full" />
+              <div className="absolute h-[80px] w-[80px] md:h-[220px] md:w-[220px] xl:h-[320px] xl:w-[320px]  right-[-12px] bottom-[4rem]  md:right-[-6rem] md:bottom-[10rem]    xl:bottom-[-1rem] xl:right-[-13rem]">
+                <img
+                  src={stary}
+                  alt="sta"
+                  className="object-cover w-full h-full"
+                />
+              </div>
+            </div>
           </div>
-        </div>
-        {/*  */}
-        {/* <div className="w-full mt-[4rem] mb-[5rem]">
+
+          {/*  */}
+          {/* <div className="w-full mt-[4rem] mb-[5rem]">
           <img src={lImgOne} alt="l-one" />
         </div> */}
-        <div className="mt-[4rem] mb-[5rem]">
-          <video autoPlay loop muted>
-            <source src="/videos/vid.mp4" type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
-        </div>
-
-        <div className="w-full mx-auto grid grid-cols-1 mt-[20%] gap-5  ">
-          <p className="col-span-1 text-white  md:text-[38px] text-[30px] font-satoshi  text-center mb-3">
-            What makes Sterling Dictionary different?
-          </p>
-          <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 items-center   my-2">
-            <div className="flex flex-col gap-2 w-full  mb-5 items-start h-full">
-              <div className="w-full flex-col flex justify-center lg:items-start  items-center gap-4">
-                <img
-                  src={lTagOne}
-                  alt="l-tag-1"
-                  className="w-[38px] h-[38px] mb-2 lg:mb-0"
-                />
-                <p className="text-white  text-[14.5px]  md:text-[20px] font-satoshi">
-                  Sterling Products
-                </p>
-                <p className="text-[#B9B9B9] text-[11px] text-center lg:text-start md:text-[14px] leading-5 font-inter-sans">
-                  Know more about various sterling products.
-                </p>
-              </div>
-            </div>
-            <div className="flex flex-col w-full mb-5 items-start h-full">
-              <div className="w-full flex-col flex justify-center lg:items-start  items-center gap-4">
-                <img
-                  src={lTagTwo}
-                  alt="l-tag-2"
-                  className="w-[38px] h-[38px] mb-2 lg:mb-0"
-                />
-                <p className="text-white text-[14.5px]  md:text-[20px] font-satoshi">
-                  Banking Jargons
-                </p>
-                <p className="text-[#B9B9B9]  text-[11px] text-center lg:text-start   md:text-[14px] leading-5 font-inter-sans">
-                  Have quick look-up of words <br /> and acronyms..
-                </p>
-              </div>
-            </div>
-            <div className="flex flex-col gap-2 w-full  md:w-full  ml-0   mb-5 items-start h-full">
-              <div className="w-full flex-col flex justify-center lg:items-start  items-center gap-4">
-                <img
-                  src={lTagTwo}
-                  alt="l-tag-2"
-                  className="w-[38px] h-[38px] mb-2 md:mb-0"
-                />
-                <p className="text-white text-[14.5px]  md:text-[20px]  font-satoshi">
-                  Terminologies
-                </p>
-                <p className="text-[#B9B9B9] text-[11px] text-center lg:text-start  md:text-[14px] leading-5 font-inter-sans">
-                  All inclusive essential <br />
-                  conversion & automation tools.
-                </p>
-              </div>
-            </div>
-            <div className="flex flex-col gap-2 w-full  mb-5 items-start h-full">
-              <div className="w-full flex-col flex justify-center lg:items-start  items-center gap-4">
-                <img
-                  src={lTagTwo}
-                  alt="l-tag-2"
-                  className="w-[38px] h-[38px] mb-2 md:mb-0"
-                />
-                <p className="text-white text-[14.5px]  md:text-[20px]   font-satoshi">
-                  Integrate with outlook
-                </p>
-                <p className="text-[#B9B9B9] text-[11px] text-center lg:text-start  md:text-[14px] leading-5 font-inter-sans">
-                  Hover on a word in your email <br />
-                  and the meaning will pop.
-                </p>
-              </div>
+          <div className="mt-[4rem] mb-[5rem] w-full flex justify-end items-center bg-black p-3 lg:p-10">
+            <div className=" w-[100%] h-[55%]  lg:w-[55%] lg:h-[55%] mx-auto">
+              <video autoPlay loop muted className="rounded-2xl">
+                <source src="/videos/vid.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
             </div>
           </div>
-        </div>
 
-        {/*  */}
-        <div className="w-full mx-auto mt-[15%] text-center">
-          <div className="flex flex-col gap-2 items-center mb-5">
-            <p className="text-white md:text-[38px] text-[30px] font-satoshi  text-center">
-              Join our merchants
-            </p>
-            <p className="text-white md:text-[38px] text-[30px] font-satoshi  text-center">
-              who succeed in selling with Uvodo
-            </p>
-          </div>
-
-          <div className="flex flex-col md:flex-row md:justify-center md:gap-10 w-full items-center">
-            <div className="flex flex-col items-center">
-              <img src={uOne} alt="u-1" />
-              <div className="flex gap-2 items-center">
-                <img src={re} alt="re" />
-                <span className="text-[#A2A2A2] text-[14px] pt-1 font-inter-sans ">
-                  Silk by Jamilia
-                </span>
-              </div>
-            </div>
-            <div className="flex flex-col items-center">
-              <img src={uTwo} alt="u-1" />
-              <div className="flex gap-2 items-center">
-                <img src={re} alt="re" />
-                <span className="text-[#A2A2A2] text-[14px] font-inter-sans  pt-1">
-                  Kitpet
-                </span>
-              </div>
-            </div>
-            <div className="flex flex-col items-center">
-              <img src={uThree} alt="u-1" />
-              <div className="flex gap-2 items-center">
-                <img src={re} alt="re" />
-                <span className="text-[#A2A2A2] text-[14px] pt-1 font-inter-sans ">
-                  Holy Roses
-                </span>
-              </div>
-            </div>
-            <div className="flex flex-col items-center">
-              <img src={uFour} alt="u-1" />
-              <div className="flex gap-2 items-center">
-                <img src={re} alt="re" />
-                <span className="text-[#A2A2A2] text-[14px] pt-1 font-inter-sans ">
-                  `A Voir
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
-        {/*  */}
-
-        <div className="grid md:grid-cols-2 grid-cols-1 md:gap-2  gap-10 mt-[15%]">
-          <div className="col-span-1 flex flex-col items-start justify-center  gap-4">
-            <p className="md:text-[38px] text-[30px] font-satoshi  text-white">
-              Mobile or Desktop,
-            </p>
-            <p className="md:text-[38px] text-[30px] text-white font-satoshi  mt-[-15px] mb-4">
-              all responsive!
-            </p>
-
-            <div className="flex items-center gap-3">
-              <img src={star} alt="star" className="w-[18px] h-[18px]" />
-              <p className="text-[#D0D0D0] text-[14px]  font-inter-sans">
-                Mobile first storefront
+          <div className="mx-auto xl:max-w-[68.5%] md:max-w-[92.5%] flex-col   items-center justify-center px-3 lg:px-0 ">
+            <div className="w-full mx-auto grid grid-cols-1 mt-[10%] gap-5  ">
+              <p className="col-span-1 text-white  md:text-[38px] text-[30px] font-satoshi  text-center mb-3">
+                What makes Sterling Dictionary different?
               </p>
-            </div>
-            <div className="flex items-center gap-2">
-              <img src={star} alt="star" className="w-[18px] h-[18px]" />
-              <p className="text-[#D0D0D0] text-[14px] font-inter-sans ">
-                No code theme editor
-              </p>
-            </div>
-            <div className="flex items-center gap-2">
-              <img src={star} alt="star" className="w-[18px] h-[18px]" />
-              <p className="text-[#D0D0D0] text-[14px]  font-inter-sans">
-                Custom brandinig
-              </p>
-            </div>
-            <div className="flex items-center gap-2">
-              <img src={star} alt="star" className="w-[18px] h-[18px]" />
-              <p className="text-[#D0D0D0] text-[14px]  font-inter-sans">
-                Themes for every niche(soon)
-              </p>
-            </div>
-
-            <Link to="">
-              <button className=" text-white text-[14px] w-[150px] mt-3 font-inter-sans  rounded-sm  px-3 py-3 bg-transparent border border-gray-100 hover:text-black transition-colors duration-700 ease-in-out ">
-                Learn More
-              </button>
-            </Link>
-          </div>
-
-          <div className="col-span-1">
-            <img src={mOne} alt="m-1" />
-          </div>
-        </div>
-        {/*  */}
-        <div className="grid md:grid-cols-2 grid-cols-1 md:gap-[10rem]  gap-10   md:mt-[15%] mt-[25%]">
-          <div className="col-span-1">
-            <img src={mTwo} alt="m-2" />
-          </div>
-          <div className="col-span-1 flex flex-col items-start justify-center  gap-4">
-            <p className="md:text-[38px] font-satoshi  text-[30px] text-white">
-              Admin Panel with all
-            </p>
-            <p className="md:text-[38px] font-satoshi mt-[-15px] mb-4 text-[30px] text-white">
-              essential tools
-            </p>
-
-            <div className="flex items-center gap-3">
-              <img src={star} alt="star" className="w-[18px] h-[18px]" />
-              <p className="text-[#D0D0D0] text-[14px] font-inter-sans">
-                Mobile first admin panel
-              </p>
-            </div>
-            <div className="flex items-center gap-2">
-              <img src={star} alt="star" className="w-[18px] h-[18px]" />
-              <p className="text-[#D0D0D0] text-[14px] font-inter-sans">
-                Enabling payment gateway in clicks
-              </p>
-            </div>
-            <div className="flex items-center gap-2">
-              <img src={star} alt="star" className="w-[18px] h-[18px]" />
-              <p className="text-[#D0D0D0] text-[14px] font-inter-sans">
-                Product and other management
-              </p>
-            </div>
-            <div className="flex items-center gap-2">
-              <img src={star} alt="star" className="w-[18px] h-[18px]" />
-              <p className="text-[#D0D0D0] text-[14px] font-inter-sans">
-                Assigning user roles
-              </p>
-            </div>
-
-            <Link to="">
-              <button className=" text-white text-[14px] w-[150px] font-inter-sans mt-3 rounded-sm  px-3 py-3 bg-transparent border border-gray-100 hover:text-black transition-colors duration-700 ease-in-out ">
-                Learn More
-              </button>
-            </Link>
-          </div>
-        </div>
-        {/*  */}
-        <div className="grid md:grid-cols-2 grid-cols-1 md:gap-2  gap-10   md:mt-[15%] mt-[25%]">
-          <div className="col-span-1 flex flex-col items-start justify-center  gap-4">
-            <p className="md:text-[38px] font-satoshi text-[30px] text-white">
-              Local & global
-            </p>
-            <p className="md:text-[38px] font-satoshi text-[30px] mb-4 mt-[-15px] text-white">
-              payment gateways
-            </p>
-
-            <div className="flex items-center gap-3">
-              <img src={star} alt="star" className="w-[18px] h-[18px]" />
-              <p className="text-[#D0D0D0] text-[14px] font-inter-sans">
-                Global payment gateways
-              </p>
-            </div>
-            <div className="flex items-center gap-2">
-              <img src={star} alt="star" className="w-[18px] h-[18px]" />
-              <p className="text-[#D0D0D0] text-[14px] font-inter-sans">
-                Local payment gateways
-              </p>
-            </div>
-            <div className="flex items-center gap-2">
-              <img src={star} alt="star" className="w-[18px] h-[18px]" />
-              <p className="text-[#D0D0D0] text-[14px] font-inter-sans">
-                Manual payment options
-              </p>
-            </div>
-            <div className="flex items-center gap-2">
-              <img src={star} alt="star" className="w-[18px] h-[18px]" />
-              <p className="text-[#D0D0D0] text-[14px] font-inter-sans">
-                Local currencies
-              </p>
-            </div>
-
-            <Link to="">
-              <button className=" text-white text-[14px] font-inter-sans w-[150px] mt-3 rounded-sm  px-3 py-3 bg-transparent border border-gray-100 hover:text-black transition-colors duration-700 ease-in-out ">
-                Learn More
-              </button>
-            </Link>
-          </div>
-
-          <div className="col-span-1">
-            <img src={mThree} alt="m-3" />
-          </div>
-        </div>
-        {/*  */}
-        <div className="grid md:grid-cols-2 grid-cols-1 md:gap-[5rem]  gap-5  md:mt-[15%] mt-[25%]">
-          <div className="col-span-1 ">
-            <img src={mFour} alt="m-4" />
-          </div>
-          <div className="col-span-1  w-full md:w-full  lg:min-w-[24rem] flex flex-col items-start justify-center  gap-4">
-            <p className="md:text-[38px] font-satoshi text-[30px] text-white">
-              Inventory and shipping
-            </p>
-            <p className="md:text-[38px] font-satoshi text-[30px] mb-4 mt-[-15px] text-white">
-              management tools
-            </p>
-
-            <div className="flex items-center gap-3">
-              <img src={star} alt="star" className="w-[18px] h-[18px]" />
-              <p className="text-[#D0D0D0] text-[14px] font-inter-sans">
-                Inventory management
-              </p>
-            </div>
-            <div className="flex items-center gap-2">
-              <img src={star} alt="star" className="w-[18px] h-[18px]" />
-              <p className="text-[#D0D0D0] text-[14px] font-inter-sans">
-                Shipping rules
-              </p>
-            </div>
-            <div className="flex items-center gap-2">
-              <img src={star} alt="star" className="w-[18px] h-[18px]" />
-              <p className="text-[#D0D0D0] text-[14px] font-inter-sans">
-                Shipping service integration
-              </p>
-            </div>
-            <div className="flex items-center gap-2">
-              <img src={star} alt="star" className="w-[18px] h-[18px]" />
-              <p className="text-[#D0D0D0] text-[14px] font-inter-sans">
-                Country specific tax management
-              </p>
-            </div>
-
-            <Link to="">
-              <button className="font-inter-sans text-white text-[14px] w-[150px] mt-3 rounded-sm  px-3 py-3 bg-transparent border border-gray-100 hover:text-black transition-colors duration-700 ease-in-out ">
-                Learn More
-              </button>
-            </Link>
-          </div>
-        </div>
-        {/*  */}
-        <div className="w-full text-center mt-[15%]">
-          <p className=" text-white  text-[30px] md:text-[38px] mb-4 font-satoshi ">
-            Get Uvodo for your industry
-          </p>
-          <div className="flex flex-col md:flex-row md:justify-between items-start w-full">
-            <div className="flex flex-col gap-[10rem] items-center  w-full">
-              <div className="md:h-[80%] w-[80%] mb-4">
-                {/* Added margin bottom to create space */}
-                <img
-                  src={gOne}
-                  alt="g-1"
-                  className="w-full h-full object-cover"
-                />
-                <div className="  flex flex-col items-start gap-2 mt-3">
-                  <p className="text-white text-[24px] sm:text-[20px] font-satoshi">
-                    Local Businesses
-                  </p>
-                  <p className="text-[#B9B9B9] text-left  font-inter-sans leading-5 text-[14px]">
-                    Sell locally on Whatsapp and Cash On Delivery payment
-                    methods
-                  </p>{" "}
-                  {/* Add your text here */}
-                </div>
-              </div>
-            </div>
-            <div className="flex flex-col items-center w-full">
-              <div className="md:h-[80%] w-[80%]  mb-4">
-                {/* Added margin bottom to create space */}
-                <img
-                  src={gTwo}
-                  alt="g-2"
-                  className="w-full h-full object-cover"
-                />
-
-                <div className="  flex-col flex items-start gap-2 mt-3">
-                  <p className="text-[24px] text-white sm:text-[20px] font-satoshi ">
-                    Small businesses
-                  </p>{" "}
-                  {/* Add your text here */}
-                  <p className="text-left text-[#B9B9B9] text-[14px] font-inter-sans leading-5 ">
-                    Move your retail business online and start selling products
-                    on a free website.
-                  </p>
-                  {/* Add your text here */}
-                </div>
-              </div>
-            </div>
-            <div className="flex flex-col items-center w-full ">
-              <div className="md:h-[80%] w-[80%]  mb-4">
-                {/* Added margin bottom to create space */}
-                <img
-                  src={gThree}
-                  alt="g-2"
-                  className="w-full h-full object-cover"
-                />
-                <div className="flex-col flex items-start gap-2 mt-3">
-                  <p className="text-[24px] text-white sm:text-[20px] font-satoshi ">
-                    Social media sellers
-                  </p>
-                  <p className="text-left text-[#B9B9B9] text-[14px] leading-5 font-inter-sans ">
-                    Increase your Instagram sales with Uvodo's all-in-one
-                    eCommerce platform.
-                  </p>{" "}
-                  {/* Add your text here */}
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        {/* footer */}
-        <div className="w-full md:mt-[15%] mb-8 mt-[25%] ">
-          <div className="grid md:grid-cols-2 grid-cols-1 md:gap-2 gap-10">
-            <div className="col-span-1 md:w-[90%] lg:max-w-[70%] w-full">
-              <div className="w-full flex flex-col items-start gap-2">
-                <div className="flex gap-1 items-center mx-auto md:mx-0 ">
-                  <div className="w-[100px] h-[40px] md:h-[60px]">
-                    <img src={aOne} alt="a-1" className=" object-contain" />
+              <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 items-center   my-2">
+                <div className="flex flex-col gap-2 w-full  mb-5 items-start h-full">
+                  <div className="w-full flex-col flex justify-center lg:items-start  items-center gap-4">
+                    <img
+                      src={rpOne}
+                      alt="l-tag-1"
+                      className="w-[38px] h-[38px] mb-2 lg:mb-0"
+                    />
+                    <p className="text-white  text-[14.5px]  md:text-[20px] font-satoshi">
+                      Sterling Products
+                    </p>
+                    <p className="text-[#B9B9B9] text-[11px] text-center lg:text-start md:text-[14px] leading-5 font-inter-sans">
+                      Know more about various sterling products.
+                    </p>
                   </div>
                 </div>
-                <p className="text-[#BCBCBC] font-inter-sans leading-7 text-center md:text-start text-[18px] mt-3 mb-6">
-                  Effortlessly turn your ideas into a fully functional,
-                  responsive, no-code SaaS website.
+                <div className="flex flex-col w-full mb-5 items-start h-full">
+                  <div className="w-full flex-col flex justify-center lg:items-start  items-center gap-4">
+                    <img
+                      src={rpTwo}
+                      alt="l-tag-2"
+                      className="w-[38px] h-[38px] mb-2 lg:mb-0"
+                    />
+                    <p className="text-white text-[14.5px]  md:text-[20px] font-satoshi">
+                      Banking Jargons
+                    </p>
+                    <p className="text-[#B9B9B9]  text-[11px] text-center lg:text-start   md:text-[14px] leading-5 font-inter-sans">
+                      Have quick look-up of words <br /> and acronyms..
+                    </p>
+                  </div>
+                </div>
+                <div className="flex flex-col gap-2 w-full  md:w-full  ml-0   mb-5 items-start h-full">
+                  <div className="w-full flex-col flex justify-center lg:items-start  items-center gap-4">
+                    <img
+                      src={rpThree}
+                      alt="l-tag-2"
+                      className="w-[38px] h-[38px] mb-2 md:mb-0"
+                    />
+                    <p className="text-white text-[14.5px]  md:text-[20px]  font-satoshi">
+                      Terminologies
+                    </p>
+                    <p className="text-[#B9B9B9] text-[11px] text-center lg:text-start  md:text-[14px] leading-5 font-inter-sans">
+                      All inclusive essential <br />
+                      conversion & automation tools.
+                    </p>
+                  </div>
+                </div>
+                <div className="flex flex-col gap-2 w-full  mb-5 items-start h-full">
+                  <div className="w-full flex-col flex justify-center lg:items-start  items-center gap-4">
+                    <img
+                      src={rpFour}
+                      alt="l-tag-2"
+                      className="w-[38px] h-[38px] mb-2 md:mb-0"
+                    />
+                    <p className="text-white text-[14.5px]  md:text-[20px]   font-satoshi">
+                      Integrate with outlook
+                    </p>
+                    <p className="text-[#B9B9B9] text-[11px] text-center lg:text-start  md:text-[14px] leading-5 font-inter-sans">
+                      Hover on a word in your email <br />
+                      and the meaning will pop.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/*  */}
+            <div className="w-full mx-auto mt-[15%] text-center">
+              <div className="flex flex-col gap-2 items-center mb-5">
+                <p className="text-white md:text-[38px] text-[30px] font-satoshi  text-center">
+                  Join our community of versatile employees
+                </p>
+                <p className="text-white md:text-[38px] text-[30px] font-satoshi  text-center">
+                  Know more, Communicate better!
+                </p>
+              </div>
+
+              <div className="flex flex-col md:flex-row md:justify-center md:gap-10 w-full items-center">
+                <div className="flex flex-col items-center">
+                  <img src={uvOne} alt="u-1" />
+                </div>
+                <div className="flex flex-col items-center">
+                  <img src={uvTwo} alt="u-1" />
+                </div>
+                <div className="flex flex-col items-center">
+                  <img src={uvThree} alt="u-1" />
+                </div>
+                <div className="flex flex-col items-center">
+                  <img src={uvFour} alt="u-1" />
+                </div>
+              </div>
+            </div>
+            {/*  */}
+
+            <div className="grid md:grid-cols-2 grid-cols-1 md:gap-2  gap-10 mt-[15%]">
+              <div className="col-span-1 flex flex-col items-start justify-center  gap-4">
+                <p className="md:text-[38px] text-[30px] font-satoshi  text-white">
+                  Learn about,
+                </p>
+                <p className="md:text-[38px] text-[30px] text-white font-satoshi  mt-[-15px] mb-4">
+                  sterling products!
                 </p>
 
-                <div className="flex justify-between items-center w-full mt-9">
-                  <img src={kOne} alt="k-1" />
-                  <img src={kTwo} alt="k-2" />
-                  <img src={kThree} alt="k-3" />
-                  <img src={kFour} alt="k-4" />
-                  <img src={kFive} alt="k-5" />
-                  <img src={kSix} alt="k-6" />
+                <div className="flex items-center gap-3">
+                  <img src={star} alt="star" className="w-[18px] h-[18px]" />
+                  <p className="text-[#D0D0D0] text-[14px]  font-inter-sans">
+                    Simple definitions that keep you going
+                  </p>
+                </div>
+                <div className="flex items-center gap-2">
+                  <img src={star} alt="star" className="w-[18px] h-[18px]" />
+                  <p className="text-[#D0D0D0] text-[14px] font-inter-sans ">
+                    Ask less questions
+                  </p>
+                </div>
+                <div className="flex items-center gap-2">
+                  <img src={star} alt="star" className="w-[18px] h-[18px]" />
+                  <p className="text-[#D0D0D0] text-[14px]  font-inter-sans">
+                    Know about our brands
+                  </p>
+                </div>
+                <div className="flex items-center gap-2">
+                  <img src={star} alt="star" className="w-[18px] h-[18px]" />
+                  <p className="text-[#D0D0D0] text-[14px]  font-inter-sans">
+                    Access information anytime
+                  </p>
+                </div>
+
+                <Link to="">
+                  <button className=" text-white text-[14px] w-[150px] mt-3 font-inter-sans  rounded-sm  px-3 py-3 bg-transparent border border-gray-100 hover:text-black transition-colors duration-700 ease-in-out ">
+                    Learn More
+                  </button>
+                </Link>
+              </div>
+
+              <div className="col-span-1">
+                <img src={pvOne} alt="m-1" />
+              </div>
+            </div>
+            {/*  */}
+            <div className="grid md:grid-cols-2 grid-cols-1 md:gap-[10rem]  gap-10   md:mt-[15%] mt-[25%]">
+              <div className="col-span-1">
+                <img src={pvTwo} alt="m-2" />
+              </div>
+              <div className="col-span-1 flex flex-col items-start justify-center  gap-4">
+                <p className="md:text-[38px] font-satoshi  text-[30px] text-white">
+                  Quick word lookup
+                </p>
+                <p className="md:text-[38px] font-satoshi mt-[-15px] mb-4 text-[30px] text-white">
+                  on outlook
+                </p>
+
+                <div className="flex items-center gap-3">
+                  <img src={star} alt="star" className="w-[18px] h-[18px]" />
+                  <p className="text-[#D0D0D0] text-[14px] font-inter-sans">
+                    Just hover and see meaning popup
+                  </p>
+                </div>
+                <div className="flex items-center gap-2">
+                  <img src={star} alt="star" className="w-[18px] h-[18px]" />
+                  <p className="text-[#D0D0D0] text-[14px] font-inter-sans">
+                    Make your email a learning point
+                  </p>
+                </div>
+                <div className="flex items-center gap-2">
+                  <img src={star} alt="star" className="w-[18px] h-[18px]" />
+                  <p className="text-[#D0D0D0] text-[14px] font-inter-sans">
+                    Get help when you need it
+                  </p>
+                </div>
+                <div className="flex items-center gap-2">
+                  <img src={star} alt="star" className="w-[18px] h-[18px]" />
+                  <p className="text-[#D0D0D0] text-[14px] font-inter-sans">
+                    Engage your email
+                  </p>
+                </div>
+
+                <Link to="">
+                  <button className=" text-white text-[14px] w-[150px] font-inter-sans mt-3 rounded-sm  px-3 py-3 bg-transparent border border-gray-100 hover:text-black transition-colors duration-700 ease-in-out ">
+                    Learn More
+                  </button>
+                </Link>
+              </div>
+            </div>
+            {/*  */}
+            {/* <div className="grid md:grid-cols-2 grid-cols-1 md:gap-2  gap-10   md:mt-[15%] mt-[25%]">
+              <div className="col-span-1 flex flex-col items-start justify-center  gap-4">
+                <p className="md:text-[38px] font-satoshi text-[30px] text-white">
+                  Local & global
+                </p>
+                <p className="md:text-[38px] font-satoshi text-[30px] mb-4 mt-[-15px] text-white">
+                  payment gateways
+                </p>
+
+                <div className="flex items-center gap-3">
+                  <img src={star} alt="star" className="w-[18px] h-[18px]" />
+                  <p className="text-[#D0D0D0] text-[14px] font-inter-sans">
+                    Global payment gateways
+                  </p>
+                </div>
+                <div className="flex items-center gap-2">
+                  <img src={star} alt="star" className="w-[18px] h-[18px]" />
+                  <p className="text-[#D0D0D0] text-[14px] font-inter-sans">
+                    Local payment gateways
+                  </p>
+                </div>
+                <div className="flex items-center gap-2">
+                  <img src={star} alt="star" className="w-[18px] h-[18px]" />
+                  <p className="text-[#D0D0D0] text-[14px] font-inter-sans">
+                    Manual payment options
+                  </p>
+                </div>
+                <div className="flex items-center gap-2">
+                  <img src={star} alt="star" className="w-[18px] h-[18px]" />
+                  <p className="text-[#D0D0D0] text-[14px] font-inter-sans">
+                    Local currencies
+                  </p>
+                </div>
+
+                <Link to="">
+                  <button className=" text-white text-[14px] font-inter-sans w-[150px] mt-3 rounded-sm  px-3 py-3 bg-transparent border border-gray-100 hover:text-black transition-colors duration-700 ease-in-out ">
+                    Learn More
+                  </button>
+                </Link>
+              </div>
+
+              <div className="col-span-1">
+                <img src={mThree} alt="m-3" />
+              </div>
+            </div> */}
+            {/*  */}
+            {/* <div className="grid md:grid-cols-2 grid-cols-1 md:gap-[5rem]  gap-5  md:mt-[15%] mt-[25%]">
+              <div className="col-span-1 ">
+                <img src={mFour} alt="m-4" />
+              </div>
+              <div className="col-span-1  w-full md:w-full  lg:min-w-[24rem] flex flex-col items-start justify-center  gap-4">
+                <p className="md:text-[38px] font-satoshi text-[30px] text-white">
+                  Inventory and shipping
+                </p>
+                <p className="md:text-[38px] font-satoshi text-[30px] mb-4 mt-[-15px] text-white">
+                  management tools
+                </p>
+
+                <div className="flex items-center gap-3">
+                  <img src={star} alt="star" className="w-[18px] h-[18px]" />
+                  <p className="text-[#D0D0D0] text-[14px] font-inter-sans">
+                    Inventory management
+                  </p>
+                </div>
+                <div className="flex items-center gap-2">
+                  <img src={star} alt="star" className="w-[18px] h-[18px]" />
+                  <p className="text-[#D0D0D0] text-[14px] font-inter-sans">
+                    Shipping rules
+                  </p>
+                </div>
+                <div className="flex items-center gap-2">
+                  <img src={star} alt="star" className="w-[18px] h-[18px]" />
+                  <p className="text-[#D0D0D0] text-[14px] font-inter-sans">
+                    Shipping service integration
+                  </p>
+                </div>
+                <div className="flex items-center gap-2">
+                  <img src={star} alt="star" className="w-[18px] h-[18px]" />
+                  <p className="text-[#D0D0D0] text-[14px] font-inter-sans">
+                    Country specific tax management
+                  </p>
+                </div>
+
+                <Link to="">
+                  <button className="font-inter-sans text-white text-[14px] w-[150px] mt-3 rounded-sm  px-3 py-3 bg-transparent border border-gray-100 hover:text-black transition-colors duration-700 ease-in-out ">
+                    Learn More
+                  </button>
+                </Link>
+              </div>
+            </div> */}
+            {/*  */}
+            <div className="w-full text-center mt-[15%]">
+              <p className=" text-white  text-[30px] md:text-[38px] mb-6 font-satoshi  ">
+                Read about our Executive Management in a glance
+              </p>
+              <div className="flex flex-col md:flex-row md:justify-between items-start w-full">
+                <div className="flex flex-col gap-[10rem] items-center  w-full">
+                  <div className="md:h-[80%] w-[80%] mb-4">
+                    {/* Added margin bottom to create space */}
+                    <img
+                      src={kvOne}
+                      alt="g-1"
+                      className="w-full h-full object-cover"
+                    />
+                    <div className="  flex flex-col items-start gap-2 mt-3">
+                      <p className="text-white text-[24px] sm:text-[20px] font-satoshi">
+                        Abubakar Suleiman
+                      </p>
+                      <p className="text-[#B9B9B9] text-left  font-inter-sans leading-5 text-[14px]">
+                        Chief Executive Officer, Managing Director, and Director
+                        of Sterling bank PLC. 
+                      </p>{" "}
+                      {/* Add your text here */}
+                    </div>
+                  </div>
+                </div>
+                <div className="flex flex-col items-center w-full">
+                  <div className="md:h-[80%] w-[80%]  mb-4">
+                    {/* Added margin bottom to create space */}
+                    <img
+                      src={kvTwo}
+                      alt="g-2"
+                      className="w-full h-full object-cover"
+                    />
+
+                    <div className="  flex-col flex items-start gap-2 mt-3">
+                      <p className="text-[24px] text-white sm:text-[20px] font-satoshi ">
+                        Olatunji Mayaki
+                      </p>{" "}
+                      {/* Add your text here */}
+                      <p className="text-left text-[#B9B9B9] text-[14px] font-inter-sans leading-5 ">
+                        Chairman, <br /> Sterling Bank PLC.
+                      </p>
+                      {/* Add your text here */}
+                    </div>
+                  </div>
+                </div>
+                <div className="flex flex-col items-center w-full ">
+                  <div className="md:h-[80%] w-[80%]  mb-4">
+                    {/* Added margin bottom to create space */}
+                    <img
+                      src={kvThree}
+                      alt="g-2"
+                      className="w-full h-full object-cover"
+                    />
+                    <div className="flex-col flex items-start gap-2 mt-3">
+                      <p className="text-[24px] text-white sm:text-[20px] font-satoshi ">
+                        Raheem Owodeyi
+                      </p>
+                      <p className="text-left text-[#B9B9B9] text-[14px] leading-5 font-inter-sans ">
+                        Executive Director, Operations & Retail Banking/COO.
+                      </p>{" "}
+                      {/* Add your text here */}
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
-            <div className="col-span-1">
-              <div className="w-full flex justify-between items-start">
-                <div className="flex flex-col items-start gap-4">
-                  <p className="text-[17px] md:text-[20px] text-white font-bold font-inter-sans">
-                    Product
-                  </p>
-                  <p className="text-[17px] md:text-[20px] text-[#676767] font-inter-sans">
-                    Features
-                  </p>
-                  <p className="text-[17px] md:text-[20px] text-[#676767] font-inter-sans">
-                    Integrations
-                  </p>
-                  <p className="text-[17px] md:text-[20px] text-[#676767] font-inter-sans">
-                    Updates
-                  </p>
-                  <p className="text-[17px] md:text-[20px] text-[#676767] font-inter-sans">
-                    FAQ
-                  </p>
-                  <p className="text-[17px] md:text-[20px] text-[#676767] font-inter-sans">
-                    Pricing
-                  </p>
+            {/* footer */}
+            <div className="w-full md:mt-[10%] mt-[25%]  h-full flex justify-center items-center">
+              <p className="text-[#BCBCBC] mb-[10%] font-inter-sans">
+                Copyright: Sterling Bank PLC
+              </p>
+
+              {/* <div className="grid md:grid-cols-2 grid-cols-1 md:gap-2 gap-10">
+                <div className="col-span-1 md:w-[90%] lg:max-w-[70%] w-full">
+                  <div className="w-full flex flex-col items-start gap-2">
+                    <div className="flex gap-1 items-center mx-auto md:mx-0 ">
+                      <div className="w-[100px] h-[40px] md:h-[60px]">
+                        <img src={aOne} alt="a-1" className=" object-contain" />
+                      </div>
+                    </div>
+                    <p className="text-[#BCBCBC] font-inter-sans leading-7 text-center md:text-start text-[18px] mt-3 mb-6">
+                      Effortlessly turn your ideas into a fully functional,
+                      responsive, no-code SaaS website.
+                    </p>
+
+                    <div className="flex justify-between items-center w-full mt-9">
+                      <img src={kOne} alt="k-1" />
+                      <img src={kTwo} alt="k-2" />
+                      <img src={kThree} alt="k-3" />
+                      <img src={kFour} alt="k-4" />
+                      <img src={kFive} alt="k-5" />
+                      <img src={kSix} alt="k-6" />
+                    </div>
+                  </div>
                 </div>
-                <div className="flex flex-col items-start gap-4 ">
-                  <p className="text-[17px] md:text-[20px] text-white font-bold font-inter-sans">
-                    Company
-                  </p>
-                  <p className="text-[17px] md:text-[20px] text-[#676767] font-inter-sans">
-                    About
-                  </p>
-                  <p className="text-[17px] md:text-[20px] text-[#676767] font-inter-sans">
-                    Blog
-                  </p>
-                  <p className="text-[17px] md:text-[20px] text-[#676767] font-inter-sans">
-                    Careers
-                  </p>
-                  <p className="text-[17px] md:text-[20px] text-[#676767] font-inter-sans">
-                    Manifesto
-                  </p>
-                  <p className="text-[17px] md:text-[20px] text-[#676767] font-inter-sans">
-                    Press
-                  </p>
-                  <p className="text-[17px] md:text-[20px] text-[#676767] font-inter-sans">
-                    Contact
-                  </p>
+                <div className="col-span-1">
+                  <div className="w-full flex justify-between items-start">
+                    <div className="flex flex-col items-start gap-4">
+                      <p className="text-[17px] md:text-[20px] text-white font-bold font-inter-sans">
+                        Product
+                      </p>
+                      <p className="text-[17px] md:text-[20px] text-[#676767] font-inter-sans">
+                        Features
+                      </p>
+                      <p className="text-[17px] md:text-[20px] text-[#676767] font-inter-sans">
+                        Integrations
+                      </p>
+                      <p className="text-[17px] md:text-[20px] text-[#676767] font-inter-sans">
+                        Updates
+                      </p>
+                      <p className="text-[17px] md:text-[20px] text-[#676767] font-inter-sans">
+                        FAQ
+                      </p>
+                      <p className="text-[17px] md:text-[20px] text-[#676767] font-inter-sans">
+                        Pricing
+                      </p>
+                    </div>
+                    <div className="flex flex-col items-start gap-4 ">
+                      <p className="text-[17px] md:text-[20px] text-white font-bold font-inter-sans">
+                        Company
+                      </p>
+                      <p className="text-[17px] md:text-[20px] text-[#676767] font-inter-sans">
+                        About
+                      </p>
+                      <p className="text-[17px] md:text-[20px] text-[#676767] font-inter-sans">
+                        Blog
+                      </p>
+                      <p className="text-[17px] md:text-[20px] text-[#676767] font-inter-sans">
+                        Careers
+                      </p>
+                      <p className="text-[17px] md:text-[20px] text-[#676767] font-inter-sans">
+                        Manifesto
+                      </p>
+                      <p className="text-[17px] md:text-[20px] text-[#676767] font-inter-sans">
+                        Press
+                      </p>
+                      <p className="text-[17px] md:text-[20px] text-[#676767] font-inter-sans">
+                        Contact
+                      </p>
+                    </div>
+                    <div className="flex flex-col items-start gap-4">
+                      <p className="text-[17px] md:text-[20px] text-white font-bold font-inter-sans">
+                        Resources
+                      </p>
+                      <p className="text-[17px] md:text-[20px] text-[#676767] font-inter-sans">
+                        Examples
+                      </p>
+                      <p className="text-[17px] md:text-[20px] text-[#676767] font-inter-sans">
+                        Community
+                      </p>
+                      <p className="text-[17px] md:text-[20px] text-[#676767] font-inter-sans">
+                        Guides
+                      </p>
+                      <p className="text-[17px] md:text-[20px] text-[#676767] font-inter-sans">
+                        Docs
+                      </p>
+                    </div>
+                  </div>
                 </div>
-                <div className="flex flex-col items-start gap-4">
-                  <p className="text-[17px] md:text-[20px] text-white font-bold font-inter-sans">
-                    Resources
-                  </p>
-                  <p className="text-[17px] md:text-[20px] text-[#676767] font-inter-sans">
-                    Examples
-                  </p>
-                  <p className="text-[17px] md:text-[20px] text-[#676767] font-inter-sans">
-                    Community
-                  </p>
-                  <p className="text-[17px] md:text-[20px] text-[#676767] font-inter-sans">
-                    Guides
-                  </p>
-                  <p className="text-[17px] md:text-[20px] text-[#676767] font-inter-sans">
-                    Docs
-                  </p>
-                </div>
-              </div>
+              </div> */}
             </div>
+            {/* footer */}
           </div>
         </div>
-        {/* footer */}
       </div>
     </div>
   );
