@@ -175,7 +175,7 @@ useEffect(() => {
                 alt="a-1"
                 className=" object-contain w-[100px] h-[30px] mb-9 mt-[3rem]"
               />
-              <div className="absolute w-[30px] h-[30px]  lg:w-[120px] lg:h-[120px]  md:w-[80px] md:h-[80px] right-[-1.5%] bottom-[4.5rem] md:bottom-20">
+              <div className="absolute w-[30px] h-[30px]  lg:w-[120px] lg:h-[120px]  md:w-[80px] md:h-[80px] right-[-1.3%] bottom-[4.5rem] md:bottom-20">
                 <img src={aThree} alt="a-3" className="object-contain" />
               </div>
               <form className="w-[100%] md:w-[90%] lg:w-[90%] ">

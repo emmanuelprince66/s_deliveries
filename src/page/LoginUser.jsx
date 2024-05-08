@@ -268,7 +268,7 @@ const userLoginMutation = useMutation({
 
             <p className="text-white text-[15px] font-dm-sans mt-4 mb-3">
               Don't have an account? click{" "}
-              <Link to="/user-signup" className="hover:text-[#EB2529]">
+              <Link to="/user-signup" className="text-[#EB2529] ">
                 Create
               </Link>
             </p>

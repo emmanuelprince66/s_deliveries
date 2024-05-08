@@ -161,7 +161,7 @@ const LandingPage = () => {
             Find meaning for 5,000+ words, terminologies and jargons
           </p>
 
-          <div className="absolute h-[350px] w-[350px] bottom-[-12rem] right-[-13.5rem]">
+          <div className="absolute h-[110px] w-[110px] md:h-[150px] md:w-[150px] xl:h-[350px] xl:w-[350px]  right-[-1.5rem] bottom-[-6rem]  md:right-[-6rem] md:bottom-[-7rem]    xl:bottom-[-12rem] xl:right-[-13.5rem]">
             <img src={stary} alt="sta" className="object-cover w-full h-full" />
           </div>
         </div>

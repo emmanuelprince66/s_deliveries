@@ -62,7 +62,7 @@ const handleLogout = () => {
           </button>
         </div>
         <div className="w-[97%] max-h-[85vh] min-h-[85vh]  flex justify-center flex-col items-center  gap-5 md:w-[100%] lg:w-[85%] mx-auto  bg-[#000]   md:pt-8 overflow-y-auto rounded-2xl">
-          <div className="max-h-[85vh] min-h-[85vh] w-full flex flex-col items-center ">
+          <div className="max-h-[85vh] min-h-[85vh]   w-full flex flex-col items-center ">
             <div className="w-full flex flex-col items-center ">
               <img
                 src={aOne}

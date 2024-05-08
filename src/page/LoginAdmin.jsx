@@ -287,7 +287,7 @@ const {
               Not an Admin?
               <Link
                 to="/login-user"
-                className="text-[15px] mx-1 hover:text-red-500 font-dm-sans text-white mt-3 mb-[2px]"
+                className="text-[15px] mx-1 hover:text-red-500 font-dm-sans text-[#EB2529] mt-3 mb-[2px]"
               >
                 Click Here
               </Link>
