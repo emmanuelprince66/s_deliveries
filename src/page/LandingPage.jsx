@@ -59,7 +59,7 @@ const LandingPage = () => {
     setAnchorEl(null);
   };
   return (
-    <div className="h-full md:min-w-[100vw] lg:w-full w-full bg-primary_black_1 ">
+    <div className="h-full md:min-w-[100%] lg:w-full w-full bg-primary_black_1 ">
       <div className="w-[85%] mx-auto justify-between items-center hidden md:flex p-3">
         <div className="w-[100px] h-[50px] md:h-[60px]  ">
           <img src={aOne} alt="a-1" className=" object-contain " />
