@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import hvOne from "../images/hv-1.svg";
 import hvTwo from "../images/hv-2.svg";
 import kvOne from "../images/kv-1.png";
+import book from "../images/book.png";
 import kvTwo from "../images/kv-2.png";
 import kvThree from "../images/kv-3.png";
 import lImgOne from "../images/l-img1.png";
@@ -159,14 +160,28 @@ const LandingPage = () => {
         <div className="w-full">
           <div className="mx-auto xl:max-w-[68.5%] md:max-w-[92.5%] flex-col   items-center justify-center">
             <div className="mx-auto lg:max-w-[88%]  relative  md:max-w-[80%] w-[93%] mt-[5%] text-start  md:text-center lg:text-center  flex-col ">
-              <p className="md:text-8xl    text-[48px]  font-dm-sans leading-[3rem] md:leading-[5rem] lg:leading-[6rem] text-white font-bold">
+              {/* <p className="md:text-8xl    text-[48px]  font-dm-sans leading-[3rem] md:leading-[5rem] lg:leading-[6rem] text-white font-bold">
+                Discover the spark <br />
+                in each word!
+              </p> */}
+              <p className="md:text-8xl flex md:hidden lg:hidden   text-[48px]  font-dm-sans leading-[3rem] md:leading-[5rem] lg:leading-[6rem] text-white font-bold">
+                Discover
+                <br /> the spark in <br />
+                each word!
+              </p>
+              <p className="md:text-8xl hidden md:block lg:block text-[48px]  font-dm-sans leading-[3rem] md:leading-[5rem] lg:leading-[6rem] text-white font-bold">
                 Discover the spark <br />
                 in each word!
               </p>
-              <p className="md:text-[20px] w-full md:w-[75%] lg:w-[65%] mx-auto font-dm-sans leading-5 text-[15px] text-[#D0D0D0] my-5">
-                With Sterling Dictionary, you do not miss a word, learn about
-                jargons and acronyms, familiarise with various Sterling products
-                and more...
+              <p className="md:text-[20px] w-full flex md:hidden lg:hidden   md:w-[75%] lg:w-[65%] mx-auto font-dm-sans leading-5  lg:leading-7 md:leading-7 text-[15px] text-[#D0D0D0] my-5">
+                Unveil every word, unravel jargon, decode <br /> acronyms, and
+                explore the realm of Sterling
+                <br /> products and beyond with Sterling Dictionary.
+              </p>
+              <p className="md:text-[20px] w-full hidden  md:flex lg:flex   md:w-[75%] lg:w-[75%]  mx-auto font-dm-sans leading-5  lg:leading-7 md:leading-7 text-[15px] text-[#D0D0D0] my-5">
+                Unveil every word, unravel jargon, decode acronyms, and
+                explore the realm of Sterling
+                 products and beyond with Sterling Dictionary.
               </p>
 
               <Link to="/user-signup">
@@ -175,7 +190,7 @@ const LandingPage = () => {
                 </button>
               </Link>
 
-              <p className="text-[14px] text-[#A2A2A2] mt-4 font-inter-sans">
+              <p className="text-[10px] md:text-[14px] lg:text-[14px] text-[#A2A2A2] mt-4 font-inter-sans">
                 Find meaning for 5,000+ words, terminologies and jargons
               </p>
 
@@ -206,33 +221,33 @@ const LandingPage = () => {
             </div>
           </div>
 
-          <div className="mx-auto xl:max-w-[68.5%] md:max-w-[92.5%] flex-col   items-center justify-center px-3 lg:px-0 ">
-            <div className="w-full mx-auto grid grid-cols-1 mt-[10%] gap-5  ">
+          <div className="mx-auto xl:max-w-[68.5%] md:max-w-[92.5%] flex-col  items-center justify-center px-3 lg:px-0 ">
+            <div className="w-full mx-auto grid grid-cols-1 mt-[10%] gap-5   ">
               <p className="col-span-1 text-white  md:text-[38px] text-[30px] font-satoshi  text-center mb-3">
                 What makes Sterling Dictionary different?
               </p>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 items-start w-[80%] md:w-full lg:w-full mx-auto  my-2">
-                <div className="flex flex-col gap-2 w-full  mb-5 items-start h-full">
-                  <div className="w-full flex-col flex justify-center lg:items-start md:items-center items-start gap-4">
+                <div className="flex flex-col gap-2 w-full  mb-5 items-center h-full">
+                  <div className="w-full flex-col flex justify-center lg:items-start md:items-center items-center gap-4">
                     <img
                       src={rpOne}
                       alt="l-tag-1"
-                      className="w-[38px] h-[38px] mb-2 lg:mb-0"
+                      className="w-[38px] h-[38px] mb-2 lg:mb-0 rounded-[8px]"
                     />
                     <p className="text-white  text-[20px] font-satoshi">
                       Sterling Products
                     </p>
-                    <p className="text-[#B9B9B9] text-[14px]  lg:text-start  leading-5 font-inter-sans">
+                    <p className="text-[#B9B9B9] text-[14px] mt-[-6px]  lg:text-start text-center  leading-5 font-inter-sans">
                       Know more about various sterling products.
                     </p>
                   </div>
                 </div>
                 <div className="flex flex-col w-full mb-5 items-start h-full">
-                  <div className="w-full flex-col flex justify-center lg:items-start md:items-center items-start gap-4">
+                  <div className="w-full flex-col flex justify-center lg:items-start md:items-center items-center gap-4">
                     <img
                       src={rpTwo}
                       alt="l-tag-2"
-                      className="w-[38px] h-[38px] mb-2 lg:mb-0"
+                      className="w-[38px] h-[38px] mb-2 lg:mb-0 rounded-[8px]"
                     />
                     <p className="text-white text-[20px] font-satoshi">
                       Banking Jargons
@@ -240,17 +255,17 @@ const LandingPage = () => {
                     <p className="text-[#B9B9B9] hidden md:hidden lg:flex  lg:text-start   text-[14px] leading-5 font-inter-sans">
                       Have quick look-up of words <br /> and acronyms..
                     </p>
-                    <p className="text-[#B9B9B9]  lg:hidden   lg:text-start   text-[14px] leading-5 font-inter-sans">
+                    <p className="text-[#B9B9B9]  lg:hidden mt-[-6px]    lg:text-start  text-center  text-[14px] leading-5 font-inter-sans">
                       Have quick look-up of words and acronyms..
                     </p>
                   </div>
                 </div>
-                <div className="flex flex-col gap-2 w-full  md:w-full  ml-0   mb-5 items-start h-full">
-                  <div className="w-full flex-col flex justify-center lg:items-start md:items-center items-start gap-4">
+                <div className="flex flex-col gap-2 w-full  md:w-full  ml-0   mb-5 items-center h-full">
+                  <div className="w-full flex-col flex justify-center lg:items-start md:items-center items-center gap-4">
                     <img
                       src={rpThree}
                       alt="l-tag-2"
-                      className="w-[38px] h-[38px] mb-2 md:mb-0"
+                      className="w-[38px] h-[38px] mb-2 md:mb-0 rounded-[8px]"
                     />
                     <p className="text-white text-[20px]  font-satoshi">
                       Terminologies
@@ -259,17 +274,17 @@ const LandingPage = () => {
                       All inclusive essential <br />
                       conversion & automation tools.
                     </p>
-                    <p className="text-[#B9B9B9]  lg:hidden   lg:text-start  text-[14px] leading-5 font-inter-sans">
+                    <p className="text-[#B9B9B9]  lg:hidden mt-[-6px]  text-center   lg:text-start  text-[14px] leading-5 font-inter-sans">
                       All inclusive essential conversion & automation tools.
                     </p>
                   </div>
                 </div>
-                <div className="flex flex-col gap-2 w-full  mb-5 items-start h-full">
-                  <div className="w-full flex-col flex justify-center lg:items-start md:items-center items-start gap-4">
+                <div className="flex flex-col gap-2 w-full  mb-5 items-center h-full">
+                  <div className="w-full flex-col flex justify-center lg:items-start md:items-center items-center gap-4">
                     <img
                       src={rpFour}
                       alt="l-tag-2"
-                      className="w-[38px] h-[38px] mb-2 md:mb-0"
+                      className="w-[38px] h-[38px] mb-2 md:mb-0 rounded-[8px]"
                     />
                     <p className="text-white text-[20px]   font-satoshi">
                       Integrate with outlook
@@ -278,7 +293,7 @@ const LandingPage = () => {
                       Hover on a word in your email <br />
                       and the meaning will pop.
                     </p>
-                    <p className="text-[#B9B9B9] lg:hidden  lg:text-start  text-[14px] leading-5 font-inter-sans">
+                    <p className="text-[#B9B9B9] lg:hidden mt-[-6px]  lg:text-start text-center text-[14px] leading-5 font-inter-sans">
                       Hover on a word in your email and the meaning will pop.
                     </p>
                   </div>
@@ -314,7 +329,7 @@ const LandingPage = () => {
             </div>
             {/*  */}
 
-            <div className="grid md:grid-cols-2 grid-cols-1 md:gap-2  gap-10 mt-[15%]">
+            <div className="grid md:grid-cols-2 grid-cols-1 md:gap-2  gap-10 mt-[15%] w-full ">
               <div className="col-span-1 flex flex-col items-start justify-center  gap-4">
                 <p className="md:text-[38px] text-[30px] font-satoshi  text-white">
                   Learn about,
@@ -573,8 +588,6 @@ const LandingPage = () => {
             <p className="text-[#BCBCBC] font-inter-sans text-center text-[15px] md:text-[20px] lg:text-[20px]">
               Copyright: Sterling Bank PLC
             </p>
-
-
 
             <div className="w-[100px] h-[100px] lg:w-[250px] lg:h-[250px]">
               <img src={hvTwo} alt="h-v" className="object-cover" />

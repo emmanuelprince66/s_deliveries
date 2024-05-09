@@ -76,7 +76,7 @@ const handleLogout = () => {
                   onClick={() => setIsTab1Active(true)}
                   className={`px-6 bg-[#DB363A] rounded-2xl focus:outline-none text-[10px] md:text-[15px]  font-dm-sans z-10 transition w-full  h-[50px] duration-300 ease-in-out shadow-lg ${
                     isTab1Active
-                      ? "bg-[#DB363A] hover:bg-[#2a2222] text-white"
+                      ? "bg-[#DB363A] hover:bg-red-400 text-white"
                       : "bg-white text-[#B4B4B4] hover:bg-gray-100"
                   } `}
                 >
@@ -84,9 +84,9 @@ const handleLogout = () => {
                 </button>
                 <button
                   onClick={() => setIsTab1Active(false)}
-                  className={`px-6 font-dm-sans text-[10px] tab-btn md:text-[15px] focus:outline-none h-[50px] ml-[-15px]  w-full transition duration-300 ease-in-out shadow-lg ${
+                  className={`px-6 font-dm-sans text-[10px]  tab-btn md:text-[15px] focus:outline-none h-[50px] ml-[-15px]  w-full transition duration-300 ease-in-out shadow-lg ${
                     !isTab1Active
-                      ? "bg-[#DB363A] hover:bg-red-600 text-white"
+                      ? "bg-[#DB363A] hover:bg-red-400 text-white"
                       : "bg-white text-[#B4B4B4] hover:bg-gray-100"
                   } rounded-r-lg`}
                 >

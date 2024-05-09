@@ -123,7 +123,7 @@ const registerUserMutation = useMutation({
   return (
     <div className="w-full bg-[#1e1e1e] min-h-screen flex justify-center items-center">
       <div className="w-full md:w-[95%] xl:w-[55%] flex justify-center items-center relative">
-        <div className="absolute w-[30px] h-[30px]  lg:w-[120px] lg:h-[120px]  md:w-[80px] md:h-[80px] right-0  top-0 lg:right-[-1.5%] bottom-0 md:top-0">
+        <div className="absolute w-[80px] h-[80px]  lg:w-[120px] lg:h-[120px]  md:w-[80px] md:h-[80px] right-0  top-0 lg:right-[-1.5%] bottom-0 md:top-0">
           <img src={aThree} alt="a-3" className="object-contain" />
         </div>
         <div className="w-[95%] md:w-[80%] xl:w-[65%] bg-black rounded-[1rem] h-fit flex flex-col items-center justify-center mt-0 gap-6 p-2 pt-6 pb-5  xl:pb-4 md:p-12 xl:p-6 ">
@@ -341,16 +341,22 @@ const registerUserMutation = useMutation({
               />
             </form>
 
-            <p className="font-dm-sans text-white">
-              Already have an account?
-              <Link
-                to="/login-user"
-                className="text-[15px] mx-1 hover:text-red-500 font-dm-sans text-[#EB2529] mt-3 mb-[2px]"
-              >
-                Click Here
-              </Link>
-              to Login 
-            </p>
+            <div className=" justify-center flex gap-1 w-full ">
+              <p className="font-dm-sans text-white text-center leading-6">
+                Already have an account?
+                <br />
+                <p className="text-center">
+                  {" "}
+                  <Link
+                    to="/login-user"
+                    className="text-[15px] mx-1  hover:text-red-500 font-dm-sans text-[#EB2529] mt-3 mb-[2px]"
+                  >
+                    Click Here
+                  </Link>
+                  to Login
+                </p>
+              </p>
+            </div>
           </div>
         </div>
       </div>
@@ -359,7 +365,7 @@ const registerUserMutation = useMutation({
         theme="dark"
         toastStyle={{ background: "#333", color: "#fff" }}
       />
-      <div className="absolute w-[30px] h-[30px]  lg:w-[120px] lg:h-[120px]  md:w-[80px] md:h-[80px] left-0 bottom-5 md:bottom-[7rem]">
+      <div className="absolute w-[70px] h-[70px]   lg:w-[120px] lg:h-[120px]  md:w-[80px] md:h-[80px] left-0 bottom-10 md:bottom-[7rem]">
         <img src={aTwo} alt="a-w" className="object-contain" />
       </div>
     </div>
