@@ -115,7 +115,7 @@ const registerUserMutation = useMutation({
 
 
   const handleGoBack = () => {
-    navigate(-1); // Navigate back
+    navigate("/"); // Navigate back
   };
   
  
@@ -132,7 +132,7 @@ const registerUserMutation = useMutation({
               onClick={handleGoBack}
               className=" text-white font-dm-sans p-2 md:p-0 "
             >
-              Go Back
+              Go to Homepage
             </button>
           </div>
 
@@ -220,7 +220,7 @@ const registerUserMutation = useMutation({
                   {...register("password", {
                     required: "Password is required",
                   })}
-                  placeholder="Your password.."
+                  placeholder=" Password.."
                   className="rounded-2xl input-placeholder outline-none border-none bg-white p-2 w-full"
                   InputProps={{
                     startAdornment: (
@@ -285,7 +285,7 @@ const registerUserMutation = useMutation({
                   {...register("confirmPassword", {
                     required: "Confirm password is required",
                   })}
-                  placeholder="Your confirm password.."
+                  placeholder="Confirm password.."
                   className="rounded-2xl input-placeholder outline-none border-none bg-white p-2 w-full"
                   InputProps={{
                     startAdornment: (
@@ -341,11 +341,16 @@ const registerUserMutation = useMutation({
               />
             </form>
 
-            <Link to="/login-user" className=" mt-3 mb-[8px]">
-              <p className="text-[15px] hover:text-red-500  text-white font-dm-sans">
-                Login
-              </p>
-            </Link>
+            <p className="font-dm-sans text-white">
+              Already have an account?
+              <Link
+                to="/login-user"
+                className="text-[15px] mx-1 hover:text-red-500 font-dm-sans text-[#EB2529] mt-3 mb-[2px]"
+              >
+                Click Here
+              </Link>
+              to Login 
+            </p>
           </div>
         </div>
       </div>

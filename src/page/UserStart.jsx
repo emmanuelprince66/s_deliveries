@@ -27,6 +27,7 @@ const UserStart = () => {
  const [emptySearch, setEmptySearch] = useState(false);
   const [showSpinner, setShowSpinner] = useState(false);
 const [isOpen , setIsOpen] = useState(false)
+const [showGoSpinner , setShowGoSpinner] = useState(false)
 
 
 const[showNotExist , setShowNotExist] = useState(false)
@@ -70,11 +71,13 @@ const closeModal = () => setIsOpen(false)
        } catch (error) {
          setShowSpinner(false);
          setShowNotExist(true)
-         notifyError(error?.response?.data?.message);
+         setShowGoSpinner(false)
+        //  notifyError(error?.response?.data?.message);
          throw error;
        }
      },
      onSuccess: (data) => {
+     setShowGoSpinner(false)
        setShowSpinner(false);
        console.log(data);
        const val = data.existingWord;
@@ -124,7 +127,9 @@ const handleSubmit = () => {
     const payLoad = {
       word: searchTerm || "",
     };
+    
     searchMutatation.mutate(payLoad);
+    setShowGoSpinner(true)
     setShowSpinner(true);
   } else {
     setEmptySearch(true);
@@ -152,6 +157,23 @@ useEffect(() => {
 
   setGeneralData(filteredItems);
 }, [data, searchTerm]);
+
+
+useEffect(() => {
+if (Array.isArray(generalData) &&  generalData.length === 0 && searchTerm !== "") {
+    const payLoad = {
+      word: searchTerm || "",
+    };
+    searchMutatation.mutate(payLoad);
+    setShowGoSpinner(true)
+    console.log("wee")
+
+}
+
+} , [searchTerm])
+
+
+
 
   return (
     <div className="w-full bg-[#171414] h-fit p-2 md:p-1 relative">
@@ -258,9 +280,12 @@ useEffect(() => {
             </div>
           ) : Array.isArray(generalData) && generalData.length === 0 ? (
             !showNotExist ? (
-              <p className="font-dm-sans text-center w-full text-white text-[15px]">
-                Click GO to Search For Word In Our Database!
-              </p>
+              <div className="w-full flex-col flex items-center justify-end  ">
+                <p className="font-dm-sans text-center w-full text-white text-[15px]">
+                  Searching our database for word...
+                </p>
+       
+              </div>
             ) : (
               <div className="w-full flex flex-col items-center gap-4 justify-center">
                 <p className="font-dm-sans text-white text-center text-[15px] leading-5">

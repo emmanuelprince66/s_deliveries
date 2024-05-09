@@ -119,7 +119,7 @@ const {
 
 
   const handleGoBack = () => {
-    navigate(-1); // Navigate back
+    navigate("/"); // Navigate back
   };
 
   return (
@@ -135,7 +135,7 @@ const {
               onClick={handleGoBack}
               className=" text-white font-dm-sans p-2 md:p-0 "
             >
-              Go Back
+              Go to Homepage
             </button>
           </div>
 

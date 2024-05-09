@@ -2,6 +2,8 @@ import React from "react";
 import { useState } from "react";
 import CustomButton from "../components/CustomButton";
 import { Link } from "react-router-dom";
+import hvOne from "../images/hv-1.svg";
+import hvTwo from "../images/hv-2.svg";
 import kvOne from "../images/kv-1.png";
 import kvTwo from "../images/kv-2.png";
 import kvThree from "../images/kv-3.png";
@@ -153,15 +155,15 @@ const LandingPage = () => {
 
       {/* possibly hamburger menu for mobile */}
 
-      <div className="w-[100%]  mx-auto flex flex-col items-center">
+      <div className="w-[100%] h-fit mx-auto flex flex-col items-center">
         <div className="w-full">
           <div className="mx-auto xl:max-w-[68.5%] md:max-w-[92.5%] flex-col   items-center justify-center">
-            <div className="mx-auto lg:max-w-[88%]  relative  md:max-w-[80%] w-[93%] mt-[5%]  text-center  flex-col ">
-              <p className="md:text-8xl text-[48px] font-dm-sans leading-[3rem] md:leading-[5rem] lg:leading-[6rem] text-white font-bold">
+            <div className="mx-auto lg:max-w-[88%]  relative  md:max-w-[80%] w-[93%] mt-[5%] text-start  md:text-center lg:text-center  flex-col ">
+              <p className="md:text-8xl    text-[48px]  font-dm-sans leading-[3rem] md:leading-[5rem] lg:leading-[6rem] text-white font-bold">
                 Discover the spark <br />
                 in each word!
               </p>
-              <p className="md:text-[20px] w-[75%] mx-auto font-dm-sans  text-[15px] text-[#D0D0D0] my-5">
+              <p className="md:text-[20px] w-full md:w-[75%] lg:w-[75%] mx-auto font-dm-sans leading-5 text-[15px] text-[#D0D0D0] my-5">
                 With Sterling Dictionary, you do not miss a word, learn about
                 jargons and acronyms, familiarise with various Sterling products
                 and more...
@@ -177,12 +179,16 @@ const LandingPage = () => {
                 Find meaning for 5,000+ words, terminologies and jargons
               </p>
 
-              <div className="absolute h-[80px] w-[80px] md:h-[220px] md:w-[220px] xl:h-[320px] xl:w-[320px]  right-[-12px] bottom-[4rem]  md:right-[-6rem] md:bottom-[10rem]    xl:bottom-[-1rem] xl:right-[-13rem]">
+              <div className="absolute hidden md:flex lg:flex  h-[80px] w-[80px] md:h-[220px] md:w-[220px] xl:h-[320px] xl:w-[320px]  right-[-12px] bottom-[4rem]  md:right-[-6rem] md:bottom-[10rem]    xl:bottom-[-1rem] xl:right-[-13rem]">
                 <img
                   src={stary}
                   alt="sta"
                   className="object-cover w-full h-full"
                 />
+              </div>
+
+              <div className="mt-[10%] sm:flex md:hidden lg:hidden  w-full  justify-center items-center ">
+                <img src={stary} alt="stary" className="object-cover" />
               </div>
             </div>
           </div>
@@ -205,66 +211,75 @@ const LandingPage = () => {
               <p className="col-span-1 text-white  md:text-[38px] text-[30px] font-satoshi  text-center mb-3">
                 What makes Sterling Dictionary different?
               </p>
-              <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 items-center   my-2">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 items-start w-[80%] md:w-full lg:w-full mx-auto  my-2">
                 <div className="flex flex-col gap-2 w-full  mb-5 items-start h-full">
-                  <div className="w-full flex-col flex justify-center lg:items-start  items-center gap-4">
+                  <div className="w-full flex-col flex justify-center lg:items-start md:items-center items-start gap-4">
                     <img
                       src={rpOne}
                       alt="l-tag-1"
                       className="w-[38px] h-[38px] mb-2 lg:mb-0"
                     />
-                    <p className="text-white  text-[14.5px]  md:text-[20px] font-satoshi">
+                    <p className="text-white  text-[20px] font-satoshi">
                       Sterling Products
                     </p>
-                    <p className="text-[#B9B9B9] text-[11px] text-center lg:text-start md:text-[14px] leading-5 font-inter-sans">
+                    <p className="text-[#B9B9B9] text-[14px]  lg:text-start  leading-5 font-inter-sans">
                       Know more about various sterling products.
                     </p>
                   </div>
                 </div>
                 <div className="flex flex-col w-full mb-5 items-start h-full">
-                  <div className="w-full flex-col flex justify-center lg:items-start  items-center gap-4">
+                  <div className="w-full flex-col flex justify-center lg:items-start md:items-center items-start gap-4">
                     <img
                       src={rpTwo}
                       alt="l-tag-2"
                       className="w-[38px] h-[38px] mb-2 lg:mb-0"
                     />
-                    <p className="text-white text-[14.5px]  md:text-[20px] font-satoshi">
+                    <p className="text-white text-[20px] font-satoshi">
                       Banking Jargons
                     </p>
-                    <p className="text-[#B9B9B9]  text-[11px] text-center lg:text-start   md:text-[14px] leading-5 font-inter-sans">
+                    <p className="text-[#B9B9B9] hidden md:hidden lg:flex  lg:text-start   text-[14px] leading-5 font-inter-sans">
                       Have quick look-up of words <br /> and acronyms..
+                    </p>
+                    <p className="text-[#B9B9B9]  lg:hidden   lg:text-start   text-[14px] leading-5 font-inter-sans">
+                      Have quick look-up of words and acronyms..
                     </p>
                   </div>
                 </div>
                 <div className="flex flex-col gap-2 w-full  md:w-full  ml-0   mb-5 items-start h-full">
-                  <div className="w-full flex-col flex justify-center lg:items-start  items-center gap-4">
+                  <div className="w-full flex-col flex justify-center lg:items-start md:items-center items-start gap-4">
                     <img
                       src={rpThree}
                       alt="l-tag-2"
                       className="w-[38px] h-[38px] mb-2 md:mb-0"
                     />
-                    <p className="text-white text-[14.5px]  md:text-[20px]  font-satoshi">
+                    <p className="text-white text-[20px]  font-satoshi">
                       Terminologies
                     </p>
-                    <p className="text-[#B9B9B9] text-[11px] text-center lg:text-start  md:text-[14px] leading-5 font-inter-sans">
+                    <p className="text-[#B9B9B9] hidden md:hidden lg:flex   lg:text-start  text-[14px] leading-5 font-inter-sans">
                       All inclusive essential <br />
                       conversion & automation tools.
+                    </p>
+                    <p className="text-[#B9B9B9]  lg:hidden   lg:text-start  text-[14px] leading-5 font-inter-sans">
+                      All inclusive essential conversion & automation tools.
                     </p>
                   </div>
                 </div>
                 <div className="flex flex-col gap-2 w-full  mb-5 items-start h-full">
-                  <div className="w-full flex-col flex justify-center lg:items-start  items-center gap-4">
+                  <div className="w-full flex-col flex justify-center lg:items-start md:items-center items-start gap-4">
                     <img
                       src={rpFour}
                       alt="l-tag-2"
                       className="w-[38px] h-[38px] mb-2 md:mb-0"
                     />
-                    <p className="text-white text-[14.5px]  md:text-[20px]   font-satoshi">
+                    <p className="text-white text-[20px]   font-satoshi">
                       Integrate with outlook
                     </p>
-                    <p className="text-[#B9B9B9] text-[11px] text-center lg:text-start  md:text-[14px] leading-5 font-inter-sans">
+                    <p className="text-[#B9B9B9]   hidden md:hidden lg:flex  text-[14px] leading-5 font-inter-sans">
                       Hover on a word in your email <br />
                       and the meaning will pop.
+                    </p>
+                    <p className="text-[#B9B9B9] lg:hidden  lg:text-start  text-[14px] leading-5 font-inter-sans">
+                      Hover on a word in your email and the meaning will pop.
                     </p>
                   </div>
                 </div>
@@ -548,13 +563,24 @@ const LandingPage = () => {
                 </div>
               </div>
             </div>
-            {/* footer */}
-            <div className="w-full md:mt-[10%] mt-[25%]  h-full flex justify-center items-center">
-              <p className="text-[#BCBCBC] mb-[10%] font-inter-sans">
-                Copyright: Sterling Bank PLC
-              </p>
+          </div>
+          {/* footer */}
+          <div className="w-[100%] md:w-[90%] lg:w-[90%] mx-auto  flex justify-between items-center">
+            <div className="w-[100px] h-[100px] lg:w-[250px] lg:h-[250px]">
+              <img src={hvOne} alt="h-v" className="object-cover" />
+            </div>
 
-              {/* <div className="grid md:grid-cols-2 grid-cols-1 md:gap-2 gap-10">
+            <p className="text-[#BCBCBC] font-inter-sans text-center text-[15px] md:text-[20px] lg:text-[20px]">
+              Copyright: Sterling Bank PLC
+            </p>
+
+
+
+            <div className="w-[100px] h-[100px] lg:w-[250px] lg:h-[250px]">
+              <img src={hvTwo} alt="h-v" className="object-cover" />
+            </div>
+
+            {/* <div className="grid md:grid-cols-2 grid-cols-1 md:gap-2 gap-10">
                 <div className="col-span-1 md:w-[90%] lg:max-w-[70%] w-full">
                   <div className="w-full flex flex-col items-start gap-2">
                     <div className="flex gap-1 items-center mx-auto md:mx-0 ">
@@ -642,9 +668,8 @@ const LandingPage = () => {
                   </div>
                 </div>
               </div> */}
-            </div>
-            {/* footer */}
           </div>
+          {/* footer */}
         </div>
       </div>
     </div>
