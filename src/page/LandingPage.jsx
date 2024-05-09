@@ -163,7 +163,7 @@ const LandingPage = () => {
                 Discover the spark <br />
                 in each word!
               </p>
-              <p className="md:text-[20px] w-full md:w-[75%] lg:w-[75%] mx-auto font-dm-sans leading-5 text-[15px] text-[#D0D0D0] my-5">
+              <p className="md:text-[20px] w-full md:w-[75%] lg:w-[65%] mx-auto font-dm-sans leading-5 text-[15px] text-[#D0D0D0] my-5">
                 With Sterling Dictionary, you do not miss a word, learn about
                 jargons and acronyms, familiarise with various Sterling products
                 and more...
