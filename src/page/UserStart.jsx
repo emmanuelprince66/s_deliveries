@@ -197,7 +197,7 @@ if (Array.isArray(generalData) &&  generalData.length === 0 && searchTerm !== ""
                 alt="a-1"
                 className=" object-contain w-[100px] h-[30px] mb-9 mt-[3rem]"
               />
-              <div className="absolute w-[80px] h-[80px]  lg:w-[120px] lg:h-[120px]  md:w-[80px] md:h-[80px] right-[-2%] top-0 md:bottom-20">
+              <div className="absolute w-[75px] h-[75px]  lg:w-[100px] lg:h-[100px]  md:w-[80px] md:h-[80px] right-[-2%] top-0 md:bottom-20">
                 <img src={aThree} alt="a-3" className="object-contain" />
               </div>
               <form className="w-[100%] md:w-[90%] lg:w-[90%] ">

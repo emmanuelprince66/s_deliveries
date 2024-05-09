@@ -6,7 +6,7 @@ import aOne from "../images/a-1.png";
 import aTwo from "../images/a-2.png"
 import Cookies from "js-cookie";
 import { useNavigate } from "react-router-dom";
-
+import aThree from "../images/a-3.png";
 
 
 
@@ -61,14 +61,18 @@ const handleLogout = () => {
             Logout
           </button>
         </div>
-        <div className="w-[97%] max-h-[85vh] min-h-[85vh]  flex justify-center flex-col items-center  gap-5 md:w-[100%] lg:w-[85%] mx-auto  bg-[#000]   md:pt-8 overflow-y-auto rounded-2xl">
-          <div className="max-h-[85vh] min-h-[85vh]   w-full flex flex-col items-center ">
+        <div className="w-[97%] max-h-[85vh] min-h-[85vh]  flex justify-center flex-col items-center relative  gap-5 md:w-[100%] lg:w-[85%] mx-auto  bg-[#000]   md:pt-8 overflow-y-auto rounded-2xl">
+          <div className="absolute w-[75px] h-[75px]  lg:w-[100px] lg:h-[100px]  md:w-[80px] md:h-[80px] right-[-1%]  top-0  lg:bottom-[20rem] ">
+            <img src={aThree} alt="a-3" className="object-contain" />
+          </div>
+          <div className="max-h-[85vh] min-h-[85vh]   w-full flex flex-col items-center  ">
             <div className="w-full flex flex-col items-center ">
               <img
                 src={aOne}
                 alt="a-1"
                 className=" object-contain w-[100px] h-[30px] mb-7 mt-6"
               />
+
               <div
                 className={`flex justify-center gap-0 pb-5 w-[90%]  mx-auto sm:mx-0 mb-3`}
               >
@@ -98,9 +102,6 @@ const handleLogout = () => {
             {isTab1Active ? <Add /> : <EditTerm />}
           </div>
         </div>
-      </div>
-      <div className="absolute w-[30px] h-[30px]  lg:w-[120px] lg:h-[120px]  md:w-[80px] md:h-[80px] left-0 bottom-5 md:bottom-[7rem]">
-        <img src={aTwo} alt="a-w" className="object-contain" />
       </div>
     </div>
   );
