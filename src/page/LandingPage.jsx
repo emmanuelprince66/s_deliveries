@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import hvOne from "../images/hv-1.svg";
 import hvTwo from "../images/hv-2.svg";
 import kvOne from "../images/kv-1.png";
+import gifOne from "../images/sv-g.gif";
 import book from "../images/book.svg";
 import kvTwo from "../images/kv-2.png";
 import kvThree from "../images/kv-3.png";
@@ -214,10 +215,12 @@ const LandingPage = () => {
         </div> */}
           <div className="mt-[4rem] mb-[5rem] w-full flex justify-end items-center bg-black p-3 lg:p-10">
             <div className=" w-[100%] h-[55%]  lg:w-[55%] lg:h-[55%] mx-auto">
-              <video autoPlay loop muted className="rounded-2xl">
+              {/* <video autoPlay loop muted className="rounded-2xl">
                 <source src="/videos/vid.mp4" type="video/mp4" />
                 Your browser does not support the video tag.
-              </video>
+              </video> */}
+              
+              <img src={gifOne} alt="g-fit"className="rounded-2xl" />
             </div>
           </div>
 
@@ -275,7 +278,7 @@ const LandingPage = () => {
                       conversion & automation tools.
                     </p>
                     <p className="text-[#B9B9B9]  lg:hidden mt-[-6px]  text-center   lg:text-start  text-[14px] leading-5 font-inter-sans">
-                      All inclusive essential conversion & automation tools.
+                      All inclusive essential conversion & auto mation tools.
                     </p>
                   </div>
                 </div>
