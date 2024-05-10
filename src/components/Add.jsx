@@ -121,10 +121,10 @@ const {
         name="word"
         {...register("word", {
           required: "Word is required",
-          pattern: {
-            value: /^[a-zA-Z\s]*$/, // Accept only letters and spaces
-            message: "Please enter only letters.",
-          },
+          // pattern: {
+          //   value: /^[a-zA-Z\s]*$/, // Accept only letters and spaces
+          //   message: "Please enter only letters.",
+          // },
         })}
         className="rounded-2xl  outline-none border-none bg-white  w-full"
         placeholder=" Enter new word phrase,term,anything.."
@@ -148,10 +148,10 @@ const {
         placeholder="What does this mean?"
         {...register("meaning", {
           required: "Meaning is required",
-          pattern: {
-            value: /^[a-zA-Z\s]*$/, // Accept only letters and spaces
-            message: "Please enter only letters.",
-          },
+          // pattern: {
+          //   value: /^[a-zA-Z\s]*$/, // Accept only letters and spaces
+          //   message: "Please enter only letters.",
+          // },
         })}
       ></textarea>
 

@@ -179,9 +179,9 @@ const LandingPage = () => {
                 <br /> products and beyond with Sterling Dictionary.
               </p>
               <p className="md:text-[20px] w-full hidden  md:flex lg:flex   md:w-[75%] lg:w-[75%]  mx-auto font-dm-sans leading-5  lg:leading-7 md:leading-7 text-[15px] text-[#D0D0D0] my-5">
-                Unveil every word, unravel jargon, decode acronyms, and
-                explore the realm of Sterling
-                 products and beyond with Sterling Dictionary.
+                Unveil every word, unravel jargon, decode acronyms, and explore
+                the realm of Sterling products and beyond with Sterling
+                Dictionary.
               </p>
 
               <Link to="/user-signup">
@@ -376,10 +376,10 @@ const LandingPage = () => {
             </div>
             {/*  */}
             <div className="grid md:grid-cols-2 grid-cols-1 md:gap-[10rem]  gap-10   md:mt-[15%] mt-[25%]">
-              <div className="col-span-1">
+              <div className="col-span-1 order-last md:order-first">
                 <img src={pvTwo} alt="m-2" />
               </div>
-              <div className="col-span-1 flex flex-col items-start justify-center  gap-4">
+              <div className="col-span-1 order-first md:order-last flex flex-col items-start justify-center  gap-4">
                 <p className="md:text-[38px] font-satoshi  text-[30px] text-white">
                   Quick word lookup
                 </p>
