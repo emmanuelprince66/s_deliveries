@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import hvOne from "../images/hv-1.svg";
 import hvTwo from "../images/hv-2.svg";
 import kvOne from "../images/kv-1.png";
-import book from "../images/book.png";
+import book from "../images/book.svg";
 import kvTwo from "../images/kv-2.png";
 import kvThree from "../images/kv-3.png";
 import lImgOne from "../images/l-img1.png";
