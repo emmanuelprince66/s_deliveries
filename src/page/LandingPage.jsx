@@ -186,7 +186,7 @@ const LandingPage = () => {
               </p>
 
               <Link to="/user-signup">
-                <button className=" text-white font-inter-sans  text-[18px] w-[172px]  h-[50px] rounded-sm  px-3 py-2 bg-[#EB2529] hover:bg-red-400 transition-colors duration-700 ease-in-out ">
+                <button className=" text-white font-inter-sans  text-[18px] w-[172px]  h-[50px] rounded-sm  px-3 py-2 hover:bg-red-400 bg-[#DB363A]  transition-colors duration-700 ease-in-out ">
                   Get Started
                 </button>
               </Link>
@@ -215,12 +215,7 @@ const LandingPage = () => {
         </div> */}
           <div className="mt-[4rem] mb-[5rem] w-full flex justify-end items-center bg-black p-3 lg:p-10">
             <div className=" w-[100%] h-[55%]  lg:w-[55%] lg:h-[55%] mx-auto">
-              {/* <video autoPlay loop muted className="rounded-2xl">
-                <source src="/videos/vid.mp4" type="video/mp4" />
-                Your browser does not support the video tag.
-              </video> */}
-              
-              <img src={gifOne} alt="g-fit"className="rounded-2xl" />
+              <img src={gifOne} alt="g-fit" className="rounded-2xl" />
             </div>
           </div>
 
@@ -366,9 +361,9 @@ const LandingPage = () => {
                   </p>
                 </div>
 
-                <Link to="">
-                  <button className=" text-white text-[14px] w-[150px] mt-3 font-inter-sans  rounded-sm  px-3 py-3 bg-transparent border border-gray-100 hover:text-black transition-colors duration-700 ease-in-out ">
-                    Learn More
+                <Link to="/user-signup">
+                  <button className=" text-white text-[14px] w-[150px] mt-3 font-inter-sans  rounded-sm  px-3 py-3 bg-transparent border border-gray-100 hover:text-[#DB363A]  transition-colors duration-700 ease-in-out ">
+                    Get Started
                   </button>
                 </Link>
               </div>
@@ -415,9 +410,9 @@ const LandingPage = () => {
                   </p>
                 </div>
 
-                <Link to="">
-                  <button className=" text-white text-[14px] w-[150px] font-inter-sans mt-3 rounded-sm  px-3 py-3 bg-transparent border border-gray-100 hover:text-black transition-colors duration-700 ease-in-out ">
-                    Learn More
+                <Link to="/user-signup">
+                  <button className=" text-white text-[14px] w-[150px] mt-3 font-inter-sans  rounded-sm  px-3 py-3 bg-transparent border border-gray-100 hover:text-[#DB363A]  transition-colors duration-700 ease-in-out ">
+                    Get Started
                   </button>
                 </Link>
               </div>
@@ -588,8 +583,8 @@ const LandingPage = () => {
               <img src={hvOne} alt="h-v" className="object-cover" />
             </div>
 
-            <p className="text-[#BCBCBC] font-inter-sans text-center text-[15px] md:text-[20px] lg:text-[20px]">
-              Copyright: Sterling Bank PLC
+            <p className="text-[#BCBCBC] font-inter-sans text-center  border-t-[#BCBCBC] border-t pt-4 text-[15px] md:text-[20px] lg:text-[20px]">
+              &copy; Sterling Holdings
             </p>
 
             <div className="w-[100px] h-[100px] lg:w-[250px] lg:h-[250px]">
