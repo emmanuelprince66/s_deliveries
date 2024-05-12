@@ -65,8 +65,8 @@ const handleLogout = () => {
           <div className="absolute w-[75px] h-[75px]  lg:w-[100px] lg:h-[100px]  md:w-[80px] md:h-[80px] right-[-1%]  top-0  lg:bottom-[20rem] ">
             <img src={aThree} alt="a-3" className="object-contain" />
           </div>
-          <div className="max-h-[85vh] min-h-[85vh]   w-full flex flex-col items-center  ">
-            <div className="w-full flex flex-col items-center ">
+          <div className="max-h-[85vh] min-h-[85vh]    w-full mx-auto flex flex-col items-center  ">
+            <div className="w-full flex flex-col items-center  ">
               <img
                 src={aOne}
                 alt="a-1"

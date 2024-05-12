@@ -231,9 +231,9 @@ const EditTerm = () => {
               key={term?.id}
             >
               <div className="flex items-center w-full justify-between">
-                <h2 className="rounded-md p-2 font-bold uppercase text-[20x] font-dm-sans text-[#B4B4B4] bg-[#262525]">
+                <p className="rounded-md p-2 flex flex-wrap font-bold uppercase max-w-[200px] md:max-w-full lg:max-w-full  text-[15px] md:text-[20x] lg:text-[20px] font-dm-sans text-[#B4B4B4] bg-[#262525]">
                   {term?.word}
-                </h2>
+                </p>
 
                 <div className="flex gap-2 items-center">
                   <div
@@ -259,7 +259,7 @@ const EditTerm = () => {
                 </div>
               </div>
 
-              <p className="text-[16px] leading-5 pb-3 font-dm-sans text-[#fff]">
+              <p className=" text-[13px]  lg:text-[16px] md:text-[16px] leading-5 pb-3 font-dm-sans text-[#fff]">
                 {term.meaning}
               </p>
             </div>
