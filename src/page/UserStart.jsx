@@ -178,7 +178,7 @@ if (Array.isArray(generalData) &&  generalData.length === 0 && searchTerm !== ""
   return (
     <div className="w-full bg-[#171414] h-fit p-2 md:p-1 relative">
       <div className="w-full h-[100vh] overflow-y-auto  mx-auto ">
-        <div className="w-[96%] md:w-full lg:w-full flex flex-col mx-auto items-center bg-[#171414]  sticky top-0 ">
+        <div className="w-[100%] md:w-full lg:w-full flex flex-col border border-[#171414] mx-auto items-center bg-[#171414]  sticky top-0 ">
           <div className=" w-full md:w-[82.5%] lg:w-[60.5%] mb-0  mt-0 py-2 flex justify-end ">
             <div className="w-full md:w-[90%] lg:w-[100%]    mb-5 md:mb-[1%] mt-1 flex justify-end">
               <button
@@ -197,7 +197,7 @@ if (Array.isArray(generalData) &&  generalData.length === 0 && searchTerm !== ""
                 alt="a-1"
                 className=" object-contain w-[100px] h-[30px] mb-9 mt-[3rem]"
               />
-              <div className="absolute w-[75px] h-[75px]  lg:w-[100px] lg:h-[100px]  md:w-[80px] md:h-[80px] right-[-2%] top-0 md:bottom-20">
+              <div className="absolute w-[75px] h-[75px]  lg:w-[100px] lg:h-[100px]  md:w-[80px] md:h-[80px] right-0 top-0 md:bottom-20">
                 <img src={aThree} alt="a-3" className="object-contain" />
               </div>
               <form className="w-[100%] md:w-[90%] lg:w-[90%] ">

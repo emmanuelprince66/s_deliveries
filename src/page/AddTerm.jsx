@@ -61,11 +61,11 @@ const handleLogout = () => {
             Logout
           </button>
         </div>
-        <div className="w-[97%] max-h-[85vh] min-h-[85vh]  flex justify-center flex-col items-center relative  gap-5 md:w-[100%] lg:w-[85%] mx-auto  bg-[#000]   md:pt-8 overflow-y-auto rounded-2xl">
-          <div className="absolute w-[75px] h-[75px]  lg:w-[100px] lg:h-[100px]  md:w-[80px] md:h-[80px] right-[-1%]  top-0  lg:bottom-[20rem] ">
+        <div className="w-[95%] max-h-[85vh] min-h-[85vh]  flex justify-center flex-col items-center relative  gap-5 md:w-[100%] lg:w-[85%] mx-auto  bg-[#000]   md:pt-8 overflow-y-auto rounded-2xl">
+          <div className="absolute w-[75px] h-[75px]  lg:w-[100px] lg:h-[100px]  md:w-[80px] md:h-[80px] right-0  top-0  lg:bottom-[20rem] ">
             <img src={aThree} alt="a-3" className="object-contain" />
           </div>
-          <div className="max-h-[85vh] min-h-[85vh]    w-full mx-auto flex flex-col items-center  ">
+          <div className="max-h-[85vh] min-h-[85vh]   w-full  mx-auto flex flex-col items-center  ">
             <div className="w-full flex flex-col items-center  ">
               <img
                 src={aOne}
@@ -99,7 +99,7 @@ const handleLogout = () => {
               </div>
             </div>
 
-            {isTab1Active ? <Add /> : <EditTerm />}
+            {isTab1Active ? <Add /> : <EditTerm />} 
           </div>
         </div>
       </div>
