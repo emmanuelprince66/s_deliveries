@@ -437,13 +437,13 @@ const LandingPage = () => {
               <p className=" text-white  text-[30px] md:text-[38px] mb-6 font-satoshi  ">
                 Read about our Executive Management in a glance
               </p>
-              <div className="flex flex-col md:flex-row md:justify-between items-start w-full">
-                <div className="flex flex-col gap-[10rem] items-center  w-full">
+              <div className="flex flex-col md:flex-row md:justify-between justify-center items-start w-full">
+                <div className="flex flex-col gap-[10rem] items-center justify-center mx-auto w-full">
                   <Link
                     className="w-full"
                     to="https://sterling.ng/executive-staff/olatunji-mayaki/"
                   >
-                    <div className="md:h-[80%] w-[80%]  mb-4">
+                    <div className="md:h-[80%] w-[80%] md:mx-0 mx-auto mb-9 md:mb-3">
                       {/* Added margin bottom to create space */}
                       <img
                         src={kvTwo}
@@ -465,8 +465,11 @@ const LandingPage = () => {
                   </Link>
                 </div>
                 <div className="flex flex-col items-center w-full">
-                  <Link to="https://sterling.ng/executive-staff/abubakar-suleiman/">
-                    <div className="md:h-[80%] w-[80%] mb-4">
+                  <Link
+                    className="w-full mx-auto"
+                    to="https://sterling.ng/executive-staff/abubakar-suleiman/"
+                  >
+                    <div className="md:h-[80%] w-[80%]  md:mx-0 mx-auto mb-9 md:mb-3">
                       {/* Added margin bottom to create space */}
                       <img
                         src={kvOne}
@@ -487,8 +490,11 @@ const LandingPage = () => {
                   </Link>
                 </div>
                 <div className="flex flex-col items-center w-full">
-                  <Link to="https://sterling.ng/executive-staff/tunde-adeola/">
-                    <div className="md:h-[80%] w-[80%] mb-4">
+                  <Link
+                    className="w-full"
+                    to="https://sterling.ng/executive-staff/tunde-adeola/"
+                  >
+                    <div className="md:h-[80%] w-[80%] md:mx-0 mx-auto mb-9 md:mb-3">
                       {/* Added margin bottom to create space */}
                       <img
                         src={kvFour}
@@ -509,8 +515,11 @@ const LandingPage = () => {
                   </Link>
                 </div>
                 <div className="flex flex-col items-center w-full ">
-                  <Link to="https://sterling.ng/executive-staff/raheem-owodeyi/">
-                    <div className="md:h-[80%] w-[80%]  mb-4">
+                  <Link
+                    className="w-full"
+                    to="https://sterling.ng/executive-staff/raheem-owodeyi/"
+                  >
+                    <div className="md:h-[80%] w-[80%]  md:mx-0 mx-auto mb-9 md:mb-3">
                       {/* Added margin bottom to create space */}
                       <img
                         src={kvThree}
