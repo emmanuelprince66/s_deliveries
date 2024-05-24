@@ -8,6 +8,7 @@ import kvOne from "../images/kv-1.png";
 import gifOne from "../images/sv-g.gif";
 import book from "../images/book.svg";
 import kvTwo from "../images/kv-2.png";
+import kvFour from "../images/kv-4.png";
 import kvThree from "../images/kv-3.png";
 import lImgOne from "../images/l-img1.png";
 import lTagOne from "../images/l-tag1.svg";
@@ -175,11 +176,13 @@ const LandingPage = () => {
                 in each word!
               </p>
               <p className="md:text-[20px] w-full flex md:hidden lg:hidden   md:w-[75%] lg:w-[65%] mx-auto font-dm-sans leading-5  lg:leading-7 md:leading-7 text-[15px] text-[#D0D0D0] my-5">
-                 Unveil every word, jargon, acronym, <br /> and explore the realm of Sterling
-                <br />  products and beyond.
+                Unveil every word, jargon, acronym, <br /> and explore the realm
+                of Sterling
+                <br /> products and beyond.
               </p>
               <p className="md:text-[20px] w-full hidden  md:flex lg:flex   md:w-[75%] lg:w-[75%]  mx-auto font-dm-sans leading-5  lg:leading-7 md:leading-7 text-[15px] text-[#D0D0D0] my-5">
-              Unveil every word, jargon, acronym, and explore the realm of Sterling products and beyond.
+                Unveil every word, jargon, acronym, and explore the realm of
+                Sterling products and beyond.
               </p>
 
               <Link to="/user-signup">
@@ -189,7 +192,7 @@ const LandingPage = () => {
               </Link>
 
               <p className="text-[10px] md:text-[14px] lg:text-[14px] text-[#A2A2A2] mt-4 font-inter-sans">
-               Find meaning for 5000+ words, and terminologies.
+                Find meaning for 5000+ words, and terminologies.
               </p>
 
               <div className="absolute hidden md:flex lg:flex  h-[80px] w-[80px] md:h-[220px] md:w-[220px] xl:h-[320px] xl:w-[320px]  right-[-12px] bottom-[4rem]  md:right-[-6rem] md:bottom-[10rem]    xl:bottom-[-1rem] xl:right-[-13rem]">
@@ -216,18 +219,18 @@ const LandingPage = () => {
             </div>
           </div> */}
           <div className="mt-[4rem] mb-[5rem] w-full flex justify-end items-center bg-black p-3 lg:p-10">
-  <div className="w-[100%] h-[55%] lg:w-[55%] lg:h-[55%] mx-auto">
-    <video 
-      src="/videos/vid.mp4" 
-      className="rounded-2xl" 
-      autoPlay 
-      loop 
-      muted 
-      playsInline 
-      controls 
-    />
-  </div>
-</div>
+            <div className="w-[100%] h-[55%] lg:w-[55%] lg:h-[55%] mx-auto">
+              <video
+                src="/videos/vid.mp4"
+                className="rounded-2xl"
+                autoPlay
+                loop
+                muted
+                playsInline
+                controls
+              />
+            </div>
+          </div>
 
           <div className="mx-auto xl:max-w-[68.5%] md:max-w-[92.5%] flex-col  items-center justify-center px-3 lg:px-0 ">
             <div className="w-full mx-auto grid grid-cols-1 mt-[10%] gap-5   ">
@@ -349,7 +352,7 @@ const LandingPage = () => {
                 <div className="flex items-center gap-2">
                   <img src={star} alt="star" className="w-[18px] h-[18px]" />
                   <p className="text-[#D0D0D0] text-[14px]  font-inter-sans">
-                   Simple definitions that keep you aware
+                    Simple definitions that keep you aware
                   </p>
                 </div>
                 <div className="flex items-center gap-2">
@@ -428,7 +431,7 @@ const LandingPage = () => {
               </div>
             </div>
             {/*  */}
-           
+
             {/*  */}
             <div className="w-full text-center mt-[15%]">
               <p className=" text-white  text-[30px] md:text-[38px] mb-6 font-satoshi  ">
@@ -436,65 +439,95 @@ const LandingPage = () => {
               </p>
               <div className="flex flex-col md:flex-row md:justify-between items-start w-full">
                 <div className="flex flex-col gap-[10rem] items-center  w-full">
-                 
-                   <div className="md:h-[80%] w-[80%]  mb-4">
-                    {/* Added margin bottom to create space */}
-                    <img
-                      src={kvTwo}
-                      alt="g-2"
-                      className="w-full h-full object-cover"
-                    />
+                  <Link
+                    className="w-full"
+                    to="https://sterling.ng/executive-staff/olatunji-mayaki/"
+                  >
+                    <div className="md:h-[80%] w-[80%]  mb-4">
+                      {/* Added margin bottom to create space */}
+                      <img
+                        src={kvTwo}
+                        alt="g-2"
+                        className="w-full h-full object-cover"
+                      />
 
-                    <div className="  flex-col flex items-start gap-2 mt-3">
-                      <p className="text-[24px] text-white sm:text-[20px] font-satoshi ">
-                        Olatunji Mayaki
-                      </p>{" "}
-                      {/* Add your text here */}
-                      <p className="text-left text-[#B9B9B9] text-[14px] font-inter-sans leading-5 ">
-                        Chairman, <br /> Sterling Bank Limited.
-                      </p>
-                      {/* Add your text here */}
+                      <div className="  flex-col flex items-start gap-2 mt-3">
+                        <p className="text-[24px] text-white sm:text-[20px] font-satoshi ">
+                          Olatunji Mayaki
+                        </p>{" "}
+                        {/* Add your text here */}
+                        <p className="text-left text-[#B9B9B9] text-[14px] font-inter-sans leading-5 ">
+                          Chairman, <br /> Sterling Bank Limited.
+                        </p>
+                        {/* Add your text here */}
+                      </div>
                     </div>
-                  </div>
+                  </Link>
                 </div>
                 <div className="flex flex-col items-center w-full">
-                  <div className="md:h-[80%] w-[80%] mb-4">
-                    {/* Added margin bottom to create space */}
-                    <img
-                      src={kvOne}
-                      alt="g-1"
-                      className="w-full h-full object-cover"
-                    />
-                    <div className="  flex flex-col items-start gap-2 mt-3">
-                      <p className="text-white text-[24px] sm:text-[20px] font-satoshi">
-                        Abubakar Suleiman
-                      </p>
-                      <p className="text-[#B9B9B9] text-left  font-inter-sans leading-5 text-[14px]">
-                        Chief Executive Officer, Managing Director, and Director
-                        of Sterling bank Limited. 
-                      </p>{" "}
-                      {/* Add your text here */}
+                  <Link to="https://sterling.ng/executive-staff/abubakar-suleiman/">
+                    <div className="md:h-[80%] w-[80%] mb-4">
+                      {/* Added margin bottom to create space */}
+                      <img
+                        src={kvOne}
+                        alt="g-1"
+                        className="w-full h-full object-cover"
+                      />
+                      <div className="  flex flex-col items-start gap-2 mt-3">
+                        <p className="text-white text-[24px] sm:text-[20px] font-satoshi">
+                          Abubakar Suleiman
+                        </p>
+                        <p className="text-[#B9B9B9] text-left  font-inter-sans leading-5 text-[14px]">
+                          Chief Executive Officer, Managing Director, and
+                          Director of Sterling bank Limited. 
+                        </p>{" "}
+                        {/* Add your text here */}
+                      </div>
                     </div>
-                  </div>
+                  </Link>
+                </div>
+                <div className="flex flex-col items-center w-full">
+                  <Link to="https://sterling.ng/executive-staff/tunde-adeola/">
+                    <div className="md:h-[80%] w-[80%] mb-4">
+                      {/* Added margin bottom to create space */}
+                      <img
+                        src={kvFour}
+                        alt="g-1"
+                        className="w-full h-full object-cover"
+                      />
+                      <div className="  flex flex-col items-start gap-2 mt-3">
+                        <p className="text-white text-[24px] sm:text-[20px] font-satoshi">
+                          Tunde Adeola
+                        </p>
+                        <p className="text-[#B9B9B9] text-left  font-inter-sans leading-5 text-[14px]">
+                          Executive Director, Commercial & Institutional
+                          Banking. 
+                        </p>{" "}
+                        {/* Add your text here */}
+                      </div>
+                    </div>
+                  </Link>
                 </div>
                 <div className="flex flex-col items-center w-full ">
-                  <div className="md:h-[80%] w-[80%]  mb-4">
-                    {/* Added margin bottom to create space */}
-                    <img
-                      src={kvThree}
-                      alt="g-2"
-                      className="w-full h-full object-cover"
-                    />
-                    <div className="flex-col flex items-start gap-2 mt-3">
-                      <p className="text-[24px] text-white sm:text-[20px] font-satoshi ">
-                        Raheem Owodeyi
-                      </p>
-                      <p className="text-left text-[#B9B9B9] text-[14px] leading-5 font-inter-sans ">
-                        Executive Director, Operations & Retail Banking/COO.
-                      </p>{" "}
-                      {/* Add your text here */}
+                  <Link to="https://sterling.ng/executive-staff/raheem-owodeyi/">
+                    <div className="md:h-[80%] w-[80%]  mb-4">
+                      {/* Added margin bottom to create space */}
+                      <img
+                        src={kvThree}
+                        alt="g-2"
+                        className="w-full h-full object-cover"
+                      />
+                      <div className="flex-col flex items-start gap-2 mt-3">
+                        <p className="text-[24px] text-white sm:text-[20px] font-satoshi ">
+                          Raheem Owodeyi
+                        </p>
+                        <p className="text-left text-[#B9B9B9] text-[14px] leading-5 font-inter-sans ">
+                          Executive Director, Operations & Retail Banking/COO.
+                        </p>{" "}
+                        {/* Add your text here */}
+                      </div>
                     </div>
-                  </div>
+                  </Link>
                 </div>
               </div>
             </div>
