@@ -175,14 +175,11 @@ const LandingPage = () => {
                 in each word!
               </p>
               <p className="md:text-[20px] w-full flex md:hidden lg:hidden   md:w-[75%] lg:w-[65%] mx-auto font-dm-sans leading-5  lg:leading-7 md:leading-7 text-[15px] text-[#D0D0D0] my-5">
-                Unveil every word, unravel jargon, decode <br /> acronyms, and
-                explore the realm of Sterling
-                <br /> products and beyond with Sterling Dictionary.
+                 Unveil every word, jargon, acronyms, <br /> and explore the realm of Sterling
+                <br />  products and beyond.
               </p>
               <p className="md:text-[20px] w-full hidden  md:flex lg:flex   md:w-[75%] lg:w-[75%]  mx-auto font-dm-sans leading-5  lg:leading-7 md:leading-7 text-[15px] text-[#D0D0D0] my-5">
-                Unveil every word, unravel jargon, decode acronyms, and explore
-                the realm of Sterling products and beyond with Sterling
-                Dictionary.
+              Unveil every word, jargon, acronyms, and explore the realm of Sterling products and beyond.
               </p>
 
               <Link to="/user-signup">
@@ -192,7 +189,7 @@ const LandingPage = () => {
               </Link>
 
               <p className="text-[10px] md:text-[14px] lg:text-[14px] text-[#A2A2A2] mt-4 font-inter-sans">
-                Find meaning for 5,000+ words, terminologies and jargons
+               Find meaning for 5000+ words, and terminologies.
               </p>
 
               <div className="absolute hidden md:flex lg:flex  h-[80px] w-[80px] md:h-[220px] md:w-[220px] xl:h-[320px] xl:w-[320px]  right-[-12px] bottom-[4rem]  md:right-[-6rem] md:bottom-[10rem]    xl:bottom-[-1rem] xl:right-[-13rem]">
@@ -213,11 +210,24 @@ const LandingPage = () => {
           {/* <div className="w-full mt-[4rem] mb-[5rem]">
           <img src={lImgOne} alt="l-one" />
         </div> */}
-          <div className="mt-[4rem] mb-[5rem] w-full flex justify-end items-center bg-black p-3 lg:p-10">
+          {/* <div className="mt-[4rem] mb-[5rem] w-full flex justify-end items-center bg-black p-3 lg:p-10">
             <div className=" w-[100%] h-[55%]  lg:w-[55%] lg:h-[55%] mx-auto">
               <img src={gifOne} alt="g-fit" className="rounded-2xl" />
             </div>
-          </div>
+          </div> */}
+          <div className="mt-[4rem] mb-[5rem] w-full flex justify-end items-center bg-black p-3 lg:p-10">
+  <div className="w-[100%] h-[55%] lg:w-[55%] lg:h-[55%] mx-auto">
+    <video 
+      src="/videos/vid.mp4" 
+      className="rounded-2xl" 
+      autoPlay 
+      loop 
+      muted 
+      playsInline 
+      controls 
+    />
+  </div>
+</div>
 
           <div className="mx-auto xl:max-w-[68.5%] md:max-w-[92.5%] flex-col  items-center justify-center px-3 lg:px-0 ">
             <div className="w-full mx-auto grid grid-cols-1 mt-[10%] gap-5   ">
@@ -251,10 +261,10 @@ const LandingPage = () => {
                       Banking Jargons
                     </p>
                     <p className="text-[#B9B9B9] hidden md:hidden lg:flex  lg:text-start   text-[14px] leading-5 font-inter-sans">
-                      Have quick look-up of words <br /> and acronyms..
+                      Have quick look-up of words <br /> and acronyms.
                     </p>
                     <p className="text-[#B9B9B9]  lg:hidden mt-[-6px]    lg:text-start  text-center  text-[14px] leading-5 font-inter-sans">
-                      Have quick look-up of words and acronyms..
+                      Have quick look-up of words and acronyms.
                     </p>
                   </div>
                 </div>
@@ -292,7 +302,7 @@ const LandingPage = () => {
                       and the meaning will pop.
                     </p>
                     <p className="text-[#B9B9B9] lg:hidden mt-[-6px]  lg:text-start text-center text-[14px] leading-5 font-inter-sans">
-                      Hover on a word in your email and the meaning will pop.
+                      Hover on a word in your email and the meaning will pop up.
                     </p>
                   </div>
                 </div>
@@ -303,7 +313,7 @@ const LandingPage = () => {
             <div className="w-full mx-auto mt-[15%] text-center">
               <div className="flex flex-col gap-2 items-center mb-5">
                 <p className="text-white md:text-[38px] text-[30px] font-satoshi  text-center">
-                  Join our community of versatile employees
+                  Join our community,
                 </p>
                 <p className="text-white md:text-[38px] text-[30px] font-satoshi  text-center">
                   Know more, Communicate better!
@@ -336,10 +346,10 @@ const LandingPage = () => {
                   sterling products!
                 </p>
 
-                <div className="flex items-center gap-3">
+                <div className="flex items-center gap-2">
                   <img src={star} alt="star" className="w-[18px] h-[18px]" />
                   <p className="text-[#D0D0D0] text-[14px]  font-inter-sans">
-                    Simple definitions that keep you going
+                   Simple definitions that keep you aware
                   </p>
                 </div>
                 <div className="flex items-center gap-2">
@@ -385,7 +395,7 @@ const LandingPage = () => {
                   on outlook
                 </p>
 
-                <div className="flex items-center gap-3">
+                <div className="flex items-center gap-2">
                   <img src={star} alt="star" className="w-[18px] h-[18px]" />
                   <p className="text-[#D0D0D0] text-[14px] font-inter-sans">
                     Just hover and see meaning popup
@@ -426,27 +436,8 @@ const LandingPage = () => {
               </p>
               <div className="flex flex-col md:flex-row md:justify-between items-start w-full">
                 <div className="flex flex-col gap-[10rem] items-center  w-full">
-                  <div className="md:h-[80%] w-[80%] mb-4">
-                    {/* Added margin bottom to create space */}
-                    <img
-                      src={kvOne}
-                      alt="g-1"
-                      className="w-full h-full object-cover"
-                    />
-                    <div className="  flex flex-col items-start gap-2 mt-3">
-                      <p className="text-white text-[24px] sm:text-[20px] font-satoshi">
-                        Abubakar Suleiman
-                      </p>
-                      <p className="text-[#B9B9B9] text-left  font-inter-sans leading-5 text-[14px]">
-                        Chief Executive Officer, Managing Director, and Director
-                        of Sterling bank PLC. 
-                      </p>{" "}
-                      {/* Add your text here */}
-                    </div>
-                  </div>
-                </div>
-                <div className="flex flex-col items-center w-full">
-                  <div className="md:h-[80%] w-[80%]  mb-4">
+                 
+                   <div className="md:h-[80%] w-[80%]  mb-4">
                     {/* Added margin bottom to create space */}
                     <img
                       src={kvTwo}
@@ -460,8 +451,28 @@ const LandingPage = () => {
                       </p>{" "}
                       {/* Add your text here */}
                       <p className="text-left text-[#B9B9B9] text-[14px] font-inter-sans leading-5 ">
-                        Chairman, <br /> Sterling Bank PLC.
+                        Chairman, <br /> Sterling Bank Limited.
                       </p>
+                      {/* Add your text here */}
+                    </div>
+                  </div>
+                </div>
+                <div className="flex flex-col items-center w-full">
+                  <div className="md:h-[80%] w-[80%] mb-4">
+                    {/* Added margin bottom to create space */}
+                    <img
+                      src={kvOne}
+                      alt="g-1"
+                      className="w-full h-full object-cover"
+                    />
+                    <div className="  flex flex-col items-start gap-2 mt-3">
+                      <p className="text-white text-[24px] sm:text-[20px] font-satoshi">
+                        Abubakar Suleiman
+                      </p>
+                      <p className="text-[#B9B9B9] text-left  font-inter-sans leading-5 text-[14px]">
+                        Chief Executive Officer, Managing Director, and Director
+                        of Sterling bank Limited. 
+                      </p>{" "}
                       {/* Add your text here */}
                     </div>
                   </div>
@@ -495,7 +506,7 @@ const LandingPage = () => {
             </div>
 
             <p className="text-[#BCBCBC] font-inter-sans text-center  border-t-[#BCBCBC] border-t pt-4 text-[15px] md:text-[20px] lg:text-[20px]">
-              &copy; Sterling Holdings
+              &copy; Sterling Bank Limited
             </p>
 
             <div className="w-[100px] h-[100px] lg:w-[250px] lg:h-[250px]">

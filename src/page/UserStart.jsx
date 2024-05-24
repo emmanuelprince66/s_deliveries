@@ -177,7 +177,7 @@ if (Array.isArray(generalData) &&  generalData.length === 0 && searchTerm !== ""
 
   return (
     <div className="w-full bg-[#171414] h-fit p-2 md:p-1 relative">
-      <div className="w-full h-[100vh] overflow-y-auto  mx-auto ">
+      <div className="w-full h-[100vh] overflow-y-auto  mx-auto   ">
         <div className="w-[100%] md:w-full lg:w-full flex flex-col border border-[#171414] mx-auto items-center bg-[#171414]  sticky top-0 ">
           <div className=" w-full md:w-[82.5%] lg:w-[60.5%] mb-0  mt-0 py-2 flex justify-end ">
             <div className="w-full md:w-[90%] lg:w-[100%]    mb-5 md:mb-[1%] mt-1 flex justify-end">
@@ -190,7 +190,7 @@ if (Array.isArray(generalData) &&  generalData.length === 0 && searchTerm !== ""
             </div>
           </div>
 
-          <div className="   w-full  md:w-[82.5%] lg:w-[60.5%] bg-[#000] relative rounded-2xl mx-auto mb-4 p-4 pb-4 md:pb-9">
+          <div className="   w-full  md:w-[82.5%] lg:w-[60.5%] bg-[#000] relative rounded-2xl mx-auto mb-4 p-4 pb-4 md:pb-9 ">
             <div className="flex flex-col w-full   items-center justify-center ">
               <img
                 src={aOne}
@@ -260,14 +260,14 @@ if (Array.isArray(generalData) &&  generalData.length === 0 && searchTerm !== ""
             </div>
           </div>
         </div>
-        <div className="w-full flex justify-center">
-          <div className="relative w-full md:w-[82.5%] lg:w-[52.5%]">
-            <div className="absolute bottom-0 w-full flex flex-col items-start gap-3 overflow-y-scroll max-h-[55vh] md:max-h-[55vh] lg:max-h-[50vh]">
+        <div className="w-full flex justify-center ">
+          <div className="relative w-full md:w-[82.5%] lg:w-[52.5%] overflow-y-auto">
+            <div className="absolute bottom-0 w-full flex flex-col items-start gap-3 overflow-y-auto max-h-[55vh] md:max-h-[55vh] lg:max-h-[40vh]">
               {/* Your content here */}
             </div>
           </div>
         </div>
-        <div className="w-[100%] md:w-[82.5%] lg:w-[52.5%] mx-auto flex flex-col items-start gap-3  overflow-y-auto ">
+        <div className="w-[100%] border-r border-r-[3px] border-r-[#262525] md:w-[82.5%] lg:w-[52.5%] mx-auto flex flex-col items-start gap-3   overflow-y-scroll h-[60vh]  lg:max-h-[70vh] md:max-h-[70vh] ">
           {isLoading ? (
             <div className="w-full flex items-center h-1/2 justify-center">
               <CircularProgress
@@ -288,7 +288,7 @@ if (Array.isArray(generalData) &&  generalData.length === 0 && searchTerm !== ""
             ) : (
               <div className="w-full flex flex-col items-center gap-4 justify-center">
                 <p className="font-dm-sans text-white text-center text-[15px] leading-5">
-                  It seems the word you are looking
+                  It seems  what you are looking
                   <br /> for is not in our database.
                 </p>{" "}
                 <p className="font-dm-sans text-white text-center text-[15px] leading-5">
@@ -312,7 +312,7 @@ if (Array.isArray(generalData) &&  generalData.length === 0 && searchTerm !== ""
             // Display termArray items if not null or empty
             generalData?.map((term) => (
               <div
-                className="w-[89%] mx-auto  md:w-full lg:w-full   flex flex-col items-start gap-5  border-b border-[#262626] pb-3 mb-4 mt-3"
+                className="w-[89%] mx-auto  md:w-full lg:w-full   flex flex-col items-start gap-5  border-b border-[#262626] pb-3 mb-4 mt-3 "
                 key={term?.id}
               >
                 <h2 className="rounded-md p-2 font-bold uppercase text-[15px] md:text-[20x] lg:text-[20px] font-dm-sans text-[#B4B4B4] bg-[#262525]">

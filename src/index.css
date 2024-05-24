@@ -64,12 +64,13 @@ textarea::placeholder {
 }
 
 ::-webkit-scrollbar-thumb:vertical {
-  background-color: transparent;
+  background-color: grey;
+   height: 30px;
 }
 
 ::-webkit-scrollbar {
-  width: 6px;
-  height: 0px;
+  width: 2px;
+  height: 5px;
 }
 @media only screen and (max-width: 768px) {
   ::placeholder {

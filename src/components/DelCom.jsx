@@ -99,14 +99,14 @@ const DelCom = ({ deleteData, closeDelModal }) => {
       <div class="bg-[#1d1d1d] border border-[#444444] rounded-lg shadow-lg px-10 pb-10 pt-[5%] mx-auto w-[90%] md:w-[45%] lg:w-[35%]">
         <div className=" flex justify-center text-center w-full mb-9">
           <p className="font-normal font-dm-sans text-white">
-            {`Are you sure you want to delete the word `}
+            {`Are you sure you want to delete  `}
             <span className="uppercase text-[#A1A1A1]">{deleteData?.word}</span>
             {` from the database`}
           </p>
         </div>
         <div class="flex gap-4 items-center max-w-[300px] mt-6">
           <CustomButton
-            text="Go back!"
+            text="Go Back!"
             style="bg-[#DB363A] w-full flex justify-center items-center text-white font-dm-sans  text-[20px] h-[55px] hover:bg-red-400  focus-visible:outline-red-600"
             onClick={closeDelModal}
           />
@@ -116,7 +116,7 @@ const DelCom = ({ deleteData, closeDelModal }) => {
               showSpinner || deleteWordsMutation.isLoading ? (
                 <Spinner />
               ) : (
-                "Yes! Delete"
+                "Yes Delete"
               )
             }
             disabled={deleteWordsMutation.isLoading || showSpinner}
