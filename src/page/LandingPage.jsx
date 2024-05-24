@@ -343,10 +343,10 @@ const LandingPage = () => {
             <div className="grid md:grid-cols-2 grid-cols-1 md:gap-2  gap-10 mt-[15%] w-full ">
               <div className="col-span-1 flex flex-col items-start justify-center  gap-4">
                 <p className="md:text-[38px] text-[30px] font-satoshi  text-white">
-                  Learn about,
+                  Learn about
                 </p>
                 <p className="md:text-[38px] text-[30px] text-white font-satoshi  mt-[-15px] mb-4">
-                  Sterling Products!
+                  Sterling Products
                 </p>
 
                 <div className="flex items-center gap-2">
