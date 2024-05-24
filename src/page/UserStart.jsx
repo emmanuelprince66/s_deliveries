@@ -267,7 +267,7 @@ if (Array.isArray(generalData) &&  generalData.length === 0 && searchTerm !== ""
             </div>
           </div>
         </div>
-        <div className="w-[100%] border-r border-r-[3px] border-r-[#262525] md:w-[82.5%] lg:w-[52.5%] mx-auto flex flex-col items-start gap-3   overflow-y-scroll h-[60vh]  lg:max-h-[70vh] md:max-h-[70vh] ">
+        <div className="w-[100%] md:w-[82.5%] lg:w-[52.5%] mx-auto flex flex-col items-start gap-3   overflow-y-scroll h-[60vh]  lg:max-h-[70vh] md:max-h-[70vh] ">
           {isLoading ? (
             <div className="w-full flex items-center h-1/2 justify-center">
               <CircularProgress

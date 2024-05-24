@@ -175,11 +175,11 @@ const LandingPage = () => {
                 in each word!
               </p>
               <p className="md:text-[20px] w-full flex md:hidden lg:hidden   md:w-[75%] lg:w-[65%] mx-auto font-dm-sans leading-5  lg:leading-7 md:leading-7 text-[15px] text-[#D0D0D0] my-5">
-                 Unveil every word, jargon, acronyms, <br /> and explore the realm of Sterling
+                 Unveil every word, jargon, acronym, <br /> and explore the realm of Sterling
                 <br />  products and beyond.
               </p>
               <p className="md:text-[20px] w-full hidden  md:flex lg:flex   md:w-[75%] lg:w-[75%]  mx-auto font-dm-sans leading-5  lg:leading-7 md:leading-7 text-[15px] text-[#D0D0D0] my-5">
-              Unveil every word, jargon, acronyms, and explore the realm of Sterling products and beyond.
+              Unveil every word, jargon, acronym, and explore the realm of Sterling products and beyond.
               </p>
 
               <Link to="/user-signup">
@@ -295,11 +295,11 @@ const LandingPage = () => {
                       className="w-[38px] h-[38px] mb-2 md:mb-0 rounded-[8px]"
                     />
                     <p className="text-white text-[20px]   font-satoshi">
-                      Integrate with outlook
+                      Integrate with Outlook
                     </p>
                     <p className="text-[#B9B9B9]   hidden md:hidden lg:flex  text-[14px] leading-5 font-inter-sans">
                       Hover on a word in your email <br />
-                      and the meaning will pop.
+                      and the meaning will pop up.
                     </p>
                     <p className="text-[#B9B9B9] lg:hidden mt-[-6px]  lg:text-start text-center text-[14px] leading-5 font-inter-sans">
                       Hover on a word in your email and the meaning will pop up.
@@ -343,7 +343,7 @@ const LandingPage = () => {
                   Learn about,
                 </p>
                 <p className="md:text-[38px] text-[30px] text-white font-satoshi  mt-[-15px] mb-4">
-                  sterling products!
+                  Sterling Products!
                 </p>
 
                 <div className="flex items-center gap-2">
@@ -392,7 +392,7 @@ const LandingPage = () => {
                   Quick word lookup
                 </p>
                 <p className="md:text-[38px] font-satoshi mt-[-15px] mb-4 text-[30px] text-white">
-                  on outlook
+                  on Outlook
                 </p>
 
                 <div className="flex items-center gap-2">

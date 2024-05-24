@@ -208,7 +208,7 @@ const EditTerm = () => {
         )}
       </form>
 
-      <div className="h-[50vh] overflow-y-auto border-r border-r-[3px] border-[#262626] w-full">
+      <div className="h-[50vh] overflow-y-auto  w-full">
         {isLoading ? (
           <div className="w-full flex items-center h-1/2 justify-center">
             <CircularProgress
