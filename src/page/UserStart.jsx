@@ -261,13 +261,13 @@ if (Array.isArray(generalData) &&  generalData.length === 0 && searchTerm !== ""
           </div>
         </div>
         <div className="w-full flex justify-center ">
-          <div className="relative w-full md:w-[82.5%] lg:w-[52.5%] overflow-y-auto">
+          <div className="relative w-full md:w-[82.5%] lg:w-[52.5%] overflow-y-auto ">
             <div className="absolute bottom-0 w-full flex flex-col items-start gap-3 overflow-y-auto max-h-[55vh] md:max-h-[55vh] lg:max-h-[40vh]">
               {/* Your content here */}
             </div>
           </div>
         </div>
-        <div className="w-[100%] md:w-[82.5%] lg:w-[52.5%] mx-auto flex flex-col items-start gap-3   overflow-y-scroll h-[60vh]  lg:max-h-[70vh] md:max-h-[70vh] ">
+        <div className="w-[100%] md:w-[82.5%] lg:w-[52.5%] mx-auto flex flex-col items-start gap-3 pr-4  overflow-y-scroll h-[60vh]  lg:max-h-[70vh] md:max-h-[70vh] ">
           {isLoading ? (
             <div className="w-full flex items-center h-1/2 justify-center">
               <CircularProgress
