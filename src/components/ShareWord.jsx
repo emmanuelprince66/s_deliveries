@@ -14,11 +14,11 @@ import {
 
 const style = {
   position: "absolute",
-  top: "50%",
-  left: "50%",
+  top: "54%",
+  left: "68%",
   transform: "translate(-50%, -50%)",
   borderRadius: "12px",
-  width: "100%",
+  width: "50%",
   bgcolor: "background.paper",
   p: 3,
 };

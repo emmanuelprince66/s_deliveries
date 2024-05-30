@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import search from "../images/search.svg";
+import shareIcon from "../images/share-icon.svg";
 import aOne from "../images/a-1.png";
 import aTwo from "../images/a-2.png";
 import aThree from "../images/a-3.png";
@@ -332,11 +333,11 @@ setShareOpen(true)
                   </div>
 
                   <div className="">
-                    <button
+                    <div
                     onClick={() => handleOpenShareModal(term)}
-                    className="bg-[#EB2529] py-2 px-4 font-dm-sans  rounded-md  hover:bg-red-400 text-white focus-visible:outline-red-600">
-                      Share
-                    </button>
+                    className=" py-2 px-4 font-dm-sans  rounded-md cursor-pointer ">
+                      <img src={shareIcon} alt="share-icon" />
+                    </div>
                   </div>
                 </div>
               </div>
