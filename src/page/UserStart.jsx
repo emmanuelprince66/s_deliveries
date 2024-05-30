@@ -1,4 +1,4 @@
-import React, { useState , useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import search from "../images/search.svg";
 import aOne from "../images/a-1.png";
 import aTwo from "../images/a-2.png";
@@ -8,7 +8,7 @@ import Divider from "@mui/material/Divider";
 import { InputAdornment, Modal, TextField } from "@mui/material";
 import SearchRoundedIcon from "@mui/icons-material/SearchRounded";
 import { useForm } from "react-hook-form";
-import Cookies from "js-cookie"
+import Cookies from "js-cookie";
 import { useNavigate } from "react-router-dom";
 import line from "../images/line.svg";
 import { BaseAxios } from "../helpers/axiosInstance";
@@ -16,23 +16,23 @@ import { toast, ToastContainer } from "react-toastify";
 import { useMutation, useQuery } from "@tanstack/react-query";
 import { Box, CircularProgress } from "@mui/material";
 import SendWord from "../components/SendWord";
-
-
+import ShareWord from "../components/ShareWord";
 
 const UserStart = () => {
   const navigate = useNavigate();
 
- const [generalData, setGeneralData] = useState(null);
- const [searchTerm, setSearchTerm] = useState("");
- const [emptySearch, setEmptySearch] = useState(false);
+  const [generalData, setGeneralData] = useState(null);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [emptySearch, setEmptySearch] = useState(false);
   const [showSpinner, setShowSpinner] = useState(false);
-const [isOpen , setIsOpen] = useState(false)
-const [showGoSpinner , setShowGoSpinner] = useState(false)
+  const [isOpen, setIsOpen] = useState(false);
+  const [showGoSpinner, setShowGoSpinner] = useState(false);
+  const [showNotExist, setShowNotExist] = useState(false);
+  const [shareOpen , setShareOpen] = useState(false)
+  const [shareContent , setShareContent] = useState(null)
+  const closeModal = () => setIsOpen(false);
+  const closeShareModal = () => setShareOpen(false);
 
-
-const[showNotExist , setShowNotExist] = useState(false)
-
-const closeModal = () => setIsOpen(false)
   const handleLogout = () => {
     Cookies.remove("authToken");
     Cookies.remove("refreshToken");
@@ -40,57 +40,60 @@ const closeModal = () => setIsOpen(false)
 
     navigate("/login-user");
   };
-  
-  
+
   const notifyError = (msg) => {
     toast.error(msg, {
       autoClose: 6000, // Time in milliseconds
     });
   };
-   const searchMutatation = useMutation({
-     mutationFn: async (payLoad) => {
-       try {
-         const response = await BaseAxios({
-           url: "search-word",
-           method: "POST",
-           data: payLoad,
-         });
 
-         console.log("Response:", response);
+  const searchMutation = useMutation({
+    mutationFn: async (payLoad) => {
+      try {
+        const response = await BaseAxios({
+          url: "search-word",
+          method: "POST",
+          data: payLoad,
+        });
 
-         if (!response || !response?.data) {
-           throw new Error("Invalid response received");
-         }
+        console.log("Response:", response);
 
-         if (response?.status !== 200) {
-           setShowSpinner(false);
-           throw new Error("Request failed with status: " + response.status);
-         }
+        if (!response || !response?.data) {
+          throw new Error("Invalid response received");
+        }
 
-         return response.data;
-       } catch (error) {
-         setShowSpinner(false);
-         setShowNotExist(true)
-         setShowGoSpinner(false)
-        //  notifyError(error?.response?.data?.message);
-         throw error;
-       }
-     },
-     onSuccess: (data) => {
-     setShowGoSpinner(false)
-       setShowSpinner(false);
-       console.log(data);
-       const val = data.existingWord;
-       console.log(val);
-       setGeneralData([val]);
-       //  set generalData to the response comming from the backend
-     },
-     onError: (error) => {
-       setShowSpinner(false);
-       console.error("An error occurred:", error);
-     },
-   });
-  // Fetch all data starts
+        if (response?.status !== 200) {
+          setShowSpinner(false);
+          throw new Error("Request failed with status: " + response.status);
+        }
+
+        return response.data;
+      } catch (error) {
+        setShowSpinner(false);
+        setShowNotExist(true);
+        setShowGoSpinner(false);
+        throw error;
+      }
+    },
+    onSuccess: (data) => {
+      setShowGoSpinner(false);
+      setShowSpinner(false);
+      console.log(data);
+      const val = data.existingWord;
+      console.log(val);
+      setGeneralData([val]);
+    },
+    onError: (error) => {
+      setShowSpinner(false);
+      console.error("An error occurred:", error);
+    },
+  });
+  
+  const handleOpenShareModal = (term) => {
+setShareContent(term)
+setShareOpen(true)
+}
+
 
   const fetchData = async () => {
     try {
@@ -102,75 +105,70 @@ const closeModal = () => setIsOpen(false)
     }
   };
 
-  // Use the useQuery hook to manage the data
   const { isLoading, error, data } = useQuery({
     queryKey: ["wordsData"],
     queryFn: fetchData,
     refetchInterval: 5000,
   });
-  
-    const handleSearchChange = (value) => {
-      setSearchTerm(value);
-      setEmptySearch(false);
-      setShowNotExist(false)
-      
-    };
 
-const handleClearFields = () => {
-setSearchTerm("")
-setShowNotExist(false)
-}
+  const handleSearchChange = (value) => {
+    setSearchTerm(value);
+    setEmptySearch(false);
+    setShowNotExist(false);
+  };
 
+  const handleClearFields = () => {
+    setSearchTerm("");
+    setShowNotExist(false);
+  };
 
-const handleSubmit = () => {
-  if (searchTerm !== "") {
-    const payLoad = {
-      word: searchTerm || "",
-    };
-    
-    searchMutatation.mutate(payLoad);
-    setShowGoSpinner(true)
-    setShowSpinner(true);
-  } else {
-    setEmptySearch(true);
-  }
-};
-useEffect(() => {
-  let filteredItems = data?.words;
-  
-  console.log(filteredItems)
+  const handleSubmit = () => {
+    if (searchTerm !== "") {
+      const payLoad = {
+        word: searchTerm || "",
+      };
 
-  // Filter by name (if searchTerm exists)
-  if (searchTerm) {
-    filteredItems = filteredItems.filter((item) => {
-      return item.word.toLowerCase().includes(searchTerm.toLowerCase());
+      searchMutation.mutate(payLoad);
+      setShowGoSpinner(true);
+      setShowSpinner(true);
+    } else {
+      setEmptySearch(true);
+    }
+  };
+
+  useEffect(() => {
+    let filteredItems = data?.words;
+
+    console.log(filteredItems);
+
+    if (searchTerm) {
+      filteredItems = filteredItems.filter((item) => {
+        return item.word.toLowerCase().includes(searchTerm.toLowerCase());
+      });
+    }
+
+    filteredItems = filteredItems?.sort((a, b) => {
+      return a.word.localeCompare(b.word);
     });
-  }
-  
-    // filteredItems = filteredItems?.sort((a, b) => {
-    //   return new Date(b.createdAt) - new Date(a.createdAt);
-    // });
-    
-     filteredItems = filteredItems?.sort((a, b) => {
-       return a.word.localeCompare(b.word);
-     });
 
-  setGeneralData(filteredItems);
-}, [data, searchTerm]);
+    setGeneralData(filteredItems);
+  }, [data, searchTerm]);
 
+  useEffect(() => {
+    if (
+      Array.isArray(generalData) &&
+      generalData.length === 0 &&
+      searchTerm !== ""
+    ) {
+      const payLoad = {
+        word: searchTerm || "",
+      };
+      searchMutation.mutate(payLoad);
+      setShowGoSpinner(true);
+      console.log("wee");
+    }
+  }, [searchTerm]);
 
-useEffect(() => {
-if (Array.isArray(generalData) &&  generalData.length === 0 && searchTerm !== "") {
-    const payLoad = {
-      word: searchTerm || "",
-    };
-    searchMutatation.mutate(payLoad);
-    setShowGoSpinner(true)
-    console.log("wee")
-
-}
-
-} , [searchTerm])
 
 
 
@@ -241,7 +239,7 @@ if (Array.isArray(generalData) &&  generalData.length === 0 && searchTerm !== ""
 
                   <button
                     onClick={handleSubmit}
-                    disabled={searchMutatation.isLoading || showSpinner}
+                    disabled={searchMutation.isLoading || showSpinner}
                     className="absolute bg-[#DB363A] p-3 px-4 py-2  text-[14px] font-dm-sans justify-center text-white hover:text-white cursor-pointer m-2 rounded-lg inset-y-0 right-0 flex items-center  "
                   >
                     {showSpinner ? (
@@ -278,6 +276,14 @@ if (Array.isArray(generalData) &&  generalData.length === 0 && searchTerm !== ""
                 }}
               />
             </div>
+          ) : Array.isArray(generalData) &&
+            generalData.length === 0 &&
+            !showNotExist ? (
+            <div className="w-full flex items-center h-1/2 justify-center">
+              <p className="font-dm-sans text-center w-full text-white text-[15px]">
+                No content at the moment.
+              </p>
+            </div>
           ) : Array.isArray(generalData) && generalData.length === 0 ? (
             !showNotExist ? (
               <div className="w-full flex-col flex items-center justify-end  ">
@@ -288,7 +294,7 @@ if (Array.isArray(generalData) &&  generalData.length === 0 && searchTerm !== ""
             ) : (
               <div className="w-full flex flex-col items-center gap-4 justify-center">
                 <p className="font-dm-sans text-white text-center text-[15px] leading-5">
-                  It seems  what you are looking
+                  It seems what you are looking
                   <br /> for is not in our database.
                 </p>{" "}
                 <p className="font-dm-sans text-white text-center text-[15px] leading-5">
@@ -309,19 +315,30 @@ if (Array.isArray(generalData) &&  generalData.length === 0 && searchTerm !== ""
               </div>
             )
           ) : (
-            // Display termArray items if not null or empty
             generalData?.map((term) => (
               <div
                 className="w-[89%] mx-auto  md:w-full lg:w-full   flex flex-col items-start gap-5  border-b border-[#262626] pb-3 mb-4 mt-3 "
                 key={term?.id}
               >
-                <h2 className="rounded-md p-2 font-bold uppercase text-[15px] md:text-[20x] lg:text-[20px] font-dm-sans text-[#B4B4B4] bg-[#262525]">
-                  {term?.word}
-                </h2>
+                <div className="flex justify-between items-start w-full">
+                  <div className="flex flex-col gap-4 items-start ">
+                    <h2 className="rounded-md p-2 font-bold uppercase text-[15px] md:text-[20x] lg:text-[20px] font-dm-sans text-[#B4B4B4] bg-[#262525]">
+                      {term?.word}
+                    </h2>
 
-                <p className=" text-[13px] lg:text-[16px] md:text-[16px] leading-5 pb-3  font-dm-sans text-[#fff]">
-                  {term.meaning}
-                </p>
+                    <p className=" text-[13px] lg:text-[16px] md:text-[16px] leading-5 pb-3  font-dm-sans text-[#fff]">
+                      {term.meaning}
+                    </p>
+                  </div>
+
+                  <div className="">
+                    <button
+                    onClick={() => handleOpenShareModal(term)}
+                    className="bg-[#EB2529] py-2 px-4 font-dm-sans  rounded-md  hover:bg-red-400 text-white focus-visible:outline-red-600">
+                      Share
+                    </button>
+                  </div>
+                </div>
               </div>
             ))
           )}
@@ -331,7 +348,21 @@ if (Array.isArray(generalData) &&  generalData.length === 0 && searchTerm !== ""
           theme="dark"
           toastStyle={{ background: "#333", color: "#fff" }}
         />
-
+        {/* share modal */}
+        <Modal
+          open={shareOpen}
+          onClose={closeShareModal}
+          aria-labelledby="modal-modal-title"
+          aria-describedby="modal-modal-description"
+          PaperProps={{
+            sx: {
+              border: "none", // Remove the border
+              boxShadow: "none", // Remove the box shadow
+            },
+          }}
+        >
+        <ShareWord word={shareContent?.word} meaning={shareContent?.meaning}/>
+        </Modal>
         {/* edit word */}
         <Modal
           open={isOpen}
