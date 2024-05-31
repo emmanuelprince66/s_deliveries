@@ -1,5 +1,8 @@
 import React from "react";
-import { Box } from "@mui/material";
+import { Box} from "@mui/material";
+import { useMediaQuery } from '@mui/material';
+import xLogo from "../images/xLogo.svg";
+import outLook from "../images/outLookLogo.svg";
 
 import {
   FacebookShareButton,
@@ -12,21 +15,28 @@ import {
   WhatsappIcon,
 } from "react-share";
 
-const style = {
-  position: "absolute",
-  top: "54%",
-  left: "68%",
-  transform: "translate(-50%, -50%)",
-  borderRadius: "12px",
-  width: "50%",
-  bgcolor: "background.paper",
-  p: 3,
-};
 
 const ShareWord = ({ word, meaning }) => {
+  const isMobile = useMediaQuery("(max-width: 600px)"); // adjust the breakpoint as needed
+
   console.log(word, meaning);
   // Use a placeholder URL for testing
   const shareUrl = "https://s-deliveries.vercel.app";
+  
+      const mailtoLink = `mailto:?subject=${encodeURIComponent(
+        word
+      )}&body=${encodeURIComponent(meaning + " " + shareUrl)}`;
+
+  const style = {
+    position: "absolute",
+    top: isMobile ? "46%" : "54%",
+    left: "68%",
+    transform: "translate(-50%, -50%)",
+    borderRadius: "12px",
+    width:isMobile ? "70%" :"63%",
+    bgcolor: "background.paper",
+    p: 3,
+  };
 
   return (
     <Box style={style}>
@@ -46,7 +56,7 @@ const ShareWord = ({ word, meaning }) => {
             via="YourTwitterHandle" // Optional: Your Twitter handle
             hashtags={[word]}
           >
-            <TwitterIcon size={32} round />
+          <img src={xLogo} alt="twitter" />
           </TwitterShareButton>
 
           <LinkedinShareButton url={shareUrl} title={word} summary={meaning}>
@@ -60,6 +70,11 @@ const ShareWord = ({ word, meaning }) => {
           >
             <WhatsappIcon size={32} round />
           </WhatsappShareButton>
+          
+          <a href={mailtoLink}>
+          <img src={outLook} alt="out-look" />
+          </a>
+          
         </div>
       </div>
     </Box>

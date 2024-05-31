@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import search from "../images/search.svg";
-import shareIcon from "../images/share-icon.svg";
+import uploadIcon from "../images/uploadIcon.svg";
 import aOne from "../images/a-1.png";
 import aTwo from "../images/a-2.png";
 import aThree from "../images/a-3.png";
@@ -321,7 +321,7 @@ setShareOpen(true)
                 className="w-[89%] mx-auto  md:w-full lg:w-full   flex flex-col items-start gap-5  border-b border-[#262626] pb-3 mb-4 mt-3 "
                 key={term?.id}
               >
-                <div className="flex justify-between items-start w-full">
+                <div className="flex justify-between items-start  w-full">
                   <div className="flex flex-col gap-4 items-start ">
                     <h2 className="rounded-md p-2 font-bold uppercase text-[15px] md:text-[20x] lg:text-[20px] font-dm-sans text-[#B4B4B4] bg-[#262525]">
                       {term?.word}
@@ -331,13 +331,18 @@ setShareOpen(true)
                       {term.meaning}
                     </p>
                   </div>
-
-                  <div className="">
-                    <div
+                  <div
                     onClick={() => handleOpenShareModal(term)}
-                    className=" py-2 px-4 font-dm-sans  rounded-md cursor-pointer ">
-                      <img src={shareIcon} alt="share-icon" />
-                    </div>
+                    className=" py-2 px-4 font-dm-sans  rounded-md cursor-pointer flex gap-1 items-center "
+                  >
+                    <img
+                      src={uploadIcon}
+                      alt="share-icon"
+                      className=" w-[20px] h-[20px]"
+                    />
+                    <p className=" text-[12px] text-[#575656]">
+                      Share
+                    </p>
                   </div>
                 </div>
               </div>
@@ -362,7 +367,10 @@ setShareOpen(true)
             },
           }}
         >
-        <ShareWord word={shareContent?.word} meaning={shareContent?.meaning}/>
+          <ShareWord
+            word={shareContent?.word}
+            meaning={shareContent?.meaning}
+          />
         </Modal>
         {/* edit word */}
         <Modal
