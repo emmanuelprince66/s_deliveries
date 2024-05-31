@@ -30,22 +30,22 @@ const ShareWord = ({ word, meaning }) => {
     left: "50%",
     transform: "translate(-50%, -50%)",
     borderRadius: "12px",
-    width: isMobile ? "90%" : "100%", // Adjust width for mobile and desktop
+    width: isMobile ? "80%" : "15%", // Adjust width for mobile and desktop
     bgcolor: "background.paper",
     p: 3,
   };
 
   return (
-    <Box>
+    <Box style={style}>
       <div className="bg-[#1d1d1d] rounded-lg mx-auto flex justify-center items-center border border-[#444444] shadow-lg p-2 w-full">
-        <div className="share-button w-full h-full block md:flex justify-between md:items-center">
-          <div className="mb-2 md:mb-0">
+        <div className="share-button w-full h-full flex justify-between items-center">
+          <div className=" ">
             <a href={mailtoLink}>
               <img src={outLook} alt="out-look" />
             </a>
           </div>
 
-          <div className="mb-2 md:mb-0">
+          <div className="">
             <WhatsappShareButton
               url={shareUrl}
               title={`${word}\n${meaning}`}
@@ -54,7 +54,7 @@ const ShareWord = ({ word, meaning }) => {
               <WhatsappIcon size={32} round />
             </WhatsappShareButton>
           </div>
-          <div className="mb-2 md:mb-0">
+          <div className="">
             <TwitterShareButton
               url={shareUrl}
               title={`${word}: ${meaning}`}
@@ -65,7 +65,7 @@ const ShareWord = ({ word, meaning }) => {
             </TwitterShareButton>
           </div>
 
-          <div className="mb-2 md:mb-0">
+          <div className="">
             <FacebookShareButton
               url={shareUrl}
               quote={`${word}: ${meaning}`}

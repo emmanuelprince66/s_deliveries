@@ -27,10 +27,12 @@ const UserStart = () => {
   const [emptySearch, setEmptySearch] = useState(false);
   const [showSpinner, setShowSpinner] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+  const [isShareOpen, setIsShareOpen] = useState(false);
   const [showGoSpinner, setShowGoSpinner] = useState(false);
   const [showNotExist, setShowNotExist] = useState(false);
   const [shareContent, setShareContent] = useState(null); // State to track the currently shared term
   const closeModal = () => setIsOpen(false);
+  const closeShareModal = () => setIsShareOpen(false);
 
   const shareWordRef = useRef(null); // Ref for the ShareWord component
 
@@ -92,6 +94,7 @@ const UserStart = () => {
 
   const handleOpenShare = (term) => {
     setShareContent(term);
+    setIsShareOpen(true)
   };
 
   const handleCloseShare = () => {
@@ -344,7 +347,7 @@ const UserStart = () => {
                     </h2>
                   </div>
 
-                  <div className="relative w-[230px]   flex justify-end">
+                  <div className="w-[230px]   flex justify-end">
                     <div
                       onClick={() => handleOpenShare(term)}
                       className="  gap-2 font-dm-sans  rounded-md cursor-pointer flex  items-center "
@@ -358,27 +361,6 @@ const UserStart = () => {
                         Share
                       </p>
                     </div>
-                    {shareContent && shareContent.id === term.id && (
-                      <>
-                        <div className="fixed inset-0 bg-black bg-opacity-50 transition-opacity duration-500 ease-in-out"></div>
-                        {/* Overlay */}
-                        <div
-                          ref={shareWordRef}
-                          className="absolute h-full  top-10 md:top-0 w-[50px] md:w-full md:left-0 right-0 transistion transition-opacity duration-500 ease-in-out opacity-0"
-                        >
-                          <ShareWord word={term.word} meaning={term.meaning} />
-                        </div>
-                        {/* Add the opacity-100 class when the condition is true */}
-                        {shareContent && shareContent.id === term.id && (
-                          <div className="absolute z-[20] h-full top-10 md:top-0 w-[50px] md:w-full md:left-0 right-0 transistion transition-opacity duration-500 ease-in-out opacity-100">
-                            <ShareWord
-                              word={term.word}
-                              meaning={term.meaning}
-                            />
-                          </div>
-                        )}
-                      </>
-                    )}
                   </div>
                 </div>
 
@@ -395,6 +377,20 @@ const UserStart = () => {
           toastStyle={{ background: "#333", color: "#fff" }}
         />
 
+        <Modal
+          open={isShareOpen}
+          onClose={closeShareModal}
+          aria-labelledby="modal-modal-title"
+          aria-describedby="modal-modal-description"
+          PaperProps={{
+            sx: {
+              border: "none", // Remove the border
+              boxShadow: "none", // Remove the box shadow
+            },
+          }}
+        >
+          <ShareWord word={shareContent?.word} meaning={shareContent?.meaning} />
+        </Modal>
         <Modal
           open={isOpen}
           onClose={closeModal}
