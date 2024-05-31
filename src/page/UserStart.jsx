@@ -293,7 +293,8 @@ const UserStart = () => {
               />
             </div>
           ) : Array.isArray(generalData) &&
-            generalData.length === 0 && searchTerm === "" &&
+            generalData.length === 0 &&
+            searchTerm === "" &&
             !showNotExist ? (
             <div className="w-full flex items-center h-1/2 justify-center">
               <p className="font-dm-sans text-center w-full text-white text-[15px]">
@@ -343,7 +344,7 @@ const UserStart = () => {
                     </h2>
                   </div>
 
-                  <div className="relative w-[300px]   flex justify-end">
+                  <div className="relative w-[230px]   flex justify-end">
                     <div
                       onClick={() => handleOpenShare(term)}
                       className="  gap-2 font-dm-sans  rounded-md cursor-pointer flex  items-center "
@@ -353,7 +354,9 @@ const UserStart = () => {
                         alt="share-icon"
                         className=" w-[22px] h-[30px]"
                       />
-                      <p className=" text-[18px] text-[#575656]">Share</p>
+                      <p className=" text-[18px] text-[font-dm-sans] text-[#575656]">
+                        Share
+                      </p>
                     </div>
                     {shareContent && shareContent.id === term.id && (
                       <>
@@ -361,13 +364,13 @@ const UserStart = () => {
                         {/* Overlay */}
                         <div
                           ref={shareWordRef}
-                          className="absolute h-full top-10 md:top-0 w-[50px] md:w-full md:left-0 right-0 transistion transition-opacity duration-500 ease-in-out opacity-0"
+                          className="absolute h-full  top-10 md:top-0 w-[50px] md:w-full md:left-0 right-0 transistion transition-opacity duration-500 ease-in-out opacity-0"
                         >
                           <ShareWord word={term.word} meaning={term.meaning} />
                         </div>
                         {/* Add the opacity-100 class when the condition is true */}
                         {shareContent && shareContent.id === term.id && (
-                          <div className="absolute h-full top-10 md:top-0 w-[50px] md:w-full md:left-0 right-0 transistion transition-opacity duration-500 ease-in-out opacity-100">
+                          <div className="absolute z-[20] h-full top-10 md:top-0 w-[50px] md:w-full md:left-0 right-0 transistion transition-opacity duration-500 ease-in-out opacity-100">
                             <ShareWord
                               word={term.word}
                               meaning={term.meaning}
