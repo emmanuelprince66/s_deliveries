@@ -2,7 +2,8 @@ import React from "react";
 import { Box } from "@mui/material";
 import { useMediaQuery } from '@mui/material';
 import xLogo from "../images/xLogo.svg";
-import outLook from "../images/outLookLogo.svg";
+// import outLook from "../images/outLookLogo.svg";
+import outLook from "../images/outlookReal.png";
 
 import {
   FacebookShareButton,
@@ -41,7 +42,13 @@ const ShareWord = ({ word, meaning }) => {
         <div className="share-button w-full h-full flex justify-between items-center">
           <div className=" ">
             <a href={mailtoLink}>
-              <img src={outLook} alt="out-look" />
+              <div className=" bg-[#50D9FF]  p-1  rounded-[50px] flex justify-center items-center">
+                <img
+                  src={outLook}
+                  alt="out-look"
+                  className=" w-[30px] h-[30px]"
+                />
+              </div>
             </a>
           </div>
 
@@ -74,7 +81,7 @@ const ShareWord = ({ word, meaning }) => {
               <FacebookIcon size={32} round />
             </FacebookShareButton>
           </div>
-          <div >
+          <div>
             <LinkedinShareButton url={shareUrl} title={word} summary={meaning}>
               <LinkedinIcon size={32} round />
             </LinkedinShareButton>
