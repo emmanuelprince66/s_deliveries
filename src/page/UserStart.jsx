@@ -293,7 +293,7 @@ const UserStart = () => {
               />
             </div>
           ) : Array.isArray(generalData) &&
-            generalData.length === 0 &&
+            generalData.length === 0 && searchTerm === "" &&
             !showNotExist ? (
             <div className="w-full flex items-center h-1/2 justify-center">
               <p className="font-dm-sans text-center w-full text-white text-[15px]">
