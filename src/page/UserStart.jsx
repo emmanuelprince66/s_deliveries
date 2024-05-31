@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import search from "../images/search.svg";
 import uploadIcon from "../images/uploadIcon.svg";
 import aOne from "../images/a-1.png";
@@ -6,7 +6,7 @@ import aTwo from "../images/a-2.png";
 import aThree from "../images/a-3.png";
 import CustomButton from "../components/CustomButton";
 import Divider from "@mui/material/Divider";
-import { InputAdornment, Modal, TextField } from "@mui/material";
+import { InputAdornment, TextField } from "@mui/material";
 import SearchRoundedIcon from "@mui/icons-material/SearchRounded";
 import { useForm } from "react-hook-form";
 import Cookies from "js-cookie";
@@ -15,7 +15,7 @@ import line from "../images/line.svg";
 import { BaseAxios } from "../helpers/axiosInstance";
 import { toast, ToastContainer } from "react-toastify";
 import { useMutation, useQuery } from "@tanstack/react-query";
-import { Box, CircularProgress } from "@mui/material";
+import { Box, CircularProgress, Modal } from "@mui/material";
 import SendWord from "../components/SendWord";
 import ShareWord from "../components/ShareWord";
 
@@ -29,10 +29,10 @@ const UserStart = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [showGoSpinner, setShowGoSpinner] = useState(false);
   const [showNotExist, setShowNotExist] = useState(false);
-  const [shareOpen , setShareOpen] = useState(false)
-  const [shareContent , setShareContent] = useState(null)
+  const [shareContent, setShareContent] = useState(null); // State to track the currently shared term
   const closeModal = () => setIsOpen(false);
-  const closeShareModal = () => setShareOpen(false);
+
+  const shareWordRef = useRef(null); // Ref for the ShareWord component
 
   const handleLogout = () => {
     Cookies.remove("authToken");
@@ -89,12 +89,14 @@ const UserStart = () => {
       console.error("An error occurred:", error);
     },
   });
-  
-  const handleOpenShareModal = (term) => {
-setShareContent(term)
-setShareOpen(true)
-}
 
+  const handleOpenShare = (term) => {
+    setShareContent(term);
+  };
+
+  const handleCloseShare = () => {
+    setShareContent(null);
+  };
 
   const fetchData = async () => {
     try {
@@ -170,9 +172,22 @@ setShareOpen(true)
     }
   }, [searchTerm]);
 
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (
+        shareWordRef.current &&
+        !shareWordRef.current.contains(event.target)
+      ) {
+        handleCloseShare();
+      }
+    };
 
+    document.addEventListener("mousedown", handleClickOutside);
 
-
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [shareWordRef]);
 
   return (
     <div className="w-full bg-[#171414] h-fit p-2 md:p-1 relative">
@@ -266,7 +281,7 @@ setShareOpen(true)
             </div>
           </div>
         </div>
-        <div className="w-[100%] md:w-[82.5%] lg:w-[52.5%] mx-auto flex flex-col items-start gap-3 pr-4  overflow-y-scroll h-[60vh]  lg:max-h-[70vh] md:max-h-[70vh] ">
+        <div className="w-[100%] md:w-[82.5%] lg:w-[52.5%] mx-auto flex flex-col items-start gap-3  pr-1 md:pr-4  overflow-y-scroll h-[60vh]  lg:max-h-[70vh] md:max-h-[70vh] ">
           {isLoading ? (
             <div className="w-full flex items-center h-1/2 justify-center">
               <CircularProgress
@@ -318,33 +333,55 @@ setShareOpen(true)
           ) : (
             generalData?.map((term) => (
               <div
-                className="w-[89%] mx-auto  md:w-full lg:w-full   flex flex-col items-start gap-5  border-b border-[#262626] pb-3 mb-4 mt-3 "
+                className="w-[100%] mx-auto  md:w-full lg:w-full   flex flex-col items-start gap-5  border-b border-[#262626] pb-3 mb-4 mt-3 "
                 key={term?.id}
               >
-                <div className="flex justify-between items-start  w-full">
+                <div className="flex justify-between items-start   w-full">
                   <div className="flex flex-col gap-4 items-start ">
                     <h2 className="rounded-md p-2 font-bold uppercase text-[15px] md:text-[20x] lg:text-[20px] font-dm-sans text-[#B4B4B4] bg-[#262525]">
                       {term?.word}
                     </h2>
-
-                    <p className=" text-[13px] lg:text-[16px] md:text-[16px] leading-5 pb-3  font-dm-sans text-[#fff]">
-                      {term.meaning}
-                    </p>
                   </div>
-                  <div
-                    onClick={() => handleOpenShareModal(term)}
-                    className=" py-2 px-4 font-dm-sans  rounded-md cursor-pointer flex gap-1 items-center "
-                  >
-                    <img
-                      src={uploadIcon}
-                      alt="share-icon"
-                      className=" w-[20px] h-[20px]"
-                    />
-                    <p className=" text-[12px] text-[#575656]">
-                      Share
-                    </p>
+
+                  <div className="relative w-[300px]   flex justify-end">
+                    <div
+                      onClick={() => handleOpenShare(term)}
+                      className="  gap-2 font-dm-sans  rounded-md cursor-pointer flex  items-center "
+                    >
+                      <img
+                        src={uploadIcon}
+                        alt="share-icon"
+                        className=" w-[22px] h-[30px]"
+                      />
+                      <p className=" text-[18px] text-[#575656]">Share</p>
+                    </div>
+                    {shareContent && shareContent.id === term.id && (
+                      <>
+                        <div className="fixed inset-0 bg-black bg-opacity-50 transition-opacity duration-500 ease-in-out"></div>
+                        {/* Overlay */}
+                        <div
+                          ref={shareWordRef}
+                          className="absolute h-full top-10 md:top-0 w-[50px] md:w-full md:left-0 right-0 transistion transition-opacity duration-500 ease-in-out opacity-0"
+                        >
+                          <ShareWord word={term.word} meaning={term.meaning} />
+                        </div>
+                        {/* Add the opacity-100 class when the condition is true */}
+                        {shareContent && shareContent.id === term.id && (
+                          <div className="absolute h-full top-10 md:top-0 w-[50px] md:w-full md:left-0 right-0 transistion transition-opacity duration-500 ease-in-out opacity-100">
+                            <ShareWord
+                              word={term.word}
+                              meaning={term.meaning}
+                            />
+                          </div>
+                        )}
+                      </>
+                    )}
                   </div>
                 </div>
+
+                <p className=" text-[13px] lg:text-[16px] md:text-[16px] leading-5 pb-3  font-dm-sans text-[#fff]">
+                  {term.meaning}
+                </p>
               </div>
             ))
           )}
@@ -354,25 +391,7 @@ setShareOpen(true)
           theme="dark"
           toastStyle={{ background: "#333", color: "#fff" }}
         />
-        {/* share modal */}
-        <Modal
-          open={shareOpen}
-          onClose={closeShareModal}
-          aria-labelledby="modal-modal-title"
-          aria-describedby="modal-modal-description"
-          PaperProps={{
-            sx: {
-              border: "none", // Remove the border
-              boxShadow: "none", // Remove the box shadow
-            },
-          }}
-        >
-          <ShareWord
-            word={shareContent?.word}
-            meaning={shareContent?.meaning}
-          />
-        </Modal>
-        {/* edit word */}
+
         <Modal
           open={isOpen}
           onClose={closeModal}
