@@ -37,7 +37,7 @@ const ShareWord = ({ word, meaning }) => {
   };
 
   return (
-    <Box style={style}>
+    <Box className="w-full" >
       <div className="bg-[#1d1d1d] rounded-lg mx-auto flex justify-center items-center border border-[#444444] shadow-lg p-2 w-full">
         <div className="share-button w-full h-full flex justify-between items-center">
           <div className=" ">

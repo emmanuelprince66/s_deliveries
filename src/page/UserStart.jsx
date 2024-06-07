@@ -33,6 +33,7 @@ const UserStart = () => {
   const [shareContent, setShareContent] = useState(null); // State to track the currently shared term
   const closeModal = () => setIsOpen(false);
   const closeShareModal = () => setIsShareOpen(false);
+  const [showShareIcons , setShowShareIcons] = useState(false)
 
   const shareWordRef = useRef(null); // Ref for the ShareWord component
 
@@ -49,7 +50,12 @@ const UserStart = () => {
       autoClose: 6000, // Time in milliseconds
     });
   };
-
+  const handleShowShareIcon = (id) => {
+    const updatedData = generalData.map((term) =>
+      term.id === id ? { ...term, showShareIcon: true } : term
+    );
+    setGeneralData(updatedData);
+  };
   const searchMutation = useMutation({
     mutationFn: async (payLoad) => {
       try {
@@ -142,23 +148,23 @@ const UserStart = () => {
     }
   };
 
-  useEffect(() => {
-    let filteredItems = data?.words;
+useEffect(() => {
+  let filteredItems = data?.words.map((item) => ({ ...item, showShareIcon: false }));
 
-    console.log(filteredItems);
+  console.log(filteredItems);
 
-    if (searchTerm) {
-      filteredItems = filteredItems.filter((item) => {
-        return item.word.toLowerCase().includes(searchTerm.toLowerCase());
-      });
-    }
-
-    filteredItems = filteredItems?.sort((a, b) => {
-      return a.word.localeCompare(b.word);
+  if (searchTerm) {
+    filteredItems = filteredItems.filter((item) => {
+      return item.word.toLowerCase().includes(searchTerm.toLowerCase());
     });
+  }
 
-    setGeneralData(filteredItems);
-  }, [data, searchTerm]);
+  filteredItems = filteredItems.sort((a, b) => {
+    return a.word.localeCompare(b.word);
+  });
+
+  setGeneralData(filteredItems);
+}, [data, searchTerm]);
 
   useEffect(() => {
     if (
@@ -175,22 +181,24 @@ const UserStart = () => {
     }
   }, [searchTerm]);
 
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (
-        shareWordRef.current &&
-        !shareWordRef.current.contains(event.target)
-      ) {
-        handleCloseShare();
-      }
-    };
+useEffect(() => {
+  console.log("hello");
+  const handleClickOutside = (event) => {
+    if (shareWordRef.current && !shareWordRef.current.contains(event.target)) {
+      handleCloseShare();
+       const updatedData = generalData.map((term) => ({ ...term, showShareIcon: false }));
+      setGeneralData(updatedData);
+    }
+  };
 
-    document.addEventListener("mousedown", handleClickOutside);
+  document.addEventListener("mousedown", handleClickOutside);
 
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, [shareWordRef]);
+  return () => {
+    document.removeEventListener("mousedown", handleClickOutside);
+  };
+}, [shareWordRef, generalData]);
+  
+  console.log(showShareIcons)
 
   return (
     <div className="w-full bg-[#171414] h-fit p-2 md:p-1 relative">
@@ -338,29 +346,37 @@ const UserStart = () => {
             generalData?.map((term) => (
               <div
                 className="w-[100%] mx-auto  md:w-full lg:w-full   flex flex-col items-start gap-5  border-b border-[#262626] pb-3 mb-4 mt-3 "
-                key={term?.id}
+                key={term.id}
+                ref={shareWordRef}
               >
                 <div className="flex justify-between items-start   w-full">
-                  <div className="flex flex-col gap-4 items-start ">
+                  <div
+                    className="flex flex-col gap-4 items-start "
+                    ref={shareWordRef}
+                  >
                     <h2 className="rounded-md p-2 font-bold uppercase text-[15px] md:text-[20x] lg:text-[20px] font-dm-sans text-[#B4B4B4] bg-[#262525]">
-                      {term?.word}
+                      {term.word}
                     </h2>
                   </div>
 
-                  <div className="w-[230px]   flex justify-end">
-                    <div
-                      onClick={() => handleOpenShare(term)}
-                      className="  gap-2 font-dm-sans  rounded-md cursor-pointer flex  items-center "
-                    >
-                      <img
-                        src={uploadIcon}
-                        alt="share-icon"
-                        className=" w-[22px] h-[30px]"
-                      />
-                      <p className=" text-[18px] text-[font-dm-sans] text-[#575656]">
-                        Share
-                      </p>
-                    </div>
+                  <div className="w-[230px]  flex justify-end">
+                    {term.showShareIcon ? (
+                      <ShareWord />
+                    ) : (
+                      <div
+                        className="  gap-2 font-dm-sans  rounded-md cursor-pointer flex  items-center "
+                        onClick={() => handleShowShareIcon(term.id)}
+                      >
+                        <img
+                          src={uploadIcon}
+                          alt="share-icon"
+                          className=" w-[22px] h-[30px]"
+                        />
+                        <p className=" text-[18px] text-[font-dm-sans] text-[#575656]">
+                          Share
+                        </p>
+                      </div>
+                    )}
                   </div>
                 </div>
 
@@ -371,7 +387,6 @@ const UserStart = () => {
             ))
           )}
         </div>
-
         <ToastContainer
           theme="dark"
           toastStyle={{ background: "#333", color: "#fff" }}
@@ -389,7 +404,10 @@ const UserStart = () => {
             },
           }}
         >
-          <ShareWord word={shareContent?.word} meaning={shareContent?.meaning} />
+          <ShareWord
+            word={shareContent?.word}
+            meaning={shareContent?.meaning}
+          />
         </Modal>
         <Modal
           open={isOpen}
