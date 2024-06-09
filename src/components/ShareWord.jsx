@@ -42,11 +42,11 @@ const ShareWord = ({ word, meaning }) => {
         <div className="share-button w-full h-full flex justify-between items-center">
           <div className=" ">
             <a href={mailtoLink}>
-              <div className=" bg-[#50D9FF]  p-1  rounded-[50px] flex justify-center items-center">
+              <div className=" bg-[#50D9FF]  p-1 mb-1 rounded-[50px] flex justify-center items-center">
                 <img
                   src={outLook}
                   alt="out-look"
-                  className=" w-[30px] h-[30px]"
+                  className=" w-[25px] h-[25px]"
                 />
               </div>
             </a>

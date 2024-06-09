@@ -123,6 +123,8 @@ const UserStart = () => {
     refetchInterval: 5000,
   });
 
+  console.log(data)
+
   const handleSearchChange = (value) => {
     setSearchTerm(value);
     setEmptySearch(false);
@@ -149,21 +151,28 @@ const UserStart = () => {
   };
 
 useEffect(() => {
-  let filteredItems = data?.words.map((item) => ({ ...item, showShareIcon: false }));
+  if(data) {
+      let filteredItems = data?.words?.map((item) => ({
+        ...item,
+        showShareIcon: false,
+      }));
 
-  console.log(filteredItems);
+      console.log(filteredItems);
 
-  if (searchTerm) {
-    filteredItems = filteredItems.filter((item) => {
-      return item.word.toLowerCase().includes(searchTerm.toLowerCase());
-    });
+      if (searchTerm) {
+        filteredItems = filteredItems?.filter((item) => {
+          return item.word.toLowerCase().includes(searchTerm.toLowerCase());
+        });
+      }
+
+      filteredItems = filteredItems?.sort((a, b) => {
+        return a.word.localeCompare(b.word);
+      });
+
+      setGeneralData(filteredItems);
+
   }
 
-  filteredItems = filteredItems.sort((a, b) => {
-    return a.word.localeCompare(b.word);
-  });
-
-  setGeneralData(filteredItems);
 }, [data, searchTerm]);
 
   useEffect(() => {
