@@ -36,6 +36,7 @@ const UserStart = () => {
   const [showShareIcons , setShowShareIcons] = useState(false)
 
   const shareWordRef = useRef(null); // Ref for the ShareWord component
+  const shareWordInnerRef = useRef(null);
 
   const handleLogout = () => {
     Cookies.remove("authToken");
@@ -190,22 +191,35 @@ useEffect(() => {
     }
   }, [searchTerm]);
 
-useEffect(() => {
-  console.log("hello");
-  const handleClickOutside = (event) => {
-    if (shareWordRef.current && !shareWordRef.current.contains(event.target)) {
-      handleCloseShare();
-       const updatedData = generalData.map((term) => ({ ...term, showShareIcon: false }));
-      setGeneralData(updatedData);
-    }
-  };
+ useEffect(() => {
+   const handleClickOutside = (event) => {
+     if (
+       shareWordRef.current &&
+       !shareWordRef.current.contains(event.target) &&
+       shareWordInnerRef.current &&
+       !shareWordInnerRef.current.contains(event.target)
+     ) {
+       handleCloseShare();
+       const updatedData = generalData.map((term) => ({
+         ...term,
+         showShareIcon: false,
+       }));
+       setGeneralData(updatedData);
+     }
+   };
 
-  document.addEventListener("mousedown", handleClickOutside);
+   document.addEventListener("mousedown", handleClickOutside);
 
-  return () => {
-    document.removeEventListener("mousedown", handleClickOutside);
-  };
-}, [shareWordRef, generalData]);
+   return () => {
+     document.removeEventListener("mousedown", handleClickOutside);
+   };
+ }, [
+   shareWordRef,
+   shareWordInnerRef,
+   generalData,
+   handleCloseShare,
+   setGeneralData,
+ ]);
   
   console.log(showShareIcons)
 
@@ -354,42 +368,39 @@ useEffect(() => {
           ) : (
             generalData?.map((term) => (
               <div
-                className="w-[100%] mx-auto  md:w-full lg:w-full   flex flex-col items-start gap-5  border-b border-[#262626] pb-3 mb-4 mt-3 "
+                className="w-[100%] mx-auto md:w-full lg:w-full flex flex-col items-start gap-5 border-b border-[#262626] pb-3 mb-4 mt-3"
                 key={term.id}
                 ref={shareWordRef}
               >
-                <div className="flex justify-between items-start   w-full">
-                  <div
-                    className="flex flex-col gap-4 items-start "
-                    ref={shareWordRef}
-                  >
-                    <h2 className="rounded-md p-2 font-bold uppercase text-[15px] md:text-[20x] lg:text-[20px] font-dm-sans text-[#B4B4B4] bg-[#262525]">
+                <div className="flex justify-between items-start w-full">
+                  <div className="flex flex-col gap-4 items-start">
+                    <h2 className="rounded-md p-2 font-bold uppercase text-[15px] md:text-[20px] lg:text-[20px] font-dm-sans text-[#B4B4B4] bg-[#262525]">
                       {term.word}
                     </h2>
                   </div>
-
-                  <div className="w-[230px]  flex justify-end">
+                  <div className="w-[230px] flex justify-end">
                     {term.showShareIcon ? (
-                      <ShareWord />
+                      <div className="w-full" ref={shareWordInnerRef}>
+                        <ShareWord word={term?.word} meaning={term?.meaning} />
+                      </div>
                     ) : (
                       <div
-                        className="  gap-2 font-dm-sans  rounded-md cursor-pointer flex  items-center "
+                        className="gap-2 font-dm-sans rounded-md cursor-pointer flex items-center"
                         onClick={() => handleShowShareIcon(term.id)}
                       >
                         <img
                           src={uploadIcon}
                           alt="share-icon"
-                          className=" w-[22px] h-[30px]"
+                          className="w-[22px] h-[30px]"
                         />
-                        <p className=" text-[18px] text-[font-dm-sans] text-[#575656]">
+                        <p className="text-[18px] text-[font-dm-sans] text-[#575656]">
                           Share
                         </p>
                       </div>
                     )}
                   </div>
                 </div>
-
-                <p className=" text-[13px] lg:text-[16px] md:text-[16px] leading-5 pb-3  font-dm-sans text-[#fff]">
+                <p className="text-[13px] lg:text-[16px] md:text-[16px] leading-5 pb-3 font-dm-sans text-[#fff]">
                   {term.meaning}
                 </p>
               </div>

@@ -19,7 +19,6 @@ import {
 const ShareWord = ({ word, meaning }) => {
   const isMobile = useMediaQuery("(max-width: 600px)"); // adjust the breakpoint as needed
 
-  console.log(word, meaning);
   // Use a placeholder URL for testing
   const shareUrl = "https://s-deliveries.vercel.app";
   
@@ -38,6 +37,7 @@ const ShareWord = ({ word, meaning }) => {
 
   return (
     <Box className="w-full" >
+    
       <div className="bg-[#1d1d1d] rounded-lg mx-auto flex justify-center items-center border border-[#444444] shadow-lg p-2 w-full">
         <div className="share-button w-full h-full flex justify-between items-center">
           <div className=" ">
